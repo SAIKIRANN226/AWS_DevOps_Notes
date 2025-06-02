@@ -4,16 +4,14 @@
 3. Different Repos for different Environments
 
 ### 1. Terraform.tfvars method
-Terraform.tfvars is used to overwrite the default values in variables.tf
-For example we want web-dev/mongodb-dev/catalogue-dev/redis-dev/user-dev/cart-dev etc.
-                    web-qa/mongodb-qa/catalogue-qa/redis-qa/user-qa/cart-qa etc.
-                    web-uat/mongodb-uat/catalogue-uat/redis-uat/user-uat/cart-uat etc.
-                    web-prod/mongodb-prod/catalogue-prod/redis-prod/user-prod/cart-prod etc.
-Domain names are ---> web-dev.megacitysai.fun, mongodb-qa.megacitysai.fun, etc.
+This method is used to overwrite the default values in variables.tf. For example we want 
+- web-dev/mongodb-dev/catalogue-dev/redis-dev/user-dev/cart-dev etc.
+- web-qa/mongodb-qa/catalogue-qa/redis-qa/user-qa/cart-qa etc.
+- web-uat/mongodb-uat/catalogue-uat/redis-uat/user-uat/cart-uat etc.
+- web-prod/mongodb-prod/catalogue-prod/redis-prod/user-prod/cart-prod etc.
+Domain names are "web-dev.megacitysai.fun", "mongodb-qa.megacitysai.fun", etc.
 
-Same code but with different configuration, we only need to control using variables for different env's by
-using tfvars. Different buckets to maintain states and creating different folders in VS "dev,prod". We can also use one bucket for both dev and prod, but make sure other evn's should not get disturbed. How do we
-maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also create dynamodb tables for dev and prod to lock the buckets.
+Same code but with different configuration, we only need to control using variables for different env's by using tfvars. Different buckets to maintain states and creating different folders in VS "dev,prod". We can also use one bucket for both dev and prod, but make sure other evn's should not get disturbed. How do we maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also create dynamodb tables for dev and prod to lock the buckets.
 
 ### Controlling environments using variables
 So we have web-dev, web-qa, web-uat, web-prod. How to control this ?
@@ -21,15 +19,15 @@ So we have web-dev, web-qa, web-uat, web-prod. How to control this ?
   startswith(each.key, "web")
 - When you do terraform init ---> Backend will also be there, so here you have multiple environments, 
   so use "terraform init -backend-config=dev/backend.tf"
-- terraform plan -var-file=dev/dev.tfvars ---> If you dont mention the file name, it will load 
-  default variables.
+- terraform plan -var-file=dev/dev.tfvars ---> If you dont mention the file name, it will load default
+  variables.
 - terraform apply -var-file=dev/dev.tfvars -auto-approve
 - terraform destory -var-file=dev/dev.tfvars -auto-approve
 
-So when you do for the next one prod (or) other env then you need to reconfigure or when you are switching from one env to another you must reinitialize by using this command. "terraform init -reconfigure -backend-config=prod/backend.tf". [Note:- when you forget to give the -var-file then terraform will take default variables which is in variables.tf, if you now comment out the default variables then terraform will prompt for the values, so you will get know that you forgot to give varfile.
+So when you do for the next one prod (or) other env then you need to reconfigure (or) when you are switching from one env to another you must reinitialize by using this command. "terraform init -reconfigure -backend-config=prod/backend.tf". [Note:- when you forget to give the -var-file then terraform will take default variables which is in variables.tf, if you now comment out the default variables then terraform will prompt for the values, so you will get know that you forgot to give varfile.
 
 ### 2. Workspaces method
-We can manage multiple environments using single code (or) same code, only few backends will support this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? "terraform workspace new dev" --> do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then the value of terraform.workspace becomes --> dev, if you are in prod then the value of terraform.workspace --> will becomes prod. So you need to write lookup function, this function works as, if you pass key we can get that value. In tfvars example there are two separate buckets were created like dev/prod, but in workspaces there is only one default bucket "env:/" inside, it will automatically create dev/prod workspaces.
+We can manage multiple environments using single code (or) same code, only few backends will support this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? "terraform workspace new dev" do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then the value of terraform.workspace becomes "dev", if you are in prod then the value of terraform.workspace will becomes "prod". So you need to write lookup function, this function works as, if you pass key we can get that value. In tfvars example there are two separate buckets were created like dev/prod, but in workspaces there is only one default bucket "env:/" inside, it will automatically create dev/prod workspaces.
 
 ### 3. Creating different repos for different environments
 Nothing but creating different repositories for different environments, better to go this method, if it is a large project in your company.
@@ -48,10 +46,10 @@ Nothing but creating different repositories for different environments, better t
 
 ### Provisioners (2types) is only for Ec2 instances
 1. local-exec ---> This provisioner in terraform is a specific block with in the resource that let you
-   run the shell commands on your local machine(laptop) at the time of resource is created or destroyed.
-   This will run the command from your local machine, not on the instance, when the resource is created. 
-   It's part of the Terraform configuration, not what you type manually. Below is the example of how the   
-   provisioner block is written (or) syntax of a local-exec provisioner with in the resource.
+   run the local shell commands on your local machine(laptop) at the time of resource is created or
+   destroyed. This will run the command from your local machine, not on the instance, when the resource
+   is created. It's part of the Terraform configuration, not what you type manually. Below is the example
+   of how the provisioner block is written (or) syntax of a local-exec provisioner with in the resource.
 
          resource "aws_instance" "example" {
            ami           = "ami-123456"
@@ -89,8 +87,8 @@ The local-exec provisioner run the commands or scripts on the local machine wher
 This will run inside the server, first you should connect to the server, then you can run anything inside the server (or) remote-exec provisioner in Terraform, which runs commands on the remote resource (like an EC2 instance) after it's created. Provisioners are useful to integrate terraform with configuration management tools like ansible to get end to end automation, and also enable a keyword called "self"
 
 ### Key-points of local-exec and remote-exec
-1. local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No remote access is need 
-2. remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares,configure ec2 post setup ---> Need SSH/WinRM to access remote host
+1. local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No remote access is need.
+2. remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares,configure ec2 post setup ---> Need SSH/WinRM to access remote host.
 
 ### What is difference between Terraform and Ansible ?
 Ansible ---> Is intended for configuration management, what is the main input for the configuration management ? server must be created, so if you have server available, wether it is onpremise or in cloud, then we can use ansible to configure the server, server configuration is nothing but configuration management.
