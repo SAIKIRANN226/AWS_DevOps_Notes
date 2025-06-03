@@ -1,8 +1,10 @@
 ### Module development
 Dry concept, dont repeat yourself. For example we created infrastructure for a project, nothing but we wrote a terraform code for this infra right ? If we got another new project, do we write the terraform code from the scratch ? no we dont write the code from the scratch instead we reuse the code, so no need to write the infra for every project from the scratch, go through the code of "Terraform-Modules" in the VS. Provider will not be there in module developing. Module syntax is below
+
               module "name-of-module" {
 	                source = "../ec2"
               }
+	      
 ### Two types of modules and Two types of roles
 1. Customised modules for our organisation, this will create by central team in cloud.
 2. Open source modules. "Module Developer" Who develops the module and "Module User" Who consumes the module.    Note:- Put one README.md file to provide the documentation on the module how to use it by others, purely
