@@ -4,11 +4,11 @@ also to reference the current iteration index. The locals block does not support
 
 ### Syntax of locals
 
-locals {
-   name = "saikrian"
-   trainer = "kumar"
-   instance_type = var.isProd ? "t3.small" : "t2.micro"
-}
+      locals {
+         name = "saikrian"
+         trainer = "kumar"
+         instance_type = var.isProd ? "t3.small" : "t2.micro"
+      }
 
 How to call a local ? "local.name" (or) "local.trainer" (or) "local.instance_type"
 
