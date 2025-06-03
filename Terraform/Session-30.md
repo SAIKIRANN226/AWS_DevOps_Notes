@@ -10,12 +10,15 @@
 
 ### High Availability
 az-1 = one public_subnet     = 10.0.1.0/24 ---> us-east-1a
+
 az-2 = another public_subnet = 10.0.2.0/24 ---> us-east-1b
 
 az-1 = one private_subnet     = 10.0.11.0/24 ---> us-east-1a
+
 az-2 = another private_subnet = 10.0.12.0/24 ---> us-east-1b
 
 az-1 = one database_subnet     = 10.0.21.0/24 ---> us-east-1a
+
 az-2 = another database_subnet = 10.0.22.0/24 ---> us-east-1b
 
 ### "NAT Gateway" is used to enable outgoing internet
