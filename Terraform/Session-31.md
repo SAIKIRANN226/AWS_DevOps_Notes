@@ -16,8 +16,7 @@ Now successfully we developed the module, and we now push it to the internet (gi
 ### How use security groups effectively ?
 For example according to the diagram mongodb should accept connections only from catalogue and user module, so we need to create a special security group to the mongodb and naming convention like roboshop-dev-mongodb, and ingress rules like accept connections only from catalogue and user module etc. Similarly we need to create for other modules also. We also need VPN, we cannot connect directly to the instances which are present in the private subnets, so create a VPN in default VPC, then connect to VPN in your laptop then only you can access instances.
 
-Points to remember
-*******************
+### Points to remember
 - We need terraform to create 100 % project of the infrastructure, not just by creating few resources 
   like VPC or SG etc.
 - In this class we continue from creating database subnet.
