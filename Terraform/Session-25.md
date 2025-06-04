@@ -2,19 +2,19 @@
 Terraform is an open-source tool developed by HashiCorp. Instead of going into AWS console and manually creating an EC2 instance or any other resources, we can create by writing terraform code. In olden days people used "CFengine" and rightnow people are using chef, puppet, ansible, terraform etc. Till now we configured our project manually, also using shellscript, ansible, but we prefer ansible as a configuration management if it is large project. Because ansible can connect to more number of servers easily from one single ansible server, we can also call controller machine. Why we din't prefer manual configuration ? Because manually logging in every servers is a timetaking process and also we get more human errors.
 
 ### Advantages of terraform
-- Version control
-- Consistent infra
+- Version Control
+- Consistent Infra
 - Automated Infra CRUD
 - Inventory Management
 - Cost Optimisation
-- Automatic dependency management
+- Automatic Dependency Management
 - Modular Infra
-- Hybrid cloud
+- Hybrid Cloud
 
-### Version control
+### Version Control
 Since it is code, we can maintain in Git to control version. We can completely maintain the history of infra and collaboration is easy. We can also rollback to the previous version incase of any production failure.
 
-### Consistent infrastructure
+### Consistent Infrastructure
 Often we face the problem of different configurations in different environments like DEV, QA, PROD, etc. Using terraform we can create similar infra in multiple environments with more reliability or Same code will work in all environments like dev,sit,uat,prod. Real time scenario like code is working in dev or uat or pre-prod but not working in prod, to solve this issue we use terraform.
 
 ### Automated Infrastructure - CRUD
@@ -23,15 +23,15 @@ Basically CRUD over the infrastructure. Using terraform we can create entire inf
 ### Inventory Management
 Inventory Management in Terraform is nothing but tracking and managing the various infrastructure resources that Terraform provisions and maintains. Terraform itself doesn't have a built-in inventory management system, but it provides several features and practices that help in managing and keeping track of infrastructure resources. If we create infra manually it is very tough to maintain the inventory of resources in different regions. But by seeing terraform you can easily tell the resources you are using in which regions. For example if the project is going big. When you login to aws we can see more resources like multiple VPC's, multiple route 53, multiple EC2, multiple load balancers, CDN's, s3 buckets etc. If the client ask for the full details of the project we cannot show one by one in the aws console and giving the report is very tough and that is also not a good practice, instead of showing in the aws console we can maintain from the above points, which can be seen in |VS| in the form of folders of above resources.
 
-### Cost optimization
+### Cost Optimization
 - When you need infra you can create in minutes. When you don't you can delete in minutes, so you can save
-  the cost (or) Create when required, delete when not required.
-- Automatic dependency management, for example if we need to create route53 records, ec2 servers 
+  the cost (or) Create when required, Delete when not required.
+- Automatic Dependency Management, for example if we need to create route53 records, ec2 servers 
   should be in the running, take those IP and then paste in the route53, that means route53 is 
   depending on ec2 servers, so we can create resources and terraform will takecare of dependencies.
-- Terraform modules ---> You can create terraform code as modules, so that other projects can also 
+- Terraform Modules ---> You can create terraform code as modules, so that other projects can also 
   use it without writing from the scratch.
-- Terraform is also a hybrid cloud that means you can create infra in aws, azure, GCP not only 
+- Terraform is also a Hybrid Cloud that means you can create infra in aws, azure, GCP not only 
   cloud, terraform can also work with any other popular tools available in the market, you can 
   see in the terraform providers website, it can work with many other providers or you can write 
   your own module and connect with the terrform also. Not only resources we can also create repos, 
@@ -55,7 +55,7 @@ and we can restore infrastructure immediately by just one command, then we can d
 We write code in VS ---> then we push to github ---> then we push to the aws, but in order to push to the 
 aws we need authentication for that, we have "awsCLI" , so search in google "aws cli install" just run shown commands in "cmd" , then test "aws --version" in cmd aswel as in gitbash, wether it is installed or not, select windows to install not linux or macos. Then to connect to aws, we need to create a terraform user or administrator user by going to IAM/users/create(next)/attach policies directly and select administrator access --> click on your created user/security_credentials/create access_key/click on command line interface (CLI)/copy the access_key and secret_key then -----> configure user in your laptop by using this command "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users/user/.aws folder
 
-### Lets create ec2 instance
+### Syntax of terraform to create resources
 
 resource "what resource" "name of your resource" {
 
@@ -82,7 +82,7 @@ resource "what resource" "name of your resource" {
 - terraform destroy -auto-approve --> Not ask for the prompt
 - All the above commands should be run in the gitbash.
 
-### Variables
+### Variables syntax
 
 variable "name-of-variable" {
      type = datatype
