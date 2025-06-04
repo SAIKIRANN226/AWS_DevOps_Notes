@@ -25,19 +25,19 @@ why .gitignore is important here (or) A .gitignore file tells to Git which files
 
 ### Conditions - VS
 
-if(expression) {
-	if true this will run
-}
-else {
-	if false this will run
-} 
+	if(expression) {
+		if true this will run
+	}
+	else {
+		if false this will run
+	} 
 
 ### We have one line condition also that is 
 Expression ? "this will run if true" : "this will run if false" ---> Terraform will follow this only
 
 ### Loops are two types
-1. Count based loop --> To iterate list, like creating multiple instances.
-2. For_each loop --> To iterate maps, like creating multiple route53 records.
+1. Count based loop --> To iterate list
+2. For_each loop --> To iterate maps
 
 ### Functions - VS
 It will do some work, if we give some input and it will take this input and give us output. Here in 
@@ -60,9 +60,9 @@ Then how to call a local ---> "local.instance_type"
 
 ### Syntax of output in terraform
 
-output "instance_info" {
-     value = "aws_instance.web"
-}
+	output "instance_info" {
+	     value = "aws_instance.web"
+	}
 
 ### Points to remember
 - You need to see the output.tf also in count folder |VS|, output is nothing but attributes reference,
