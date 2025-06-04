@@ -60,10 +60,10 @@ So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC". Now 
 ### "Common tags" this is a map & below is the example
 We have tagging strategy, like we have more resources in roboshop project like vpc subnet,routes tables,NAT gateway and many more, so for all these resources we have common tags to use like below.
 
-Project = "Roboshop"
-Terraform = "true"
-Environment = "dev" 
-Name = "Saikiran"
+      Project = "Roboshop"
+      Terraform = "true"
+      Environment = "dev" 
+      Name = "Saikiran"
 
 This tags are applicable to all resources. We can overwrite this common tags any time and resource tags are specific tags.
 
