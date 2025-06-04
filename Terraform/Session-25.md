@@ -57,9 +57,9 @@ aws we need authentication for that, we have "awsCLI" , so search in google "aws
 
 ### Syntax of terraform to create resources
 
-resource "what resource" "name of your resource" {
-
-}
+      resource "what resource" "name of your resource" {
+      
+      }
 
 - This syntax we call HCL (Hashicorp Configuration Language) 
 - Here also we have variables/conditions/loops/functions/datatypes
@@ -84,10 +84,10 @@ resource "what resource" "name of your resource" {
 
 ### Variables syntax
 
-variable "name-of-variable" {
-     type = datatype
-     default = "default value"
-}
+        variable "name-of-variable" {
+             type = datatype
+             default = "default value"
+        }
 
 Terraform will automatically consider which datatype is so no need to give datatype but for practice we need.
 
