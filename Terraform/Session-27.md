@@ -25,12 +25,11 @@ aswel as from the existing resource information, using this information we can c
 ### Types of loops
 1. Conditions ---> Mostly to iterate list, for list we used count and count.index (special variable)
 2. For_each ---> Mostly to iterate maps, for maps we used "for_each" (special variable)
-3. Dynamic loop ---> For creating multiple instances along with the route53_records, we used count 
-   and for_each loop example. So similarly in the securitygroup if you want to add a new rule or multiple   
-   ports likes 80,443,22 in ingress (or) egress blocks, that means a block will be repeating as many 
-   rules you want to add. If a block is repeating more times you can keep that block in a variable and 
-   you can call by using dynamic loop (VS). Nothing but if a block is repeating with in the resource then
-   we need to use it.
+3. Dynamic loop ---> For creating multiple instances along with the route53_records, we used count and
+   for_each loop example. So similarly in the securitygroup if you want to add a new rule or multiple ports
+   likes 80,443,22 in ingress (or) egress blocks, that means a block will be repeating as many rules you want
+   to add. If a block is repeating more times you can keep that block in a variable and you can call by using
+   dynamic loop (VS). Nothing but if a block is repeating with in the resource then we need to use it.
 
 ### Terraform State - State and Remote state
 What is the terraform responsibility ? Whatever we write it will create, nothing but a Declarative.
