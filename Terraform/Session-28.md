@@ -31,14 +31,14 @@ We can manage multiple environments using single code (or) same code, only few b
 ### 3. Creating different repos for different environments
 Nothing but creating different repositories for different environments, better to go this method, if it is a large project in your company.
 
-### Which approch is best ?
+### First approach is best ?
 - Pros ---> same code
 - Cons ---> same code for multiple environments, you need to be very careful because whatever changes you do
   that will apply to all env's also
-
+### Second approach is best ?
 - Pros ---> same code
 - Cons ---> same code for multiple environments, you need to be very careful because whatever changes you do that will apply to all env's also. Terraform is also maintaining same bucket that may cause errors and difficult to maintain variables.
-
+### Third approach is best ?
 - Pros ---> since everything is different you no need to worry
 - Cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial project better to maintain this method, or we can go for either of remaining 2 methods.
 
