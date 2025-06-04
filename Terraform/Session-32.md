@@ -1,9 +1,9 @@
 ### Best practices to create security groups in roboshop
 - Till now we used allow-all method while creating SG, it is just for practice only, but now we need to follow
   strict SG rules according to the roboshop-documentation.
-- In last session we completely developed VPC module and started using it, and this VPC is developed by our
-  self (customised module) and in this session we are going to develop security group module (open-source) and
-  also create all security groups for all components according to the roboshop-documentation.
+- In last session we created VPC using our own module (customised module) in this session also we are going to
+  create security group module using own module (customised module) and also create all security groups for
+  all components according to the roboshop-documentation.
 - We created a folder "Roboshop-terraform" in |VS| and inside this folder we have created separate folders 
   for every resources to reduce the refresh time because if our infrastructure becomes big, refreshing the 
   resources will take some time, so to reduce the refresh time we have created in separate folders. In simple
