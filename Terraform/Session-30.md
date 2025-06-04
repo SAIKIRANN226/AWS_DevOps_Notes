@@ -38,11 +38,11 @@ Acceptor VPC  = Ok i will accept your request.
 - VPC in different region and another account
 
 ### Below is the example of VPC peering
-So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC". Now try to create VPC peering connection, after creating in the same account you need to accept request in the "Actions" option. Take example of villages now you have created a main road (Peering Connection) between two villages, but if you want streets (every subnets or only which ever subnet you want) to connect to main road, so connect all streets roads to the VPC peering main road, nothing but routes right ? so try to add routes in the main route table, go to the VPC main route table there edit routes in destination give the other VPC CIDR to connect and target should be peering connection and under the peering connection select the dropdown option and save it. If it is not reflecting then you need to add routes in all route tables explicitly. If you want only one or two private subnets wants to connect to the vpc peering main road then you can only add in those two route tables only. This is nothing but routes in VPC, generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target, add in all public and private and main route table explicitly if you want all subnets to connect to the vpc main road.
+So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC". Now try to create VPC peering connection, after creating in the same account you need to accept request in the "Actions" option. Take example of villages now you have created a main road (Peering Connection) between two villages, but if you want streets (every subnets or only which ever subnet you want) to connect to main road, so connect all streets roads to the VPC peering main road, nothing but routes right ? so try to add routes in the main route table, go to the VPC main route table there edit routes in destination give the other VPC_CIDR to connect and target should be peering connection and under the peering connection select the dropdown option and save it. If it is not reflecting then you need to add routes in all route tables explicitly. If you want only one or two private subnets wants to connect to the vpc peering main road then you can only add in those two route tables only. This is nothing but routes in VPC, generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target, add in all public and private and main route table explicitly if you want all subnets to connect to the vpc main road.
 
 ### Terraform-aws-vpc Module development in VS
-Terraform-aws-vpc ---> Is a module we are developing.
-Terraform-vpc-test ---> Is we are testing wether the module is working or not.
+- Terraform-aws-vpc ---> Is a module we are developing.
+- Terraform-vpc-test ---> Is we are testing wether the module is working or not.
 
 ### Now create below all these with terraform code
 1. Create VPC
@@ -51,7 +51,7 @@ Terraform-vpc-test ---> Is we are testing wether the module is working or not.
 4. Create route tables
 5. Create routes
 6. Associate with subnets
-7. Create elasticIP
+7. Create elastic_IP
 8. Create NAT
 9. Add NAT gateway route in public and database subnets
 10. Peering connection
