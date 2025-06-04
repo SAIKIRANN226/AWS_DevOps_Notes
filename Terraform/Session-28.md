@@ -9,7 +9,7 @@ This method is used to overwrite the default values in variables.tf. For example
 - web-qa/mongodb-qa/catalogue-qa/redis-qa/user-qa/cart-qa etc.
 - web-uat/mongodb-uat/catalogue-uat/redis-uat/user-uat/cart-uat etc.
 - web-prod/mongodb-prod/catalogue-prod/redis-prod/user-prod/cart-prod etc.
-Domain names are "web-dev.megacitysai.fun", "mongodb-qa.megacitysai.fun", etc.
+- Domain names are "web-dev.megacitysai.fun", "mongodb-qa.megacitysai.fun", etc.
 
 Same code but with different configuration, we only need to control using variables for different env's by using tfvars. Different buckets to maintain states and creating different folders in VS "dev,prod". We can also use one bucket for both dev and prod, but make sure other evn's should not get disturbed. How do we maintain different buckets ? By creating two buckets for dev and prod in "AWSconsole" and also create dynamodb tables for dev and prod to lock the buckets.
 
@@ -17,10 +17,9 @@ Same code but with different configuration, we only need to control using variab
 So we have web-dev, web-qa, web-uat, web-prod. How to control this ?
 - If key starts with web then we can write a condition using terraform inbuilt function that is
   startswith(each.key, "web")
-- When you do terraform init ---> Backend will also be there, so here you have multiple environments, 
-  so use "terraform init -backend-config=dev/backend.tf"
-- terraform plan -var-file=dev/dev.tfvars ---> If you dont mention the file name, it will load default
-  variables.
+- When you do terraform init ---> Backend will also be there, so here you have multiple environments, so use
+  "terraform init -backend-config=dev/backend.tf"
+- terraform plan -var-file=dev/dev.tfvars ---> If you dont mention the file name, it will load default vars.
 - terraform apply -var-file=dev/dev.tfvars -auto-approve
 - terraform destory -var-file=dev/dev.tfvars -auto-approve
 
@@ -45,7 +44,7 @@ Nothing but creating different repositories for different environments, better t
              to maintain this method, or we can go for either of remaining 2 methods.
 
 ### Provisioners (2types) is only for Ec2 instances
-1. local-exec ---> This provisioner in terraform is a specific block with in the resource that let you
+1. Local-exec ---> This provisioner in terraform is a specific block with in the resource that let you
    run the local shell commands on your local machine(laptop) at the time of resource is created or
    destroyed. This will run the command from your local machine, not on the instance, when the resource
    is created. It's part of the Terraform configuration, not what you type manually. Below is the example
@@ -60,9 +59,9 @@ Nothing but creating different repositories for different environments, better t
            }
          }
 
-The local-exec provisioner run the commands or scripts on the local machine where Terraform is executed (i.e., the machine running the terraform apply command). It does not interact directly with the remote resource being provisioned. (or) local is where you are running terraform command (laptop) is nothing but gitbash, then local is your current laptop, if you run terraform command from the linux server. What will be the local here ? local will be the linux server. [Note:- local-exec will run only one time, to run again you need to destroy first] (or) The local-exec provisioner in Terraform allows you to run a local shell command on the machine where Terraform is being run (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering tools, or debugging.
+The local-exec provisioner run the commands or scripts on the local machine where Terraform is executed (i.e., the machine running the terraform apply command). It does not interact directly with the remote resource being provisioned. (or) local is where you are running terraform command (laptop) is nothing but gitbash, then local is your current laptop, if you run terraform command from the linux server. What will be the local here ? local will be the linux server. Note:- local-exec will run only one time, to run again you need to destroy first (or) The local-exec provisioner in Terraform allows you to run a local shell command on the machine where Terraform is being run (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering tools, or debugging.
 
-2. remote-exec ---> This provisioner is used to run commands on a remote resource (like a virtual machine or EC2 machine) after it's been created, typically over SSH (for Linux) or WinRM (for Windows). Suppose you provision an EC2 instance using Terraform. You want to install nginx on it automatically after it's created. That's where remote-exec helps. Below is the example of remote-exec and syntax of a remote-exec provisioner with in the resource.
+2. Remote-exec ---> This provisioner is used to run commands on a remote resource (like a virtual machine or EC2 machine) after it's been created, typically over SSH (for Linux) or WinRM (for Windows). Suppose you provision an EC2 instance using Terraform. You want to install nginx on it automatically after it's created. That's where remote-exec helps. Below is the example of remote-exec and syntax of a remote-exec provisioner with in the resource.
 
          resource "aws_instance" "web" {
             ami           = "ami-0c55b159cbfafe1f0"
@@ -87,18 +86,17 @@ The local-exec provisioner run the commands or scripts on the local machine wher
 This will run inside the server, first you should connect to the server, then you can run anything inside the server (or) remote-exec provisioner in Terraform, which runs commands on the remote resource (like an EC2 instance) after it's created. Provisioners are useful to integrate terraform with configuration management tools like ansible to get end to end automation, and also enable a keyword called "self"
 
 ### Key-points of local-exec and remote-exec
-1. local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No remote access is need.
-2. remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares,configure ec2 post setup ---> Need SSH/WinRM to access remote host.
+1. Local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No remote access is need.
+2. Remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares,configure ec2 post setup ---> Need SSH/WinRM to access remote host.
 
 ### What is difference between Terraform and Ansible ?
 Ansible ---> Is intended for configuration management, what is the main input for the configuration management ? server must be created, so if you have server available, wether it is onpremise or in cloud, then we can use ansible to configure the server, server configuration is nothing but configuration management.
 
-Terraform ---> Responsibility is to create server nothing but infrastructure creation. So server created then we handover the server IPaddress to ansible, it will takecare of the provisioning or configuration management, if you integrate terraform and ansible you will get end-end automation using provisioners. [Note:- We can also create ec2 instances using ansbile but it does not have state file as terraform does, that is why terraform is perfect for creation of infrastructure only].
+Terraform ---> Responsibility is to create server nothing but infrastructure creation. So server created then we handover the server IPaddress to ansible, it will takecare of the provisioning or configuration management, if you integrate terraform and ansible you will get end-end automation using provisioners. Note:- We can also create ec2 instances using ansbile but it does not have state file as terraform does, that is why terraform is perfect for creation of infrastructure only.
 
 ### Creation time and Destroy time
-Creation time ---> This local exec will run right after the server is created when we apply.
-Destroy time ---> At the time of destory.
-
+- Creation time ---> This local exec will run right after the server is created when we apply.
+- Destroy time ---> At the time of destory.
 Why we use this Creation time and Destroy time ? To trigger other systems like sending emails when servers created (or) when destoryed.
 
 ### Points to remember
