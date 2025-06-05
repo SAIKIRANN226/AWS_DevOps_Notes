@@ -28,3 +28,9 @@ According to the diagram connection is comming from VPN to the mongodb, so we ne
 ### Points to remember
 - Configuring vpn is not our responsibility, we have separate team for this, in companies mostly use cisco vpn
   but right now we are using open-vpn which is free and open-source.
+- According to the diagram we have default_VPC and roboshop_VPC, and we installed vpn in default_vpc, so that
+  means there should be a peering connection between these two VPC's then only able to connect to private ec2.
+- If you feel slow while doing terraform commands like init,plan,apply in gitbash. It may be because of vpn.
+  So disconnect vpn and try.
+- And incase if your private ec2 like mongodb is unable to connect in super putty that means you dint given
+  ami_id, while creating instance and bydefault it is trying to take "aws-linux"
