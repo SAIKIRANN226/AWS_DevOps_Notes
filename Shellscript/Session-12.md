@@ -6,7 +6,7 @@ We want to connect to the github account to push the code right ? and we used SS
 - Cat Public-key, copy the code and go to the github settings /SSH and GPG Keys/New SSH key/give any name and
   paste without any gaps.
 - Keep your Private-key in ".ssh" folder, if it is not created you have to create it in user directory like
-  "C:\Users\saikiran\.ssh"
+  "C:/Users/saikiran/.ssh"
 - Create a config file with no extension in .ssh folder, in this config file keep the config syntax and give
   the correct location of your Private-key and also we can add multiple github accounts here. Below is the
   config syntax i have given for my created Private-key.
