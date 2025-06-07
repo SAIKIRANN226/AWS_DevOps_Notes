@@ -1,1 +1,50 @@
+13-install-packages.sh
+-----------------------
+Installing any number of packages using "loops" instead of going to the script and again writing few 
+commands, we can install packages from the command line itself same like giving arguments outside the 
+script. And we keep these arguments in the "for loop" as shown in the script.
+Usage:- "sh 13-install-packages.sh git mysql postfix etc."
 
+Algorithm to install packages
+------------------------------
+1. Check root user (or) not ?
+2. If root user then check package is installed or not, To know if package is installed or not in the 
+   server just "yum list installed", to know anything particular then "yum list installed git", to check 
+   exit status of the previous command just "echo $?" if "0" it is installed, if installed skip it and 
+   tell user, it is already installed, if not, install it and validate
+3. If not root user then throw the error
+
+Roboshop shellscript
+---------------------
+1. Mongodb ---> t3.small
+2. Catalogue ---> t2.micro
+3. Redis ---> t2.micro 
+4. User ---> t2.micro
+5. Cart ---> t2.micro
+6. Web ---> t2.micro
+7. Mysql ---> t3.small
+8. Shipping ---> t3.small
+9. RabbitMq ---> t2.micro
+10. Payment ---> t2.micro
+11. Dispatch ---> t2.micro
+
+SED editor(Stream Line Editor) it is temporary editor it will not save
+-----------------------------------------------------------------------
+To change the configuration for humans, we have VIM editor but for scripts we have SED editor
+Example:- sed -e '1 a I am  learning DevOps'<file-name> ------> e=enable, a=append(after) If you want 
+before first line then "i", 1=line1. If want after 2nd line then "2 a". If you want permanent change 
+then keep "i" in place of "e"
+
+Lines update
+-------------
+sed -e 's/<word-to-find>/word-to-replace/' ---> First occurrence in the line
+sed -e 's/<word-to-find>/word-to-replace/g' ----> Global for everything
+
+Points to remember
+*******************
+1. How to check logs? ---> sudo less /var/log/messages
+2. To check the ports "netstat -lntp"
+3. Shellscript is nothing but put all the Linux commands in one file
+4. To remove any installed package in the server "sudo yum remove <package-name> -y"
+5. To check installed or not "yum list installed | grep <package_name>"
+6. To remove file "rm -rf <file-name>"
