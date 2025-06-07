@@ -12,16 +12,10 @@ Installing multiple packages using shellscript. Usage ===> "sudo sh installing.s
 
 ### Algorithm for installing any package
 1. Check user is root (or) not ?
-2. If root
-     proceed
-   If not root
-     stop and say run with root user
+2. If root proceed, If not root, stop and say run with root user
 3. Now install mysql
 4. Check wether the package installed properly (or) not ?
-5. If success
-     then good
-   If not success
-     then show what is the error
+5. If success, then good, If not success then show what is the error
 
 How to know if it is root user (or) not ? You just enter "id" in the server terminal with root access 
 sudo -, There you can see root user has id=0 (or) "id -u" then you get root ID, other than zero it is 
