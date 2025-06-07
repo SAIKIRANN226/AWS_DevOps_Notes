@@ -1,5 +1,4 @@
-13-install-packages.sh
------------------------
+### 13-install-packages.sh
 Installing any number of packages using "loops" instead of going to the script and again writing few 
 commands, we can install packages from the command line itself same like giving arguments outside the 
 script. And we keep these arguments in the "for loop" as shown in the script.
