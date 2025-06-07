@@ -42,7 +42,7 @@ We want to connect to the github account to push the code right ? and we used SS
 - Using gitbash client we push the code (or) script to the github repository.
 - Create a t2.micro server in AWS.
 - git clone <URL> in the server ---> Because we are cloning for the first time and go to your script location
-  then "sh <script-name>" , git pull ---> If you want only changes.
+  then "sh <script_name>" , git pull ---> If you want only changes.
 - echo is only used for printing purpose
 
 ### Go through the below scripts in VS
