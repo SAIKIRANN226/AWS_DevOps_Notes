@@ -1,18 +1,16 @@
-08-conditions.sh
------------------
-if(expression) {
-   statement if expression is true
-}
-if(expression) {
-   statement if expression is false
-}
+### 08-conditions.sh
 
-09-install-mysql.sh
---------------------
+      if(expression) {
+         statement if expression is true
+      }
+      if(expression) {
+         statement if expression is false
+      }
+
+### 09-install-mysql.sh
 Installing multiple packages using shellscript. Usage ===> "sudo sh installing.sh"
 
-Algorithm for installing any package
--------------------------------------
+### Algorithm for installing any package
 1. Check user is root (or) not ?
 2. If root
      proceed
