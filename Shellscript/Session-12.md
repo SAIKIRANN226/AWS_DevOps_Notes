@@ -18,9 +18,9 @@ We want to connect to the github account to push the code right ? and we used SS
                   IdentityFile ~/saikiran.pem
   
 - We have HTTPS and SSH to the repository, we use ssh authentication for pushing to the github.
-  1. HTTPS ---> Username and Password, clone https URL when you have read only access.
-  2. SSH ---> Just Private-key, you can clone if you are the owner of the respository. Prefer HTTPS while
-     cloning the repository.
+- HTTPS ---> Username and Password, clone https URL when you have read only access.
+- SSH ---> Just Private-key, you can clone if you are the owner of the respository. Prefer HTTPS while cloning
+  the repository.
 - Github is nothing but a folder in internet with tracking capabilities.
 - git branch -M main ---> To change from master to main (or) main to master
 - Learn Dzone git commands from the below URL's
