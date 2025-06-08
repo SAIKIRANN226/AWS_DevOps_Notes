@@ -1,108 +1,84 @@
-Deleting old log files more than 14 days old
----------------------------------------------
-1. Delete old log files,check disk usage,send email alerts
-2. For example we have a folder,where we are storing log files
-3. Delete log files more than 14 days,only with ".log" extensions not any other files
+### Deleting old log files more than 14 days old
+- Delete old log files, check disk usage, send email alerts.
+- For example we have a folder, where we are storing log files.
+- Delete log files more than 14 days,only with ".log" extensions not any other files.
 
-Algorithm for deleting old log files (or) simple script
---------------------------------------------------------
-1. First decide what is your Source-Directory (or) Folder where we are storing log files
-2. Search more than 14 days old only with ".log" files not any other files
-3. Then Delete "rm -rf",below is the simple script to delete old log files
+### Algorithm for deleting old log files (or) simple script
+- First decide what is your Source-Directory (or) Folder where we are storing log files
+- Search more than 14 days old only with ".log" files not any other files
+- Then Delete "rm -rf",below is the simple script to delete old log files
 
-15-delete-old-log.sh
----------------------
-1. Create a folder for logs "mkdir /tmp/saikiran-logs" in cd location in linux server
-2. Create few files with old date in the folder, So that we can delete the old log files 
-3. Command to create files with old date "touch -d 20231201 <anyname.log>"
-4. find . -type f -mtime +14 ---> f ---> Only files, . means current directory
-5. find . -type f -mtime +14 -name "*.log" ---> We want all with .log extension files only
-6. How to delete these files ? we can also use "rm -rf" but we use while loop to read command 
-   output line by line
-7. You can search in chatgpt like write a shell script to delete old log files in a folder morethan 
-   14 days old,you will get the script then copy and adjust according to your requirement and it
-   worked for me 
+### 15-delete-old-log.sh
+- Create a folder for logs "mkdir /tmp/saikiran-logs" in cd location in linux server
+- Create few files with old date in the folder, So that we can delete the old log files 
+- Command to create files with old date "touch -d 20231201 <anyname.log>"
+- find . -type f -mtime +14 ---> f ---> Only files, . means current directory
+- find . -type f -mtime +14 -name "*.log" ---> We want all with .log extension files only
+- How to delete these files ? we can also use "rm -rf" but we use while loop to read command output line by
+  line
+- You can search in chatgpt like write a shell script to delete old log files in a folder morethan 14 days
+  old, you will get the script then copy and adjust according to your requirement and it worked for me 
 
-16-ifs.sh
-----------
-Generally we have "cat /etc/passwd" in this we have all the users information like user_id,group_id,
-user_name and many more other information,so how to read this whole information properly,we use 
-IFS(Internal field separator)
+### 16-ifs.sh
+Generally we have "cat /etc/passwd" in this we have all the users information like user_id, group_id, user_name and many more other information, so how to read this whole information properly ? so we use IFS(Internal field separator)
 
-17-disk-usage.sh
------------------
-Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail,so create another disk 
-of 12gb for practice because in real time there will be more disks so go to aws console and then navigate 
-to Elastic Block Store ---> Volumes ---> Create volume ---> Action ---> Attach to the instance
-So while creating disk there is one condition like for example disk should always near to the laptop.
-Similarly here also disk should create in the same availability zone which server is created,when you 
-check in the server "df -hT" still created disk is not showing,so you need to explicitly mount it,we 
-have a command "lsblk" and to make into usage create a file system using "sudo file -s /dev/xvdf" ---> dev means devices that means we are creating xvdf folder inside the devices folder,then check wether it is created or not "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a 
-folder in root folder "sudo mkdir /data" then mount it by "sudo mount /dev/xvdf /data"
+### 17-disk-usage.sh
+Command is "df -hT" if the disk usage goes above 70% we need to triggger a mail,so create another disk of 12gb for practice because in real time there will be more disks so go to aws console and then navigate to Elastic Block Store ---> Volumes ---> Create volume ---> Action ---> Attach to the instance So while creating disk there is one condition like for example disk should always near to the laptop.Similarly here also disk should create in the same availability zone which server is created,when you check in the server "df -hT" still created disk is not showing,so you need to explicitly mount it,we have a command "lsblk" and to make into usage create a file system using "sudo file -s /dev/xvdf" ---> dev means devices that means we are creating xvdf folder inside the devices folder,then check wether it is created or not "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a folder in root folder "sudo mkdir /data" then mount it by "sudo mount /dev/xvdf /data"
 
-Overview steps of the above disk creation
-------------------------------------------
-1. lsblk ----> To make available (or) disk is added
-2. sudo file -s /dev/xvdf ----> To create a file system
-3. sudo lsblk -f ----> To check wether the disk is functional (or) not ?
-4. sudo mkfs -t xfs /dev/xvdf ----> It is xfs type
-5. sudo mkdir /data ----> To create a data folder
-6. sudo mount /dev/xvdf /data ----> Mounting
+### Overview steps of the above disk creation
+- lsblk ----> To make available (or) disk is added
+- sudo file -s /dev/xvdf ----> To create a file system
+- sudo lsblk -f ----> To check wether the disk is functional (or) not ?
+- sudo mkfs -t xfs /dev/xvdf ----> It is xfs type
+- sudo mkdir /data ----> To create a data folder
+- sudo mount /dev/xvdf /data ----> Mounting
 
-Finding different types of disks using grep command
-----------------------------------------------------
-1. df -hT | grep xfs
-2. df -hT | grep tmp
-3. df -hT | grep -v tmp ---> -v means i dont want lines with tmp words; 
-4. df -hT | grep -vE 'tmp|File' ---> | ---> or ; & ---> and
+### Finding different types of disks using grep command
+- df -hT | grep xfs
+- df -hT | grep tmp
+- df -hT | grep -v tmp ---> -v means i dont want lines with tmp words; 
+- df -hT | grep -vE 'tmp|File' ---> | ---> or ; & ---> and
 
-mail.sh
---------
-1. Mailing the above disk usage to send alerts,sending mails from linux we have to configure email,so
-   install the packages from gmail.MD document in concepts folder in linux server in home folder CD, 
-   but in real time company will give you mail server details to configure and in this,we need to 
-   configure gmail. Postfix will hit gmail API ; cyrus-sasl-plain will set authentication ; mailx is a 
-   command to send mail,so thats why we need to install these packages from gmail.MD; shift+G ---> godown 
-   in the config file and append the given small config and save :wq!
-2. We need "From" address and "To" address
-3. So open gmail in chrome go to Profile/manage your google account/security/2-step verification/
-   turn-on/app passwords/app-name(any)/copy the generated password this password is only for linux 
-   wont work for gmail. 
-4. Remove spaces in password and put "from" address in the place of xyz: your gmail without "@gmail" 
-   and put in the "vim /etc/postfix/sasl_passwd"
-5. We can do mail formatting for better looking with color coding
-6. Converting text to html format from google websites
-7. Just write what ever you want from the compose message with required colors and copy that and paste 
-   in the converting text to html format from google websites and put the converted text to html lines 
-   in a template and we can call whenever required using mail.sh,to call mail.sh we need to use 
-   sh mail.sh "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com" "ALERT High Disk Usage"
-   in 17-disk-usage.sh
+### mail.sh
+- Mailing the above disk usage to send alerts,sending mails from linux we have to configure email,so install
+  the packages from gmail.MD document in concepts folder in linux server in home folder CD, but in real time
+  company will give you mail server details to configure and in this,we need to configure gmail. Postfix will
+  hit gmail API ; cyrus-sasl-plain will set authentication ; mailx is a command to send mail,so thats why we
+  need to install these packages from gmail.MD; shift+G ---> godown in the config file and append the given
+  small config and save :wq!
+- We need "From" address and "To" address
+- So open gmail in chrome go to Profile/manage your google account/security/2-step verification/turn-on/app
+  passwords/app-name(any)/copy the generated password this password is only for linux wont work for gmail. 
+- Remove spaces in password and put "from" address in the place of xyz: your gmail without "@gmail" and put
+  in the "vim /etc/postfix/sasl_passwd"
+- We can do mail formatting for better looking with color coding
+- Converting text to html format from google websites
+- Just write what ever you want from the compose message with required colors and copy that and paste in the
+  converting text to html format from google websites and put the converted text to html lines in a template
+  and we can call whenever required using mail.sh,to call mail.sh we need to use sh mail.sh "DevOps Team"
+  "High Disk Usage" "$message" "info@joindevops.com" "ALERT High Disk Usage" in 17-disk-usage.sh
 
-Improved way of deleting old log files
----------------------------------------
-1. Instead of deleting only one particular folder,user has to enter source directory
-2. Action ---> We will ask user wether we should archive or delete instead of deleting log files of 
-   14 days which is not a good practice
-3. If he select archive ---> Where is the destination directory ?
-4. Time ---> Optional,if he gives take it otherwise,14 days default
-5. Memory ---> Optional,if he dint given then dont consider memory,if he gives then consider it
+### Improved way of deleting old log files
+- Instead of deleting only one particular folder,user has to enter source directory
+- Action ---> We will ask user wether we should archive or delete instead of deleting log files of 14 days
+  which is not a good practice.
+- If he select archive ---> Where is the destination directory ?
+- Time ---> Optional,if he gives take it otherwise,14 days default
+- Memory ---> Optional,if he dint given then dont consider memory,if he gives then consider it
 
-Below is the usage of command
-------------------------------
+### Below is the usage of command
 old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no-of-days> -m <memory-in-mb>
 
-Algorithm to check for the above command
------------------------------------------
-1. Wether the user has given proper command like -s, -a, -t, -m check all these inputs,if he dont give
-   proper then tell him the correct usage
-2. Source directory exists (or) not ?
-3. Destination directory exists (or) not ?
-4. If he dont give destination directory throw the error 
-5. Then archive (or) delete.
+### Algorithm to check for the above command
+- Wether the user has given proper command like -s, -a, -t, -m check all these inputs,if he dont give proper
+  then tell him the correct usage.
+- Source directory exists (or) not ?
+- Destination directory exists (or) not ?
+- If he dont give destination directory throw the error 
+- Then archive (or) delete.
 
-Points to remember
-*******************
-1. For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions
-   loops and functions but with a little different syntax, Only we need to make sure with correct algorithm
-2. Shift+G ---> To go down 
-3. gg ---> TO go top
+### Points to remember
+- For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions
+  loops and functions but with a little different syntax, Only we need to make sure with correct algorithm
+- Shift+G ---> To go down 
+- gg ---> TO go top
