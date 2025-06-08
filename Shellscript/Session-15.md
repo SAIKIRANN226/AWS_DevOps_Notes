@@ -1,1 +1,31 @@
+14-without-exit-status.sh
+--------------------------
+The main disadvantage in shell scripting is we need to check every line through exit status, So to 
+set exit automatically, we need to give "set -e" Here "e = automatically exit", mostly this wont work
+in the shellscript, so we dont use this method. Take example of "id roboshop" if you run the first time, 
+id roboshop will be failed because there is no roboshop user first time, if you set -e it wont work.
 
+1. Instead of giving &>>logfile everywhere, We can give "exec &>>logfile" under logfile name
+2. To check the logs "sudo less /var/log/messages" we can check remote connections are successfully 
+   connected (or) not in this logs
+3. unzip -o /tmp/web.zip ----> Here "o" is overwrite
+
+Roboshop shellscript(VS)
+-------------------------
+1. Mongodb ---> t3.small
+2. Catalogue ---> t2.micro
+3. Redis ---> t2.micro 
+4. User ---> t2.micro
+5. Cart ---> t2.micro
+6. Web ---> t2.micro
+7. Mysql ---> t3.small
+8. Shipping ---> t3.small
+9. RabbitMq ---> t2.micro
+10. Payment ---> t2.micro
+11. Dispatch ---> t2.micro
+
+Points to remember
+*******************
+1. Even after changing anything if it is still not reflecting then you need to restart "systemctl restart"
+2. Make sure to add all internal servers in the web cofiguration in the last step and make sure to 
+   restart after changing any configuration using "systemctl restart nginx" command
