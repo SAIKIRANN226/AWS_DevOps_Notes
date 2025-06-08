@@ -25,3 +25,5 @@ The main disadvantage in shell scripting is we need to check every line through 
 - Make sure to add all internal servers (private) in the web cofiguration in the last step and make sure to
   restart after changing the configuration using "systemctl restart nginx" command.
 - Dont forget to give public_IP of web instance in records to your domain.
+- To check the logs "sudo less /var/log/messages" in this logs, we can check wether the remote connections are
+  successfully connected (or) not.
