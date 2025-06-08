@@ -1,72 +1,46 @@
-What is crontab ? Crontab is used for scheduling the scripts and we will trigger to delete old 
-log files everyday in our servers.Instead of logging manually and deleting old log files with .log extensions,we can delete using crontab.crontab will target a particular directory which consist of 
-more than 14 days old with ".log" extension only,so crontab has a particular syntax which consist of 
-5 stars like " 5 4 * * * " go and check crontab guru website and you can see the examples provided 
-in the website itself,Just see the crontab linux example in the same website.
+### Why crontab is useful ?
+What is crontab ? Crontab is used for scheduling the scripts and we will trigger to delete old log files everyday in our servers.Instead of logging manually and deleting old log files with .log extensions,we can delete using crontab.crontab will target a particular directory which consist of more than 14 days old with ".log" extension only,so crontab has a particular syntax which consist of 5 stars like " 5 4 * * * " go and check crontab guru website and you can see the examples provided in the website itself,Just see the crontab linux example in the same website.
 
-Usage of crontab and giving the location
------------------------------------------
-"crontab -e" and press enter this command should be run in the server in "cd", -e is editing just 
-enter 5 stars as of now <stars and script location> below is the example of usage
-"* * * * * sh /home/centos/shell-script/15.delete-old-logs.sh" this line should be entered in the 
-editor and script location generally we give absolute path and save the file :wq! 
-To see the logs "tail -f /var/log/cron"  
+### Usage of crontab and giving the location
+"crontab -e" and press enter this command should be run in the server in "cd", -e is editing just enter 5 stars as of now <stars and script location> below is the example of usage "* * * * * sh /home/centos/shell-script/15.delete-old-logs.sh" this line should be entered in the editor and script location generally we give absolute path and save the file :wq! To see the logs "tail -f /var/log/cron"  
 
-Shellscript optargs 18-greetings.sh
-------------------------------------
-Generally we saw arguments to the shellscript like $1,$2 etc.Nothing but sending the arguments as options,lets say i have a script called "greetings.sh" then optargs look like "greetings.sh -n saikiran"
-here -n is the command line command line options or optargs.
+### Shellscript optargs 18-greetings.sh
+Generally we saw arguments to the shellscript like $1,$2 etc.Nothing but sending the arguments as options,lets say i have a script called "greetings.sh" then optargs look like "greetings.sh -n saikiran" here -n is the command line command line options or optargs.
 
-Shellscript as a Native linux command
---------------------------------------
-If you want to run the shellscript as a native command linux instead of "sh 18-greetings.sh" we have
-path for every operating system "echo $PATH" nothing but if you install any softwares in these PATHS
-automatically windows (or) linux will pick up from this PATH,So you need to keep script in that PATH
-If you put your script in "/usr/local/bin" you no need to give "sh" while running the script.
-So "sudo cp 18-greetings.sh /usr/local/bin/greeting(copied as a greeting name),and you need to give
-executive access by "sudo chmod +x /usr/local/bin/greeting",Now if you are in any folder otherthan 
-the script folder just run by using name "greeting" (or) greeting -n sai -w "good evening",do this steps
-in "cd 18-greetings.sh location"
+### Shellscript as a Native linux command
+If you want to run the shellscript as a native command linux instead of "sh 18-greetings.sh" we have path for every operating system "echo $PATH" nothing but if you install any softwares in these PATHS automatically windows (or) linux will pick up from this PATH,So you need to keep script in that PATH If you put your script in "/usr/local/bin" you no need to give "sh" while running the script.So "sudo cp 18-greetings.sh /usr/local/bin/greeting(copied as a greeting name),and you need to give executive access by "sudo chmod +x /usr/local/bin/greeting",Now if you are in any folder otherthan the script folder just run by using name "greeting" (or) greeting -n sai -w "good evening",do this steps in "cd 18-greetings.sh location"
 
-Automating the creation of aws instances and route53 records
--------------------------------------------------------------
-1. We need to create ec2 instance using manually 
-2. mongodb,mysql,shipping t3.small remaining t2.micro
-3. Creating route53 records,if web PublicIP,if not web PrivateIP,we can do automate for this also 
-   this is just a small step so you can do in the aws console also.
+### Automating the creation of aws instances and route53 records
+- We need to create ec2 instance using manually 
+- mongodb,mysql,shipping t3.small remaining t2.micro
+- Creating route53 records,if web PublicIP,if not web PrivateIP,we can do automate for this also this is just
+  a small step so you can do in the aws console also.
 
-We need to write a script for the above manually steps to automate,for this we have "aws command line"
-nothing but creating instances from aws command line instead of aws console,Before this we need to have authentication,we have IAM in this IAM we have Authentication and Authorization,In every server we
-have aws command line,below are the two processes.
+We need to write a script for the above manually steps to automate,for this we have "aws command line" 
+nothing but creating instances from aws command line instead of aws console,Before this we need to have authentication,we have IAM in this IAM we have Authentication and Authorization,In every server we have aws command line,below are the two processes.
 Authentication --> You have username/password,you can go to common area in the company
 Authorization ---> You need to prove your authorization to enter in to the project bays,in other words
-                   like permissions,different permissions for TL,Manager,Sr,Engineer etc.we call these
-                   as ROLES,these roles will be changing every year (or) few years after,Persmissions
-                   are tagged to these roles.like for example
+like permissions,different permissions for TL,Manager,Sr,Engineer etc.we call these as ROLES,these roles will be changing every year (or) few years after,Persmissions are tagged to these roles.like for example
 Team Manager ---> Has super admin
 Team Lead ---> Has admin
 Senior Engineers ---> Normal access
 Trainee ---> Just read access 
 
-Authentication 
----------------
+### Authentication 
 Here User is a person and he has Username/Password
 
-Authorization
---------------
+### Authorization
 Here Role and Permissions,what is the role of user ? and what are the Persmissions attached to that role
 
-Permissions
-------------
+### Permissions
 We have nouns and verbs
 We have resources in aws ---> Ec2,vpc,route53,cdn,IAM etc.In this resources we have
                               Nouns ---> web,catalogue,cart,hostedzone etc.
                               Verbs (or) actions ---> create resource,update,delete nothing but CRUD.
 
-We can give authorization like below
--------------------------------------
-Sivakumar(Trainee) ----> EC2(resource) ---> Web(instance) ---> READ access only
-Manish(Junior DevOps) ----> EC2(resource) ---> Web(instance) ---> READ and UPDATE access only
+### We can give authorization like below
+- Sivakumar(Trainee) ----> EC2(resource) ---> Web(instance) ---> READ access only
+- Manish(Junior DevOps) ----> EC2(resource) ---> Web(instance) ---> READ and UPDATE access only
 Mahesh(Senior Engineer) ---> EC2(resource) ---> Web(instance) ---> READ and "CRU" access not delete
 Aditya(Team Lead) ----> EC2(resource) ---> All instances ---> READ and "CRU" access only not delete
 Suman(Team manager) ----> EC2(resource) ---> All instances ---> READ and "CRUD" including delete
