@@ -24,8 +24,8 @@ We want to connect to the github account to push the code right ? and we used SS
 - Github is nothing but a folder in internet with tracking capabilities.
 - git branch -M main ---> To change from master to main (or) main to master
 - Learn Dzone git commands from the below URL's
-   https://dzone.com/articles/top-20-git-commands-with-examples
-   https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
+- https://dzone.com/articles/top-20-git-commands-with-examples
+- https://dzone.com/articles/top-35-git-commands-with-examples-and-bonus
 - git add . ; git commit -m "proper message" ; git push -u origin master
 
 ### Shellscript is also known as Bashscript
