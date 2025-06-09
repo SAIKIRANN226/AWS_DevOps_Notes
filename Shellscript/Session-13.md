@@ -24,7 +24,7 @@ How to know if it is root user (or) not ? You just enter "id" in the server term
 We can put the repeated code in the function, generally we keep functions under VARIABLES, we give args to the shellscript, similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be NO logs in less /var/log/messages, we need to store that logs, otherwise we cannot troubleshoot, make sure you should not log in the current folder of server come outside and then do, this is just to show how it works rightnow, for example just type "ls -ltr" in the terminal you can see all the files and when you "clear" it is gone, so we need to store that by following below steps, not only ls -ltr we can do for any command.
 
 ### Redirections(> symbol is for output redirection)
-ls -ltr > temp.log ---> Storing ls -ltr log in a temp.log file, Here output is not in terminal, it is in temp.log to view this "cat temp.log", Usage in the server terminal will be below example go to cd location then "ls -la > /tmp/temp.log(created new file in tmp folder"
+ls -ltr > temp.log ---> Storing ls -ltr log in a temp.log file, Here output is not in terminal, it is in temp.log to view this "cat temp.log", Usage in the server terminal will be below example go to cd location then "ls -la > /tmp/temp.log(created new file in tmp folder)"
 
 If you give a successful (or) correct command (or) spelling mistake in commands like 
 - "ls -ltrrrrsd temp.log"
