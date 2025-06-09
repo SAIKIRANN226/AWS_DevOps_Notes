@@ -1,13 +1,13 @@
 ### Why we use SSH authentication ?
-We want to connect to the github account to push the code right ? and we used SSH based auth, Because we work with multiple github accounts, so for every account logging with username and password is not a good practice, so we prefer to use "ssh based authentication".
-- First generate a new key-pair (or) use existing key-pair, **ssh-keygen -f <file_name>** press enter two times,
+We want to connect to the github account to push the code right ? and we used SSH based auth, Because we work with multiple github accounts, so for every account logging with username and password is not a good practice, so we prefer to use "ssh based authentication"
+- First generate a new key-pair (or) use existing key-pair, "ssh-keygen -f <file_name>" press enter two times,
   Public-key will be with .pub extension, you need to give .pem extension manually for Private-key, To enable
-  extension go to "file explorer options" in control panel/view/unhide extensions for known file types.
-- Cat Public-key, copy the code and go to the github settings /SSH and GPG Keys/New SSH key/give any name and
+  extension go to "File Explorer Options" in control panel/view/unhide extensions for known file types.
+- Cat Public-key, copy the code and go to the github settings/SSH and GPG Keys/New SSH key/give any name and
   paste without any gaps.
-- Keep your Private-key in ".ssh" folder, if it is not created you have to create it in user directory like
-  "C:/Users/saikiran/.ssh"
-- Create a config file with no extension in .ssh folder, in this config file keep the config syntax and give
+- Keep your Private-key in ".ssh" folder, if it is not created you have to create the .ssh folder in user
+  directory like "C:/Users/saikiran/.ssh"
+- Create a config file with NO extension in .ssh folder, in this config file keep the config syntax and give
   the correct location of your Private-key and also we can add multiple github accounts here. Below is the
   config syntax i have given for my created Private-key.
   
@@ -17,7 +17,7 @@ We want to connect to the github account to push the code right ? and we used SS
                   PreferredAuthentications publickey
                   IdentityFile ~/saikiran.pem
   
-- We have HTTPS and SSH to the repository, we use ssh authentication for pushing to the github.
+- We have HTTPS and SSH to the repository.
 - HTTPS ---> Username and Password, clone https URL when you have read only access.
 - SSH ---> Just Private-key, you can clone if you are the owner of the respository. Prefer HTTPS while cloning
   the repository.
@@ -30,20 +30,20 @@ We want to connect to the github account to push the code right ? and we used SS
 
 ### Shellscript is also known as Bashscript
 - #!/bin/bash ----> This we call it as "shibang" it is the first line to check the syntax of the shellscript,
-  we need to give the location of bash which is in "/bin/bash" but we write first line as "#!/bin/bash" apart
-  from the first line, If you see "#" anywhere it is commentout.
+  we need to give the location of bash, which is in "/bin/bash" but we write first line as "#!/bin/bash" apart
+  from the first line, if you see "#" anywhere, it is commentout.
 - If you want git in visual studio only then go to view ---> Terminal ---> Select gitbash
-- If you enter wrong URL while pushing to github then we can set using below command
+- If you enter wrong URL while pushing to github then we can set using the below command
   "git remote set-url origin <url_of_the_repository>"
 - If git is not configured in the github account yet, still developers can start writing their code in the VS
   until git is ready and later they can push it to the git.
-- A normal folder will become git when you initialize by using command "git init"
+- A normal folder will become git, when you initialize by using command "git init"
 - We develop code (or) script in VisualStudio.
-- Using gitbash client we push the code (or) script to the github repository.
+- Using gitbash client, we push the code (or) script to the github repository.
 - Create a t2.micro server in AWS.
 - git clone <URL> in the server ---> Because we are cloning for the first time and go to your script location
   then "sh <script_name>" , git pull ---> If you want only changes.
-- echo is only used for printing purpose
+- Echo is only used for printing purpose.
 
 ### Go through the below scripts in VS
 - 01-hello-world.sh
@@ -59,5 +59,5 @@ We want to connect to the github account to push the code right ? and we used SS
   change to yellow. So to make normal then you must push the code to the github account.
 - In linux when you open gitbash we are automatically landing in the home directory to know that just type
   "pwd" then you can see your landed location "/c/users/user(saikiran), Here definitely you will have ".ssh"
-  folder, If it is not there you need to create .ssh folder, It will be hidden so to check this, enter the
-  following command "ls -la".
+  folder, if it is not there you need to create .ssh folder, It will be hidden, so to check this, ls -la
+- How to shift from main-master (or) master-main branch ? "git branch -M main"
