@@ -87,3 +87,4 @@ old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no-of-d
 - gg ---> To go top in the config_file.
 - Basically no need to follow the color coding or formatting, we can just use as it is in mail configuration
   gmail.MD document, or if your company provides the mail configuration document just simply follow that.
+- So configuring gmail.MD document for sending mails is morethan enough.
