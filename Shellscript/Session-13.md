@@ -1,48 +1,50 @@
 ### 08-conditions.sh
+
       if(expression) {
          statement if expression is true
       }
       if(expression) {
          statement if expression is false
       }
+      
 ### 09-install-mysql.sh
 Installing multiple packages using shellscript.
 
 ### Algorithm for installing any package
 1. Check user is root (or) not ?
-2. If root proceed, If not root, stop and say run with root user
-3. Now install mysql
+2. If root proceed, If not root, stop and say run with root user.
+3. Now install mysql.
 4. Check wether the package installed properly (or) not ?
-5. If success then good, If not success then show what is the error
+5. If success then good, If not success then show what is the error.
 
 ### Root user and exit status $?
 How to know if it is root user (or) not ? You just enter "id" in the server terminal with root access sudo -, There you can see root user has id=0 (or) "id -u" then you get root ID, other than zero it is not root user. Shellscript wont stop if it faces any error, it is our responsibility to stop and solve the error and then proceed, for that we have "exit status", that means we need to check previous command success (or) not, for that we have special variable "$?" ---> If success it has "0" if failure "not 0" (otherthan 0 any number).
 
 ### 10-functions.sh
-We can put the repeated code in the function, generally we keep functions under VARIABLES, we give args to the shellscript, similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be no logs in less /var/log/messages, we need to store that logs, otherwise we cannot troubleshoot, make sure you should not log in the current folder of server come outside and then do, this is just to show how it works rightnow, For example just type "ls -ltr" in the terminal you can see all the files and when you "clear" it is gone, so we need to store that by following below steps, not only ls -ltr we can do for any command.
+We can put the repeated code in the function, generally we keep functions under VARIABLES, we give args to the shellscript, similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be NO logs in less /var/log/messages, we need to store that logs, otherwise we cannot troubleshoot, make sure you should not log in the current folder of server come outside and then do, this is just to show how it works rightnow, for example just type "ls -ltr" in the terminal you can see all the files and when you "clear" it is gone, so we need to store that by following below steps, not only ls -ltr we can do for any command.
 
 ### Redirections(> symbol is for output redirection)
 ls -ltr > temp.log ---> Storing ls -ltr log in a temp.log file, Here output is not in terminal, it is in temp.log to view this "cat temp.log", Usage in the server terminal will be below example go to cd location then "ls -la > /tmp/temp.log(created new file in tmp folder"
 
 If you give a successful (or) correct command (or) spelling mistake in commands like 
 - "ls -ltrrrrsd temp.log"
-- "any-command > temp.log"  ---> Bydefault success output only stores here
+- "any-command > temp.log"  ---> Bydefault success output only stores here.
 -  1 ---> Success = usage(ls -ltr 1> temp.log)
 -  2 ---> Failure = usage(ls -ltr 2> temp.log) ---> It is a success command because there is no spelling 
    mistake, So it wont be in the temp.log, If (ls -ljtsssfs 2> temp.log) now it will store because it is 
-   wrong(failure) command
+   wrong(failure) command.
 - &> ---> Both wether it is success (or) not it will store in the temp.log
-- &>> ----> It will append the new log
+- &>> ----> It will append the new log.
 - To open the log file "less <logfile-name>"
    
 ### Special Variables will work only in double qotes ""
 - $? ---> Checks wether the exit status of previous command is success or not ?
-- $0 ---> You will get script name
-- $1 ---> First argument
+- $0 ---> You will get script name.
+- $1 ---> First argument.
 - $2 ---> Second argument and so on ...
 - $N ---> Nth argument
 - $@ ---> All arguments
-- $# ---> To know how many arguments are passed
+- $# ---> To know how many arguments are passed to the script.
 
 ### Colour coding in shellscript
 To enable colors option you need to give "-e" and it should be in double qotes.
