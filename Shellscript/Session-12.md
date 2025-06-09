@@ -1,6 +1,6 @@
 ### Why we use SSH authentication ?
 We want to connect to the github account to push the code right ? and we used SSH based auth, Because we work with multiple github accounts, so for every account logging with username and password is not a good practice, so we prefer to use "ssh based authentication".
-- First generate a new key-pair (or) use existing key-pair, "ssh-keygen -f <file_name>" press enter two times,
+- First generate a new key-pair (or) use existing key-pair, ** ssh-keygen -f <file_name> ** press enter two times,
   Public-key will be with .pub extension, you need to give .pem extension manually for Private-key, To enable
   extension go to "file explorer options" in control panel/view/unhide extensions for known file types.
 - Cat Public-key, copy the code and go to the github settings /SSH and GPG Keys/New SSH key/give any name and
@@ -54,7 +54,7 @@ We want to connect to the github account to push the code right ? and we used SS
 - 06-data-types.sh
 - 07-arrays.sh
 
-<Points to remember>
+### Points to remember
 - If you make any changes in the code in VS and if you save that changes by pressing ctrl+S, then colour will
   change to yellow. So to make normal then you must push the code to the github account.
 - In linux when you open gitbash we are automatically landing in the home directory to know that just type
