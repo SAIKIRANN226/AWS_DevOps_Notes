@@ -1,12 +1,10 @@
 ### 08-conditions.sh
-
       if(expression) {
          statement if expression is true
       }
       if(expression) {
          statement if expression is false
       }
-
 ### 09-install-mysql.sh
 Installing multiple packages using shellscript.
 
