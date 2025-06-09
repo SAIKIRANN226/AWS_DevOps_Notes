@@ -23,11 +23,11 @@ Installing any number of packages using "loops" instead of going to the script a
 - Dispatch ---> t2.micro
 
 ### SED editor (Stream Line Editor)
-It is a temperory editor, it will not save permanently if you use "-e" and If you want permanent change then keep "i" in place of "e" and to change the configuration for humans, we have VIM editor, but for scripts we have SED editor. Example:- sed -e '1 a I am  learning DevOps'<file-name> ------> e=enable, a=append(after). If you want before first line then "i", 1=line1. If want after 2nd line then "2 a". 
+It is a temperory editor, it will not save permanently if you use "-e" and If you want permanent change then keep "i" in place of "e" and to change the configuration for humans, we have VIM editor, but for scripts we have SED editor. Example:- sed -e '1 a I am  learning DevOps'<file-name> ---> e=enable, a=append(after). If you want before first line then "i", 1=line1. If want after 2nd line then "2 a". 
 
 ### How to update lines using SED
-sed -e 's/<word-to-find>/word-to-replace/' ---> First occurrence in the line
-sed -e 's/<word-to-find>/word-to-replace/g' ----> Global for everything
+- sed -e 's/<word-to-find>/word-to-replace/' ---> First occurrence in the line
+- sed -e 's/<word-to-find>/word-to-replace/g' ----> Global for everything
 
 ### Points to remember
 - How to check logs? ---> sudo less /var/log/messages
