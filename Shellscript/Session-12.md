@@ -59,5 +59,6 @@ We want to connect to the github account to push the code right ? and we used SS
   change to yellow. So to make normal then you must push the code to the github account.
 - In linux when you open gitbash we are automatically landing in the home directory to know that just type
   "pwd" then you can see your landed location "/c/users/user(saikiran), Here definitely you will have ".ssh"
-  folder, if it is not there you need to create .ssh folder, It will be hidden, so to check this, ls -la
+  folder, if it is not there you need to create .ssh folder, It will be hidden, so to check this, enter this
+  command "ls -la"
 - How to shift from main-master (or) master-main branch ? "git branch -M main"
