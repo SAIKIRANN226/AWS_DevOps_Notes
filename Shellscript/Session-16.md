@@ -80,7 +80,9 @@ old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no-of-d
 - Then archive (or) delete.
 
 ### Points to remember
-- For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions/loops and functions, but with a little different syntax, only we need to make sure wether we are following the correct algorithm or not ?
+- For any programming languages (or) for any scripting. It is all about variables/datatypes/conditions/loops
+  and functions, but with a little different syntax, only we need to make sure wether we are following the
+  correct algorithm or not ?
 - Shift+G ---> To go down in the config_file.
 - gg ---> To go top in the config_file.
 - Basically no need to follow the color coding or formatting, we can just use as it is in mail configuration
