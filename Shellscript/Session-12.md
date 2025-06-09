@@ -54,7 +54,7 @@ We want to connect to the github account to push the code right ? and we used SS
 - 06-data-types.sh
 - 07-arrays.sh
 
-<Points_to_remember>
+<Points to remember>
 - If you make any changes in the code in VS and if you save that changes by pressing ctrl+S, then colour will
   change to yellow. So to make normal then you must push the code to the github account.
 - In linux when you open gitbash we are automatically landing in the home directory to know that just type
