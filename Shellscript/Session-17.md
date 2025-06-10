@@ -47,7 +47,7 @@ Here Role and Permissions, what is the role of user ? and what are the Persmissi
 ### We can give authorization like below
 - Sivakumar(Trainee) --> EC2(resource) --> Web(instance) --> READ access only.
 - Manish(Junior DevOps) --> EC2(resource) --> Web(instance) --> READ and UPDATE access only.
-- Mahesh(Senior Engineer) --> EC2(resource) --> Web(instance) --> READ and "CRU" access not delete.
+- Raju(Senior Engineer) --> EC2(resource) --> Web(instance) --> READ and "CRU" access not delete.
 - Mass(Team Lead) --> EC2(resource) --> All instances --> READ and "CRU" access only not delete.
 - Suman(Team manager) --> EC2(resource) --> All instances --> READ and "CRUD" including delete.
 
