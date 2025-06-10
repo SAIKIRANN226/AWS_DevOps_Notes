@@ -48,7 +48,7 @@ Here Role and Permissions, what is the role of user ? and what are the Persmissi
 - Sivakumar(Trainee) --> EC2(resource) --> Web(instance) --> READ access only.
 - Manish(Junior DevOps) --> EC2(resource) --> Web(instance) --> READ and UPDATE access only.
 - Mahesh(Senior Engineer) --> EC2(resource) --> Web(instance) --> READ and "CRU" access not delete.
-- Aditya(Team Lead) --> EC2(resource) --> All instances --> READ and "CRU" access only not delete.
+- Mass(Team Lead) --> EC2(resource) --> All instances --> READ and "CRU" access only not delete.
 - Suman(Team manager) --> EC2(resource) --> All instances --> READ and "CRUD" including delete.
 
 Not only for persons, resources should also have access to access another resource, For that we have "roles to resources" like for example if you have created one EC2 and this EC2 instance should go and create other new instances (or) route53 records, so we need to give role to the EC2 by going to IAM click on roles create role and select EC2 as a use case/next/amazonEc2fullaccess/
@@ -57,9 +57,9 @@ Not only for persons, resources should also have access to access another resour
 - aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --security-group-ids sg-
   903004f8
 - If you get error "Unable to locate credentials, you can configure by "aws configure".
-- Before "aws configure", you need to create Administrator user. By going to the below steps in aws console.
-  IAM, Users, Create user, Attach policies directly, Administrator access, Click on the created user, Security
-  credentials, Create accesskey, CLI
+- Before "aws configure", you need to create Administrator user. By going to IAM, Users, Create user, Attach
+  policies directly, Administrator access, Click on the created user, Security credentials, Create accesskey,
+  select CLI.
 - Here if it is a person, he can keep Access_key & Secret_keys safely, but what if EC2 can keep these
   credentials secretly ? If anybody has access to this EC2 he can able to see these credentials using ls -la
   in cd .aws/ in credentials.
