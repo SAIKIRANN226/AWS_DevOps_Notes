@@ -87,4 +87,7 @@ If you want to run the shellscript as a native command linux instead of "sh 18-g
   "roboshop.sh" script.
 
 ## Overview of the session
-- 
+- Crontab
+- Optargs
+- Making shellscript as a Native Linux Command
+- Creating instances and route53_records with AWS_CLI
