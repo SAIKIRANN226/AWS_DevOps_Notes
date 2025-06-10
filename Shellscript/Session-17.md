@@ -10,7 +10,7 @@ Crontab is used for scheduling the scripts and it will trigger to delete the old
 
 ### Shellscript Optargs 18-greetings.sh
 - General arguments to the script ---> 01-install-packages.sh git mysql net-tools nginx etc.
-- Optargs(Optional arguments) to the script ---> 01-install-packages.sh -n <saikiran> -w <good_morning>
+- Optargs (Optional arguments) to the script ---> 01-install-packages.sh -n <saikiran> -w <good_morning>
 
 ### Shellscript as a Native linux command
 If you want to run the shellscript as a native command linux instead of "sh 18-greetings.sh" we have a path for every operating system "echo $PATH" nothing but if you install any softwares in these PATHS then automatically windows (or) linux will pick up from this PATH, so you need to keep your script in that PATH, generally if you put your script in "/usr/local/bin" then you NO need to give ".sh" while running the script. So "sudo cp 18-greetings.sh /usr/local/bin/greeting (copied as a greeting name), and you need to give executive access by "sudo chmod +x /usr/local/bin/greeting", now if you are in any folder otherthan the script folder just run by using name "greeting" (or) greeting -n sai -w "good evening", do this steps in "cd location 18-greetings.sh
@@ -30,7 +30,6 @@ If you want to run the shellscript as a native command linux instead of "sh 18-g
   permissions,different permissions for TL,Manager,Sr.Engineer etc. We call these as ROLES, these roles will be
   changing every year (or) few years after, and Persmissions are tagged to these roles, below is the example.
   We need to check what is the role of user ? and what are the Persmissions attached to that role.
-
 1. Team Manager --> Has super admin
 2. Team Lead --> Has admin
 3. Senior Engineers --> Normal access
@@ -87,7 +86,7 @@ If you want to run the shellscript as a native command linux instead of "sh 18-g
   "roboshop.sh" script.
 
 ## Overview of the session
-- Crontab
-- Optargs
-- Making shellscript as a Native Linux Command
-- Creating instances and route53_records with AWS_CLI
+- Create crontab and try to delete logfiles.
+- What are Optargs ?
+- Make any shellscript as a Native Linux command.
+- Create instances using AWS Command Line
