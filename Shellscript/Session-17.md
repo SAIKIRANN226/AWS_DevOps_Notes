@@ -23,14 +23,14 @@ If you want to run the shellscript as a native command linux instead of "sh 18-g
 
 ### Authentication and Authorization
 - Authentication --> You have username/password, you can go to any common area in your company.
-- Authorization ---> You need to prove your authorization to enter in to the project bays, in other words like
+- Authorization --> You need to prove your authorization to enter in to the project bays, in other words like
   permissions,different permissions for TL,Manager,Sr.Engineer etc. We call these as ROLES, these roles will be
   changing every year (or) few years after, and Persmissions are tagged to these roles, below is the example.
 
-1. Team Manager ---> Has super admin
-2. Team Lead ---> Has admin
-3. Senior Engineers ---> Normal access
-4. Trainee ---> Just read access 
+1. Team Manager --> Has super admin
+2. Team Lead --> Has admin
+3. Senior Engineers --> Normal access
+4. Trainee --> Just read access 
 
 ### Authentication 
 Here User is a person and he has Username/Password (or) KEY.
@@ -40,22 +40,35 @@ Here Role and Permissions, what is the role of user ? and what are the Persmissi
 
 ### Permissions
 - We have nouns and verbs.
-- We have resources in aws ---> Ec2,vpc,route53,cdn,IAM etc. In this resources we have nouns & verbs.
-- Nouns ---> web,catalogue,cart,hostedzone etc.
-- Verbs (or) actions ---> create resource,update,delete nothing but CRUD.
+- We have resources in aws --> Ec2,vpc,route53,cdn,IAM etc. In this resources we have nouns & verbs.
+- Nouns --> web,catalogue,cart,hostedzone etc.
+- Verbs (or) actions --> create resource,update,delete nothing but CRUD.
 
 ### We can give authorization like below
-- Sivakumar(Trainee) ----> EC2(resource) ---> Web(instance) ---> READ access only.
-- Manish(Junior DevOps) ----> EC2(resource) ---> Web(instance) ---> READ and UPDATE access only.
-- Mahesh(Senior Engineer) ---> EC2(resource) ---> Web(instance) ---> READ and "CRU" access not delete.
-- Aditya(Team Lead) ----> EC2(resource) ---> All instances ---> READ and "CRU" access only not delete.
-- Suman(Team manager) ----> EC2(resource) ---> All instances ---> READ and "CRUD" including delete.
+- Sivakumar(Trainee) --> EC2(resource) --> Web(instance) --> READ access only.
+- Manish(Junior DevOps) --> EC2(resource) --> Web(instance) --> READ and UPDATE access only.
+- Mahesh(Senior Engineer) --> EC2(resource) --> Web(instance) --> READ and "CRU" access not delete.
+- Aditya(Team Lead) --> EC2(resource) --> All instances --> READ and "CRU" access only not delete.
+- Suman(Team manager) --> EC2(resource) --> All instances --> READ and "CRUD" including delete.
 
 Not only for persons, resources should also have access to access another resource, For that we have "roles to resources" like for example if you have created one EC2 and this EC2 instance should go and create other new instances (or) route53 records, so we need to give role to the EC2 by going to IAM click on roles create role and select EC2 as a use case/next/amazonEc2fullaccess/
 
 ### Command to create instance 
-"aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --security-group-ids sg-903004f8". You will get error "Unable to locate credentials, you can configure by "aws configure". So Create one user and then configure it by going to IAM/Users/Create_user/Attach_policies_directly/Administrator_Access/
-Click_on_the_created_user/Security_credentials/Create_accesskey/CLI and then "aws configure". Now try to create instance using above command in server. Here if it is a person, he can keep Access_key & Secret_keys safely, but what if EC2 can keep these credentials secretly ? If anybody has access to this EC2 he can able to see these credentials using ls -la in cd .aws/ in credentials. So thats why create a role for EC2 by going to IAM/roles/create_role/select EC2 in usecase/you can give admin access also (or) amazonEc2 full access and also give route53 full access/give a role name/. Now select the already created instance & Actions/Security/Modify IAM role/Select your created role, so that this Ec2 instance will create another EC2 instances and also update route 53 records aswel for that only we have created role to the instance EC2, if you get the same error remove the old credentials which was created for aws console in .aws folder by using rm -rf command.
+- aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --security-group-ids sg-
+  903004f8
+- If you get error "Unable to locate credentials, you can configure by "aws configure".
+- Before "aws configure", you need to create Administrator user. By going to the below steps in aws console.
+  IAM, Users, Create user, Attach policies directly, Administrator access, Click on the created user, Security
+  credentials, Create accesskey, CLI
+- Here if it is a person, he can keep Access_key & Secret_keys safely, but what if EC2 can keep these
+  credentials secretly ? If anybody has access to this EC2 he can able to see these credentials using ls -la
+  in cd .aws/ in credentials.
+- So thats why create a role for EC2 by going to IAM/roles/create_role/select EC2 in usecase/you can give
+  admin access also (or) amazonEc2 full access and also give route53 full access/give a role name/. Now select
+  the already created instance & Actions/Security/Modify IAM role/Select your created role, so that this Ec2
+  instance will create another EC2 instances and also update route 53 records aswel for that only we have
+  created role to the instance EC2, if you get the same error remove the old credentials which was created for
+  aws console in .aws folder by using rm -rf command.
 
 ### Go through the "roboshop.sh" file in Roboshop-Shellscript
 - This file will create all instances and route53 records from the command line without logging into the aws.
