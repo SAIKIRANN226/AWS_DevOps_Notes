@@ -24,8 +24,8 @@ Basically CRUD over the infrastructure. Using terraform we can create entire inf
 Inventory Management in Terraform is nothing but tracking and managing the various infrastructure resources that Terraform provisions and maintains. Terraform itself doesn't have a built-in inventory management system, but it provides several features and practices that help in managing and keeping track of infrastructure resources. If we create infra manually it is very tough to maintain the inventory of resources in different regions. But by seeing terraform you can easily tell the resources you are using in which regions. For example if the project is going big. When you login to aws we can see more resources like multiple VPC's, multiple route 53, multiple EC2, multiple load balancers, CDN's, s3 buckets etc. If the client ask for the full details of the project we cannot show one by one in the aws console and giving the report is very tough and that is also not a good practice, instead of showing in the aws console we can maintain from the above points, which can be seen in |VS| in the form of folders of above resources.
 
 ### Cost Optimization
-- When you need infra you can create in minutes. When you don't you can delete in minutes, so you can save
-  the cost (or) Create when required, Delete when not required.
+- When you need infra you can create in minutes. When you don't you can delete in minutes, so you can 
+  save the cost (or) Create when required, Delete when not required.
 - Automatic Dependency Management, for example if we need to create route53 records, ec2 servers 
   should be in the running, take those IP and then paste in the route53, that means route53 is 
   depending on ec2 servers, so we can create resources and terraform will takecare of dependencies.
