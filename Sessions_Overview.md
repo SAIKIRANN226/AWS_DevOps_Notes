@@ -2,5 +2,10 @@
 - Connect to the github account using SSH based authentication ?
 - Go through all the concepts in "Shellscript" folder.
 - Configure Roboshop project using shellscript.
-- Delete old log files using "Crontab"
-- 
+- Write a script to delete old logfiles manually.
+- Check the Disk_usage and send mail alerts.
+- Why Internal Field Separator is used ? IFS
+- Schedule "Crontab" to delete logfiles in the script.
+- Why Optargs are used ?
+- Create any shellscript as a Native Linux Command.
+- Automate the creation of instances and route53's using "AWS Command Line"
