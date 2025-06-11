@@ -84,9 +84,3 @@ If you want to run the shellscript as a native command linux instead of "sh 18-g
 - Important point, So overall create any one instance and give a role to it, so that it will create multiple
   instances from this instance only, you need to clone the "roboshop-shellscript" in this server and run the
   "roboshop.sh" script.
-
-## Overview of the session
-- Create crontab and try to delete logfiles.
-- What are Optargs ?
-- Make any shellscript as a Native Linux command.
-- Create instances using AWS Command Line
