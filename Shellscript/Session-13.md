@@ -9,11 +9,11 @@
 Installing multiple packages using shellscript.
 
 ### Algorithm for installing any package
-1. Check user is root (or) not ?
-2. If root proceed, If not root, stop and say run with root user.
-3. Now install mysql.
-4. Check wether the package is installed properly (or) not ?
-5. If success then good, if not success then show what is the error.
+- Check user is root (or) not ?
+- If root proceed, If not root, stop and say run with root user.
+- Now install mysql.
+- Check wether the package is installed properly (or) not ?
+- If success then good, if not success then show what is the error.
 
 ### Root user and exit status $?
 How to know if it is root user (or) not ? You just enter "id" in the server terminal with root access sudo -, There you can see root user has id=0 (or) "id -u" then you get root ID, other than zero it is not root user. Shellscript wont stop if it faces any error, it is our responsibility to stop and solve the error and then proceed, for that we have "exit status", that means we need to check previous command success (or) not, for that we have special variable "$?" ---> If success it has "0" if failure "not 0" (otherthan 0 any number).
