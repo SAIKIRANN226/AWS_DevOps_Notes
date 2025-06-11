@@ -1,25 +1,25 @@
 ### Why we use SSH based authentication to connect to Github account ?
 To push our developed code from VS to Github account using gitbash client, we use SSH based authentication. Because we work with multiple github accounts, so for every account logging with username and password is not a good practice, so we prefer to use "ssh based authentication" since SSH(22) is more secure.
 - First generate a new key-pair (or) use existing key-pair, "ssh-keygen -f <file_name>" press enter two times,
-  Public-key will be with .pub extension, you need to give .pem extension manually for Private-key, To enable
-  extension go to "File Explorer Options" in control panel/view/unhide extensions for known file types.
-- Cat Public-key, copy the code and go to the github settings/SSH and GPG Keys/New SSH key/give any name and
+  Public-Key will be with .pub extension, you need to give .pem extension manually for Private-Key. To enable
+  extension go to "File Explorer Options" in control_panel/view/unhide_extensions for known file types.
+- Cat Public-Key, copy the code and go to the github_settings/SSH_and_GPG_Keys/New_SSH_key/give_any_name and
   paste without any gaps.
-- Keep your Private-key in ".ssh" folder, if it is not created you have to create the .ssh folder in user
-  directory like "C:/Users/saikiran/.ssh"
-- Create a config file with NO extension in .ssh folder, in this config file keep the config syntax and give
-  the correct location of your Private-key and also we can add multiple github accounts here. Below is the
-  config syntax i have given for my created Private-key.
+- Keep your Private-Key in ".ssh" folder, if it is not there you have to manually create the .ssh folder in
+  user directory "C:/Users/saikiran/.ssh"
+- Create a config_file with NO extension in .ssh folder, in this config file keep the config_syntax and give
+  the correct location of your Private-Key and also we can add multiple github accounts here. Below is the
+  config syntax i have given for my created Private-Key.
   
-                Host github.com
-                  HostName github.com
-                  User git
-                  PreferredAuthentications publickey
-                  IdentityFile ~/saikiran.pem
+                    Host github.com
+                      HostName github.com
+                      User git
+                      PreferredAuthentications publickey
+                      IdentityFile ~/saikiran.pem
   
 - We have HTTPS and SSH to the repository.
 - HTTPS ---> Username and Password, clone https URL when you have read only access.
-- SSH ---> Just Private-key, you can clone if you are the owner of the respository. Prefer HTTPS while cloning
+- SSH ---> Just Private-Key, you can clone if you are the owner of the respository. Prefer HTTPS while cloning
   the repository.
 - Github is nothing but a folder in internet with tracking capabilities.
 - git branch -M main ---> To change from master to main (or) main to master
@@ -33,7 +33,7 @@ To push our developed code from VS to Github account using gitbash client, we us
   we need to give the location of bash, which is in "/bin/bash" but we write first line as "#!/bin/bash" apart
   from the first line, if you see "#" anywhere, it is commentout.
 - If you want git in visual studio only then go to view ---> Terminal ---> Select gitbash
-- If you enter wrong URL while pushing to github then we can set using the below command
+- If you enter wrong URL while pushing to github then we can set using the below command.
   "git remote set-url origin <url_of_the_repository>"
 - If git is not configured in the github account yet, still developers can start writing their code in the VS
   until git is ready and later they can push it to the git.
@@ -41,7 +41,7 @@ To push our developed code from VS to Github account using gitbash client, we us
 - We develop code (or) script in VisualStudio.
 - Using gitbash client, we push the code (or) script to the github repository.
 - Create a t2.micro server in AWS.
-- git clone <URL> in the server ---> Because we are cloning for the first time and go to your script location
+- git clone <URL> in the server. Because we are cloning for the first time and go to your script location
   then "sh <script_name>" , git pull ---> If you want only changes.
 - Echo is only used for printing purpose.
 
