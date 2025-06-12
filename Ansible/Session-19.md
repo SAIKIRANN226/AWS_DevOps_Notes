@@ -6,8 +6,7 @@
 - 07.variables-from promt.yaml
 - 08.vars-from-inventory.yaml
 - 09.vars-from-Args.yaml
-- 10.var.preference.yaml So we have these many variables right ? So which one will be preferred first and then
-  followed by other ?
+- 10.var.preference.yaml
 - 11.datatypes.yaml
 - 12.conditions.yaml
 - 13.loops.yaml
