@@ -9,3 +9,8 @@
 - Why Optargs are used ?
 - Create any shellscript as a Native Linux Command.
 - Automate the creation of instances and route53's using "AWS Command Line"
+
+## Ansible
+- Create two servers Ansible and Node, connect to node from the ansible server and try to create files in node
+  from the ansible server and try to download any repository of installing linux in node from ansible server
+- 
