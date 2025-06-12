@@ -1,1 +1,140 @@
+Disadvantages in Shellscript
+-----------------------------
+1. Shellscript will not work for all linux distributions even though 99% commands may be same but 
+   you need to write separate script for separate distributions, we have hundreds of linux
+   distributions for example:- debian,centos,ubuntu,rhel etc.
+2. Scalability issues, for example we cannot configure more number of servers incase of big billion days
+3. Error handling, we need to do manually like writing functions,validations etc. to handle errors
+4. Readability issues, shellscript syntax is not easy to understand for everyone without learning linux
+5. Shell will only work for linux, not for external systems like aws,azure etc. we need to work manually
+   on external systems by using their particular modules (or) commands (or) syntax.
+6. Shellscript will not manage sensitive information like passwords,keys etc.
 
+Advantages of ansible over shellscript
+---------------------------------------
+Ansible is an open-source automation tool used for
+1. Configuration management tool
+2. Application deployment
+3. Cloud provisioning and Orchestration(But not recommended). It can also connect to external systems 
+   like aws,azure,gcp,gitlab etc. to create instances but this is not recommended because ansible is 
+   only intended for configuration management and application deployment
+
+What is configuration management ?
+-----------------------------------
+For example if you buy a new laptop, you need to install softwares and setup like username and passwords and connect to wifi etc. This is nothing but configuring your new laptop what you required. So similarly in linux also, before deploying application we need to make the server ready. For example
+- Installing packages
+- Installing Programming languages
+- Installing build tools.
+- Installing Application Runtime.
+- Creation of users, folders, etc.
+- Setting permissions.
+- Creation of systemctl services.
+As a DevOps engineer we need to do this effectively. Basically CRUD over the server.
+Creation of configuration --> should be fast and accurate
+Read the configuration --> it is easy to read the configuration of server through ansible playbooks.
+Update the configuration --> any changes in configuration should be rolled out asap.
+Delete the configuration --> delete the configuration if not required.
+
+Application Deployment basic steps
+-----------------------------------
+1. Stop the server 
+2. Remove old code (or) Backup old code
+3. Download the new code
+4. Restart the server
+
+Ansible has Idempotence Behaviour
+----------------------------------
+If you run program multiple times, that can create samething multiple times, where as in ansible if the 
+user does not exist then it will create, if exist it will ignore, that means even if you run program 
+infinite times it will not create any damage. Definition:- Providing same results irrespective of the 
+number of executions is called idempotence.
+
+Just create 2 servers in aws example server and node
+-----------------------------------------------------  
+Now take the node IP and go to the server instance "sshpass -p "DevOps321" ssh centos@nodeIp", so 
+now you are logged in node from the server instance successfully, you can do anything here(or)exit from 
+the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt"", here no need to login into the node from the server, you can also install packages without touching, for example 
+take any github repository like installing MySQL file copy the URL from the URL tab then enter the 
+following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste the URL> | sudo bash"
+Note: Curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub. or you can test any of your session by taking raw URL 
+and apply the command, all the content of the session will appear in the terminal.
+
+1. sshpass -p DevOps321 ssh centos@NodeIP
+2. sshpass -p DevOps321 ssh centos@NodeIP -C "echo hi saikiran > /tmp/sai.txt"
+3. sshpass -p DevOps321 ssh centos@NodeIP -C "curl <URL> | sudo bash"
+
+PUSH Architecture(Ansible is a PUSH)
+-------------------------------------
+Configuration server (or) Ansible-server (or) Main server ----> It can connect to any number of remote servers, main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Here Node-1,Node-2,
+Node-3 etc. are nothing but ----> Remote servers
+
+PULL Architecture(Chef is a PULL)
+----------------------------------
+How do we configure pull based in chef ? we will configure agents in the nodes to check every 1 hour, 
+it will check 24*7 that means bandwidth will be waste,resources consumption like CPU,memory etc. will 
+be high and also there is one advantage in pull architecture in some scenarios, this point shiva will
+discuss in the future sessions.
+
+Installing ansible and connecting to node 
+------------------------------------------
+1. Installing ansible in the ansible server ? "sudo yum install ansible -y", where ever the ansible is 
+   installed we call it has a ansible server
+2. To connect to node from the ansible server then 
+   "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping"
+   Here "i" is inventory we can give multiple servers so as of now we have given "all". It is just 
+   checking wether the connection is established between ansible and node, ansible is sending "ping"
+   and node is sending back "pong" that means connection is success.
+3. Best example for Pull vs Push is a courier from delhi to hyd
+
+Example of installing nginx in the node server from the ansible server
+-----------------------------------------------------------------------
+Command to Install any packages in node from ansible server = "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m yum -a "name=nginx state=present"  
+Here ---> (present = install ; --become = root user ; m = module ; a = arguments)
+
+To start the server = "ansible -i nodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m service -a "name=nginx state=started/stopped/restarted"  
+
+Shellscript (vs) Ansible
+-------------------------
+In linux everything we call as ---> Commands
+In ansible everything we call as ----> Modules
+Here we run one by one commands to install whatever, so instead we put these commands alltogether in 
+one file and run the script, similarly ansible have modules(commands) to put together and run as a 
+playbook and the syntax for the playbook is in YAML format, yet another markup language example banking withdrawal form nothing but a predefined format.
+
+DTO(Data Transfer Object)
+--------------------------
+Transferring data from one system to another. Some of the markup languages are XML,HTML,JSON,YAML etc.
+Example if you give your Facebook credentials in your laptop browser then how the credentials is 
+transferred to the Facebook ? Through XML format(extensive markup language) is the most used, and 
+popular markup language is html(hyper text markup language), JSON(java script object notation) and 
+YAML also.
+
+Markup languages
+-----------------
+Refer this in your VS(concepts), just to know how the markup languages look like no need to practice this,
+But practice yaml in this concepts. Indentation is mandatory in this languages.
+1. person.xml
+2. person.json
+3. person.yaml
+
+Inventory is a list of hosts that ansible server can connect to the different components, do this in the server after going to the ansible location
+1. ansible -i inventory web --list-hosts
+2. ansible -i inventory cart --list-hosts
+3. ansible -i inventory ungrouped --list-hosts
+4. ansible -i inventory all --list-hosts
+
+01-playbook.yaml
+-----------------
+Open the server ---> Git clone ---> CD ansible then enter the below command
+ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file-name>
+
+02-nginx.yaml
+--------------
+Open the server ---> Git clone ---> CD ansible then enter the below command
+ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file-name>
+
+Points to remember
+*******************
+1. https://github.com/daws-76s/concepts/blob/master/ansible.MD ----> Paste this URL in 
+   chrome you will be redirected to the page of content to know how ansible works
+2. If you stuck anywhere in the gitbash and unable to enter any command then use "ctrl+C"
