@@ -8,4 +8,4 @@ Create a server and install ansible in it by "sudo yum install ansible -y", from
    "mongo --host mongodb.daws76s.online --quiet --eval 'db = db.getSiblingDB'("catalogue");
    db.products.count()'
 - Should check the above command in /app/schema folder.
-- To check wether the catalogue is connected to mongodb or not ? sudo su - and then "tail -f /var/log/messages
+- To check wether the catalogue is connected to mongodb or not ? sudo su - and then "tail -f /var/log/messages"
