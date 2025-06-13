@@ -13,4 +13,5 @@
 ## Ansible
 - Create two servers Ansible and Node, connect to node from the ansible server and try to create files in node
   from the ansible server and try to download any repository of installing linux in node from ansible server
+- Configure Roboshop-Project using Ansible.
 - 
