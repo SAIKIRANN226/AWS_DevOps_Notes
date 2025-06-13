@@ -1,10 +1,5 @@
-To run the file or program in the background
----------------------------------------------
-"nohup ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file-name> 
-with .yaml & >> /dev/null" ---> output will be in nohup.out it will not come in the terminal, if it is a 
-small instance we cant everything in background because memory consumption will be high, so you can run 
-few scripts. Usage: nohup ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=De
-vOps321 mongodb.yaml & >> /dev/null
+### To run the file or program in the background
+"nohup ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file-name> with .yaml & >> /dev/null" ---> Output will be in nohup.out, it will not come in the terminal, if it is a small instance we cant run everything in the background, because memory consumption will be high, so you can run few scripts. Usage: nohup ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml & >> /dev/null
 
 Ansible roles
 --------------
