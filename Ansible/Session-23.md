@@ -1,11 +1,13 @@
-Ansible.cfg --> It is a configuration file we can control everything from here, if we enter this command 
-in the server terminal "ansible --version" we can see from where the configuration file is loading, we have preferences below. Gothrough ansible.conf in VS.
-1. ANSIBLE_CONFIG (environment variable if set)
-2. ansible.cfg (in the current directory)
-3. ~/.ansible.cfg (in the home directory)
-4. /etc/ansible/ansible.cfg
+### Ansible.cfg
+It is a configuration file, we can control everything from here, if we enter this command in the server terminal "ansible --version" we can see from where the configuration file is loading, we have preferences below to set the CONFIG_FILE. Go through ansible.conf in VS.
+- ANSIBLE_CONFIG (environment variable if set)
+- ansible.cfg (in the current directory)
+- ~/.ansible.cfg (in the home directory)
+- /etc/ansible/ansible.cfg
+So instead of giving -i inventory -e user_name -e password to the command, we can put this is ansible.cfg and command usage is "ansible-playbook -e component=mongodb main.yaml"
 
-Templates is a jinja2 format, it is like ansible variable you can submit variable in catalogue.service 
+### Templates in roles
+is a jinja2 format, it is like ansible variable you can submit variable in catalogue.service 
 file moved to the template and given {{MONGODB_HOST}}, so now this has become template, it is same as 
 copy module
 
