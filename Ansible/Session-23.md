@@ -1,6 +1,11 @@
 ### Ansible.cfg
-It is a configuration file, we can control everything from here, if we enter this command in the server terminal "ansible --version" we can see from where the configuration file is loading, generally config file will be in "/etc/ansible/ansible.cfg" if you copy this file "cp /etc/ansible/ansible.cfg" and paste in any other created folder and if you export in this folder using "export
-ANSIBLE_CONFIG=/home/centos/anyfolder/ansible.cfg, that means config file is loading from the created folder, so like that we have preferences below to set the CONFIG_FILE. Go through ansible.conf in VS.
+- It is a configuration file, we can control everything from here, if we enter this command in the server
+  terminal "ansible --version" we can see from where the configuration file is loading,
+- Generally config file will be in "/etc/ansible/ansible.cfg"
+- If you copy this file "cp /etc/ansible/ansible.cfg" and paste in any other created folder and if you export
+  in this folder using "export ANSIBLE_CONFIG=/home/centos/anyfolder/ansible.cfg, that means config file is
+  loading from this created folder, so like that we have preferences below to set the CONFIG_FILE. Go through
+  ansible.conf in VS.
 - ANSIBLE_CONFIG (environment variable if set)
 - ansible.cfg (in the current directory)
 - ~/.ansible.cfg (in the home directory)
@@ -8,9 +13,9 @@ ANSIBLE_CONFIG=/home/centos/anyfolder/ansible.cfg, that means config file is loa
 So instead of giving -i inventory -e user_name -e password to the command, we can put this is ansible.cfg and command usage is "ansible-playbook -e component=mongodb main.yaml"
 
 ### Templates in roles
-is a jinja2 format, it is like ansible variable you can submit variable in catalogue.service 
+Is a jinja2 format, it is like ansible variable you can submit variable in catalogue.service 
 file moved to the template and given {{MONGODB_HOST}}, so now this has become template, it is same as 
-copy module
+copy module.
 
 Handlers, for example if a configuration file is changed then we need to restart the nginx,
 but what handlers will do is sometimes you want a task to run only when any changes are done in the machine(config_file), for example you may want to restart a service if a task updates the configuration
