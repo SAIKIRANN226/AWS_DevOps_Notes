@@ -1,6 +1,6 @@
 ## Shellscript
 - Connect to the github account using SSH based authentication ?
-- Go through all the concepts in "Shellscript" folder.
+- Go through all the basic scripts in "Shellscript" folder.
 - Configure Roboshop project using shellscript.
 - Write a script to delete old logfiles manually.
 - Check the Disk_usage and send mail alerts.
