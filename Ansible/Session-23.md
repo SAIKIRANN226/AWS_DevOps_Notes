@@ -13,10 +13,9 @@
 So instead of giving -i inventory -e user_name -e password to the command, we can put this is ansible.cfg and command usage is "ansible-playbook -e component=mongodb main.yaml"
 
 ### Templates in roles
-Is a jinja2 format, it is like ansible variable you can submit variable in catalogue.service 
-file moved to the template and given {{MONGODB_HOST}}, so now this has become template, it is same as 
-copy module.
+Is a jinja2 format, it is like ansible variable you can submit variable in catalogue.service file moved to the template and given {{MONGODB_HOST}}, so now this has become template, it is same as copy module.
 
+### Handlers in roles
 Handlers, for example if a configuration file is changed then we need to restart the nginx,
 but what handlers will do is sometimes you want a task to run only when any changes are done in the machine(config_file), for example you may want to restart a service if a task updates the configuration
 of that service, but not if the configuration is unchanged, for this we use "notify", why we use this
