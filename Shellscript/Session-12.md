@@ -41,7 +41,7 @@ To push our developed code from VS to Github account using gitbash client, we us
 - We develop code (or) script in VisualStudio.
 - Using gitbash client, we push the code (or) script to the github repository.
 - Create a t2.micro server in AWS.
-- git clone <URL> in the server. Because we are cloning for the first time and go to your script location
+- Git clone <URL> in the server. Because we are cloning for the first time and go to your script location
   then "sh <script_name>" , git pull ---> If you want only changes.
 - Echo is only used for printing purpose.
 
