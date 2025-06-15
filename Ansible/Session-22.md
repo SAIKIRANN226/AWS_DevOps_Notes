@@ -14,3 +14,4 @@ It is a dry principle, dont repeat yourself like we used functions in shellscrip
   in the files roles.
 - Creating every role is not mandatory, we can create only what we required.
 - If you want to call a common role in any roles like catalogue,mongodb etc. Use "ansible.builtin.import_role"
+- We can use "ignore_errors: true" in ansible also.
