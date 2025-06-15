@@ -1,11 +1,16 @@
 ### Ansible.cfg
-- It is a configuration file, we can control everything from here, if we enter this command in the server
-  terminal "ansible --version" we can see from where the configuration file is loading,
+- It is a configuration file, we can control everything from here, if we enter "ansible --version" in the
+  server terminal, we can see from where the configuration file is loading.
 - Generally config file will be in "/etc/ansible/ansible.cfg"
-- If you copy this file "cp /etc/ansible/ansible.cfg" and paste in any other created folder and if you export
-  in this folder using "export ANSIBLE_CONFIG=/home/centos/anyfolder/ansible.cfg, that means config file is
-  loading from this created folder, so like that we have preferences below to set the CONFIG_FILE. Go through
-  ansible.conf in VS.
+- For example create a folder "mkdir test" in CD location.
+- Then cd test/ and "cp /etc/ansible/ansible.cfg", then pwd "/home/centos/test"
+- Then "export ANSIBLE_CONFIG=/home/centos/anyfolder/ansible.cfg"
+- When you do "ansible --version" in any location then you can ansible config file will load from the below
+  "/home/centos/test/ansible.cfg" location. Only if you set in "ANSIBLE_CONFIG" and incase you "UNSET" this
+  environment variable using "unset ANSIBLE_CONFIG" again it will be loading from the default location that is
+  "/etc/ansible/ansible.cfg"
+  
+Changes can be made and used in a configuration file which will be searched for in the following order
 - ANSIBLE_CONFIG (environment variable if set)
 - ansible.cfg (in the current directory)
 - ~/.ansible.cfg (in the home directory)
