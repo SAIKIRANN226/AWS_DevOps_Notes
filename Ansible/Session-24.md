@@ -1,8 +1,10 @@
 ### Ansible vault
-Till now we have given passwords in the terminal or in the ansible.cfg file right ? but it is not secure, so we now use ansible vault, nothing but storage of secrets, for example below.
-- Encoding ---> A proper pattern to encode the text, in this everybody can guess the secret.
-- Encryption ---> Generating a random text with mathematic algorithm, so we encrypt ansible vault, so those
-  who know the password they can only Dycrypt the code.
+Till now we have given passwords in the terminal or in the ansible.cfg file right ? but it is not secure, so we now use ansible-vault, nothing but storage of secrets like keys,passwords etc.
+- Encoding ---> A proper pattern to encode the text, in this format everybody can guess the secret.
+- Encryption ---> Generating a random text with mathematic algorithm tough to guess, so we encrypt ansible
+  vault, so those who know the password, they can only dycrypt the code.
+- asaiaavaa ----> sai (encoding)
+- hsdh234sk456jdksd ----> sai (encryption)
 
 ### How to create ansible vault in ansible-server ?
 - Create one folder for "vault" and a sample playbook (01-playbook.yaml) inside the vault in VS.
