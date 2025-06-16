@@ -58,9 +58,9 @@ If you want to run the shellscript as a native command linux instead of "sh 18-g
 - If you got any error remove the old credentials, which was created for aws console in .aws folder by using
   rm -rf command.
 
-### Command to create instance 
+### Command to create instance with tags
 - aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --security-group-ids sg-
-  903004f8
+  903004f8 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Saikiran_instance}]'
 - If you get error "Unable to locate credentials, you can configure by "aws configure".
 - Before "aws configure", you need to create Administrator user. By going to IAM, Users, Create user, Attach
   policies directly, Administrator access, Click on the created user, Security credentials, Create accesskey,
