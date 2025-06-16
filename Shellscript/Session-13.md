@@ -57,4 +57,4 @@ Go through 11-logs.sh, 12-loops.sh files in VS.
   to home folder (cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal,
   here in terminal, if you get any errors (or) not working properly you can delete that folder and clone again
   from the github (no problem)
-- To remove any package "sudo dnf remove <package-name>"
+- To remove any package "sudo dnf remove <package_name>"
