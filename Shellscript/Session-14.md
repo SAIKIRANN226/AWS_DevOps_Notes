@@ -32,8 +32,8 @@ To change the configuration for humans, we have VIM editor, but for scripts we h
 ### Points to remember
 - How to check logs? ---> sudo less /var/log/messages
 - To check the remote connections or ports use "netstat -lntp" command.
-- Shellscript is nothing but keeping all individual Linux commands in one file, which was used while doing
+- Shellscript is nothing but keeping all the individual Linux commands in one file, which was used while doing
   manuall configuration.
-- To remove any installed package in the server "sudo yum remove <package-name> -y"
+- To remove any installed package in the server "sudo yum remove <package_name> -y"
 - To check installed or not "yum list installed | grep <package_name>"
-- To remove file "rm -rf <file-name>"
+- To remove file "rm -rf <file_name>"
