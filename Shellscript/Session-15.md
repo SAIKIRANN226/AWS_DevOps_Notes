@@ -7,7 +7,7 @@ The main disadvantage in shell scripting is we need to check every line through 
 - unzip -o /tmp/web.zip ----> Here "o" is to overwrite, if you run the script multiple times.
 
 ### Points to remember
-- Even after changing anything in the configuration file and if it is still not reflecting, then you need to
+- Even after changing something in the configuration file and if it is still not reflecting, then you need to
   restart "systemctl restart"
 - Make sure to add all private servers in the web cofiguration in the last step and make sure to restart after
   changing the configuration using "systemctl restart nginx"
