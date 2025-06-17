@@ -86,6 +86,7 @@ But practice yaml in this concepts. Indentation is mandatory in this languages.
 - person.xml
 - person.json
 - person.yaml
+
 Note:- Inventory is a list of hosts that ansible server will connect to the different components, do this in the server after going to the ansible location.
 - ansible -i inventory web --list-hosts
 - ansible -i inventory cart --list-hosts
