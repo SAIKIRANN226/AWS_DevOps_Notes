@@ -18,7 +18,6 @@
 - Create 2 servers, for example below.
 - Ansible server make sure to install ansible in the server by "sudo yum install ansible -y" then it becomes
   ansible server.
-- Node server ---> Watch the 03.multi-play.yaml in VS.
 - Then gitbash, pull in server and execute by following command.
 - ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321
   <playbook-name>
