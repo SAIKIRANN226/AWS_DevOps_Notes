@@ -1,11 +1,11 @@
 ### Disadvantages in Shellscript
 - Shellscript will not work for all linux distributions even though 99% commands may be same but you need to
-  write separate scripts for separate distributions, we also have hundreds of linux distributions for example
-  debian,centos,ubuntu,rhel etc.
+  write separate scripts for separate distributions like debian,centos,ubuntu,rhel etc. We have hundreds of
+  linux distributions.
 - Scalability issues, shellscript cannot configure more number of servers incase of big billion days.
 - Error handling, to handle errors we need to write functions,validations explicitly.
 - Readability issues, shellscript syntax is not easy to understand for everyone without learning linux.
-- Shell will only work for linux, not for external systems like aws,azure etc. we need to work manually on
+- Shell will only work for linux, not for external systems like aws,azure etc. We need to work manually on
   external systems by using their particular modules (or) commands (or) syntax.
 - Shellscript will not manage sensitive information like passwords,keys etc.
 
@@ -18,7 +18,7 @@ Ansible is an open-source automation tool used for
   for configuration management and application deployment.
 
 ### What is configuration management ?
-For example if you buy a new laptop, you need to install softwares and setup like username and passwords and connect to wifi etc. This is nothing but configuring your new laptop what you required. So similarly in linux also, before deploying application, we need to make the server ready. For example
+For example if you buy a new laptop, you need to install softwares and setup like username and passwords and connect to wifi etc. This is nothing but configuring your new laptop what you required. So similarly in linux also, before deploying application, we need to make the server ready. For example below
 - Installing Packages.
 - Installing Programming languages.
 - Installing Build tools.
@@ -33,16 +33,16 @@ For example if you buy a new laptop, you need to install softwares and setup lik
 - Delete the configuration --> Delete the configuration if not required.
 
 ### Application Deployment basic steps
-- Stop the server
-- Remove old code (or) Backup old code
-- Download the new code
-- Restart the server
+- Stop the server.
+- Remove old code (or) Backup old code.
+- Download the new code.
+- Restart the server.
 
 ### Ansible has Idempotence Behaviour
-If you run program multiple times, that can create samething multiple times, where as in ansible, if the user does not exist then it will create, if exist it will ignore, that means even, if you run the program infinite times also, it will not create any damage. Definition:- Providing same results irrespective of the number of executions is called idempotence.
+If you run program multiple times, that can create samething multiple times, where as in ansible, if the user does not exist then it will create, if exist it will ignore, that means even if you run the program infinite times also it will not create any damage. Definition:- Providing same results irrespective of the number of executions is called idempotence.
 
 ### Just create 2 servers in aws Server & Node
-Now take the Node_IP and go to the Server instance "sshpass -p "DevOps321" ssh centos@nodeIp", so now you are logged in to node from the server instance successfully, you can do anything here (or) exit from the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt", here no need to login into the node to create file in node server from the server. You can also install packages without touching, for example take any github repository like installing MySQL file, copy the URL from the URL tab then enter the following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste_the_URL> | sudo bash" Note: Curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub or you can test any of your session by taking raw URL and apply the command, all the content of the session will appear in the terminal.
+Now take the NodeIP and go to the Server instance "sshpass -p "DevOps321" ssh centos@nodeIP", so now you are logged in to node from the server instance successfully, you can do anything here (or) exit from the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt", here no need to login into the node to create file in node server from the server. You can also install packages without touching, for example take any github repository like installing MySQL file, copy the URL from the URL tab then enter the following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste_the_URL> | sudo bash" Note: Curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub or you can test any of your session by taking raw URL and apply the command, all the content of the session will appear in the terminal.
 
 ### Overview of the above
 - sshpass -p DevOps321 ssh centos@NodeIP
@@ -50,10 +50,10 @@ Now take the Node_IP and go to the Server instance "sshpass -p "DevOps321" ssh c
 - sshpass -p DevOps321 ssh centos@NodeIP -C "curl <paste_the_URL> | sudo bash"
 
 ### PUSH Architecture (Ansible is a PUSH)
-Configuration server (or) Ansible-server (or) Main server (or) Controller machine ---> It can connect to any number of remote servers, Main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using ssh connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Here the Node-1,Node-2,Node-3 etc. are nothing but ---> Remote servers.
+Configuration server (or) Ansible-server (or) Main server (or) Controller machine is agentless. It can connect to any number of remote servers. Main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using SSH connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Here the Node-1,Node-2,Node-3 etc. are nothing but ---> Remote servers.
 
 ### PULL Architecture (Chef is a PULL)
-How do we configure pull based in chef ? we will configure agents in the nodes to check periodically say for every 1 hour, or it will check 24*7 that means bandwidth will be wasted,resource consumption like CPU,memory etc. will be high and also there is one advantage in pull based architecture in some scenarios, this point shiva will discuss in the later sessions.
+How do we configure pull based in chef ? we will configure agents in the nodes to check periodically say for every 1 hour, or it will check 24*7 that means bandwidth will be wasted,resource consumption like CPU,Memory etc. will be high and also there is one advantage in pull based architecture in some scenarios, this point shiva will discuss in the later sessions.
 
 ### Installing ansible and connecting to node 
 - sudo yum install ansible -y, where ever the ansible is installed, we call it has a ansible server.
@@ -86,7 +86,6 @@ But practice yaml in this concepts. Indentation is mandatory in this languages.
 - person.xml
 - person.json
 - person.yaml
-
 Note:- Inventory is a list of hosts that ansible server will connect to the different components, do this in the server after going to the ansible location.
 - ansible -i inventory web --list-hosts
 - ansible -i inventory cart --list-hosts
@@ -95,14 +94,16 @@ Note:- Inventory is a list of hosts that ansible server will connect to the diff
 
 ### 01-playbook.yaml
 - Open the server ---> Git clone ---> CD ansible then enter the below command.
-- ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file-name>
+- ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file_name>
 
 ### 02-nginx.yaml
 - Open the server ---> Git clone ---> CD ansible then enter the below command
-- ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file-name>
+- ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <file_name>
 
 ### Points to remember
 - https://github.com/daws-76s/concepts/blob/master/ansible.MD ---> Paste this URL in chrome you will be
-  redirected to the page of content to know how ansible works
+  redirected to the page of content to know how ansible works.
 - If you stuck anywhere in the gitbash and unable to enter any command then use "ctrl+C"
 - sudo yum install ansible -y, this will make server as Ansible server.
+- To run a playbook ---> ansible-playbook -i inventory.ini -e ansible_user=centos -e
+  ansible_password=DevOps321 <file_name>
