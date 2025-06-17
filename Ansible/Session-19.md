@@ -15,9 +15,8 @@
 - 16.tags.yaml
 
 ### Points to remember
-- Create 2 servers, for example below.
-- Ansible server make sure to install ansible in the server by "sudo yum install ansible -y" then it becomes
+- Create 2 servers, Ansible and Node.
+- Make sure to install ansible in the Ansible-Server by "sudo yum install ansible -y" then it becomes
   ansible server.
-- Then gitbash, pull in server and execute by following command.
-- ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321
-  <playbook-name>
+- Command ---> ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321
+  <playbook_name>
