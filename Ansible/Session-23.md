@@ -1,10 +1,10 @@
 ### Ansible.cfg
-- It is a configuration file, we can control everything from here, if we enter "ansible --version" in the
-  server terminal, we can see from where the configuration file is loading.
-- Generally config_file will be in "/etc/ansible/ansible.cfg"
+- It is ansible configuration file, we can control everything from here, if we enter "ansible --version" in
+  the server terminal, we can see from where the configuration file is loading.
+- Generally config_file will be in default location ---> "/etc/ansible/ansible.cfg"
 - For example create a folder "mkdir test" in CD location.
-- Then cd test/ and "cp /etc/ansible/ansible.cfg", then pwd will be "/home/centos/test"
-- Then "export ANSIBLE_CONFIG=/home/centos/test/ansible.cfg" nothing but setting up env variable.
+- Then cd test/ and "cp /etc/ansible/ansible.cfg .", then pwd will be "/home/centos/test"
+- Then "export ANSIBLE_CONFIG=/home/centos/test/ansible.cfg" nothing but i have given first preference.
 - When you do "ansible --version" in any location then you can see ansible_config file is loading from the
   "/home/centos/test/ansible.cfg" location. Only if you set in "ANSIBLE_CONFIG" and incase if you "UNSET" this
   environment variable using "unset ANSIBLE_CONFIG", now it will be loading from the default location that is
