@@ -6,19 +6,20 @@
 - Then cd test/ and "cp /etc/ansible/ansible.cfg .", then pwd will be "/home/centos/test"
 - Then "export ANSIBLE_CONFIG=/home/centos/test/ansible.cfg" nothing but i have given first preference.
 - When you do "ansible --version" in any location then you can see ansible_config file is loading from the
-  "/home/centos/test/ansible.cfg" location. Only if you set in "ANSIBLE_CONFIG" and incase if you "UNSET" this
-  environment variable using "unset ANSIBLE_CONFIG", now it will be loading from the default location that is
-  "/etc/ansible/ansible.cfg"
+  "/home/centos/test/ansible.cfg" location. Only if you set in "ANSIBLE_CONFIG" and incase if you "UNSET" this,
+  environment variable using "unset ANSIBLE_CONFIG", now it will be loading from the default location
+  that is "/etc/ansible/ansible.cfg"
   
 So changes can be made and used in a configuration file which will be searched for in the following order
 - ANSIBLE_CONFIG (environment variable if set)
 - ansible.cfg (in the current directory)
 - ~/.ansible.cfg (in the home directory)
 - /etc/ansible/ansible.cfg
+
 So instead of giving -i inventory -e user_name -e password to the command, we can put this is ansible.cfg and command usage is "ansible-playbook -e component=mongodb main.yaml"
 
 ### Templates in roles
-Templates is nothing but a place holders, where we will submit our required values at the run time and it is a Jinja2 format, go through the code in VS.
+Templates is nothing but a place holders, where we will submit our required values at the run time and it is a Jinja2 format and extension is .j2, go through the code in VS. Like we have used for catalogue.service files.
 
 ### Handlers in roles
 Sometimes you want a task to run only when a change is made on machine. For example you may want to restart a service if a task updates the configuration of that service, but not if the configuration is unchanged. So Ansible uses Handlers to address this usecase, for this we use "notify", why we use this handlers because some servers will take 2-3 mins of time and other servers like nginx it will not take more time to restart, it will take few seconds thats it.
