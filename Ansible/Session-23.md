@@ -10,7 +10,7 @@
   incase if you "UNSET" this environment variable, using "unset ANSIBLE_CONFIG", now it will be loading from
   the default location that is "/etc/ansible/ansible.cfg"
 - We have many options in "ansible configuration settings" file nothing but "ansible.cfg". We may not use all
-  the options, we only use what we required like inventory_path,ask_vault,timeout,user_name,passwords etc.
+  the options, we only use what we required like inventory_path, ask_vault, timeout, user_name, passwords etc.
   
 So changes can be made and used in a configuration file which will be searched for in the following order
 - ANSIBLE_CONFIG (environment variable if set)
