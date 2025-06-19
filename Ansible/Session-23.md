@@ -10,7 +10,7 @@
   incase if you "UNSET" this environment variable, using "unset ANSIBLE_CONFIG", now it will be loading from
   the default location that is "/etc/ansible/ansible.cfg"
 - We have many options in "ansible configuration settings" file nothing but "ansible.cfg". We may not use all
-  the options, we only use what we required like inventory_path,ask_vault,timeout etc.
+  the options, we only use what we required like inventory_path,ask_vault,timeout,user_name,passwords etc.
   
 So changes can be made and used in a configuration file which will be searched for in the following order
 - ANSIBLE_CONFIG (environment variable if set)
@@ -35,4 +35,3 @@ Tags.yaml is to run a particular tag ---> ansible-playbook -t devops 16.tags.yam
 - To create a full config_file "ansible-config init --disabled > ansible.cfg"
 - We should not restart the service unnecessarily in production env, only do when it is required.
 - If you want to run a particular task, then we use Tags.
-- Passwords will not work in ansible.cfg file, you can give in the inventory.ini
