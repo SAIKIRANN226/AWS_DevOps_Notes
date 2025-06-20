@@ -1,14 +1,15 @@
 ### Ansible vault
-Till now we have given passwords in the terminal or in the ansible.cfg file right ? but it is not secure, so we now use ansible-vault, nothing but storage of secrets like keys,passwords etc.
+Till now we have given passwords (or) usernames in the terminal (or) in the ansible.cfg file right ? but it is not secure, so we now use ansible-vault, nothing but storage of secrets like keys,passwords etc.
 - Encoding ---> A proper pattern to encode the text, in this format everybody can guess the secret.
-- Encryption ---> Generating a random text with mathematic algorithm tough to guess, so we encrypt ansible
-  vault, so those who know the password, they can only dycrypt the code.
+- Encryption ---> Generating a random text using mathematic algorithm (AES256) tough to guess, so we encrypt
+  ansible-vault, those who know the password, they can only decrypt the code.
 - asaiaavaa ----> sai (encoding)
 - hsdh234sk456jdksd ----> sai (encryption)
 
 ### How to create ansible vault in ansible-server ?
+- "ansible-vault create /path/<some_name>.yaml"
 - Create one folder for "vault" and a sample playbook (01-playbook.yaml) inside the vault in VS.
-- Create group_vars folder inside the vault in server and then 
+- Create "group_vars" folder inside the vault in server.
 - For example create a vault inside the group_vars folder using "ansible-vault create group_vars/web.yaml"
 - Set vault password and then enter your values like ansible_user: centos ; ansible_password: DevOps321
 - So now we have web component username and password is in group_vars/web.yaml
@@ -36,14 +37,15 @@ Till now we have given passwords in the terminal or in the ansible.cfg file righ
   to connect to aws ec2, we can fetch IP_addresses. That is nothing but "AWS Dynamic inventory plugin"
 
 ### Points to remember
-- We use ansible.cfg to minimize the commands while running the script in server.
-- If esc button is not working while saving the file you can use "ctrl+esc" or "ctrl+c" button
-- Use "ansible-vault encrypt group_vars/<some-name>.yaml" if already has existing vault.
+- We use ansible.cfg to minimize the commands (or) arguments to the script in server.
+- If esc button is not working while saving the file you can use "ctrl+esc" or "ctrl+c" button.
+- Use "ansible-vault encrypt group_vars/<some_name>.yaml" if already has existing vault.
 - If you want to edit then "ansible-vault edit web.yaml"
-- If you want to know wether it is encrypted or not ? then "cat group_vars/<some-name>.yaml"
+- If you want to know wether it is encrypted or not ? then "cat group_vars/<some_name>.yaml"
 - If you want to see then "ansible-vault view group_vars/<some-name>.yaml"
 - You can use ansible-vault anywhere in the roboshop project for any components you want.
 - Earlier we used Ansible-vault and we migrated to AWS SSM Parameter store since our entire infra is in AWS.
 - Boto and botocore are aws python modules, we need to install latest, "sudo yum list | grep pip", then install
   sudo yum install python3.11-pip.noarch -y
 - Then "pip3.11 install boto3 botocore"
+- We can't create ansible-vault in windows (VS), so thats why we used linux server to create the vault.
