@@ -2,11 +2,12 @@
 Till now we have given passwords (or) usernames in the terminal (or) in the ansible.cfg file right ? but it is not secure, so we now use ansible-vault, nothing but storage of secrets like keys,passwords etc.
 - Encoding ---> A proper pattern to encode the text, in this format everybody can guess the secret.
 - Encryption ---> Generating a random text using mathematic algorithm (AES256) tough to guess, so we encrypt
-  ansible-vault, those who know the password, they can only decrypt the code.
+  ansible-vault, those who know the password, they can only decrypt the code. Below are the examples.
 - asaiaavaa ----> sai (encoding)
 - hsdh234sk456jdksd ----> sai (encryption)
 
 ### How to create ansible vault in ansible-server ?
+The flow is inside the Practice folder, you need to create vault/group_vars/ create a vault inside the group_vars folder only, however it will be empty only, folders from the linux server not from the VS. And also create ansible.cfg,inventory.ini and your playbook files. Make sure to put "ask_vault_pass=True" in ansible.cfg
 - "ansible-vault create /path/<some_name>.yaml"
 - Create one folder for "vault" and a sample playbook (01-playbook.yaml) inside the vault in VS.
 - Create "group_vars" folder inside the vault in server.
