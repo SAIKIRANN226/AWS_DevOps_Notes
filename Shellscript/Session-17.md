@@ -83,7 +83,7 @@ If you want to run the shellscript as a native linux command instead of "sh 18-g
 - To see the logs of crontab "tail -f /var/log/cron" 
 - Go through "roboshop.sh" in VS.
 - Tag specifications is used to give the names of the instances automatically.
-- --query is to get the Private_IP of the instances.
+- --query is to get the Private_IP of the instances nothing but query from the existing resource.
 - Important point, So overall create any one instance and give a role to it, so that it will create multiple
   instances from this instance only, you need to clone the "roboshop-shellscript" in this server and run the
   "roboshop.sh" script.
