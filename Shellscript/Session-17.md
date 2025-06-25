@@ -1,6 +1,5 @@
 ### What is crontab and why it is useful ?
-Instead of logging manually and deleting old log files with .log extensions, we can delete using crontab.
-Crontab is used for scheduling the scripts and it will trigger to delete the old log files everyday in our servers. Crontab will target a particular directory, which consist of more than 14 days old with ".log" extensions only, so crontab has a particular syntax, which consist of 5 stars like "5 4 * * *" go and check crontab guru website and you can see the examples provided in the website itself, just see the crontab linux example in the same website.
+Instead of logging manually and deleting old log files with .log extensions, we can delete using crontab. Crontab is used for scheduling the scripts and it will trigger to delete the old log files everyday in our servers. Crontab will target a particular directory inside the script, which consist of more than 14 days old with ".log" extension only, so crontab has a particular syntax, which consist of 5 stars like "5 4 * * *" go and check crontab guru website and you can see the examples provided in the website itself, just see the crontab linux example in the same website.
 
 ### Usage of crontab and giving the script location
 - Just type "crontab -e" in server in CD location (-e is editor), then enter the below line.
@@ -33,7 +32,7 @@ If you want to run the shellscript as a native linux command instead of "sh 18-g
 1. Team Manager --> Has super admin
 2. Team Lead --> Has admin
 3. Senior Engineers --> Normal access
-4. Trainee --> Just read access 
+4. Trainee --> Just read access
 
 ### Permissions
 - We have nouns and verbs.
@@ -52,8 +51,8 @@ If you want to run the shellscript as a native linux command instead of "sh 18-g
 - Not only for persons, resources should also have access to access another resource, for that we have "roles
   to resources" like for example if you have created one EC2 and this EC2 instance should go and create other
   new instances (or) route53 records.
-- So we need to give role to the EC2 by going to IAM/roles/create_role/select_EC2 as a use case/next/admin
-  access (or) amazonEc2fullaccess/route53 full access/give any name to the role.
+- So we need to give role to the EC2 by going to IAM/roles/create_role/select_EC2 as use_case/next/admin
+  access (or) amazonEc2fullaccess/route53 full_access/give any name to the role.
 - Now select the already created instance & Actions/Security/Modify_IAM_role/Select your created role.
 - If you got any error remove the old credentials, which was created for aws console in .aws folder by using
   rm -rf command.
