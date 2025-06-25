@@ -62,7 +62,7 @@ If you want to run the shellscript as a native linux command instead of "sh 18-g
   903004f8 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Saikiran_instance}]'
 - Use this command to list instances and find the one with your specific Name tag:- aws ec2 describe-instances
   --filters "Name=tag:Name,Values=MyInstanceName" --query
-  "Reservations[*].Instances[*].InstanceId" --output text
+  "Reservations[].Instances[].InstanceId" --output text
 - aws ec2 terminate-instances --instance-ids i-0abc123456def7890
 - If you get error "Unable to locate credentials, you can configure by "aws configure".
 - Before "aws configure", you need to create Administrator user. By going to IAM, Users, Create user, Attach
