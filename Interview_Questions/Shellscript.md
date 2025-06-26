@@ -53,5 +53,8 @@ I will pass the arguments while executing the script like "sh greetings.sh morni
       do
          echo "$arg"
       done
+### How do you handle errors in shellscript ?
+We have one disadvantage in shellscript is even if it is facing error i wont stop, so we use a special variable "$?" to exit, we can also use "set -e" but it will not work everywhere, like for example while configuring a project we may create new folders or users etc. So when you set -e in the script, if will exit in the first step without creating user or folder, because there is no folder for the first time right, so thats why better to use $? only.
+### 
       
 
