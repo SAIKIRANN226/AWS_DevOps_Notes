@@ -15,3 +15,43 @@
           echo -e "$G "Fetching list of aws s3 buckets...$N"
       fi
 
+      aws s3 ls
+### How do you write a shellscript to backup a directory everyday ?
+      #!/bin/bash
+
+      SOURCE_DIR="path/to/your/data"
+      BACKUP_DIR="path/to/your/backups"
+      DATE=$(date +%F)
+      BACKUP_NAME="backup-$DATE.tar.gz"
+
+      echo "Backing up $SOURCE_DIR into $BACKUP_DIR"
+      mkdir -p "$BACKUP_DIR"
+      tar -czf "$BACKUP_DIR" "$SOURCE_DIR"
+
+      if [ $? -ne 0 ]
+      then 
+          echo -e "$R Backup FAILED $N"
+          exit 1
+      else
+          echo -e "$G Backup SUCCESSFUL $N"
+      fi
+### How do you pass the arguments to the shellscript ?
+I will pass the arguments while executing the script like "sh greetings.sh morning", i receive the args inside the shellscript using special variables $1,$2 etc.
+### What is the diff btw $@ and $* in bash script ?
+- $@ ---> Expands each argument individually
+- $* ---> Joins all arguments as one string
+
+      #!/bin/bash
+      echo "using $@"
+      for arg in "$@"
+      do
+         echo "$arg"
+      done
+
+      echo "using $*"
+      for arg in "$*"
+      do
+         echo "$arg"
+      done
+      
+
