@@ -58,3 +58,4 @@ Go through 11-logs.sh, 12-loops.sh files in VS.
   here in terminal, if you get any errors (or) not working properly you can delete that folder and clone again
   from the github (no problem)
 - To remove any package "sudo dnf remove <package_name>"
+- You can also redirect the output like this ? "yum install nginx -y > output.text"
