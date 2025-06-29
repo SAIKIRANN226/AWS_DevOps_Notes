@@ -88,5 +88,6 @@ old-logs.sh -s <source_dir> -a <archive/delete> -d <destination_dir> -t <no_of_d
   gmail.MD document, or if your company provides the email configuration document just simply follow that.
 - So configuring gmail.MD document for sending mails is morethan enough.
 - Monitoring team responsibility is to monitor servers,websites etc. If websites are down then monitoring team
-  will send alerts to Developers team, if servers are down then monitoring team will send alerts to DevOps team
+  will send alerts to Developers team, if servers are down then monitoring team will send alerts to DevOps
+  team.
 - Creating disk is the work of "Storage team" not DevOps. But just know how it works.
