@@ -1,22 +1,18 @@
 ### 08-conditions.sh
-      if(expression) {
-         statement if expression is true
-      }
-      if(expression) {
-         statement if expression is false
-      }
+See the conditions example in VS.
+
 ### 09-install-mysql.sh
 Installing multiple packages using shellscript.
 
 ### Algorithm for installing any package
-- Check user is root (or) not ?
+- Check if user is root (or) not ?
 - If root proceed, If not root, stop and say run with root user.
 - Now install mysql.
 - Check wether the package is installed properly (or) not ?
 - If success then good, if not success then show what is the error.
 
 ### Root user and exit status $?
-How to know if it is root user (or) not ? You just enter "id" in the server terminal with root access sudo -, There you can see root user has "id=0" (or) "id -u" then you get root ID, other than zero it is not root user. Shellscript won't stop if it faces any error, it is our responsibility to stop and solve the error and then proceed, for that we have "exit status", that means we need to check the previous command success (or) not ? for that we have special variable "$?" ---> If success it has "0", if failure "not 0" (otherthan 0 any number).
+How to know if it is root user (or) not ? You just enter "id" in the server terminal with root access sudo -, There you can see root user has "id=0" (or) "id -u" then you get root ID, other than zero it is not root user. Shellscript won't stop even if it faces any error, it is our responsibility to stop and solve the error and then proceed, for that we have "exit status", that means we need to check the previous command success (or) not ? for that we have special variable "$?" ---> If success it has "0", if failure "not 0" (otherthan 0 any number)
 
 ### 10-functions.sh
 We can put the repeated code in the function, generally we keep functions under VARIABLES, we give args to the shellscript, similarly we need to give inputs to the functions also. You have run the script right ? then where is that log ? There will be NO logs in "less /var/log/messages", we need to store that logs, otherwise we cannot troubleshoot, make sure you should not log in the current folder of server come outside and then do, this is just to show how it works rightnow, for example just type "ls -ltr" in the terminal you can see all the files including hidden and when you "clear" it is gone, so we need to store that by following below steps, not only ls -ltr we can do for any command.
