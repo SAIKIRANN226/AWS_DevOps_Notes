@@ -37,7 +37,7 @@ Till now we have given passwords (or) usernames in the terminal (or) in the comm
 - When auto-scaling is created, ansible will connect to AWS to fetch the IP_addresses of the newly created
   servers (using auto-scaling). How ansible will fetch IP_addresses dynamically ? 
 - If you want to run update to the all the web instances then "ansible-instance" should connect to AWS and
-  fetch instances with name "web" which are present in us-east-1 region. We use "ansible ec2 inventory" Go
+  fetch instances with name "web" which are present in us-east-1 region. We use "aws ec2 inventory" Go
   through the "web.aws_ec2.yaml" file in the VS. Paste the content of "web.aws_ec2.yaml" in the server in CD
   location using "vim web.aws_ec2.yaml"
 - Make sure to install "botocore and boto3" then only plugins will work.
