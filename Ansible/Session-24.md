@@ -7,13 +7,13 @@ Till now we have given passwords (or) usernames in the terminal (or) in the ansi
 - hsdh234sk456jdksd ----> sai (encryption)
 
 ### How to create ansible vault in ansible-server ?
-- Practice folder (Your working directory)
-- vault folder (Create inside the Practice folder), if we create vault folder in VS(windows) it will not
+- Practice folder (your working directory)
+- vault folder (create inside the Practice folder), if we create vault folder in VS(windows) it will not
   reflect in the server, so you need to create in linux server only, same for group_vars also.
-- group_vars folder (Create inside the vault folder)
+- group_vars folder (create inside the vault folder)
 - Create vault file inside the group_vars folder using below command.
 - "ansible-vault create Practice/vault/group_vars/some_name.yaml"
-- Create ansible.cfg, inventory.ini and your playbook files (Inside the Practice folder not in vault or
+- Create ansible.cfg, inventory.ini and your playbook files (inside the Practice folder not in vault or
   group_vars folders)
 - Put "ask_vault_pass=True" in ansible.cfg (or) "ansible-playbook 01-playbook.yaml --ask-vault-pass"
 - How to connect to the instance ? "ansible-playbook 01-playbook.yaml" since we have inventory in
