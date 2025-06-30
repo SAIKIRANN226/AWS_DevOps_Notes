@@ -8,7 +8,8 @@ Till now we have given passwords (or) usernames in the terminal (or) in the ansi
 
 ### How to create ansible vault in ansible-server ?
 - Practice folder (Your working directory)
-- vault folder (Create inside the Practice folder)
+- vault folder (Create inside the Practice folder), if we create vault folder in VS(windows) it will not
+  reflect in the server, so you need to create in linux server only, same for group_vars also.
 - group_vars folder (Create inside the vault folder)
 - Create vault file inside the group_vars folder using below command.
 - "ansible-vault create Practice/vault/group_vars/some_name.yaml"
