@@ -25,14 +25,14 @@ Till now we have given passwords (or) usernames in the terminal (or) in the comm
 ### Dynamic Inventory
 - Till now we dint used aws cloud services completely, its like a on-premise for us, like we have only servers
   and domains thats it.
-- For example our situation is like we had on-premise servers, and applications are deployed manually and
-  later on we used shellscript to configure the project and because of ansible advantages we used ansible to
+- For example our situation is like we had on-premise servers and applications are deployed manually and
+  lateron we used shellscript to configure the project and because of ansible advantages we used ansible to
   configure the project, but when this ansible is useful ? If we have more servers to configure then we can
   use ansible, if you have less servers we can configure the project using shellscript only.
 - After digital revolution from 2016, "Auto-scaling of servers is highly required" If traffic increases,
   servers should automatically create, if traffic decreases then servers should automatically delete.
-- For example we have 10 servers now, because of traffic and i need to run (or) manage these servers using
-  ansible-playbook. Tillnow we targeted single server only using ansible, but we never targted multiple
+- For example we have 10 servers now because of traffic and i need to run (or) manage these servers using
+  ansible-playbook. Tillnow we targeted single server only using ansible, but we never targeted multiple
   servers at a time.
 - When auto-scaling is created, ansible will connect to AWS to fetch the IP_addresses of the newly created
   servers (using auto-scaling). How ansible will fetch IP_addresses dynamically ? 
@@ -54,8 +54,9 @@ Till now we have given passwords (or) usernames in the terminal (or) in the comm
 
 ### What is Plug and Play
 - If your ansible-server wants to connect to the external systems like aws,azure,gcp or alibaba etc. Then we
-  need to add some plug (of azure,gcp or alibaba), thats what we call plug, similarly if ansible have plugin
-  to connect to aws ec2, then we can fetch IP_addresses. That is nothing but "AWS Dynamic inventory plugin"
+  need to add some plug (of aws,azure,gcp or alibaba), thats what we call plug, similarly if ansible have
+  aws plugin to connect aws ec2, then we can fetch IP_addresses. That is nothing but "AWS Dynamic inventory
+  plugin"
 
 ### Points to remember
 - We use ansible.cfg to minimize the commands (or) arguments to the script in server.
@@ -63,11 +64,8 @@ Till now we have given passwords (or) usernames in the terminal (or) in the comm
 - Use "ansible-vault encrypt group_vars/<some_name>.yaml" if already has existing vault.
 - If you want to edit then "ansible-vault edit web.yaml"
 - If you want to know wether it is encrypted or not ? then "cat group_vars/<some_name>.yaml"
-- If you want to see then "ansible-vault view group_vars/<some-name>.yaml"
+- If you want to see then "ansible-vault view group_vars/<some_name>.yaml"
 - You can use ansible-vault anywhere in the roboshop project for any components you want.
-- Earlier we used Ansible-vault and we migrated to AWS SSM Parameter store since our entire infra is in AWS.
-- Boto and botocore are aws python modules, we need to install latest, "sudo yum list | grep pip", then install
-  sudo yum install python3.11-pip.noarch -y
-- Then "pip3.11 install boto3 botocore"
-- We can't create ansible-vault in windows (VS), so thats why we used linux server to create the vault folder
-  and group_vars folders and inside the group_vars folder we create vault using command.
+- Earlier we used Ansible-vault and recently we migrated to AWS SSM Parameter store, since our entire infra is
+  in AWS. We integrated ansible-vault with SSM Parameter to fetch the values from the AWS. Which is a seamless
+  integration instead of using ansible-vault and ansible-vault commands.
