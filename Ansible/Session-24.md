@@ -53,8 +53,8 @@ Till now we have given passwords (or) usernames in the terminal (or) in the comm
   instance will give us replay "pong"
 
 ### What is Plug and Play
-- If your ansible-server wants to connect to the external systems like azure,gcp or alibaba etc. Then we need
-  to add some plug (of azure,gcp or alibaba), thats what we call plug, similarly if ansible have plugin
+- If your ansible-server wants to connect to the external systems like aws,azure,gcp or alibaba etc. Then we
+  need to add some plug (of azure,gcp or alibaba), thats what we call plug, similarly if ansible have plugin
   to connect to aws ec2, then we can fetch IP_addresses. That is nothing but "AWS Dynamic inventory plugin"
 
 ### Points to remember
