@@ -1,11 +1,8 @@
 ### Importance of .gitignore
-Note:- Dont forget to put ".gitignore" file in the terraform root folder, not only in terraform root 
-folder, for example if you are creating any other new folder to work, and if you want .gitignore here also
-you can but it is not mandatory, keeping in root folder is enough, so when you do "terraform init" then terraform will download the provider in ".terraform" folder and this provider memory is almost 350mb. Here github is only to store code not software (or) .exe files, so github will automatically reject, so thats 
-why .gitignore is important here (or) A .gitignore file tells to Git which files or directories to ignore (i.e., not track or commit) in your repository, so that we can 
-1. Avoid committing sensitive files (e.g., credentials).
-2. Skip auto-generated or local-only files.
-3. Keep the repository clean and portable
+Note:- Dont forget to put ".gitignore" file in the terraform root folder, not only in terraform root folder, for example if you are creating any other new folder to work, and if you want .gitignore here also you can put, but it is not mandatory. Keeping in root folder is enough, so when you do "terraform init" then terraform will download the provider in ".terraform" folder and this provider memory is almost 350mb. Here github is only to store code not like software (or) .exe files, so github will automatically reject, so that is why .gitignore is important here (or) A .gitignore file tells to Git which files or directories to ignore (i.e., not to track or commit) in your repository, so that we can 
+- Avoid committing sensitive files (e.g., credentials)
+- Skip auto-generated or local-only files.
+- Keep the repository clean and portable.
 
 ### Terraform.tfvars, instance_type = "t3.small" 
 - If you dont give the default value in variables.tf, terraform will ask for the prompt, so if you create
@@ -13,27 +10,18 @@ why .gitignore is important here (or) A .gitignore file tells to Git which files
   the value of terraform.tfvars only.
 - We can also give from the command prompt by using the below command
   "terraform plan -var="instance_type=t3.medium"
-- Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars" and this will 
-  become file and we can pass variable file by using "terraform plan -var-file="saikiran.tfvars"
-- Environment variable.
+- Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars" and this will become
+  file and we can pass variable file by using "terraform plan -var-file="saikiran.tfvars"
 
-### Variable preferences in terraform - VS
+### Variable preferences in terraform
 1. command line ---> terraform plan -var="instance_type=t3.small"
 2. -var-file ---> terraform plan -var-file="saikiran.tfvars"
 3. terraform.tfvars 
 4. ENV variables.
 
 ### Conditions - VS
-
-	if(expression) {
-		if true this will run
-	}
-	else {
-		if false this will run
-	} 
-
-### We have one line condition also that is 
-Expression ? "this will run if true" : "this will run if false" ---> Terraform will follow this only
+Go through the conditions example in VS. We have one line condition also that is the below one
+Expression ? "this will run if true" : "this will run if false" ---> Terraform will follow this only.
 
 ### Loops are two types
 1. Count based loop --> To iterate list
