@@ -1,6 +1,6 @@
 ### Locals in terraform
 Count.index will not have access in the locals, because count is used to create multiple instances and 
-also to reference the current iteration index. The locals block does not support iteration constructs like for_loops or count directly. As a result, there’s no mechanism to access count.index within it. We can only put expressions,conditions and functions inside the locals and use it anywhere.
+also to reference the current iteration index. The locals block does not support iteration constructs like for_loops or count directly. As a result, there’s no mechanism to access count.index in locals. We can only put expressions,conditions and functions inside the locals and use it anywhere.
 
 ### Syntax of locals
 
