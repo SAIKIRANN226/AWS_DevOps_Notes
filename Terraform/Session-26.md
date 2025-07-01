@@ -34,29 +34,15 @@ that only. Example:- max(5,12,23) --> max is the function and we are giving inpu
 will give output that is 23, similarly we have other functions also, and we have used length function 
 like this "length(var.instance_names)" this will calculate the length in list automatically.
 
-### Locals in terraform
-Locals is just like variables but it has some extra capabilities, you can keep functions,expressions
-and conditions inside a local and use them anywhere in the script and the locals syntax is below.
-
-          locals {
-             name = "saikiran"
-             training = "devops"
-             instance_type = var.isProd ? "t3.small" : "t2.micro"
-          }
-          
-Then how to call a local ---> "local.instance_type"
-
 ### Syntax of output in terraform
-
 	output "instance_info" {
 	     value = "aws_instance.web"
 	}
-
 ### Points to remember
-- You need to see the output.tf also in count folder |VS|, output is nothing but attributes reference,
-  we can see this in terraform document, like for example you have created ec2 instance but we need 
-  to know few output like what is PublicIP or PrivateIP etc. Output block is used to print the output
-  of the resources in the terminal.
+- You need to see the output.tf also in count folder |VS|, output is nothing but attributes reference, we can
+  see this in terraform document, like for example you have created ec2 instance but we need to know few
+  outputs like what is PublicIP or PrivateIP etc. Output block is used to print the output of the resources in
+  the terminal.
 - Important point is that you must save all files of terraform then only run the terraform commands.
-- How to See Git directory size ? "du -sh .git" useful when it is slow while pushing to the github
-  but still i dont get it need to know this later.
+- How to see Git directory size ? "du -sh .git" useful when it is slow while pushing to the github but still i
+  dont get it need to know this later.
