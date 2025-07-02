@@ -4,7 +4,7 @@
 3. Different Repos for different Environments
 
 ### 1. Terraform.tfvars method
-This method is used to overwrite the default values in variables.tf. For example we want
+This method is used to overwrite the default values in variables.tf, For example we want
 - web-dev/mongodb-dev/catalogue-dev/redis-dev/user-dev/cart-dev etc.
 - web-qa/mongodb-qa/catalogue-qa/redis-qa/user-qa/cart-qa etc.
 - web-uat/mongodb-uat/catalogue-uat/redis-uat/user-uat/cart-uat etc.
@@ -37,10 +37,13 @@ Nothing but creating different repositories for different environments, better t
   that will apply to all env's also
 ### Second approach is best ?
 - Pros ---> same code
-- Cons ---> same code for multiple environments, you need to be very careful because whatever changes you do that will apply to all env's also. Terraform is also maintaining same bucket that may cause errors and difficult to maintain variables.
+- Cons ---> same code for multiple environments, you need to be very careful because whatever changes you do
+  that will apply to all env's also. Terraform is also maintaining same bucket that may cause errors and
+  difficult to maintain variables.
 ### Third approach is best ?
 - Pros ---> since everything is different you no need to worry
-- Cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial project better to maintain this method, or we can go for either of remaining 2 methods.
+- Cons ---> you need to maintain code duplication 2 repos, if it is big project or crucial project better to
+  maintain this method, or we can go for either of remaining 2 methods.
 
 ### Provisioners (2types) is only for Ec2 instances
 1. Local-exec ---> This provisioner in terraform is a specific block with in the resource that let you
@@ -58,9 +61,9 @@ Nothing but creating different repositories for different environments, better t
            }
          }
 
-The local-exec provisioner run the commands or scripts on the local machine where Terraform is executed (i.e., the machine running the terraform apply command). It does not interact directly with the remote resource being provisioned. (or) local is where you are running terraform command (laptop) is nothing but gitbash, then local is your current laptop, if you run terraform command from the linux server. What will be the local here ? local will be the linux server. Note:- local-exec will run only one time, to run again you need to destroy first (or) The local-exec provisioner in Terraform allows you to run a local shell command on the machine where Terraform is being run (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering tools, or debugging.
+local-exec ---> This provisioner run the commands or scripts on the local machine where Terraform is executed (i.e., the machine running the terraform apply command). It does not interact directly with the remote resource being provisioned. (or) local is where you are running terraform command (laptop) is nothing but gitbash, then local is your current laptop, if you run terraform command from the linux server. What will be the local here ? local will be the linux server. Note:- local-exec will run only one time, to run again you need to destroy first (or) The local-exec provisioner in Terraform allows you to run a local shell command on the machine where Terraform is being run (not the remote EC2 or server). It's commonly used for tasks like calling scripts, triggering tools, or debugging.
 
-2. Remote-exec ---> This provisioner is used to run commands on a remote resource (like a virtual machine or EC2 machine) after it's been created, typically over SSH (for Linux) or WinRM (for Windows). Suppose you provision an EC2 instance using Terraform. You want to install nginx on it automatically after it's created. That's where remote-exec helps. Below is the example of remote-exec and syntax of a remote-exec provisioner with in the resource.
+Remote-exec ---> This provisioner is used to run commands on a remote resource (like a virtual machine or EC2 machine) after it's been created, typically over SSH (for Linux) or WinRM (for Windows). Suppose you provision an EC2 instance using Terraform. You want to install nginx on it automatically after it's created. That's where remote-exec helps. Below is the example of remote-exec and syntax of a remote-exec provisioner with in the resource.
 
          resource "aws_instance" "web" {
             ami           = "ami-0c55b159cbfafe1f0"
@@ -85,8 +88,10 @@ The local-exec provisioner run the commands or scripts on the local machine wher
 This will run inside the server, first you should connect to the server, then you can run anything inside the server (or) remote-exec provisioner in Terraform, which runs commands on the remote resource (like an EC2 instance) after it's created. Provisioners are useful to integrate terraform with configuration management tools like ansible to get end to end automation, and also enable a keyword called "self"
 
 ### Key-points of local-exec and remote-exec
-1. Local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No remote access is need.
-2. Remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares,configure ec2 post setup ---> Need SSH/WinRM to access remote host.
+- Local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No
+  remote access is need.
+- Remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares,configure ec2 post
+  setup ---> Need SSH/WinRM to access remote host.
 
 ### What is difference between Terraform and Ansible ?
 Ansible ---> Is intended for configuration management, what is the main input for the configuration management ? server must be created, so if you have server available, wether it is onpremise or in cloud, then we can use ansible to configure the server, server configuration is nothing but configuration management.
