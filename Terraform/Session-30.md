@@ -40,7 +40,8 @@ So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC". Now 
 
 ### Terraform-aws-vpc Module development in VS
 - Terraform-aws-vpc ---> Is a module we are developing.
-- Terraform-vpc-test ---> Is we are testing wether the module is working or not.
+- Terraform-vpc-test ---> Is we are testing wether the module is working or not (or) You can put the test code
+  inside the "Terraform-aws-vpc" folder by creating another folder as "example"
 
 ### Now create below all these using terraform code
 - Create VPC
