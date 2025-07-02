@@ -7,15 +7,14 @@ Dry concept, dont repeat yourself. For example we created infrastructure for a p
 	      
 ### Two types of modules and Two types of roles
 1. Customised modules for our organisation, this will be developed by central team in cloud.
-2. Open-source modules. "Module Developer" Who develops the module and "Module User" Who consumes the module.    Note:- Put one README.md file to provide the documentation on the module how to use it by others, purely
-   its DevOps responsibility.
+2. Open-source modules. "Module Developer" Who develops the module and "Module User" Who consumes the module.
+Note:- Put one README.md file to provide the documentation on the module how to use it by others, purely its DevOps responsibility.
 
 ### VPC - Virtual Private Cloud
-Amazon VPC is a virtual network that you create in AWS. It’s your own isolated section of the AWS cloud where you can launch AWS resources (like EC2 instances, databases, etc.) in a secure and controlled environment. Think of it like your own private data center in aws cloud. Breaking main building blocks of vpc as below.
-
+Amazon VPC is a virtual network that you create in AWS. It’s your own isolated section of the AWS cloud where you can launch AWS resources (like EC2 instances, databases, etc.) in a secure and controlled environment. Think of it like your own private data center in aws cloud. Breaking main building block of VPC as below.
 - Subnets ----> Divides your VPC into smaller networks. Can be public or private.
 - Route tables ---> Controls how traffic is routed within the VPC and outside (like to the internet).
-- Internet Gateway (IGW) ---> Allows public to access internet to resources in public subnets.
+- Internet Gateway(IGW) ---> Allows public to access internet to resources in public subnets.
 - NAT Gateway Instance ---> Lets private subnets access the internet without being exposed.
 - Security Groups ---> Act as firewalls for instances (e.g., EC2).
 - Network ACLs ---> Act as firewalls for subnets.
