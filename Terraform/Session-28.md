@@ -4,7 +4,7 @@
 3. Different Repos for different Environments
 
 ### 1. Terraform.tfvars method
-This method is used to overwrite the default values in variables.tf. For example we want 
+This method is used to overwrite the default values in variables.tf. For example we want
 - web-dev/mongodb-dev/catalogue-dev/redis-dev/user-dev/cart-dev etc.
 - web-qa/mongodb-qa/catalogue-qa/redis-qa/user-qa/cart-qa etc.
 - web-uat/mongodb-uat/catalogue-uat/redis-uat/user-uat/cart-uat etc.
@@ -23,7 +23,7 @@ So we have web-dev, web-qa, web-uat, web-prod. How to control this ?
 - terraform apply -var-file=dev/dev.tfvars -auto-approve
 - terraform destory -var-file=dev/dev.tfvars -auto-approve
 
-So when you do for the next one prod (or) other env then you need to reconfigure (or) when you are switching from one env to another you must reinitialize by using this command. "terraform init -reconfigure -backend-config=prod/backend.tf". [Note:- when you forget to give the -var-file then terraform will take default variables which is in variables.tf, if you now comment out the default variables then terraform will prompt for the values, so you will get know that you forgot to give varfile.
+So when you do for the next one prod (or) other env then you need to reconfigure (or) when you are switching from one env to another you must reinitialize by using this command. "terraform init -reconfigure -backend-config=prod/backend.tf". Note:- when you forget to give the -var-file then terraform will take default variables which is in variables.tf, if you now comment out the default variables then terraform will prompt for the values, so you will get know that you forgot to give varfile.
 
 ### 2. Workspaces method
 We can manage multiple environments using single code (or) same code, only few backends will support this, s3 is one of them. If you want to know workspace commands just "terraform workspace". How to create workspace ? "terraform workspace new dev" do it in gitbash. When you are using terraform it has default variable that is "terraform.workspace", so if you are in dev then the value of terraform.workspace becomes "dev", if you are in prod then the value of terraform.workspace will becomes "prod". So you need to write lookup function, this function works as, if you pass key we can get that value. In tfvars example there are two separate buckets were created like dev/prod, but in workspaces there is only one default bucket "env:/" inside, it will automatically create dev/prod workspaces.
