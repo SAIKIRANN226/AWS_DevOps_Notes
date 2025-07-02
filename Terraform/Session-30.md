@@ -4,7 +4,8 @@
 - Created Public, Private & Database subnets in atleast 2-AZ for High Availability.
 - Created Route tables (Public,Private,Database) and associated it with their respective subnets in two 
   regions 1a and 1b.
-- Added Internet Gateway route in the Public_route table because internet should be enabled in Public.
+- Added Internet Gateway route in the Public_route table because internet should be enabled in Public not in
+  Private, that is the difference.
 - Enabled auto-asign Public_Ipv4 address only to the Public_subnet not in the Private_subnet. Note:- When you
   create VPC, aws will automatically create default route table (10.0.0.0/16) to communicate between subnets.
 
