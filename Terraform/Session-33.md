@@ -1,5 +1,15 @@
 ### How to connect to Private Instances using VPN ?
-![Screenshot 2025-06-04 225101](https://github.com/user-attachments/assets/6df4a952-3eec-4e72-9c53-bd6e21df09c7)
+1. Install a Open-VPN software in your laptop.
+2. In AWS account we have two VPC's 1.Default_VPC and 2.Roboshop_VPC, make sure to have peering connection
+   between these two.
+4. Install VPN in "Default_VPC"
+5. Obviously we have Private instances in "Roboshop_VPC"
+6. Now connection is going from the below steps .
+7. Home-Laptop(Through OPEN_VPN) ---> VPN(In default_VPC) ---> Private_Instance(In Roboshop_VPC)
+8. Security_group rule should be ---> OpenVPN should accept connections from Home ---> Mongodb should accept
+   connections from VPN.
+10. Make sure to enable VPN in all Private_instances.
+
 Since they are Private servers, they dont have PublicIP to connect. According to the diagram, connection is comming from VPN to the mongodb, so we need to enable VPN in mongodb by going to the mongodb_SG/Edit inbound rules/Add rule of SSH, since it is secure connection, and from where it should be opened ? it should be opened from whichever SG is attached to the VPN, that SG should be given in the source, because vpn IP is dynamic. It is changing everytime, so we are giving SG of VPN_instance (which we have created "open-vpn" instance below). Now take mongodb PrivateIP and try to connect in the super putty. If connected, we successfully connected to the Private ec2 through VPN from our home-network to the aws-network.
 - Create one Public_instance (name it like "open-vpn" as your wish) for VPN in Default_VPC and allow-all for
   for security group while creating instance. 
