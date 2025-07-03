@@ -1,30 +1,30 @@
 ### How to connect to Private Instances using VPN ?
-1. Install a Open-VPN software in your laptop.
-2. In AWS account we have two VPC's 1.Default_VPC and 2.Roboshop_VPC, make sure to have peering connection
+1. Install "OpenVPN" software in your laptop.
+2. In AWS account we have two VPC's 1.Default_VPC & 2.Roboshop_VPC, make sure to have peering connection
    between these two.
 4. Install VPN in "Default_VPC"
 5. Obviously we have Private instances in "Roboshop_VPC"
-6. Now connection is going from the below steps .
-7. Home-Laptop(Through OPEN_VPN) ---> VPN(In default_VPC) ---> Private_Instance(In Roboshop_VPC)
-8. Security_group rule should be ---> OpenVPN should accept connections from Home ---> Mongodb should accept
-   connections from VPN.
-10. Make sure to enable VPN in all Private_instances.
+6. Now traffic is routing as below.
+7. Home-Laptop(Through OpenVPN) ---> VPN(In default_VPC) ---> Private_Instance(In Roboshop_VPC)
+8. Security_group rule should be ---> OpenVPN should accept connections from Home ---> Mongodb(Private
+   instances) should accept connections from VPN.
+9. Make sure to enable VPN in all the Private_instances.
 
-Since they are Private servers, they dont have PublicIP to connect. According to the diagram, connection is comming from VPN to the mongodb, so we need to enable VPN in mongodb by going to the mongodb_SG/Edit inbound rules/Add rule of SSH, since it is secure connection, and from where it should be opened ? it should be opened from whichever SG is attached to the VPN, that SG should be given in the source, because vpn IP is dynamic. It is changing everytime, so we are giving SG of VPN_instance (which we have created "open-vpn" instance below). Now take mongodb PrivateIP and try to connect in the super putty. If connected, we successfully connected to the Private ec2 through VPN from our home-network to the aws-network.
+Since they are Private servers, they dont have PublicIP to connect. According to the diagram, connection is coming from VPN to the mongodb, so we need to enable VPN in mongodb by going to the mongodb_SG/Edit_inbound rules/Add_rule_SSH, since it is secure connection, and from where it should be opened ? it should be opened from whichever SG is attached to the VPN, that SG should be given in the source, because vpn IP is dynamic. It is changing everytime, so we are giving SG of VPN_instance (which we have created "open-vpn" instance below). Now take mongodb PrivateIP and try to connect in the super putty. If connected, we successfully connected to the Private ec2 through VPN from our home-network to the aws-network.
 - Create one Public_instance (name it like "open-vpn" as your wish) for VPN in Default_VPC and allow-all for
   for security group while creating instance. 
 - Connect using super putty with PublicIP.
 - Search in google "openvpn install" and use "angristan" person who written script to install openvpn.
 - Run the shown commands in the server by taking sudo access "sudo su -"
-- It will prompt to provide the PublicIP address/say NO for IpV6/default port/TCP/any DNS/NO for compression/NO
+- It will prompt to provide the PublicIP_address/NO_for_IpV6/default_port/TCP/any_DNS/NO_for_compression/NO
   for encryption.
 - Client name :- Give any name like "saikiran"
 - Select passwordless client, which means its a key type.
 - ls -l, you can see like "saikiran.ovpn"
-- Install open-vpn client from google for windows, software is "openvpn connect"
-- Open "openvpn-connect" in your laptop.
+- Download OpenVPN software from google for windows.
+- Open "OpenVPN-connect" in your laptop.
 - Cat saikiran.ovpn, copy and save it as file in notepad++ in your local with file type as all_types, this
-  file is nothing but authentication file, everything is there here only like username or password etc.
+  file is nothing but authentication file, everything is there here only, like username or password etc.
 - Add or upload this file in openvpn connect by pressing + and connect.
 - Then try to connect your Private instance in super putty using PrivateIP.
 
@@ -39,4 +39,4 @@ Since they are Private servers, they dont have PublicIP to connect. According to
 - If you feel slow while doing terraform commands like init, plan, apply in gitbash. It may be because of vpn.
   So disconnect vpn and try.
 - And incase if your Private ec2 like mongodb is unable to connect in super putty that means you dint given
-  ami_id, while creating instance and bydefault it is trying to take "aws-linux"
+  ami_id, while creating instances and bydefault it is trying to take "aws-linux"
