@@ -1,7 +1,7 @@
 ### Best practices to create security groups in roboshop
 - Till now we used allow-all method while creating SG, it is just for practice only, but now we need to follow
   strict SG rules according to the roboshop-documentation.
-- In last session we created VPC using our own module (customised module) in this session also we are going to
+- In last session we created VPC using our own module (customised module) in this session, we are going to
   create security group module using own module (customised module) and also create all security groups for
   all components according to the roboshop-documentation.
 - We created a folder "Roboshop-terraform" in |VS| and inside this folder we have created separate folders 
@@ -14,7 +14,7 @@
   and sg are in different folders, if it was in same folder we can easily get the vpc_id, but these are in
   different folders, For example if they are in separate folders then they are completely like different
   projects, for example like in big companies there will be a separate team for vpc, and for SG like that. How
-  do you get vpc_id by going out from the sg folder, for that we have a service called "SSM Parameter" in "AWS
+  do you get vpc_id by going out from the SG folder, for that we have a service called "SSM Parameter" in "AWS
   systems manager" in this we need to create a key-value pair, and we can refer in the security group to get
   the vpc_id. SSM Parameter is like configuration storage, different applications can store the configuration
   in SSM Parameter and also different application can refer the stored configuration from the SSM Parameter.
@@ -22,7 +22,7 @@
 - So first store the vpc_id in ssm parameter store in "parameter.tf" file in 01-vpc then write a code. Search
   in google "ssm parameter store in terraform"
 
-### Creating SG Module from open-source
+### Creating SG Module
 - Refer "Roboshop-aws-SGmodule" in VS.
 - In this we created SG, but not inbound rules, so create rules using dynamic at the time of SG creation. Is it
   mandatory to write ingress rules to create SG ? NO, it is not mandatory to provide ingress or egress, but
