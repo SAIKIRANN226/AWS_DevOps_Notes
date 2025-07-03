@@ -1,15 +1,15 @@
 ### Best practices to create security groups in roboshop
 - Till now we used allow-all method while creating SG, it is just for practice only, but now we need to follow
   strict SG rules according to the roboshop-documentation.
-- In last session we created VPC using our own module (customised module) in this session, we are going to
-  create security group module using own module (customised module) and also create all security groups for
-  all components according to the roboshop-documentation.
-- We created a folder "Roboshop-terraform" in |VS| and inside this folder we have created separate folders 
-  for every resources to reduce the refresh time because if our infrastructure becomes big, refreshing the 
-  resources will take some time, so to reduce the refresh time we have created in separate folders. In simple
-  words like if we keep all resources in a single folder, incase if we do any small change also, it will take
-  time to reflect all the resources and maintenance will also very tough.
-- So go through the 01-vpc, 02-sg, 03-vpn, 04-ec2 code in |VS|.
+- In last session we created VPC using our own module (customised module) in this session also, we are going
+  to create SG module using our own module (customised module) and also create all security groups for all the
+  components according to the roboshop-documentation.
+- We created a folder "Roboshop-terraform" in VS. and inside this folder we have created separate folders 
+  for every resources to reduce the refresh time, because if our infrastructure becomes big, refreshing the 
+  resources will take more time, so to reduce the refresh time we have created in separate folders. In simple
+  words like if we keep all the resources in a single folder, incase if we do any small change also, it will
+  take more time to refresh all the resources and maintenance will also be very tough.
+- So go through the folders 01-vpc, 02-sg, 03-vpn, 04-ec2 code in VS.
 - What is the main input required to create a SG ? We want VPC_ID, in which vpc you are creating SG, here vpc
   and sg are in different folders, if it was in same folder we can easily get the vpc_id, but these are in
   different folders, For example if they are in separate folders then they are completely like different
@@ -17,9 +17,9 @@
   do you get vpc_id by going out from the SG folder, for that we have a service called "SSM Parameter" in "AWS
   systems manager" in this we need to create a key-value pair, and we can refer in the security group to get
   the vpc_id. SSM Parameter is like configuration storage, different applications can store the configuration
-  in SSM Parameter and also different application can refer the stored configuration from the SSM Parameter.
+  in SSM Parameter and also different applications can refer the stored configuration from the SSM Parameter.
   It is like central storage for the configuration.
-- So first store the vpc_id in ssm parameter store in "parameter.tf" file in 01-vpc then write a code. Search
+- So first store the vpc_id in ssm parameter store in "parameter.tf" file in 01-vpc, then write a code. Search
   in google "ssm parameter store in terraform"
 
 ### Creating SG Module
