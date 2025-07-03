@@ -45,7 +45,7 @@
 - Similarly create for user also, and continue for redis,mysql,rabbitmq (refer documentation), here better
   to create all security groups for all instances first and then write rules.
 
-### Now create Ec2's for the roboshop 04-ec2 in VS
+### Now creating Ec2's for the roboshop 04-ec2 in VS
 Till now we developed VPC and SG module and simultaneously we tested this modules while creating vpc and sg.
 But here we are using modules directly from the internet developed by others to create ec2's. Nothing but from open-source. Here the only disadvantage is you cannot connect to this private instances using ssh, because private instances dont have public_IP addresses. For this we have below two options.
 - Create one ec2 in public_subnet, and login to this ec2 first and from there connect to the mongodb. We call
