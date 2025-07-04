@@ -4,7 +4,7 @@ We have created VPC and Peering connection between Default_VPC & Roboshop_VPC, a
 ### LB (Target_groups & rules) and Launch templates (Auto-scaling & auto-scaling policy)
 Because of these application will become fully stable and auto-scaling will be enabled automatically.
 - First create 2 nginx servers, while creating add "user-data" like #!/bin/bash ; yum install nginx -y ;
-  mkdir -p /usr/share/nginx/html/ui ; echo "(<h1>)Hi we are from UI team(<h1>)" (>)
+  mkdir -p /usr/share/nginx/html/ui ; echo ("<h1>Hi we are from UI team<h1>") (>)
   /usr/share/nginx/html/ui/index.html ; systemctl restart nginx ; Note:- Dont keep brackets here, because this
   is a readme.MD file so when you are using greaterthan or lessthan symbols these are creating bold texts.
 - Create LB security group, here from the tarffic is coming to this LB ? from the internet, therefore ingress
