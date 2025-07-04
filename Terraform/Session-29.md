@@ -25,7 +25,7 @@ Amazon VPC is a virtual network that you create in AWS. It’s your own isolated
                    "Internet" is nothing but a service provider (airtel,jio,actfiber etc.)
                        |
               +------------------+
-              | Internet Gateway | is nothing but router in home which is connected to public_subnets
+              | Internet Gateway | router in home which is connected to public_subnets
               +------------------+
                        |
                 [ Public Subnet ]
