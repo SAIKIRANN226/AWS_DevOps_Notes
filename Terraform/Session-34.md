@@ -1,29 +1,22 @@
 ### Creating resources in "Robosho-terraform"
-- 01-vpc
-- 02-sg
-- 03-vpn
-- 04-ec2
 We have created VPC and Peering connection between Default_VPC & Roboshop_VPC, all SG's, VPN, EC2 and Records. So now we want all instances to automatically configured, for that we need to create a "ansible-server" this server will provision all instances using ansible-playbooks and also create security group on port SSH 22 to connect all instances securely, but we already created VPN SG with SSH 22 right ? So we can use that also. So create this ansible-server in default subnet in Default_VPC. So now ansible server is created, after creating server, ansible should provision all the servers automatically, for this we need to write a small shellscript, to provision the instances "ec2-provision.sh" in VS. There is one disadvantage in "user-data" if user-data fails one time, it will not come again, so we will address this issue with provisioners but siva dint explained this, so delete the ansible-server and do again terraform init,plan and apply.
 
 ### LB (Target_groups & rules) and Launch templates (Auto-scaling & auto-scaling policy)
 Because of these application will become fully stable and auto-scaling will be enabled automatically.
 - First create 2 nginx servers, while creating add "user-data" like #!/bin/bash ; yum install nginx -y ;
-  mkdir -p /usr/share/nginx/html/ui ; echo "<h1>Hi we are from UI team<h1>" >
+  mkdir -p /usr/share/nginx/html/ui ; echo "<h1>Hi we are from UI team<h1>" (>)
   /usr/share/nginx/html/ui/index.html ; systemctl restart nginx
 - Create LB security group, here from the tarffic is coming to this LB ? from the internet, therefore ingress
   rule should be type = http ; cidr = 0.0.0.0/0
 - Create SG for these two nginx servers, these servers will get request from LB, therefore ingress rule should
   be a SG which is attached to LB.
-
-
-
-
-
-
-
-
-
-
+- Create target groups for both UI,UX as of now in Listeners first, then register using include as pending.
+- Now create LB port number (80)
+- Rules in Load balancers, there is default rule, you can add as many rules you want, you can put path as a
+  condition in this UI/UX example, if path is /ui* then send to UI target group. Priority keep 1
+- Load Balancer will give us a DNS name, generally we configure this name in route53 record, so create a new
+  record and copy the DNS name and paste, and you need to keep Alias and select Alias to Application and
+  Classic Load Balancer.
 
 ### Points to remember
 - We know how to develop the module and how to use the module
