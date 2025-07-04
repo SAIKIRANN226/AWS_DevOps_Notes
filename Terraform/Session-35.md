@@ -9,6 +9,19 @@ Every platform like aws cloud platform will have its own solution to maintain co
 
 So first store the password in SSM Paramater, like in mysql we have root_password right ? so store that and name should be "roboshop/dev/msql_root_pass" and use "secure string" and value shoule be the password itself "Roboshop@1", so here ansible should retrieve this password, for that we have a syntax called "lookup" put this syntax in the ansible-roles where ever this password is there.
 
+### Web and App tier
+If traffic increases, auto-scaling will create instances
+- When new instance is created, use "user-data" or "provisioner" with ansible to configure the server, this
+  may take 5mins of time
+- When you are deploying while website is running
+   1. First we create one instance
+   2. Provision the instance using ansible or shell
+   3. Stop the instance
+   4. Take the AMI
+   5. Upate auto-scaling using new AMI, that means slowly old instances will replace by new instances. In
+      future if traffic increases, auto-scaling uses AMI to add the instances.
+Which approach is better 1st or 2nd ? 2nd one is better because there will be less downtime, while website is running.
+
 ### Points to remember
 - Auto-scaling is only for web and app tier apps, for Database we use RDS,DynamoDB etc.
 - Keeping "sg.yaml" file is just to understand the how the connections are given.
