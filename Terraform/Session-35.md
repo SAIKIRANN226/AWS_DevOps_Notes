@@ -20,7 +20,7 @@ If traffic increases, auto-scaling will create instances
    4. Take the AMI
    5. Upate auto-scaling using new AMI, that means slowly old instances will replace by new instances. In
       future if traffic increases, auto-scaling uses AMI to add the instances.
-Which approach is better 1st or 2nd ? 2nd one is better because there will be less downtime, while website is running.
+Which approach is better 1st or 2nd ? 2nd one is better because there will be less downtime, while website is running. This is VM based approach, later we move to the containerized approach.
 
 ### Points to remember
 - Auto-scaling is only for web and app tier apps, for Database we use RDS,DynamoDB etc.
