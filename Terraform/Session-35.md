@@ -9,7 +9,6 @@ Every platform like aws cloud platform will have its own solution to maintain co
 
 So first store the password in SSM Paramater, like in mysql we have root_password right ? so store that and name should be "roboshop/dev/msql_root_pass" and use "secure string" and value shoule be the password itself "Roboshop@1", so here ansible should retrieve this password, for that we have a syntax called "lookup" put this syntax in the ansible-roles where ever this password is there.
 
-
 ### Points to remember
 - Auto-scaling is only for web and app tier apps, for Database we use RDS,DynamoDB etc.
 - Keeping "sg.yaml" file is just to understand the how the connections are given.
@@ -22,5 +21,6 @@ So first store the password in SSM Paramater, like in mysql we have root_passwor
   we can clearly see wether the bootstrap is happening or not ?
 - Note that without vpn connection, you cannot connect to the private instances.
 - In project we store values or passwords in SSM Parameter manually not automated
-
-
+- If you go manuall like "ansible.builtin.command/shell" there is one disadvantage that is there will be no
+  idempotence behaviour, thats why mostly use module only. If there is no official modules from ansible, we
+  can use community modules.
