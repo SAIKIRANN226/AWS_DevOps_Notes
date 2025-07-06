@@ -35,7 +35,17 @@ For example you are going for deployment, because you changed some content, then
 - Catalogue should accept traffic on port 8080 from App-ALB etc. 
 
 ### How the overall deployement procces will happen ?
-Like for example, if we got a new deployment, say few developers are ready for cart deployment, and few are ready for shipping deployment due to new changes 
+Like for example, if we got a new deployment, say few developers are ready for cart deployment, and few are ready for shipping deployment due to new changes. For example we have vpc,sg,vpn,databases,web-alb,app-alb these are nothing bur project infra to create applications, and these non frequent changes, whenever there is a change we can do very rarely like if project asks to add an extra rule or extra ec2 etc. This whole process should be created by DevOps engineers not developers. Once this whole base is ready, for example take catalogue, this catalogue is frequently changing and this comes under CICD, what does this mean ? Whenever there is a change in application, CICD should clone,build,scan,create artifact generally zip file,store zip files,unit testing ---> This is CI process, then CD process ---> create instance,deploy the latest version,stop the instance,take ami,refresh auto-scaling group. Same for the other components also. This CI and CD process is called "Application infra" which will be changing frequently, Project infra will be changing very rarely. Who will create Application infra ? DevOps or Developers ? Depends on your company but devops should also know this, if we inform the paths of our whole infra which is in SSM Parameter to the developers then they will create application infra
+
+### Shift-left method
+Shift-Left in DevOps means performing testing, security, and quality checks in the development cycle itself to catch the issues sooner, reduce costs, and improve software quality.
+
+### GIT
+- Main/master ---> Depicts the code running currently in the production, if there is a change we cannot
+  directly change in the prod
+- Create a copy of file and do changes, if everything is ok then do it in main file
+- So in git also create another branch from main/master, do the changes here and run the whole process of
+  CICD, if everything is good then merge into master and deploy into production.
 
 ### Points to remember
 - Cloud front is useful to cache static content, generally not for dynamic content.
@@ -46,3 +56,4 @@ Like for example, if we got a new deployment, say few developers are ready for c
   cloud-front and remaining content we are getting from the load balancer
 - Invalidation is nothing but whenever we go for the new deployment, we delete the old cache content from all
   over the edge locations and again cloud-front will get dynamically and save it.
+- We are using Shift-left strategy in our pipeline. You must say this in interview.
