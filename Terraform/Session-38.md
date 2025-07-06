@@ -12,3 +12,7 @@ It is like caching solution from aws, for example ISP providers also have cache 
 
 ### Points to remember
 - AWS will charges for data transfer also, like how much data you transferred
+- Till now we have created web,catalogue right ? next go for cart,shipping,payment etc. Nothing but do
+  samething like copy paste, but siva told we can also develop module for this instead of copy paste, this
+  module is only for roboshop project, not for other projects. Because backend components have same behaviour.
+  But you can only focus on copy paste, you just know how to develop this module.
