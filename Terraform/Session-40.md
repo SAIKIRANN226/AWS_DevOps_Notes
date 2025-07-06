@@ -46,6 +46,8 @@ Shift-Left in DevOps means performing testing, security, and quality checks in t
 - Create a copy of file and do changes, if everything is ok then do it in main file
 - So in git also create another branch from main/master, do the changes here and run the whole process of
   CICD, if everything is good then merge into master and deploy into production.
+- We can add branch protection rule in the github account. Keep "pull" request and any other requirement you
+  have, we call it has branching policies.
 
 ### Points to remember
 - Cloud front is useful to cache static content, generally not for dynamic content.
