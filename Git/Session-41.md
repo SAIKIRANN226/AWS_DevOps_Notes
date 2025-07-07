@@ -14,6 +14,8 @@
 ### Protection rule in Git for main branch
 - In Settings ---> Branches --> Add branch protection rule here, we have many rules but we choose according to
   the project, as of now we are selecting just two among them as a minimum protection to the main branch.
+- We have another option in protection rule that is "Require linear history", then we can only use "rebase"
+  option nor git merge and commit or squash options.
 - One is "Pull request" and another one is "Require approvals" should be morethan 1
 - And also "Dismiss stale pull request approvals when new commits are pushed" nothing but if once pull request
   is approved by reviewers, again who commits to the feature branch, it automatically will be unapproved.
@@ -27,15 +29,48 @@
   a meaningful message in the description.
 - Next reviewers will approve in their github account.
 - Once developer got approval, then he will get merge option, in this we have three options
-- Create a merge commit, Squash and merge, Rebase and merge.
-- If you merge, a merge commit-id will be created, if you take this merge commit-id, that means a main branch is one step forwarded, when you "git log" in main branch, 
+- Create a merge commit, Squash and merge, Rebase and merge. These are nothing but merge strategies.
+- If you merge, a merge commit-id will be created, if you take this merge commit-id, that means a main branch
+  is one step forwarded, when you "git log" in main branch, if you "git cat-file <cfaa64> -p" then you will
+  get few information like tree, parent-ids, author (who commited this)
 
+### Merge commit
+When you are merging from one branch to another branch an extra or new merge commit-id will be created always, that have 2 parents, if you take the latest parent commit and do "git cat-file <6b0a63> -p" then it will show the previous commit-id, that means merge will preserve the complete history, it is like chain structure.
 
+### Rebase and merge
+When you create another branch, commit new lines and push it to the github, when you do "git log --oneline" you will get a commit-id for this, you will get commit-ids until you finish development, and raise a pull request. Once the approvals are ok, then you have other option in merge section that is "Rebase and merge" so NO extra commits and commit-ids will be changing (rewrites the history). That means in rebase it will not preserve the history.
 
+### Squash and merge
+For example in microservices a 1 small feature is developed by 1 developer, that sprint time will be like 2 weeks, if this developer do 60 commits to the main branch, is that good to see ? so he will squash that 60 commits into a single commit. Both squash rebase and rebase are same, which one you will prefer ? we can prefer squash rebase, because it will merge into one single commit, so that we cannot pollute the repo. Which one to use among these three options in merging strategy is purely based on the project.
+
+### When to use "Merge" and When to use "Rebase" ?
+- If a branch is developed by mulitple developers, prefer merge because when multiple persons are developing
+  we should preserve the history who is doing what changes.
+- If only one person is developing one feature, then he can use rebase, generally in companies go for the
+  merge option only, however we have advantages in rebase like in microservices development.
+
+### Branching strategy
+- Main branch ---> Long live branch.
+- Feature branch ---> Short live branch, we can delete this after merging.
+- Developers create feature branches, once they complete development, they will raise PR and merge/rebase into
+  main branch.
+- So where the CICD should takeplace in this branching strategy ?
+- In feature branch, before raising PR, lets do CICD in Dev environment, if CICD is success, then only feature
+  branch is completed. Now you can raise PR and then merge/rebase into main branch.
+- Code is same across all environments, but configuration is different.
+- Configuration should be dettach from code, since we are storing configuration in SSM Parameter store.
+- Once we got successed into the main branch, we can deploy into other environments like QA, SIT, UAT, and
+  PROD. If we success in DEV and failed in QA, what should i do ? again they should create another feature
+  branch, they should change the code in Dev environment.
+  
 
 
 
 ### Points to remember
 - If content changes then commid-id will also changes.
 - git log --oneline ---> Will print commit-id in oneline.
-- 
+- We are following feature branching strategy, we have main branch as long live branch, anything otherthan
+  main branch we call it as feature branch, developers will work in feature branches, they will do CICD in
+  feature branch itself, once it is successful they will raise PR, based on the approvals and discussions that
+  will be approved and from the main branch we do deployment into the higher environments like QA, SIT , UAT
+  and PROD.
