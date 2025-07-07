@@ -63,9 +63,6 @@ For example in microservices a 1 small feature is developed by 1 developer, that
   PROD. If we success in DEV and failed in QA, what should i do ? again they should create another feature
   branch, they should change the code in Dev environment.
   
-
-
-
 ### Points to remember
 - If content changes then commid-id will also changes.
 - git log --oneline ---> Will print commit-id in oneline.
@@ -74,3 +71,4 @@ For example in microservices a 1 small feature is developed by 1 developer, that
   feature branch itself, once it is successful they will raise PR, based on the approvals and discussions that
   will be approved and from the main branch we do deployment into the higher environments like QA, SIT , UAT
   and PROD.
+- If we got emergency, we can just test in Dev env and then directly go for the PROD env.
