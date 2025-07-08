@@ -1,3 +1,5 @@
+### 
+
 1. If it is a small project every resources will be in one folder like sg.tf,vpc.tf etc. If it 
    is a big project then we can keep resources in separate folders(repos) like "roboshop-infra-dev",
    "Refreshing Time" will be longer if we put all resources in one folder.Incase if we do any small 
@@ -89,8 +91,7 @@ Commands to run in the nexus server
 11. Now you will get the URL where we can store the artifacts of catalogue 
 12. Remove workspace folder in pipeline in post section "deleteDir()" this is must
 
-Points to remember
-*******************
-1. To get "stageview" in pipeline you need to install plugin called "stageview"
-2. Declarative pipeline is more simplified than scripted pipeline
-3. Node modules are mandatory to run the server.js
+### Points to remember
+- To get "stageview" in pipeline you need to install plugin called "stageview"
+- Declarative pipeline is more simplified than scripted pipeline
+- Node modules are mandatory to run the server.js
