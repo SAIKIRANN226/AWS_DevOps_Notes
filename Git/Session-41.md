@@ -4,7 +4,8 @@
 - Commit-ID ---> Is called "SHA code" it has 40 chars (universal unique ID) for the content.
 - If you are storing any content like file (or) folder (or) repo in Github, it has a SHA code.
 - git log ---> Commit-ID of the entire content of that repo in github.
-- Git is Key-Value pair (Key=commit-id, Value=content) if you change content, commit-id will also change.
+- Git is a Key-Value pair (Key=commit-id, Value=content)
+- If you change content, commit-id will also changes.
 - So git will calculate commit-id depending on the content.
 - We have ".git" folder in that only everything will be there like tracking etc.
 - If you want the information about the commit-id then "git cat-file <commit_id> -p"
