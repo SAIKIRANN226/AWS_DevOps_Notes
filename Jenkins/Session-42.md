@@ -87,6 +87,20 @@ We have multiple agents, we configure them through Manage jenkins ---> Nodes ---
 ### Triggers
 We have a "WebHook" is nothing but when there is an event occurs in one system, then it should inform to the other systems, it is called "Event based communication" what is event in this scenario, whenever developer pushes the code to git, then we want pipeline to run automatically, here we have two systems "Git" & "Jenkins" Event will come in git, so Git should have information about jenkins (URL), so go the webhook option in Github in your working repository only, click on add "WebHook" add the jenkins URL must be in the format like "http://12.233.34.53:8080/github-webhook/" --> Payload URL, Content type --> Application json, you have multiple events, we can select according to our requirements as of now we selected "Pushes". Similarly in jenkins also we need to check the box "GitHub hook trigger for GITScm polling" and Now try to do changes and see wether it is working or not.
 
+### Environment in Jenkins pipeline
+In a Jenkins Pipeline, the environment block is used to define environment variables that are accessible throughout the pipeline or within specific stages. These variables can hold values such as configuration settings, credentials, file paths, API tokens, and more. Instead of repeating values (like URLs, credentials, or file names), define them once in the environment block and reuse. You can see in the Jenkinsfile code i have mentioned example. If you run shell command like "env" in the stage, you will get all env variables you can use as per your requirement. If you want to write shellscript in the stages use sh """ enter """
+
+### Parameters in Jenkins pipeline 
+In Jenkins Pipelines, parameters are used to accept user inputs before the pipeline starts. These inputs can be values like strings, choices, booleans, etc. which you can then use throughout your pipeline. Typical use cases for parameters are like choosing build environments (dev, test, prod). When you are using parameters for the first time jenkins is not aware of this params, when you build 2nd time then you will get "Build with parameters" option
+
+### What all sections we have used in the Jenkins pipeline ?
+- Agent
+- Environment
+- Options
+- Parameters
+- Stages
+- Post pipeline conditions
+
 ### Points to remember
 - You can directly generate keys in .ssh fodler also using "ssh-keygen -f <file_name>"
 - No need to install "jenkins" in agents but install "java"
