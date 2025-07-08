@@ -1,1 +1,96 @@
+1. If it is a small project every resources will be in one folder like sg.tf,vpc.tf etc. If it 
+   is a big project then we can keep resources in separate folders(repos) like "roboshop-infra-dev",
+   "Refreshing Time" will be longer if we put all resources in one folder.Incase if we do any small 
+   changes also Refreshing time will be long
 
+2. Create remote root directory in the "Node server" in home-location(CD) because centOS doesnt have
+   sudo access in the /var/lib/jenkins location. "mkdir jenkins-agent". So path would be in the below
+   /home/centos/jenkins-agent 
+
+3. Go through the Jenkinsfile in "01-vpc" in "Roboshop-infra-dev" folder, That means we can write
+   Jenkins file (or) we can create pipeline for Infrastructure also
+
+4. So create ROBOSHOP(anyname) folder in jenkins UI and add VPC in this folder as pipeline project,
+   script path should be "01-vpc/jenkinsfile", Similarly do for other infra also just for practice
+
+5. ERROR:: Terraform command not found because it is running in the agent and agent dont have 
+   terraform, So we need to install few tools in node server, if you are using ony master then install 
+   it in master only like "terraform command(install terraform linux in google) and "aws credentials" 
+   also(just "aws configure" in server while configuring aws, do not configure through root user because 
+   master is connecting using centos it is not taking the sudo access, master may not know everything 
+   but agent should know everything because agent will only work here, However the logs will be showed 
+   in the jenkins-master but the running application will be in nodes
+
+6. To enable colours we have "ansiColor" Plugin keep "ansiColor('exterm')" in the options aswel as 
+   install plugin in the jenkins console also, manage jenkins/plugins/available plugins, make sure to 
+   restart jenkins to enable colors if necessary
+
+7. "Jenkins pipeline when with parameters" search in google, That means overall we can write CICD for 
+   infra also like vpc,sg,vpn etc.
+
+8. To create accesskey and secretkey go to the SecurityCredentials from the profile/users/click on 
+   your user(saikiranuser)/make sure delete old keys and create new keys and download the csv file
+   for future reference, because secretaccess key will be only view once.
+   
+CICD, should we keep infra ready to create CICD for applications? Project infra should be ready what 
+are the project infra? like vpc,sg,vpn,databases,app-alb,acm,web-alb etc. whichever are long term 
+that are project infra, whichever are short term those are application infra, So before CICD for 
+applications we need to keep project infra ready, So now we should do CICD for catalogue, for that we
+should have 1. Catalogue application should be in git and 2. Write a jenkinsfile for this
+
+CI (Continous Integration)
+***************************
+Continous Integration is nothing but whenever developers pushes the code to the git continously, we 
+should take the code and compile,build,scan,unitesting,and saving artifacts, If CI success then only 
+we should go for CD
+1. Clone the code before this get the "version" if required
+2. Install Dependencies
+3. Unit tests
+4. Sonar scan
+5. Build
+6. Publish artifacts
+7. Deploy 
+8. Post Build
+
+CD (Continous Deployment)
+**************************
+9. Deploy to Dev/Sit/Uat/Prod environments
+10. Functional test cases
+11. Publish the results
+
+1. Create one catalogue folder in VS and keep the catalogue code in this folder, code can be downloaded
+   from the "daws" repository, create a repo aswel in the git for catalogue
+2. Refer Catalogue folder in VS, package.json and server.json is the main code of
+   catalogue and write a Jenkinsfile for this catalogue and refer "Jenkinsfile.bkp" for full script
+
+Storing the artifacts in nexus repository, we dont store code here, to only store like after 
+compiling the code the output of the code in the form of zip file, we use "sonatype nexus", for this 
+we need to create a instance with minumum 2gb ram with 30gb for that we need to use "t3.medium", 
+Generally these installations will be done by SRE Team but we need to know, Few companies uses 
+"yum repositories" instead of downloading libraries from the internet, companies will put all libraries 
+in "yum repositories" to use them, Nexus is the single point of contact for the artifacts and libraries
+
+Commands to run in the nexus server
+************************************
+1. sudo su
+2. labauto
+3. Then select "nexus" (or) type "nexus"
+4. Select option no.2
+5. netstat -lntp ---> It will take sometime to open port number of nexus 8081
+6. systemctl status nexus
+7. Now take the IPaddress of the nexus server and paste in the chrome with 8081 port
+8. Sign in is same as Jenkins and enable anonymous access
+9. Now create a repository in the nexus for the catalogue to hold the catalogue artifacts
+10. Select "maven2(hosted)" this maven2 is popular format (watch from 1:16:57) 
+    Name: Any name
+    Version policy: Release/Snapshot/Mixed ---> Snapshot=Dev env, Release=Prod env, select mixed
+    Layout policy: Permissive
+    Deployment policy: Allow redeploy because in Dev env we deploy multiple times 
+11. Now you will get the URL where we can store the artifacts of catalogue 
+12. Remove workspace folder in pipeline in post section "deleteDir()" this is must
+
+Points to remember
+*******************
+1. To get "stageview" in pipeline you need to install plugin called "stageview"
+2. Declarative pipeline is more simplified than scripted pipeline
+3. Node modules are mandatory to run the server.js
