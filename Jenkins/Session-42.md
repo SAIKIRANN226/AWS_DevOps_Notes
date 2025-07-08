@@ -20,12 +20,11 @@ If git finds different code in the same line number, git cannot understand, for 
 - systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
 - Take Jenkins instance PublicIP and open in chrome with jenkins port number 8080. Usage: 173.34.65:8080/ in
   chrome, proceed to click on the "continue to site"
-- Once you are connected to jenkins, password will be in the shown path, just cat in the server 
-  Note:- You need to be the root user "sudo cat <path>"
+- Once you are connected to jenkins, password will be in the shown path, just cat with root user in server.
 - Install suggested plugins.
 - Set the username and password then start using jenkins.
 
-Whatever we do in the jenkins we call it as job, nothing but it has some work to do, just create one sample job (or) pipeline in "Freestyle Project" is nothing but everything you do it in UI, this can be done easily like for example we can create terraform resources in the aws console also that is also a free-style and later we started creating resources through terraform scripting, so now create a sample freestyle job take buildsteps as "execute shell" apply and save then click on "buildnow' and check in the console output. Here build is the main job iam giving to jenkins to work on this. That means i have given a job to jenkins is to just print "hello world" 
+Whatever we do in the jenkins we call it as job, nothing but it has some work to do, just create one sample job (or) pipeline in "Freestyle Project" is nothing but everything you do it in UI, this can be done easily like for example we can create terraform resources in the aws console also, that is nothing but a free-style and later we started creating resources through terraform scripting, so now create a sample freestyle job take buildsteps as "execute shell" apply and save then click on "buildnow' and check in the console output. Here build is the main job iam giving to jenkins to work on this. That means i have given a job to jenkins is to just print "hello world" 
 
 ### What is the diff btw creating aws resources through aws console and scripting ?
 Advantanges are we can control the versions like if something goes wrong we can rollback the changes to the previous version and we have PR process to understand what is happening etc. When you create a jobs in freestyle we dont know who created ? who did the changes ? and restoring is difficult, and maintaining is difficult because it doesn't have any versions etc. So nobody is using free-style but still jenkins is providing the option to create jobs using free-style. 
