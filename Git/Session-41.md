@@ -74,3 +74,4 @@ For example in microservices, 1 small feature is developed by 1 developer, that 
 - If we got emergency, we can just test in "Dev" env and then directly go for the "Prod" env.
 - You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
   objects etc. Everything will be stored in this folder only.
+- If you want to generate a commit-id for your content then use "echo hello | git hash-object --stdin"
