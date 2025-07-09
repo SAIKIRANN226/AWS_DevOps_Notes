@@ -5,11 +5,8 @@ Dont forget to put ".gitignore" file in the terraform root folder, not only in t
 - Keep the repository clean and portable.
 
 ### Terraform.tfvars, instance_type = "t3.small" 
-- If you dont give the default value in variables.tf, terraform will ask for the prompt, and if you create
-  a terraform.tfvars and declare value in it, then terraform.tfvars will overwrite variables.tf, by taking
-  the value of terraform.tfvars only.
-- We can also give from the command prompt by using the below command
-  "terraform plan -var="instance_type=t3.medium"
+- terraform.tfvars will overwrite the value in variables.tf file
+- We can also give from the command prompt "terraform plan -var="instance_type=t3.medium"
 - Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars" and this will become
   file and we can pass variable file by using "terraform plan -var-file="saikiran.tfvars"
 
@@ -29,10 +26,7 @@ Expression ? "this will run if true" : "this will run if false"
 
 ### Functions - VS
 It will do some work, if we give some input and it will take this input and give us output. Here in 
-terraform we cannot create our own functions, but terraform itself has some functions we need to use 
-that only. Example:- max(5,12,23) --> max is the function and we are giving inputs 5,12,23 then terraform
-will give output that is 23, similarly we have other functions also, and we have used length function 
-like this "length(var.instance_names)" this will calculate the length in list automatically.
+terraform we cannot create our own functions, but terraform itself has some functions we need to use that only. Example:- max(5,12,23) max is the function and we are giving inputs 5,12,23 then terraform will give output that is 23, similarly we have other functions also, and we have used length function like this "length(var.instance_names)" this will calculate the length in list automatically.
 
 ### Syntax of output in terraform
 	output "instance_info" {
