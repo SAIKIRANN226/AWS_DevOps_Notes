@@ -27,6 +27,7 @@ If git finds different code in the same line number, git cannot understand, for 
 - Set the Username and Password then start using jenkins.
 
 ### Commands to install jenkins in linux server
+You are running Jenkins on Java 17, support for which will end on or after Mar 31, 2026. Refer to the documentation for more details.
 - sudo yum install java-17-openjdk-devel -y
 - sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 - sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
