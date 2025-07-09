@@ -51,7 +51,7 @@ The above all are the terraform understanding (Interview Question). It is a decl
 - Install "hashicorp terraform extension" to get colors.
 
 We write code in VS ---> then we push to github ---> then we push to the aws, but in order to push to the 
-aws we need authentication for that, we have "awsCLI" so search in google "aws cli install" just run shown commands in "cmd" then test "aws --version" in cmd aswel as in gitbash, wether it is installed or not, select windows to install, not linux or macos. Then to connect to aws, we need to create a terraform user or administrator user by going to IAM/Users/Create(next)/Attach policies directly and select administrator access --> click on your created_user/security_credentials/create access_key/click on command line interface (CLI)/copy the access_key and secret_key then -----> configure user in your laptop by using this command "aws configure" in gitbash --> these credentials will be saved in --> windowsC/users/user/.aws folder
+aws we need authentication for that, we have "awsCLI" so search in google "aws cli install" just run shown commands in "cmd" then test "aws --version" in cmd aswel as in gitbash, wether it is installed or not, select windows to install, not linux or macos. Then to connect to aws, we need to create a terraform user or administrator user by going to IAM/Users/Create(next)/Attach policies directly and select administrator access --> click on your created_user/security_credentials/create access_key/click on command line interface (CLI)/copy the access_key and secret_key then -----> configure user in your laptop by using this command "aws configure" in gitbash --> these credentials will be saved in windowsC/users/user/.aws folder
 
 ### Syntax of terraform to create resources
 
