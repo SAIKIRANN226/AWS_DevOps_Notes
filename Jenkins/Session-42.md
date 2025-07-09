@@ -26,6 +26,16 @@ If git finds different code in the same line number, git cannot understand, for 
 - Install suggested plugins.
 - Set the Username and Password then start using jenkins.
 
+### Commands to install jenkins in linux server
+- sudo yum install java-17-openjdk-devel -y
+- sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+- sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+- sudo yum install jenkins -y
+- sudo systemctl daemon-reload
+- sudo systemctl enable --now jenkins
+- sudo systemctl start jenkins
+- sudo systemctl status jenkins
+
 Whatever we do in the jenkins we call it as job, nothing but it has some work to do, just create one sample job (or) pipeline in "Freestyle Project" is nothing but everything you do it in UI, this can be done easily. Like for example we can create terraform resources in the aws console also, that is nothing but a free-style and later we started creating resources through terraform scripting, so now create a sample freestyle job and take buildsteps as "execute shell" then apply, save and click on "buildnow' now check in the console output. Here build is the main job iam giving to jenkins to work. That means i have given a job to jenkins is to just print "hello world" content.
 
 ### What is the diff btw creating aws resources through aws console and scripting ?
@@ -109,5 +119,6 @@ In Jenkins Pipelines, parameters are used to accept user inputs before the pipel
 - You can directly generate keys in .ssh folder using "ssh-keygen -f <file_name>"
 - NO need to install "jenkins" in agents but install "java"
 - Post is nothing but after build, what should we do after pipeline ?
+- Important note is java18 or 21 version is not working in jenkins, so use java 17 version to install.
 - How many agents you are using in your company ? We are supporting multiple programming languages like java,
   python, nodesjs, .net for each language, we have 2-2 agents.
