@@ -24,6 +24,7 @@ Basically CRUD over the infrastructure. Using terraform we can create entire inf
 In Terraform, inventory management refers to how we manage and organize resources like servers, databases, and services, especially when we deploy multiple instances or environments. Unlike tools like Ansible which use a static inventory file, terraform uses dynamic mechanisms such as variables, count, for_each, and modules. For example, if i want to create 3 EC2 instances, i can define a list variable like.
 
           variable "instances" {
+            type = list
             default = ["web", "mongodb", "cart"]
           }
           
