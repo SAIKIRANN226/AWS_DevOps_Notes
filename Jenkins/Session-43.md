@@ -7,7 +7,10 @@ Taking approval before going to the next stage.
   we can reduce the refresh time, if we put all resources in one folder then "Refreshing Time" will be longer.
   Incase if we do any small changes also, it will take some time to reflect the resources.
 - Go through the example of Jenkinsfile in "01-vpc" in "Roboshop-Infra-Dev" folder, that means we can write
-  Jenkins file (or) we can create pipeline for Infrastructure also.
+  Jenkins file (or) we can create pipeline for Infrastructure also. But in this project we dint created
+  Jenkins files for Infra, Infrastructure is created in normal way using terraform, this is just to show that
+  we can also create jenkins file for infra also, so first create whole project infra and do CICD in Jenkins
+  file for every applications like catalogue, cart, shipping etc.
 - So create ROBOSHOP-INFRA (anyname) folder in jenkins UI and add VPC in this folder as pipeline project,
   script path should be "01-vpc/jenkinsfile" similarly do for other infra like SG also just for practice.
 - You may get ERROR:: Terraform command not found because it is running in the agent and agent dont have 
