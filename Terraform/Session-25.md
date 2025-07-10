@@ -21,7 +21,7 @@ Often we face the problem of different configurations in different environments 
 Basically CRUD over the infrastructure. Using terraform we can create entire infra in minutes reducing the human errors and deleting infra in minutes if not required and updating infra using terraform is also easy. Create the infra, Read the infra, Update the infra, Delete the infra.
 
 ### Inventory Management
-In Terraform, inventory management refers to how we manage and organize resources like servers, databases, and services, especially when we deploy multiple instances or environments. Unlike tools like Ansible which use a static inventory file, terraform uses dynamic mechanisms such as variables, count, for_each, and modules. For example, if i want to create 3 EC2 instances, i can define a list variable like.
+In Terraform, inventory management refers to how we manage and organize resources like servers, databases, and services, especially when we deploy multiple instances or environments. Unlike tools like Ansible which use a static inventory file, terraform uses dynamic mechanisms such as variables, count, foreach, and also modules. For example, if i want to create 3 EC2 instances, i can define a list variable like.
 
           variable "instances" {
             type = list
@@ -64,13 +64,13 @@ The above all are the terraform understanding (Interview Question). It is a decl
 - Download terraform from google mostly AMD64 windows and if you extract you will get .exe file
 - Move that .exe file in your desired location.
 - Take that downloaded path and give it in the "system environment variable"
-- Edit the system environment variables --> environment variables --> select or click on the path in the
-  system variables --> edit --> new --> paste it here.
+- Edit the system environment variables/environment variables/select or click on the path in the system
+  variables/edit/new/paste it here.
 - If you give the terraform command, it will check all the paths you have given in the env variables, if it
   is available then terraform command will work.
 - Install "hashicorp terraform extension" to get colors.
 
-We write code in VS ---> then we push to github ---> then we push to the aws, but in order to push to the aws we need authentication for that, we have "awsCLI" so search in google "aws cli install" just run shown commands in "cmd" then test "aws --version" in cmd aswel as in gitbash, wether it is installed or not, select windows to install, not linux or macos. Then to connect to aws, we need to create a terraform user or administrator user by going to IAM/Users/Create(next)/Attach policies directly and select administrator access then click on your created_user/security_credentials/create access_key/click on command line interface (CLI)/copy the access_key and secret_key then configure user in your laptop by using this command "aws configure" in gitbash. These credentials will be saved in windowsC/users/user/.aws folder
+We write code in VS ---> then we push to github ---> then we push to the aws, but in order to push we need authentication, for that we need to download "awsCLI install" from google and select windows to install, not linux or macos. Just run shown commands in "cmd" then test "aws --version" in cmd aswel as in gitbash, wether it is installed or not. Then to connect to aws, we need to create a terraform user or administrator user by going to IAM/Users/Create(next)/Attach policies directly and select administrator access then click on your created_user/security_credentials/create access_key/click on command line interface (CLI)/copy the access_key and secret_key then configure user in your laptop by using this command "aws configure" in gitbash. These credentials will be saved in windowsC/users/user/.aws folder
 
 ### Syntax of terraform to create resources
 
