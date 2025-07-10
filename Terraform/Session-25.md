@@ -42,7 +42,7 @@ Then, using for_each, i can loop over these and create resources dynamically
 This way, terraform treats the variable as the inventory and automatically provisions resources for each item. To get the list of instance IPs or metadata, i can use an output block.
 
           output "instance_ips" {
-            value = [for i in aws_instance.ec2 : i.public_ip]
+            value = [aws_instance.ec2.public_ip]
           }
           
 We can also maintain different inventories for dev, staging, or prod using terraform.tfvars files, and apply them selectively with terraform apply -var-file="dev.tfvars". So overall, terraform manages infrastructure inventory through code using variables, iteration blocks, and outputs, instead of static files.
