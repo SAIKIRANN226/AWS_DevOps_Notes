@@ -1,1 +1,45 @@
+Algorithm for Catalogue CI(continous integration) ---> Catalogue-CI-Part(VS)
+*****************************************************************************
+1. Create EC2 for Jenkins-Master, and connect to it in "super putty"
+2. Create EC2 for Agent and connect to it and install nodejs from the catalogue documentation, It is 
+   mandatory to install so that we can install "npm" dependencies
+3. Create EC2 for Nexus and connect to it and download nexus by using "labauto" command
+4. Configure Jenkins-Agent and install plugins like AnsiColor,StageView,Pipeline Utility steps,
+   Nexus artifact uploader
+5. Create repo in nexus for catalogue to store "catalogue.zip" artifact
+6. To push artifacts from jenkins to the nexus we need to download plugin called 
+   Nexus artifact uploader, So for that we need to give the nexusURL and authentication, 
+   make sure to add nexus credentials in the manage jenkins
+7. This is CI part of catalogue
 
+Algorithm for Catalogue CD(continous deployment) ---> Catalogue-CD-Part(VS)
+*****************************************************************************
+General Deployment of any application
+--------------------------------------
+1. Create the server
+2. Provision the created server using ansible or any other scripting language
+3. Stop the server
+4. Take AMI
+5. Create Launch template version
+6. Refresh auto-scaling
+
+We need to create infrastructure first, create atleast vpc,sg,vpn,databases,app-alb, in order to work catalogue, and catalogue application can be done from the CICD
+
+Previously ansible was downloading the package from the s3 bucket and version we are giving hardcode, Now ansible should download artifact and version from the nexus, so what should we give to the ansible as a input ? "Nexus location and Artifact version" That means first it will call main playbook from the roles, So we need to send artifact version to the ansible playbook from the terraform. So write a separate job for "Catalogue-CD-Part" (or) "Catalogue-deploy" we keep all the deployment scripts here, in the jenkins and also create a repo for "Catalogue-CD-Part" and write Jenkinsfile for this. When you build with parameter, "Catalogue-CI-Part" should send the values of "verison and environment", So how to call another pipeline from jenkins pipeline with parameters ? For that we have a small syntax, "build job: "Catalogue-CD-Part", wait:true".So write this small syntax in the "Catalogue-CI-Part" in the deploy stage
+
+Jenkins have application version, it should send that version to terraform, How does it send to terraform? So we should create a variable of app_version in variables section
+
+We have a "Upstream job" and "Downstream job"
+
+
+
+
+
+
+
+
+
+Industries will follow Semantic version like major version, minor version, patch version
+Creating artifacts is nothing but CI
+
+We can install plugin called "rebuilder"
