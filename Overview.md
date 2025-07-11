@@ -16,10 +16,12 @@
 - What are terraform commands and explain their functionality ?
 - Where to run the terraform commands ?
 - Variable syntax ? Do we really need to put "data type" in variables ?
-- We can also keep access key and secret key in provider under region, but why we dont prefer to keep ?
+- We can also keep access key and secret key in provider under region, but why we dont
+  prefer to keep ?
 - Do we need to push to the github before running terraform commands ?
 - Importance of .gitignore in terraform ?
-- What does terraform.tfvars file do ? we generally it as .tfvars, we can name anything before .tfvars
+- What does terraform.tfvars file do ? we generally it as .tfvars, we can name anything
+  before .tfvars
 - What are the variable preferences ? command line/-var-file/terraform.tfvars/environment variable
 - Write a sample condition syntax for an ec2 ?
 - Create ec2 and route 53 records of few instances using count_based loop ?
@@ -28,7 +30,8 @@
 - What is length function ? why it is used only in count based loop ?
 - Syntax of output ?
 - What are locals in terraform ? and what is the syntax of local ? how to use locals ?
-- What is Data-sources ? Does data-sources is only used for querying the data dynamically from the providers ?
+- What is Data-sources ? Does data-sources is only used for querying the data dynamically from
+  the providers ?
 - What is the use of querying the data dynamically from the existing resources ?
 - Types of loops ? count_based/for_each/dynamic_loop why this are useful ?
 - Terraform state (state and remote state) ?
@@ -38,8 +41,15 @@
 - Create one s3 bucket and lock the s3 bucket using dynamodb table ?
 - What are there otherthan "Terraform S3 remote state" ?
 - Does S3 buckets are chargable in aws ?
+- How to create multiple environments in 3 ways and what are they ? same code but with different
+  configurations.
+- Do we need to create different buckets and dynamodb_tables for dev and prod ? or same bucket ?
+- What function you have used to control different environments in tfvars method ?
+- When you are switching from one env to another env, you need to reconfigure the backend.
+- When you do terraform init ---> Backend will also be there, so here you have multiple environments,
+  so use "terraform init -backend-config=dev/backend.tf" & "terraform init -reconfigure -backend-
+  config=prod/backend.tf"
 - 
-
 
 
 
