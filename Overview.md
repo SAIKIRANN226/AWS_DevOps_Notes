@@ -43,13 +43,30 @@
 - Does S3 buckets are chargable in aws ?
 - How to create multiple environments in 3 ways and what are they ? same code but with different
   configurations.
+- First create using "terraform.tfvars" method.
 - Do we need to create different buckets and dynamodb_tables for dev and prod ? or same bucket ?
 - What function you have used to control different environments in tfvars method ?
 - When you are switching from one env to another env, you need to reconfigure the backend.
+- "terraform init -reconfigure -backend-config=prod/backend.tf"
 - When you do terraform init ---> Backend will also be there, so here you have multiple environments,
-  so use "terraform init -backend-config=dev/backend.tf" & "terraform init -reconfigure -backend-
-  config=prod/backend.tf"
+  so use "terraform init -backend-config=dev/backend.tf"
+- Now create using "workspace" method and there will be only one bucket default one "env:/"
+- How to know workspace commands ?
+- How to create new workspace ?
+- Workspace has a default variable "terraform.workspace" what does it do ?
+- What is "lookup" function ? we need to write in "instance_type" line like "lookup(var.instance_type,
+  terraform.workspace)"
+- Which approach is better ? tvfars (or) workspace (or) different repos for different envs ?
+
+
+
+
+- Provisioners are of two types "local-exec" and "remote-exec"
+- What is local-exec provisioner and what is the syntax ?
+- What is the use of key word ${self.id} in the local-exec provisioner block ?
+- What is remote-exec provisioner and what is the syntax ?
 - 
+
 
 
 
