@@ -80,6 +80,7 @@
 - Even ISP providers will configure our home privateip in this range only.
 - Generally we give "10.0.0.0/16" so that we can get maximum IPs like 65k, it will not cost.
 - Create public and private and database subnets ranging 10.0.1.0/24 ; 10.0.2.0/24 ; 10.0.3.0/24
+  in atleast 2-AZ for High Availability.
 - Create Public and Private route_tables in this VPC only
 - Now associate route_tables to the respective subnets.
 - Give internet access to the public_subnets, not to the private
@@ -90,8 +91,22 @@
 - If anybody wants to connect to my laptop or hack, how they will connect ? using publicip or privateip ?
 - We can create as many private subnets we want, but for functionality purpose we have only two those
   are public and private subnets.
+- Explain the the NAT Gateway in VPC ? in which subnet should we create this ? and why ?
+- Adding NAT Gateway is enough ? or should we add routes (connection) from private subnets
+  to the NAT Gateway ?
+- An Instance will be created in the background when you create NAT Gateway, we dont have access
+  to that instance and moreover that instance IP is dynamic, if you want staticIP that is more costly,
+  so create an elasticIP first and then create NAT Gateway, even our home publicIP is dynamic, if
+  we want staticIP we need to pay money to the ISP provider.
+- Note that ElasticIP and NAT Gateway is chargable and why ? because NAT is creating an instance in
+  the background, creation of server is chargeable.
+- Create VPC peering between "default_VPC and roboshop_VPC" and also "routes in VPC"
+- A default route_table will be created in aws, if you can add VPC routes in default it is best,
+  or which ever subnet wants route then we can add explicitly, make sure you need to add both sides.
+- Go through the VPC-Module development in VS.
+- Now create all the above using terraform code
+- We have a tagging strategy in terraform those are common_tags and resource_tags.
 - 
-
 
 
 
