@@ -105,7 +105,17 @@
   or which ever subnet wants route then we can add explicitly, make sure you need to add both sides.
 - Go through the VPC-Module development in VS.
 - Now create all the above using terraform code
-- We have a tagging strategy in terraform those are common_tags and resource_tags.
+- We have a tagging strategy in terraform those are common_tags and resource_tags and their syntax ?
+- What will hapenn if we merge common_tags and resource_tags ?
+- Is really peering connection is required ?
+- How do we connect to VPC (resources) which is in another company ? installing VPN in default VPC.
+- If acceptor VPC is not in our control, can we get the access to add route ?
+- We can use module which is in github "source = "git"::<https_URL>ref=main"
+- How to use Security groups effectively ? according to the roboshop documentation ?
+- How the naming convention is followed in your company ? ${project_name}.${component}.${resource}
+- For downloading the artifacts we followed "semantic" version
+- For how many resources you have developed "modules"
+- How to connect to the private instances ? you need to install VPN in default VPC.
 - 
 
 
