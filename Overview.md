@@ -116,7 +116,8 @@
 - For downloading the artifacts we followed "semantic" version
 - For how many resources you have developed "modules"
 - How to connect to the private instances ? you need to install VPN in default VPC.
-- 
+- We only developed modules for VPC and SG, and later we used open source from the internet github
+  for creation of ec2 instances.
 
 
 
