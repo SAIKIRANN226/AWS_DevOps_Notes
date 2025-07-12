@@ -1,4 +1,5 @@
 ### Terraform
+*************************************************************************************************************
 - What is terraform ? and what are the advantages of terraform ? V,C,A,I,C,A,M,H
 - In how many ways we configured our project ?
 - Why we prefer ansible over shellscript while configuring ?
@@ -118,6 +119,8 @@
 - How to connect to the private instances ? you need to install VPN in default VPC.
 - We only developed modules for VPC and SG, and later we used open source from the internet github
   for creation of ec2 instances.
+- Why slice function is used ? write a code to list availability zones which are available ?
+- 
 
 
 
