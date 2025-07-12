@@ -35,7 +35,8 @@
 - What is the use of querying the data dynamically from the existing resources ?
 - Types of loops ? count_based/for_each/dynamic_loop why this are useful ?
 - Terraform state (state and remote state) ?
-- What is terraform.tfstate (it is crucial should not be deleted by mistake also) and what is lock file ?
+- What is terraform.tfstate (it is crucial should not be deleted by mistake also) and what
+  is lock file ?
 - Why central state file (remote state s3) is used ?
 - What are the disadvantages in local state ?
 - Create one s3 bucket and lock the s3 bucket using dynamodb table ?
@@ -57,14 +58,38 @@
 - What is "lookup" function ? we need to write in "instance_type" line like "lookup(var.instance_type,
   terraform.workspace)"
 - Which approach is better ? tvfars (or) workspace (or) different repos for different envs ?
-
-
-
-
-- Provisioners are of two types "local-exec" and "remote-exec"
+- How many types of provisioners are there ? and what are they ?
 - What is local-exec provisioner and what is the syntax ?
 - What is the use of key word ${self.id} in the local-exec provisioner block ?
 - What is remote-exec provisioner and what is the syntax ?
+- Where this provisioners are useful ?
+- What is the difference between terraform and ansible ? how end to end automation will be done
+  using ansible ? and why not creation of infra done with ansible ? and why only we use terraform
+  to create infra ?
+- What is creation time and destroy time ? and why we use this ?
+- Using different key names for backend for different environments
+- We can write multiple provisioners like "on_failure = continue"
+- What is the use of Module development in terraform ? and what is the syntax of the module ?
+- What are two types of modules and two types of roles ?
+- Which type of modules you have used in your company ?
+- What is VPC in aws ?
+- What is the difference between public subnets and private subnets ?
+- What is CIDR (Classless Inter-Domain Routing) ?
+- Create roboshop VPC network in aws console in privateip range only which internet provides only
+  3 bitblock ranges, we should select among them only.
+- Even ISP providers will configure our home privateip in this range only.
+- Generally we give "10.0.0.0/16" so that we can get maximum IPs like 65k, it will not cost.
+- Create public and private and database subnets ranging 10.0.1.0/24 ; 10.0.2.0/24 ; 10.0.3.0/24
+- Create Public and Private route_tables in this VPC only
+- Now associate route_tables to the respective subnets.
+- Give internet access to the public_subnets, not to the private
+- Enable auto-asign public Ipv4 address to public subnet, not to the private
+- Create Internet gateway (router) and attach to the roboshop VPC
+- How do you check if internet is working or not ?
+- Router (Internet Gateway) has two sides PublicIP and PrivateIP, how do you check this ?
+- If anybody wants to connect to my laptop or hack, how they will connect ? using publicip or privateip ?
+- We can create as many private subnets we want, but for functionality purpose we have only two those
+  are public and private subnets.
 - 
 
 
