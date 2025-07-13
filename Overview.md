@@ -121,14 +121,9 @@
 - Why slice function is used ? write a code to list availability zones which are available ?
 - We can write a condition in variables also using validation block with in the variable syntax using
   length function, we wrote for public, private & database subents.
+- Best practices to create security groups using roboshop documentation.
+- You have developed modules for VPC, SG, EC2 right ? what are those types ?
 - 
-
-
-
-
-
-
-
 
 
 
