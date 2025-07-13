@@ -123,6 +123,36 @@
   length function, we wrote for public, private & database subents.
 - Best practices to create security groups using roboshop documentation.
 - You have developed modules for VPC, SG, EC2 right ? what are those types ?
+- Why we created separate folders in VS for every resources ?
+- What is the main input required to create a SG ? nothing but VPC
+- When you are creating SG, we want VPC right ? how to get vpc_id which is another folder,
+  that means treats as a complete different project ? Example of a big company who dont depend on
+  just one company ?
+- What is the use of SSM Parameters in "aws systems manager" and it is key-value pair, it is like a
+  central storage for configuration and what is the path type to store a key-value ?
+- For example how to store a vpc_id in SSM Parameter in aws console ?
+- How to create a SG module ? Go through "Roboshop-aws-SGmodule" in VS.
+- Now create all SG's for roboshop, refer in 02-sg.tf
+- For example mongodb should accept connections only from catalogue and user, then what is the source
+  for mongodb ? catalogue and user IP's
+- Is catalogue and user IP's are static ? NO! then what should we do ?
+- Now creating all EC2 servers for roboshop, but this time, we are using open-source module
+- But we cannot connect to private servers, since they dont have PublicIP right ? then we have two
+  options anad what are they ?
+- Data-sources is only to query the data dynamically from the providers ?
+- When you see sg in aws console, there you will see two names for a sg, what is the use ?
+- In real time, when you want to open a port, you need send a mail to the firewall team, and we
+  used cisco vpn in our company.
+- How to connect to private server using VPN ?
+- You need to install VPN in default_VPC, and make sure to have peering connection between default_VPC
+  and roboshop_VPC
+- Make sure to enable VPN in all private servers, how ?
+- How to install OpenVPN in ec2 server ?
+- Now go through the 02-sg.tf, which we have created all those using terraform code
+- Configuring VPN is not our responsibility, we have separate team for this
+- We have created VPC and Peering connection between Default_VPC & Roboshop_VPC, all SG's, VPN, EC2
+  and Records, so how do we configure all those instances automatically by integrating ansible ?
+- What is LB (Target_groups & rules) and Launch templates (Auto-scaling & auto-scaling policy)
 - 
 
 
