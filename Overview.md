@@ -155,6 +155,19 @@
 - We have created VPC and Peering connection between Default_VPC & Roboshop_VPC, all SG's, VPN, EC2
   and Records, so how do we configure all those instances automatically by integrating ansible ?
 - What is LB (Target_groups & rules) and Launch templates (Auto-scaling & auto-scaling policy)
+- Any project starts with vpc, go through the "Roboshop-Infra-Dev" this is Dev environment, how did
+  you create this workspace ? using which method ? terraform.tfvars, workspaces or different repos
+  for different environments ? and do we need to create separate bucket ?
+- Load balancer is running on which protocol ? HTTPS, why we keep "Web_ALB" in HTTPS ?
+  and why we keep "App_ALB" in HTTP ?
+- Which is more secure HTTPS or HTTP ?
+- Listeners of HTTP(80) and HTTPS(443)
+- Why we create sg.yaml file in "Roboshop-Infra-Dev" ?
+- For creating databases, we implemented ansible PULL strategy and why ?
+- What is the disadvantage in PUSH approach compared to PULL ?
+- We dont know the status of user-date wether it is success or not, so we use Provisioners
+- Passwords are stored in ssm only through manuall not automated, mainly database passwords
+- Why we are moved from ansible vault to SSM parameter ?
 - 
 
 
