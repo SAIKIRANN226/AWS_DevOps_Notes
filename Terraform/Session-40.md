@@ -1,7 +1,7 @@
 ### We have "Behaviours" options in cloud front
 - Cloud front is useful to cache only static content
 - Dynamic content should not cache.
-- When you inspect and see in network option, then you can see images are loading from different parts
+- When you inspect in network option, then you can see images are loading from different parts
 - Those are media and images, these are static
 - In behaviours by default, it is sending all path patterns to the origin "web-dev.daws76s.online"
 - So we need to create behaviours, if "/media/* (or) "/images/* ---> Then only apply cache policy and get the
