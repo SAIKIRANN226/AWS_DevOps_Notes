@@ -1,8 +1,7 @@
 ### We have "Behaviours" options in cloud front
-- We need to create behaviours like if "/images/* ---> Then apply cache policy.
-- If "/media/* ---> Then apply cache policy.
-- If default then get the content from ---> "web-dev.daws76s.online"
-- Total content is coming from CDN, only images are caching and remaining content from the dynamic 
+- We need to create behaviours like if "/media/* (or) "/images/* ---> Then apply cache policy.
+- If default, then get the content from origin ---> "web-dev.daws76s.online"
+- Total content is coming from CDN, only images are caching and remaining content is coming from the dynamic 
 - Depends upon the project we can create cache policies.
 - We can disable the cache policy to the dynamic content and enable to the static content.
 
