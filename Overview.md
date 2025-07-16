@@ -176,10 +176,23 @@
 - How to generate a commit-id for your content in git ?
 - Git will calculate commit-id based on the content
 - What is SHA code ? for every file (or) folder (or) repo storing in github will have SHA code.
-- What is "git log" ?
+- What is "git log" ? to see the commit-ids
+- What is the command to print all commid-ids in oneline ? git log --oneline
 - Git is a Key-Value pair ? here what is Key and Value ?
 - What is the command used to get the information of the commit-id ?
 - What is protection rule in github for main (or) master branch ?
+- What are the minimum protection rules we can give to the main branch among the different rules ?
+- Command to create a new feature branch in github ? when you create this branch, do you think commit-ids
+  of main branch and feature branch will be same ? when you cloned from the main branch
+- When will the commit-id of feature branch will change ?
+- What is PULL request ? when they should raise this PR ?
+- Who are the reviewers (or) approvers ? what they do ? how many minimum reviewers should be there ?
+- When developer got the approvals, what are the merging options (or) strategies they have ?
+- After merging also you will get merge commit-id, that means main branch is forwarded 
+- When you "git log" and "git cat-file <merge_commit_id> -p" then you will get few information like tree,
+  parent-ids, author etc.
+- What are Merge commit, Rebase and merge, Squash and merge ?
+- Which one should prefer among these merging strategies ?
 - 
 
 
