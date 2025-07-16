@@ -1,6 +1,6 @@
 ### Git (Global Information Tracker)
 - It is nothing but just a stupid content tracker, lets see how git will track using below example.
-- echo "Hello world" it will just print "Hello world" content.
+- echo "Hello" it will just print "Hello" content.
 - If you want to generate a commit-id for your content then use "echo Hello | git hash-object --stdin"
 - Commit-id will be same for the content (Hello world) in all over the world, until you change the content
   even a small letter to capital letter "Hello World" now content is changed because i have used capital
@@ -12,12 +12,12 @@
 - Git is a Key-Value pair (Key=commit-id, Value=content)
 - If you want the information about the commit-id then "git cat-file <commit_id> -p"
 
-### Protection rule in Git for main branch
-- In Settings ---> Branches --> Add branch protection rule here, we have many rules but we choose according to
-  the project, as of now we are selecting only few among them as a minimum protection to the main branch.
+### Protection rule in Git for main (or) master branch
+- In Settings ---> Branches --> Add branch protection rule here, we have many rules but we choose according
+  to the project, as of now we are selecting only few among them as a minimum protection to the main branch.
 - One is "Pull request" and another one is "Require approvals" (should be morethan 1)
-- We have another rule also in protection rule that is "Require linear history" then we can only use "rebase"
-  option, not "git merge & commit" or "squash" options.
+- We have another rule also in protection rule that is "Require linear history" when we select this, we can
+  only use "rebase" option, not "git merge & commit" or "squash" options.
 - We also have another rule that is "Dismiss stale pull request approvals when new commits are pushed" When
   this setting is enabled, if someone approves a pull request (PR) and then new commits are pushed to that PR,
   the existing approvals are removed (dismissed). This ensures that the code which was approved is still valid
@@ -33,18 +33,20 @@
 - Next reviewers will approve in their github accounts.
 - Once developer got approvals, then he will get merge options below.
 - Create a Merge commit, Squash and merge, Rebase and merge. These are nothing but merging strategies.
-- If you merge, a merge commit-id will be created, if you take this merge commit-id, that means a main branch
-  is one step forwarded, when you "git log" in main branch, if you "git cat-file <cfaa64> -p" then you will
-  get few information like tree, parent-ids, author (who commited this) etc.
+- If you merge, a merge commit-id will be created that means a main branch is one step forwarded, if you
+  take this merge commit-id, when you "git log" in main branch & "git cat-file <merge_commit_id> -p" then
+  you will get few information like tree, parent-ids, author (who commited this) etc
 
 ### Merge commit
 When you are merging from one branch to another branch an extra (or) new merge commit-id will always be created, that have 2 parents, if you take the latest parent commit and do "git cat-file <6b0a63> -p" then it will show the previous commit-ids, that means merge commit will preserve the complete history, it is like a chain structure.
 
 ### Rebase and merge
-When you create another branch, commit new lines and push it to the github, when you do "git log --oneline" you will get a commit-id for this, you will get commit-ids until you finish development, and raise a pull request. Once the approvals are ok, then you have other option in merge section that is "Rebase and merge" so NO extra commits and commit-ids will be changing (rewrites the history). That means in rebase it will not preserve the history.
+When you create another branch, commit new lines and push it to the github, when you do "git log --oneline" you will get a commit-id for this, you will get commit-ids until you finish development, and raise a pull request. Once the approvals are ok, then you have other option in merge section that is "Rebase and merge" 
+So NO extra new commits-ids will be created, instead it will rewrites the history (or) commid-ids. That means in rebase it will not preserve the history.
 
 ### Squash and merge
-For example in microservices, 1 small feature is developed by 1 developer, that sprint time will be like 2 weeks, if this developer do 60 commits to the main branch, is that good to see ? so he will squash that 60 commits into a single commit. Both squash and rebase are same, which one you will prefer ? we can prefer squash rebase, because it will merge into one single commit, so that we cannot pollute the repo. Which one to use among these three options in merging strategy is purely based on the project.
+For example in microservices, 1 small feature is developed by 1 developer, that sprint time will be like 2 weeks, if this developer do 60 commits to the main branch, is that good to see ? so he will squash that 60 commits into a single commit. Both squash and rebase are same, which one you will prefer ? we can prefer squash & merge, because it will merge into one single commit, so that we cannot pollute the repo. Which one 
+to use among these three options in merging strategy is purely based on the project.
 
 ### When to use "Merge" and When to use "Rebase" ?
 - If a branch is developed by mulitple developers, prefer merge because when multiple persons are developing
