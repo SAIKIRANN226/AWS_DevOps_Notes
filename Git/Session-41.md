@@ -46,13 +46,14 @@ So NO extra new commits-ids will be created, instead it will rewrites the histor
 
 ### Squash and merge
 For example in microservices, 1 small feature is developed by 1 developer, that sprint time will be like 2 weeks, if this developer do 60 commits to the main branch, is that good to see ? so he will squash that 60 commits into a single commit. Both squash and rebase are same, which one you will prefer ? we can prefer squash & merge, because it will merge into one single commit, so that we cannot pollute the repo. Which one 
-to use among these three options in merging strategy is purely based on the project.
+to use among these three options in merging strategy is purely based on the project. But mostly people fear 
+to Squash or Rebase, because there will be NO history.
 
 ### When to use "Merge" and When to use "Rebase" ?
 - If a branch is developed by mulitple developers, prefer merge because when multiple persons are developing
   we should preserve the history to know who is doing what changes.
 - If only one person is developing one feature, then he can use rebase, generally in companies people go for
-  the merge option only, however we have advantages of rebase in projects who use microservices.
+  the merge option only, however we have advantages of rebase in projects like microservices.
 
 ### Branching strategy
 - Main branch ---> Long live branch.
@@ -73,8 +74,8 @@ to use among these three options in merging strategy is purely based on the proj
 - git log --oneline ---> Will print commit-id in oneline.
 - We are following feature branching strategy, we have main branch as long live branch, anything otherthan
   main branch we call it as feature branch, developers will work in feature branches, they will do CICD in
-  feature branch itself, once it is successful they will raise PR, based on the discussions PR will be
-  approved and from the main branch, we do deployment into the higher environments like QA,SIT,UAT,PROD.
+  feature branch itself, once it is successful they will raise PR, based on the discussions, PR will be
+  approved and from the main branch, we do deployment into the higher environments QA, SIT, UAT, PROD.
 - If we got emergency, we can just test in "DEV" and then directly go for the "PROD"
 - You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
   objects etc. Everything will be stored in this folder only.
