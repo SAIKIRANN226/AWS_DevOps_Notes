@@ -193,7 +193,21 @@
   parent-ids, author etc.
 - What are Merge commit, Rebase and merge, Squash and merge ?
 - Which one should prefer among these merging strategies ?
-- 
+- When to use Merge and when to use Rebase ?
+- What is Long-live branch and Short-live branch ? we can delete Short-live branch after merging
+- Where the CICD should takeplace in this branching strategy ? in Dev in Feature branch only and why ?
+- Code is same across all environments, but configuration is different.
+- Configuration should be dettached from the code, since we are storing config in SSM Parameter.
+- Once we got succeeded in merging code into the main branch, we can deploy into higher environments
+  like QA, SIT, UAT, and PROD
+- What if we success in DEV and failed in QA ?
+- We are following feature branching strategy, we have main branch as long live branch, anything otherthan
+  main branch we call it as feature branch, developers will work in feature branches, they will do CICD in
+  feature branch itself, once it is successful they will raise PR, based on the discussions PR will be
+  approved and from the main branch, we do deployment into the higher environments QA, SIT, UAT, PROD.
+- If we got emergency, we can just test in "DEV" and then directly go for the "PROD"
+- You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
+  objects etc. Everything will be stored in this folder only.
 
 
 
