@@ -1,4 +1,4 @@
-### Terraform
+### Terraform (Infrastructure as code)
 ************************************************************************************************************
 - What is terraform ? and what are the advantages of terraform ? V,C,A,I,C,A,M,H
 - In how many ways we configured our project ?
@@ -208,7 +208,35 @@
 - If we got emergency, we can just test in "DEV" and then directly go for the "PROD"
 - You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
   objects etc. Everything will be stored in this folder only.
+- What is merge conflicts in git ?
+- PULL before PUSH is the best strategy to avoid conflicts among the developers
 
+### Jenkins (Continuous Integration & Continuous Deployment)
+************************************************************************************************************
+- Create 1 instance using t3.small AMI with 30gb, because it is heavy application and use default SG.
+- Install Jenkins & Java in the server. Install java latest one is not working, so go for Java 17
+- Only Java is enough in the nodes (or) agents.
+- Then systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
+- Should Jenkins-master must know everything ?
+- Where the actual logs of nodes (or) agents will be saved in ?
+- What is the port number for jenkins ? 8080
+- What is Job in jenkins ? and what is the Freestyle Job in jenkins ?
+- What is the difference between creating aws resources through aws console and scripting ?
+- What is the difference between Freestyle and Pipleine Jobs ?
+- Create a sample jenkins pipeline project from the pipeline script ?
+- Understand the Jenkins pipeline syntax from google.
+- What is "Pipeline script from SCM" ? it is also called GitOps and create one sample job using GitOps
+- Write a RAW syntax of a pipeline ?
+- What is agent in Jenkins ?
+- If you have one project then one Jenkins-Master is enough, if multiple projects, we need agents
+- How do you configure the Master-Agent architecture in jenkins ?
+- In which location entire database of jenkins will be ? var/lib/jenkins/
+- Why the path in agent should be in /home/centos/jenkins-agent (any-name) ?
+- How many launch methods we have in jenkins ?
+- What are Triggers in Jenkins pipeline ?
+- What is Environment in Jenkins pipeline ?
+- What is Parameters in Jenkins pipeline ?
+- How many agents you are using in your company ? 
 
 
 
