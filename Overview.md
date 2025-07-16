@@ -1,4 +1,5 @@
 ### Terraform
+************************************************************************************************************
 - What is terraform ? and what are the advantages of terraform ? V,C,A,I,C,A,M,H
 - In how many ways we configured our project ?
 - Why we prefer ansible over shellscript while configuring ?
@@ -168,6 +169,17 @@
 - We dont know the status of user-date wether it is success or not, so we use Provisioners
 - Passwords are stored in ssm only through manuall not automated, mainly database passwords
 - Why we are moved from ansible vault to SSM parameter ?
+
+### Git (Global Information Tracker)
+************************************************************************************************************
+- How git will track files like for example "git echo hello world" ?
+- How to generate a commit-id for your content in git ?
+- Git will calculate commit-id based on the content
+- What is SHA code ? for every file (or) folder (or) repo storing in github will have SHA code.
+- What is "git log" ?
+- Git is a Key-Value pair ? here what is Key and Value ?
+- What is the command used to get the information of the commit-id ?
+- What is protection rule in github for main (or) master branch ?
 - 
 
 
