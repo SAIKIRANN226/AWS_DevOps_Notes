@@ -214,7 +214,7 @@
 ### Jenkins (Continuous Integration & Continuous Deployment)
 ************************************************************************************************************
 - Create 1 instance using t3.small AMI with 30gb, because it is heavy application and use default SG.
-- Install Jenkins & Java in the server. Install java latest one is not working, so go for Java 17
+- Install Jenkins & Java in the server. Java 21 latest is not working, so go for Java 17
 - Only Java is enough in the nodes (or) agents.
 - Then systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
 - Should Jenkins-master must know everything ?
@@ -231,7 +231,7 @@
 - If you have one project then one Jenkins-Master is enough, if multiple projects, we need agents
 - How do you configure the Master-Agent architecture in jenkins ?
 - In which location entire database of jenkins will be ? var/lib/jenkins/
-- Why the path in agent should be in /home/centos/jenkins-agent (any-name) ?
+- Why the path of agent should be in /home/centos/jenkins-agent (any-name) ?
 - How many launch methods we have in jenkins ?
 - What are Triggers in Jenkins pipeline ?
 - What is Environment in Jenkins pipeline ?
