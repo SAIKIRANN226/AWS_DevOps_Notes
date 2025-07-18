@@ -178,7 +178,7 @@
 - What is protection rule in github for main (or) master branch ?
 - What are the minimum protection rules we can give to the main branch among the different rules ?
 - Command to create a new feature branch in github ? when you create this branch, do you think commit-ids
-  of main branch and feature branch will be same ? when you cloned from the main branch
+  of main branch and feature branch will be same ? when you cloned from the main branch.
 - When will the commit-id of feature branch will change ?
 - What is PULL request ? when they should raise this PR ?
 - Who are the reviewers (or) approvers ? what they do ? how many minimum reviewers should be there ?
@@ -196,7 +196,10 @@
 - Once we got succeeded in merging code into the main branch, we can deploy into higher environments
   like QA, SIT, UAT, and PROD
 - What if we success in DEV and failed in QA ?
-- We are following feature branching strategy, we have main branch as long live branch, anything otherthan main branch we call it as feature branch, developers will work in feature branches, they will do CICD in feature branch itself, once it is successful they will raise PR, based on the discussions PR will be approved and from the main branch, we do deployment into the higher environments QA, SIT, UAT, PROD.
+- We are following feature branching strategy, we have main branch as long live branch, anything otherthan
+  main branch we call it as feature branch, developers will work in feature branches, they will do CICD in
+  feature branch itself, once it is successful they will raise PR, based on the discussions PR will be
+  approved and from the main branch, we do deployment into the higher environments QA, SIT, UAT, PROD.
 - If we got emergency, we can just test in "DEV" and then directly go for the "PROD"
 - You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
   objects etc. Everything will be stored in this folder only.
@@ -206,26 +209,28 @@
 ### Jenkins (Continuous Integration & Continuous Deployment)
 ************************************************************************************************************
 - Create 1 instance using t3.small AMI with 30gb, because it is heavy application and use default SG.
-- Install Jenkins & Java in the server. Java 21 latest is not working, so go for Java 17
+- Install Jenkins & Java in the server. (Java 21 latest is not working, so go for Java 17)
 - Only Java is enough in the nodes (or) agents.
 - Then systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
-- Should Jenkins-master must know everything ?
+- Should Jenkins-Master must know everything ?
 - Where the actual logs of nodes (or) agents will be saved in ?
 - What is the port number for jenkins ? 8080
 - What is Job in jenkins ? and what is the Freestyle Job in jenkins ?
-- What is the difference between creating aws resources through aws console and scripting ?
+- Create a sample pipeline using Freestyle ?
+- What is the difference between creating aws resources in aws console and scripting ?
 - What is the difference between Freestyle and Pipleine Jobs ?
-- Create a sample jenkins pipeline project from the pipeline script ?
+- Create a sample jenkins pipeline project using pipeline script ?
 - Understand the Jenkins pipeline syntax from google.
-- What is "Pipeline script from SCM" ? it is also called GitOps and create one sample job using GitOps
+- What is Pipeline script from SCM (GitOps) ? and create one sample job using GitOps.
 - Write a RAW syntax of a pipeline ?
 - What is agent in Jenkins ?
 - If you have one project then one Jenkins-Master is enough, if multiple projects, we need agents
 - How do you configure the Master-Agent architecture in jenkins ?
-- In which location entire database of jenkins will be ? var/lib/jenkins/
+- In which location, jenkins entire database will be in ? var/lib/jenkins/
 - Why the path of agent should be in /home/centos/jenkins-agent (any-name) ?
 - How many launch methods we have in jenkins ?
-- What are Triggers in Jenkins pipeline ?
+- How many agents we can add ?
+- What are Triggers in Jenkins pipeline ? we have multiple events to select, as of now we use "PUSHES"
 - What is Environment in Jenkins pipeline ?
 - What is Parameters in Jenkins pipeline ?
 - How many agents you are using in your company ? 
