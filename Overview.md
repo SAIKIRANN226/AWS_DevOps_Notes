@@ -177,15 +177,14 @@
 - What is the command used to get the information of the commit-id ?
 - What is protection rule in github for main (or) master branch ?
 - What are the minimum protection rules we can give to the main branch among the different rules ?
-- Command to create a new feature branch in github ? when you create this branch, do you think commit-ids
-  of main branch and feature branch will be same ? when you cloned from the main branch.
+- Command to create a new feature branch in github ?
+- After creating feature branch, do you think commit-ids of main & feature branch are same ? after cloning
 - When will the commit-id of feature branch will change ?
 - What is PULL request ? when they should raise this PR ?
 - Who are the reviewers (or) approvers ? what they do ? how many minimum reviewers should be there ?
 - When developer got the approvals, what are the merging options (or) strategies they have ?
 - After merging also you will get merge commit-id, that means main branch is forwarded 
-- When you "git log" and "git cat-file <merge_commit_id> -p" then you will get few information like tree,
-  parent-ids, author etc.
+- What is "git log" and "git cat-file <merge_commit_id> -p" what output will get ?
 - What are Merge commit, Rebase and merge, Squash and merge ?
 - Which one should prefer among these merging strategies ?
 - When to use Merge and when to use Rebase ?
@@ -193,16 +192,11 @@
 - Where the CICD should takeplace in this branching strategy ? in Dev in Feature branch only and why ?
 - Code is same across all environments, but configuration is different.
 - Configuration should be dettached from the code, since we are storing config in SSM Parameter.
-- Once we got succeeded in merging code into the main branch, we can deploy into higher environments
-  like QA, SIT, UAT, and PROD
+- What if we got succeeded in merging into the main branch for DEV ?
 - What if we success in DEV and failed in QA ?
-- We are following feature branching strategy, we have main branch as long live branch, anything otherthan
-  main branch we call it as feature branch, developers will work in feature branches, they will do CICD in
-  feature branch itself, once it is successful they will raise PR, based on the discussions PR will be
-  approved and from the main branch, we do deployment into the higher environments QA, SIT, UAT, PROD.
+- We are following feature branching strategy.
 - If we got emergency, we can just test in "DEV" and then directly go for the "PROD"
-- You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
-  objects etc. Everything will be stored in this folder only.
+- What is ".git" folder where you can see in every repo ?
 - What is merge conflicts in git ?
 - PULL before PUSH is the best strategy to avoid conflicts among the developers
 
