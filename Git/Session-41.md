@@ -79,3 +79,4 @@ to Squash or Rebase, because there will be NO history.
 - If we got emergency, we can just test in "DEV" and then directly go for the "PROD"
 - You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
   objects etc. Everything will be stored in this folder only.
+- Git is nothing but a folder in internet with tracking capability.
