@@ -40,7 +40,7 @@
 
 Whatever we do in the jenkins we call it as job, nothing but it has some work to do, just create one sample job (or) pipeline in "Freestyle Project" is nothing but everything you do it in UI, this can be done easily. Like for example we can create terraform resources in the aws console also, that is also nothing but a Free style and later we started creating resources through terraform scripting, so now create a sample Freestyle job and take buildsteps as "execute shell" then apply, save and click on "buildnow" now check in the console output. Here build is the main job iam giving to jenkins to work. That means i have given a job to jenkins is to just print "hello world" content.
 
-### What is the difference between creating aws resources in aws console and scripting ?
+### What is the diff between creating aws resources in aws console and scripting ?
 Advantanges are, we can control the versions like if something goes wrong we can rollback the changes to the previous version and we have PR process to understand what is happening etc. When you create a jobs in freestyle we dont know who created ? who did the changes ? restoring and maintenance is difficult, because it doesn't have any versions etc. So nobody is using Freestyle, but still jenkins is providing the option to create the jobs using Freestyle. 
 
 ### What is the difference between Freestyle job and Pipeline job ?
