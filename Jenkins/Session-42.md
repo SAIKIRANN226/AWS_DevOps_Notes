@@ -12,9 +12,9 @@
   because we dont know what other people did.
 
 ### Installation of Jenkins (CICD)
-- Create 1 instance using t3.small AMI with 30gb, since it is heavy application & use default SG.
+- Create 1 instance using t3.small (since it is heavy application) with 30GB & use default SG.
 - Take Jenkins Public_IP and connect in the superputty (Username: centos ; Password: DevOps321)
-- Go to the "Jenkins.io" click on download then select "CentOS" and run the shown commands in the server.
+- Go to the "Jenkins.io" click on download, then select CentOS and run the shown commands in the server.
   Installing java is mandatory in server (since jenkins is developed on java). NO need to install jenkins
   in the agent (java is enough to work for agent). Jenkins-Master may not required to know everything, but
   agent should know everything because actual work is done by the agent, however logs will be shown in the
@@ -23,8 +23,8 @@
 - Take Jenkins instance Public_IP and open in chrome with jenkins port 8080. Usage: 173.34.65:8080/ in
   chrome, proceed to click on the "continue to site"
 - Once you are connected to jenkins, password will be in the shown path (just cat with root user).
-- Install suggested plugins.
-- Set the Username and Password and start using jenkins.
+- Then install suggested plugins.
+- Set Username and Password and start using jenkins.
 
 ### Commands to install Jenkins in linux server
 - You are running Jenkins on Java 17, support for which will end on or after Mar 31, 2026. Refer to the
@@ -40,18 +40,15 @@
 
 Whatever we do in the jenkins we call it as job, nothing but it has some work to do, just create one sample job (or) pipeline in "Freestyle Project" is nothing but everything you do it in UI, this can be done easily. Like for example we can create terraform resources in the aws console also, that is also nothing but a Free style and later we started creating resources through terraform scripting, so now create a sample Freestyle job and take buildsteps as "execute shell" then apply, save and click on "buildnow" now check in the console output. Here build is the main job iam giving to jenkins to work. That means i have given a job to jenkins is to just print "hello world" content.
 
-### What is the difference between creating aws resources through aws console and scripting ?
-Advantanges are, we can control the versions like if something goes wrong we can rollback the changes to 
-the previous version and we have PR process to understand what is happening etc. When you create a jobs in freestyle we dont know who created ? who did the changes ? restoring and maintenance is difficult, because 
-it doesn't have any versions etc. So nobody is using Freestyle but still jenkins is providing the option 
-to create the jobs using Freestyle. 
+### What is the difference between creating aws resources in aws console and scripting ?
+Advantanges are, we can control the versions like if something goes wrong we can rollback the changes to the previous version and we have PR process to understand what is happening etc. When you create a jobs in freestyle we dont know who created ? who did the changes ? restoring and maintenance is difficult, because it doesn't have any versions etc. So nobody is using Freestyle, but still jenkins is providing the option to create the jobs using Freestyle. 
 
 ### What is the difference between Freestyle job and Pipeline job ?
 Free-style job is no one is preffering, since everything can be done from the console and it is very easy for everyone to do the changes and we dont understand who did what changes and it is very difficult to restore to the normal stage because of this we moved to the pipeline.
 
 Now understand the pipeline syntax "Jenkins pipeline" search in google like "Jenkins pipeline" for example create a job with pipeline project and select "hello-world" from the pipeline script just for sample and try to build, you can add any number of stages in the hello-world script. Here if you put the pipeline in the jenkins, here also anybody can come and do the changes, so we have another option called "Pipeline script from SCM" If you put this pipeline in the git then jenkins will automatically pull from the git and build it we call this as "GitOps" this is the best approch.
 
-Create a project in the VS ---> Learn-Jenkins, jenkins script always start with capital letter "J" so named as "Jenkinsfile" and select job as "Pipeline script from SCM" in the jenkins UI and select git from "SCM" and then give the created "Learn-jenkins" git URL in repository URL. NO need of credentials because it is public and script path you can keep same name as "Jenkinsfile" then apply, save and build.  
+Create a project in the VS ---> Learn-Jenkins, jenkins script always start with capital letter "J" so named as "Jenkinsfile" and select job as Pipeline script from SCM in the jenkins UI and select git from "SCM" and then give the created "Learn-jenkins" git URL in repository URL. NO need of credentials because it is public and script path you can keep same name as "Jenkinsfile" then apply, save and build.  
 
 ### Raw syntax of a pipeline interview-question
     pipeline {
@@ -106,14 +103,14 @@ Create a project in the VS ---> Learn-Jenkins, jenkins script always start with 
   be in /home/centos/jenkins-agent (any-name) because CentOS dont have sudo access in /var/lib/jenkins, it
   has only in home folder or click on the question mark ? symbol, there you can see how to give the path.
 - Labels ---> We can set multiple lables, as of now agent-1
-- Launch methods ---> One is "Master asking agent to work" another one is "Agent comming to master and asking
+- Launch methods ---> One is "Master asking agent to work" another one is "Agent coming to master and asking
   for work" we can use any of them, as of now we are going for "Master asking agent to work" that is nothing
   but "Launch agents via ssh" that means master is connecting to agent through ssh protocol.
-- Host ---> We can give any of them Public or Private-IP, siva has given Private-IP
+- Host ---> We can give any of them Public_IP or Private_IP but siva has given Private_IP
 - Configure credentials ---> Username:centos (Treat username as secret) & Password:DevOps321, ID=ssh-auth
 - Host key verification strategy ---> Non-verifying verification startegy, that means when you are creating,
   it will not ask for the prompt.
-- We can add any number of agents like, 1 agent is for java, 1 agent is for roboshop, 1 agent is for
+- We can add any number of agents like 1 agent is for java, 1 agent is for roboshop, 1 agent is for
   flipkart project etc.
 
 ### Triggers in Jenkins pipeline
