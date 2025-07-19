@@ -1,16 +1,23 @@
-### Input in Directives
-Taking approval before going to the next stage.
+### Pipeline syntax
+- Old pipeline is "Scripted Pipeline" in this groovy will not work.
+- Latest pipeline is "Declarative pipeline" syntax starts with pipeline {}
+- Syntax of both the pipelines is same.
+- Interview question (write a raw syntax of a declarative pipeline)
 
-### Jenkins file
-- If it is a small project, every resources will be in one folder like sg.tf, vpc.tf, ec2.tf files etc. If it
-  is a big project then we can keep resources in separate folders (repos) like "Roboshop-Infra-Dev" so that
-  we can reduce the refresh time, if we put all resources in one folder then "Refreshing Time" will be longer.
-  Incase if we do any small changes also, it will take some time to reflect the resources.
-- Go through the example of Jenkinsfile in "01-vpc" in "Roboshop-Infra-Dev" folder, that means we can write
-  Jenkins file (or) we can create pipeline for Infrastructure also. But in this project we dint created
-  Jenkins files for Infra, Infrastructure is created in normal way using terraform, this is just to show that
-  we can also create jenkins file for infra also, so first create whole project infra and do CICD in Jenkins
-  file for every applications like catalogue, cart, shipping etc.
+### Input option in Directives
+Taking approval before going to the next stage. For example we have terraform init, plan and apply. Before terraform apply, reviewers should approve. We can keep terraform init, plan and apply stages in pipeline.
+
+### Jenkinsfile
+- If small project, every resources will be in one folder like sg.tf, vpc.tf, ec2.tf files etc. If big
+  project then we can keep resources in separate repos (folders) same like "Roboshop-Infra-Dev" so that
+  we can reduce the refresh time, if we put all resources in one folder then "Refreshing Time" will be
+  longer. Incase if we do any small changes also, it will take some time to reflect the resources. If we
+  keep resources in separate repos (folders) we need to write separate jenkinsfiles for every resources.
+- Go through the example of Jenkinsfile in 01-vpc in "Roboshop-Infra-Dev" folder, that means we can write
+  Jenkinsfile (or) we can create pipeline for Infrastructure also. But in this project we dint created
+  Jenkinsfiles for Infra because we rarely touch the infra, so infrastructure is created in normal way using
+  terraform, this is just to show that we can also create jenkins file for infra also, so first create whole
+  project infra and do CICD in Jenkinsfile for every applications like catalogue, cart, shipping etc.
 - So create ROBOSHOP-INFRA (anyname) folder in jenkins UI and add VPC in this folder as pipeline project,
   script path should be "01-vpc/jenkinsfile" similarly do for other infra like SG also just for practice.
 - You may get ERROR:: Terraform command not found because it is running in the agent and agent dont have 
