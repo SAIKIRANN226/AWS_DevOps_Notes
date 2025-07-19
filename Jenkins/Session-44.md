@@ -1,28 +1,27 @@
 ### Algorithm for Catalogue (CI)
-- Create EC2 for Jenkins-Master, and connect to it in "super putty"
-- Create EC2 for Agent and connect to it and install nodejs from the catalogue documentation, it is mandatory
-  to install, so that we can install "npm" dependencies.
-- Configure Jenkins-Agent and install plugins like AnsiColor, StageView, Pipeline Utility steps, Nexus
-  artifact uploader.
-- Create EC2 for Nexus and connect to it and download nexus by using "labauto" command
-- Create repo in nexus for catalogue to store "catalogue.zip" artifact
-- To push artifacts from jenkins to the nexus, we need to download plugin called Nexus artifact uploader, so
-  for that we need to give the nexusURL and authentication, make sure to add nexus credentials in the manage
-  jenkins.
-- This is only the CI part of catalogue, you can see in VS. Untill creation of artifact is CI
+- Create EC2 for Jenkins-Master and connect to it in "super putty"
+- Create EC2 for Agent and install nodejs from the catalogue documentation.
+- Configure the Jenkins-Agent architecture.
+- Install plugins like AnsiColor, Stage View, Pipeline Utility steps, Nexus artifact uploader.
+- Create EC2 for Nexus and connect to it and download nexus by using "labauto" command.
+- Create repo in nexus for catalogue to store "catalogue.zip" artifact.
+- To push artifacts from jenkins to the nexus, we need to download plugin called Nexus artifact uploader.
+- Give the nexusURL and authentication, make sure to add nexus credentials in manage jenkins.
+- This is only the CI part of catalogue, you can see in VS. Until creation of artifact is CI.
 
 ### Nexus artifact uploader plugin
 So the created CI pipeline and artifact is in jenkins, how to upload that artifact into the nexus repo ? for that we have nexus artifact uploader, install this plugin in jenkins aswel as write a code in pipeline also.
 
 ### Algorithm for Catalogue (CD)
-General Deployment of any application is below.
-- Create the server.
-- Provision the created server using ansible or any other scripting language.
-- Stop the server.
-- Take AMI.
-- Create Launch template version.
-- Refresh auto-scaling.
-Create separate folder for "catalogue-CD" in VS and also create terraform folder inside the catalogue folder and copy the code of catalogue from the "Terraform-Infra-Dev" into this catalogue folder. First we need to create infrastructure, create atleast vpc, sg, vpn, databases, app-alb in order to work catalogue. Since the catalogue is a private instance, first connect to VPN.
+- General Deployment of any application is below
+- Create the server
+- Provision the created server using ansible or any other scripting language
+- Stop the server
+- Take AMI
+- Create Launch template version
+- Refresh auto-scaling
+
+Create separate folder for "Catalogue-CD" in VS and also create terraform folder inside the catalogue folder and copy the code of catalogue from the "Terraform-Infra-Dev" into this catalogue folder. First we need to create infrastructure, create atleast vpc, sg, vpn, databases, app-alb in order to work catalogue. Since the catalogue is a private instance, first connect to VPN.
 
 Previously ansible was downloading the package from the s3 bucket and version we are giving hardcode, now ansible should download artifact and version from the nexus, so what should we give to the ansible as input ? "Nexus location and Artifact version" that means first it will call main playbook from the roles, so we need to send artifact version to the ansible playbook from the terraform. So create "Catalogue-CD" in VS and we keep all the deployment scripts here and write Jenkinsfile for this. When you build with parameter, then this "Catalogue-CI" should send the values of "verison and environment", so how to call another pipeline from the jenkins pipeline using parameters ? For that we have a small syntax, should be used in the CI part in deploy stage "build job: "catalogue-deploy", wait: true, parameters: params"
 
