@@ -5,37 +5,38 @@
 - Interview question (write a raw syntax of a declarative pipeline)
 
 ### Input option in Directives
-Taking approval before going to the next stage. For example we have terraform init, plan and apply. Before terraform apply, reviewers should approve. We can keep terraform init, plan and apply stages in pipeline.
+Taking approval before going to the next stage. For example we have terraform init, plan and apply. Before terraform apply, reviewers should approve. We can keep terraform init, plan and apply stages in pipeline. Not only terraform commands, we can also keep inputs to the environments like Dev, Sit, Uat, Prod.
 
 ### Jenkinsfile
-- If small project, every resources will be in one folder like sg.tf, vpc.tf, ec2.tf files etc. If big
-  project then we can keep resources in separate repos (folders) same like "Roboshop-Infra-Dev" so that
-  we can reduce the refresh time, if we put all resources in one folder then "Refreshing Time" will be
-  longer. Incase if we do any small changes also, it will take some time to reflect the resources. If we
-  keep resources in separate repos (folders) we need to write separate jenkinsfiles for every resources.
+- If small project, every resources (sg.tf, vpc.tf, ec2.tf files etc) will be in one folder. If big project
+  then we can keep resources in separate repos (folders) same like "Roboshop-Infra-Dev" so that we can reduce
+  the refresh time, if we put all resources in one folder then "Refreshing Time" will be longer. Incase if we
+  do any small changes also, it will take some time to reflect the resources. If we keep all the resources in
+  separate repos (folders) we need to write separate jenkinsfiles for every resources. However we dont write
+  jenkinsfile for infra, we only write for applications. 
 - Go through the example of Jenkinsfile in 01-vpc in "Roboshop-Infra-Dev" folder, that means we can write
-  Jenkinsfile (or) we can create pipeline for Infrastructure also. But in this project we dint created
+  Jenkinsfile (or) we can create pipeline for Infrastructure also. But in this project we did not created
   Jenkinsfiles for Infra because we rarely touch the infra, so infrastructure is created in normal way using
   terraform, this is just to show that we can also create jenkins file for infra also, so first create whole
-  project infra and do CICD in Jenkinsfile for every applications like catalogue, cart, shipping etc.
+  project infra and then do CICD in Jenkinsfile for every applications like catalogue, cart, shipping etc.
 - So create ROBOSHOP-INFRA (anyname) folder in jenkins UI and add VPC in this folder as pipeline project,
   script path should be "01-vpc/jenkinsfile" similarly do for other infra like SG also just for practice.
-- You may get ERROR:: Terraform command not found because it is running in the agent and agent dont have 
-  terraform, so we need to install few tools in node server like "terraform command" and "aws configure" If
-  you are using ony master then install it in master only. While "aws configure" do not configure through root
-  user because, master is connecting using centos, it is not taking the sudo access, master may not know
+- You may get ERROR:- Terraform command not found because it is running in the agent and agent dont have 
+  terraform, so we need to install few tools in node server like "terraform command" and "aws configure"
+  if you are using ony master then install in master only. While "aws configure" do not configure through
+  root user because, master is connecting using centos, it is not taking sudo access, master may not know
   everything but agent should know everything, because agent will only work here, however the logs will be
   showed in the jenkins-master, but the running application will be in nodes.
 - To enable colours we have "ansiColor" plugin keep "ansiColor('exterm')" in the options aswel & install
   plugin in the jenkins console also, manage_jenkins/plugins/available_plugins, make sure to restart jenkins
   in jenkins-master "sudo systemctl restart jenkins"
-- We have "when" with parameters condition in Jenkins pipeline (search in google) that means overall we can
-  write CICD for infra also like vpc, sg, vpn etc.
+- We have "when" with parameters condition in Jenkins pipeline (search in google)
+- So overall we can write CICD for infra also like vpc, sg, vpn etc.
 
-Should we keep infra ready to create CICD for applications ? Project infra should be ready what is the project infra ? like vpc, sg, vpn, databases, app-alb, acm, web-alb etc. Whichever are long term that are project infra, whichever are short term those are application infra, so before you do CICD for applications we need to keep project infra ready, so now we should do CICD for catalogue app, for that we should have 1. Catalogue application should be in git and 2. Write a Jenkinsfile for catalogue application.
+Should we keep infra ready to create CICD for applications ? Project infra should be ready what is the project infra ? like vpc, sg, vpn, databases, app-alb, acm, web-alb etc. Whichever are long term that are project infra, whichever are short term those are application infra, so before you do CICD for applications we need to keep project infra ready, so now we should do CICD for catalogue app, for that we should have Catalogue application should be in git and write a Jenkinsfile for catalogue application.
 
 ### CI (Continous Integration)
-Continous Integration is nothing but whenever developers pushes the code to the git continously, we should take the code and compile, build, scan, unitesting and saving the artifacts, if CI success then only we should go for CD. What should be stages in catalogue Jenkins file is the below.
+Continous Integration is nothing but whenever developers pushes the code to the git continously, we should take the code and compile, build, scan, unit testing and saving the artifacts, if CI success then only we should go for CD. What should be the stages in catalogue Jenkinsfile is the below.
 - Get the catalogue version first if required
 - Clone the catalogue code
 - Install Dependencies
