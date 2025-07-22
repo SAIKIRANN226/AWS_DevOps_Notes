@@ -202,32 +202,33 @@
 
 ### Jenkins (Continuous Integration & Continuous Deployment)
 ************************************************************************************************************
-- Create 1 instance using t3.small AMI with 30gb, because it is heavy application and use default SG.
-- Install Jenkins & Java in the server. (Java 21 latest is not working, so go for Java 17)
+- Create 1 instance for jenkins ?
+- Install Jenkins & Java in the server (Java 21 latest is not working, so go for Java 17)
 - Only Java is enough in the nodes (or) agents.
-- Then systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
+- Then sudo su - ; systemctl start jenkins ; systemctl enable jenkins ; systemctl status jenkins
 - Should Jenkins-Master must know everything ?
 - Where the actual logs of nodes (or) agents will be saved in ?
 - What is the port number for jenkins ? 8080
 - What is Job in jenkins ? and what is the Freestyle Job in jenkins ?
-- Create a sample pipeline using Freestyle ?
+- Create a sample pipeline job using Freestyle ?
 - What is the difference between creating aws resources in aws console and scripting ?
 - What is the difference between Freestyle and Pipleine Jobs ?
-- Create a sample jenkins pipeline project using pipeline script ?
+- Create a sample jenkins pipeline job using pipeline script ?
 - Understand the Jenkins pipeline syntax from google.
 - What is Pipeline script from SCM (GitOps) ? and create one sample job using GitOps.
 - Write a RAW syntax of a pipeline ?
-- What is agent in Jenkins ?
+- What is agent in Jenkins ? what it will do ?
 - If you have one project then one Jenkins-Master is enough, if multiple projects, we need agents
-- How do you configure the Master-Agent architecture in jenkins ?
+- How do you configure Master-Agent architecture in jenkins ?
 - In which location, jenkins entire database will be in ? var/lib/jenkins/
 - Why the path of agent should be in /home/centos/jenkins-agent (any-name) ?
 - How many launch methods we have in jenkins ?
 - How many agents we can add ?
-- What are Triggers in Jenkins pipeline ? we have multiple events to select, as of now we use "PUSHES"
+- What are Triggers in Jenkins pipeline ? we have multiple events to select, as of now "PUSHES"
+- How to configure Triggers in jenkins pipeline ?
 - What is Environment in Jenkins pipeline ?
 - What is Parameters in Jenkins pipeline ?
-- How many agents you are using in your company ? 
+- How many agents you have in your company ? 
 
 
 
