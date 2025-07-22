@@ -228,7 +228,11 @@
 - How to configure Triggers in jenkins pipeline ?
 - What is Environment in Jenkins pipeline ?
 - What is Parameters in Jenkins pipeline ?
-- How many agents you have in your company ? 
+- How many agents you have in your company ?
+- What is the difference between Scripted pipeline and Declarative pipeline ?
+- What does "input" section do in jenkins pipeline ?
+- 
+
 
 
 
