@@ -33,6 +33,15 @@
 
 Previously ansible was downloading the package from the s3 bucket and version was hardcoded, now ansible should download artifact and version from the nexus, so what should we give to the ansible as input ? "Nexus location and Artifact version" that means first it will call main playbook from the roles, so we need to send artifact version to the ansible playbook from the terraform. So create "Catalogue-CD" in VS and we keep all the deployment scripts here and write Jenkinsfile for this. When you build with parameter, then this "Catalogue-CI" should send the value of "verison and environment", so how to call another pipeline from the jenkins pipeline using parameters ? For that we have a small syntax, should be used in the CI part in deploy stage "build job: "catalogue-deploy", wait: true, parameters: params"
 
+### How the artifact version is travelling ?
+- Get the version
+- Build ZIP + Upload to Nexus
+- Pass Version to CD Pipeline from CI Pipeline
+- CD Pipeline Receives the Version
+- Terraform Gets It using command line arguments
+- Terraform Passes to Ansible
+- Ansible Uses It to Download Artifact
+
 ### We have a "Upstream job" and "Downstream job"
 That means when CI part is success then only it will call CD. Jenkins have application version, it should send that version to terraform, how does it send to terraform ? so we should create a variable of "app_version" in terraform variables. So first write terraform init stage.
 
