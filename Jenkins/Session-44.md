@@ -38,12 +38,15 @@ Previously ansible was downloading the package from the s3 bucket and version wa
 - Build ZIP + Upload to Nexus
 - Pass Version to CD Pipeline from CI Pipeline
 - CD Pipeline Receives the Version
-- Terraform Gets It using command line arguments
-- Terraform Passes to Ansible
+- Terraform Gets version using command line arguments from jenkins
+- Terraform Passes to Ansible playbook
 - Ansible Uses It to Download Artifact
+- Make sure to do changes in ansible playbook that instead of downloading package from s3 we it should
+  download from the nexus, you can change in roles/common/app-setup.yaml
+- 
 
 ### We have a "Upstream job" and "Downstream job"
-That means when CI part is success then only it will call CD. Jenkins have application version, it should send that version to terraform, how does it send to terraform ? so we should create a variable of "app_version" in terraform variables. So first write terraform init stage.
+That means when CI part is success then only it will call CD. Jenkins have application version, it should send that version to terraform, how does it send to terraform ? so we should create a variable of "app_version" in terraform variables. So first write terraform init stage. Here upstream is catalogue-CI and downstream is catalogue-CD
 
 ### Points to remember
 - Industries will follow Semantic version like major version, minor version, patch version.
@@ -51,3 +54,4 @@ That means when CI part is success then only it will call CD. Jenkins have appli
 - Until creating artifacts is nothing but CI-part.
 - Everytime refreshing and again clicking on build, instead we can download plugin called "Rebuilder"
 - Since catalogue is accepting connections from VPN, so we need to attach VPN SG to the agent instance.
+- How to call another pipeline from jenkins pipeline ? using "build job"
