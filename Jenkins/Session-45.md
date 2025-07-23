@@ -1,17 +1,17 @@
 ### Types of scannings in Jenkins pipeline
 - Static Source Code Analysis ---> Is a method of debugging the source code of a program without executing it.
   It will find the potential bugs, security vulnerabilities, code quality issues, and ensure we are meeting the
-  project or company standards or not ? "Sonarqube" is the most popular tool for this testing.
+  project (or) company standards or not ? "Sonarqube" is most widely used tool for this type of testing.
 - Static Application Security Testing (SAST) ---> Mainly focus on the security without executing the program to
   identify security vulnerabilities early in the software development lifecycle (SDLC). "Fortify" is the tool.
 - Dynamic Application Security Testing (DAST) ---> Like if anybody hacks how they test the application, same
   intense testing will be done by DAST while application is running in Dev itself & the tool is "Web inspect"
 - Open Source Library Scanning ---> We get all the libraries from the internet right ? to scan these we use a
   tool called "Nexus IQ"
-- Docker Image Scanning ---> We have "TwistLock" or "ECR Scanning"
+- Docker Image Scanning ---> We have "TwistLock" (or) "ECR Scanning"
 - We are using "Shift-Left" method, we do all types of scanning in Dev enviroment itself to make sure
-  everything is ok, then we can go for higher environments.
-- All the tools are costly except Sonarqube and Docker, so we used only these two as of now.
+  everything is ok, then only we can go for the higher environments.
+- All the scanning tools are costly except Sonarqube and Docker, so we used only these two as of now.
 
 ### Sonarqube installation and setup
 - First create 1 instance for Sonarqube (t3.medium) with 30GB, actually this should be taken care by
