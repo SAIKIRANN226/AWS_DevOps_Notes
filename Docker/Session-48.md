@@ -39,8 +39,15 @@ AMI is like physical thing, we have a memory in this, when you run AMI you will 
 
 ### Docker commands
 - docker images ---> Show you the images exist in server
-- docker pull nginx ---> Image will be pulled from the "Docker Hub"
-- 
+- docker pull nginx ---> Image will be pulled from "Docker Hub" here nginx image = Base OS + nginx 
+- Bydefault it will pull the latest nginx (or) if you want you can give specific tags also, for example
+  "docker pull nginx:stable-bullseye" etc.
+- Now create container from the above created image, "docker create nginx:latest"
+- To see only the running container "docker ps" to make run "docker start <container_id>"
+- To remove "docker rm <container_id>" before you need to stop "docker stop <container_id>"
+- "docker ps -a" ---> All containers with all status
+- To remove images ---> "docker rmi <image_name>/id"
+- To remove all images at a time ---> "docker images -a -q" then "docker rmi `docker images -a q`
 
 ### Points to remember
 - In virtualization VM ---> Cloud technologies are using VM-ware concept, a big physical server (for example
@@ -56,3 +63,4 @@ AMI is like physical thing, we have a memory in this, when you run AMI you will 
 - Resource utilization is good in VM compared to physical servers, we can utilize 1 server fully.
 - We also have "Dedicated Hosts" in aws, nothing but physical servers used by big companies.
 - When we are moving to docker and kubernetes, we dont care what is the underline OS.
+- Create an account for docker hub 
