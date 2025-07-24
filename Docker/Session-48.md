@@ -45,10 +45,23 @@ AMI is like physical thing, we have a memory in this, when you run AMI you will 
 - Now create container from the above created image, "docker create nginx:latest"
 - To see only the running container "docker ps" to make run "docker start <container_id>"
 - To remove "docker rm <container_id>" before you need to stop "docker stop <container_id>"
+- To remove without stopping ---> "docker rm -f <container_id>"
 - "docker ps -a" ---> All containers with all status
 - To remove images ---> "docker rmi <image_name>/id"
 - To remove all images at a time ---> "docker images -a -q" then "docker rmi `docker images -a q`"
-- Instead of Pull+Create+Run commands ---> "docker run nginx" to run in background "docker run -d nginx"
+- Instead of Pull+Create+Run commands ---> "docker run nginx"
+- To run in background "docker run -d nginx" here -d is dettach.
+- How to access nginx then ? you cannot use VM port to container, so you need to allocate any port to the
+  server first ""docker run -d -p 8080:80 nginx" 8080 port is for VM, this is mapped with nginx port 80. This
+  is interview question, how can you expose a port of a container ?
+- You cannot use same port 8080 because it is already busy, you can use any other random ports.
+- When you create a container, you are getting random names, docker run -d -p 8081:80 --name sai nginx
+- How can you login to existing container ? container is also a light weight VM is the below command.
+  "docker exec -it <container_name (or) id> bash" to see OS "cat /etc/*release"
+- Container will also have IP address ---> docker inspect <container_id>
+
+### How to create our own image ?
+We have "dockerfiles" is a declarative way of creating our own images, same as we put all linux commands in shellscript instead of one by one commands. Search in google like dockerfiles reference. So create a repo for this
 
 ### Points to remember
 - In virtualization VM ---> Cloud technologies are using VM-ware concept, a big physical server (for example
