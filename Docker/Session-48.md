@@ -54,45 +54,42 @@ Main issue is configuration changes and OS, is if you use different OS in QA, UA
 - Create 1 server with (t2.micro) with 30GB
 - Search in google "docker install for centos"
 - Run the shown commands in the server with sudo su -
-- When you install docker, a group called "docker" created, users who are in this group can access docker
+- When you install docker, a group called "docker" is created, users who are in this group can access docker
   commands without root user. Users like centos should add in this group, then only commands like "docker ps"
   will work without root user, otherwise you must be root user.
-- "usermod -aG docker centos" after this you need to logout and login again in server.
-
-### Difference between Image (AMI) & Container (EC2 instance)
-AMI is like physical thing, we have a memory in this, when you run AMI you will get EC2 instance, similarly Image is physical thing it has memory, configuration files etc. When you run the image we get container, that means container is the running version of image.
+- To add user "usermod -aG docker centos" after this you need to logout & login again in server.
 
 ### Docker commands
-- docker images ---> Show you the images exist in server
+- docker images ---> Show you the images exist in server.
 - docker pull nginx ---> Image will be pulled from "Docker Hub" here nginx image = Base OS + nginx 
 - Bydefault it will pull the latest nginx (or) if you want you can give specific tags also, for example
   "docker pull nginx:stable-bullseye" etc.
-- Now create container from the above created image, "docker create nginx:latest"
-- To see only the running container "docker ps" to make run "docker start <container_id>"
+- Now create container from the above created image nginx, "docker create nginx:latest"
+- To make the container run "docker start <container_id>"
+- To see the running containers "docker ps" ; To see all containers with all status "docker ps -a"
 - To remove "docker rm <container_id>" before you need to stop "docker stop <container_id>"
 - To remove without stopping ---> "docker rm -f <container_id>"
-- "docker ps -a" ---> All containers with all status
-- To remove images ---> "docker rmi <image_name>/id"
+- To remove images ---> "docker rmi <image_name>/image_id"
 - To remove all images at a time ---> "docker images -a -q" then "docker rmi `docker images -a q`"
-- Instead of Pull+Create+Run commands ---> "docker run nginx"
+- Instead of Pull+Create+Run commands ---> Use 1 command "docker run nginx"
 - To run in background "docker run -d nginx" here -d is dettach.
 - How to access nginx then ? you cannot use VM port to container, so you need to allocate any port to the
-  server first ""docker run -d -p 8080:80 nginx" 8080 port is for VM, this is mapped with nginx port 80. This
+  server first "docker run -d -p 8080:80 nginx" 8080 port is for VM, this is mapped with nginx port 80. This
   is interview question, how can you expose a port of a container ?
-- You cannot use same port 8080 because it is already busy, you can use any other random ports.
-- When you create a container, you are getting random names, docker run -d -p 8081:80 --name sai nginx
-- How can you login to existing container ? container is also a light weight VM is the below command.
-  "docker exec -it <container_name (or) id> bash" to see OS "cat /etc/*release"
+- You cannot use same port 8080 because it is already allocated, you can use any other random ports.
+- When you create container, you are getting random names "docker run -d -p 8081:80 --name sai nginx"
+- How can you login to the existing container ? container is also a light weight VM is the below command.
+  "docker exec -it <container_name/container_id> bash" to see OS, just cat /etc/*release
 - Container will also have IP address ---> docker inspect <container_id>
 
 ### How to create our own image ?
-We have "dockerfiles" is a declarative way of creating our own images, same as we put all linux commands in shellscript instead of one by one commands. Search in google like dockerfiles reference. So create a repo for this
+We have "dockerfiles" is a declarative way of creating our own images, same as shellscript, we put all linux commands in shellscript instead of using one by one commands. Search in google like dockerfiles reference. So create a repo for this also.
 
 ### Points to remember
 - Monolithic (or) legacy ---> Frontend + Backend (War file and Ear file) say almost 100MB.
 - Then later Frontend and Backend got divided. So we started using VMs for Monolithic apps
 - That means we have 1 VM for Frontend (UI) ---> 50MB
-- Another VM for Backend (Catalogue+user+shipping all in one) ---> 50MB
+- Another VM for Backend (Catalogue+user+shipping all in 1 VM) ---> 50MB
 - Later we got microservices, they are completely independent applications, since these are very low in space
   like 5MB like that, so you dont need a VM to run a Microservices, containers are best approach. We need just
   Base OS for containers.
