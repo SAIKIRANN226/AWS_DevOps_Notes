@@ -1,26 +1,51 @@
-### Overview of previous sessions
-- We learned linux and how to use linux commands.
-- Configured the project manually.
-- We automated (or) configured the project using shellscript.
-- We automated (or) configured the project using ansible also.
+### Overview of the Previous Sessions
+- We learned linux commands for system management.
+- First we configured the project manually.
+- Then automated the project using shellscript and ansible.
 - Then created infrastructure using terraform.
-- Infrastructure using terraform + Jenkins CICD for apps + we installed applications.
-- Finally we deployed into the VMs in AWS cloud (Like EC2 is nothing but a VM)
+- Project Infrastructure + Jenkins CICD for Applications + We installed Applications.
+- Finally we deployed into the VM's in AWS cloud (Like EC2 is nothing but a VM)
 - That means till now our applications are deployed into VM based.
-- From this session, we are going to deploy applications in Docker & Containerization.
+- From this sessions, we are going to deploy applications in Docker & Containerization.
 
 ### Containerization
-Containerization is a lightweight form of virtualization (VM) that involves packaging an application and all its dependencies (like libraries, configuration files, and binaries) into a single, self-contained unit called a container. This allows the application to run consistently across different environments from a developer's laptop to test environments to production servers. How the world evolved from past is the below example.
-Physical severs (laptop) ---> Virtualization (VM) ---> Containerization. When we compare these 3 we have more security in Physical servers, however we can increase security by taking few steps.
+Containerization is a lightweight form of virtualization (VM) that involves packaging an application and all its dependencies (Like libraries, configuration files, and binaries) into a single, self-contained unit called a container. This allows the application to run consistently across different environments from a developer's laptop to test environments to production servers. How the world evolved from past is the below example.
+Physical severs (Laptop) ---> Virtualization (VM) ---> Containerization. When we compare these 3 we have more security in Physical servers, however we can increase security by taking few steps.
 
-For example in Guest OS, we have created one For Centos ---> 1GB ram, Ubuntu, 100GB HDD. But application is used only 0.1GB of ram, 10GB of HDD, remaining space is wasted right ? So this is nothing but virtualization VM concept right ? and here Hypervisor is blocking remaining space, that means resource utilization is not that much better. So in this VM only we have containerization concept, nothing but we have containers installed in this VM, containers are isolated from each other (similar to the individual rooms example) but system resources (centos ---> 1GB ram, Ubuntu, 100GB HDD) are shared, that means containers will take resources based on demand from this system resources. System resources will dont block. Boot time is very less (with in seconds) compared to VM (EC2 instance)
+- Physical servers booting time is very high, from configuring to until application is up and running.
+- Virtualization VM's booting time is medium, from configuring to until application is up and running.
+- Containers booting time is very fast, from configuring to until application is up and running.
+
+### Virtualization concept
+- Cloud technologies are using VM-ware concept, a big Physical server (For example 16GB ram, 1TB HDD & CPU)
+  will be there. We will divide this big server into multiple logical servers.
+- Host OS ---> Windows ; VM-ware ---> We install Hypervisor software in Host OS ---> Guest OS.
+- Here Guest OS is nothing but we can create multiple logical servers like below.
+- For Ubuntu ---> 1GB ram, 100GB HDD (Isolated from the other servers)
+- For Centos ---> 1GB ram, 100GB HDD (Isolated from the other servers)
+- For Fedora ---> 1GB ram, 100GB HDD (Isolated from the other servers) these are like VM's
+- This whole process is called "Resource Utilization"
+- When you create server in aws, it will create from the big Physical server only, however these servers are
+  isolated from the other servers and big physical server.
+- Resource Utilization is good in VM compared to Physical servers, we can utilize 1 server fully.
+- We also have "Dedicated Hosts" in aws, nothing but Physical servers used by big companies.
+- When we are moving to Docker and Kubernetes, we dont care what is the underline OS.
+- Create an account for "Docker Hub" 
+
+### How the containers will be created from VM ?
+For example we have created 1 Guest OS (or) 1 VM for Centos ---> 1GB ram, Centos, 100GB HDD. But application is used only 0.1GB of ram, 10GB of HDD, remaining space is wasted right ? So this is nothing but virtualization VM concept right ? and here Hypervisor is blocking remaining space, that means resource utilization is not that much better when compared to Physical servers. So in this VM only we have containerization concept, nothing but we have containers installed in this VM, containers are isolated from each other (Similar to the individual rooms example) but system resources (Centos ---> 1GB ram, 100GB HDD) are shared, that means containers will take resources based on their demand from this system resources. System resources will dont block. Boot time is very less (With in seconds) compared to VM (EC2 instance).
 
 ### Configuration
-When comparing with the example of vacating the place from Independent house, Apartment, Individual rooms. We can take all the things in a single bag (configuration) and vacate the Individual rooms with in hours, but when we try to vacate the Flat in Apartment, your things (configuration) will be more compared to Individual room and vacate with in 2-3 days. So similarly when vacting from the Independent house is also same things (configuration) will be more.
+When comparing with the example of vacating the place from Independent house, Apartment, Individual rooms. We can take all the things in a single bag (All your things are nothing but configuration) and we can vacate the Individual room with in hours, but when we try to vacate the Flat in Apartment, your things (Configuration) will be more compared to Individual room and vacating time will be more like 2-3 days. So similarly when vacting from the Independent house is also same things (Configuration) will be more like more than 1 week.
 
-### Container (or) Image
-What we have done previously ? In this container (or) image ---> We have FAT OS (4GB) + Application run time (java, nodejs etc) + Created users + Created a directory + Installed the application right ? and what we have done in AMI ? while deploying catalogue ? We took 1 server + Configured the server using ansible like above all + Stop the server + Take AMI ---> This is nothing but Amazon Machine Image, we can use AMI image how many times we want, instead of taking one server and doing from the scratch, if image is ready, it is easy for us. Similarly docker image is also same, but the only difference when compared to docker image and container.
-Docker image (like individual room) ---> We have Base OS (5MB-250MB) + Application run time (java, nodejs etc) + Created users + Created a directory + Installe the application ---> Total space used around 500MB.
+### Understanding the Amazon Machine Image (AMI) and Docker Image
+How do we launch an EC2 instance ? by using AMI right ? Amazon will provide multiple AMI's to launch EC2, 
+and we can also create our own AMI and use it, like siva created Centos-8 AMI for us. So similarly to launch 
+a container, we need Docker Image, we can also create our own Docker image also. That means container is the running version of Docker Image and EC2 is the running version of Amazon Machine Image (AMI).
+
+What we have done previously in AMI ---> We have FAT OS (4GB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application right ? that means while deploying catalogue, We took 1 server + Configured the server using ansible like above all + Stop the server + Take AMI ---> This is nothing but Amazon Machine Image, we can use AMI image as many times we want, instead of taking one server and doing from the scratch, if image is ready, it is easy for us to deploy applications. Similarly Docker image is also same, but the only difference when compared to Docker Image and AMI is below.
+Docker image (Like individual room) ---> We have Base OS (5MB-250MB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application ---> Total space used around 500MB.
+AMI (Like apartment) ---> We have FAT OS (4GB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application.
 
 ### Working in DEV, but not working in PROD 
 Main issue is configuration changes and OS, is if you use different OS in QA, UAT or PROD, but the advantage of docker image is we take same image from Dev to Sit, Uat, Prod. Thats why we call it as immutable image and portable, we even dont know what is the base OS we are using, but our intention is image should work.
@@ -64,17 +89,10 @@ AMI is like physical thing, we have a memory in this, when you run AMI you will 
 We have "dockerfiles" is a declarative way of creating our own images, same as we put all linux commands in shellscript instead of one by one commands. Search in google like dockerfiles reference. So create a repo for this
 
 ### Points to remember
-- In virtualization VM ---> Cloud technologies are using VM-ware concept, a big physical server (for example
-  16GB ram, 1TB HDD & CPU) will be there. We will divide this big server into multiple logical servers.
-- Host OS ---> Windows ; VM-ware ---> We install Hypervisor software in Host OS ---> Guest OS
-- In Guest OS ---> We can create multiple logical servers like below
-- For Ubuntu ---> 1GB ram, Ubuntu, 100GB HDD (isolated from the other servers)
-- For Centos ---> 1GB ram, Ubuntu, 100GB HDD (isolated from the other servers)
-- For Fedora ---> 1GB ram, Ubuntu, 100GB HDD etc. (isolated from the other servers)
-- This whole process is called "Resource utilization"
-- When you create server in aws, it will create from the big physical server only, however these servers are
-  isolated from the other servers and big physical server.
-- Resource utilization is good in VM compared to physical servers, we can utilize 1 server fully.
-- We also have "Dedicated Hosts" in aws, nothing but physical servers used by big companies.
-- When we are moving to docker and kubernetes, we dont care what is the underline OS.
-- Create an account for docker hub 
+- Monolithic (or) legacy ---> Frontend + Backend (War file and Ear file) say almost 100MB.
+- Then later Frontend and Backend got divided. So we started using VMs for Monolithic apps
+- That means we have 1 VM for Frontend (UI) ---> 50MB
+- Another VM for Backend (Catalogue+user+shipping all in one) ---> 50MB
+- Later we got microservices, they are completely independent applications, since these are very low in space
+  like 5MB like that, so you dont need a VM to run a Microservices, containers are best approach. We need just
+  Base OS for containers.
