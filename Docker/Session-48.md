@@ -47,7 +47,8 @@ AMI is like physical thing, we have a memory in this, when you run AMI you will 
 - To remove "docker rm <container_id>" before you need to stop "docker stop <container_id>"
 - "docker ps -a" ---> All containers with all status
 - To remove images ---> "docker rmi <image_name>/id"
-- To remove all images at a time ---> "docker images -a -q" then "docker rmi `docker images -a q`
+- To remove all images at a time ---> "docker images -a -q" then "docker rmi `docker images -a q`"
+- Instead of Pull+Create+Run commands ---> "docker run nginx" to run in background "docker run -d nginx"
 
 ### Points to remember
 - In virtualization VM ---> Cloud technologies are using VM-ware concept, a big physical server (for example
