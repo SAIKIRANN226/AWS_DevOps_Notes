@@ -41,9 +41,7 @@ When comparing with the example of vacating the place from Independent house, Ap
 ### Understanding Amazon Machine Image (AMI) and Docker Image
 How do we launch an EC2 instance ? by using AMI right ? Amazon will provide multiple AMI's to launch EC2, 
 and we can also create our own AMI and use it, like siva created Centos-8 AMI for us. So similarly to launch 
-a container, we need Docker Image, we can also create our own Docker image. That means container is the running version of Docker Image and EC2 is the running version of Amazon Machine Image (AMI).
-
-What we have done previously in AMI ---> We have FAT OS (4GB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application right ? that means while deploying catalogue, We took 1 server + Configured the server using ansible like above all + Stop the server + Take AMI. This is nothing but Amazon Machine Image, we can use AMI image as many times we want, instead of taking one server and doing from the scratch, if image is ready, it is easy for us to deploy applications. Similarly Docker image is also same, but the only difference when compared to Docker Image. Docker image (Like individual room) We have Base OS (5MB-250MB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application. Total space used here around 500MB. AMI (Like apartment) We have FAT OS (4GB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application.
+a container, we need Docker Image, we can also create our own Docker image. That means container is the running version of Docker Image and EC2 is the running version of Amazon Machine Image (AMI). What we have done previously in AMI ---> We have FAT OS (4GB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application right ? that means while deploying catalogue, We took 1 server + Configured the server using ansible like above all + Stop the server + Take AMI. This is nothing but Amazon Machine Image, we can use AMI image as many times we want, instead of taking one server and doing from the scratch, if image is ready, it is easy for us to deploy applications. Similarly Docker image is also same, but the only difference when compared to Docker Image. Docker image (Like individual room) We have Base OS (250MB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application. Total space used here around 500MB. AMI (Like apartment) We have FAT OS (4GB) + Application run time (Java, nodejs etc) + Created users + Created a directory + Installed the application.
 
 ### Working in DEV, but not working in PROD 
 Main issue is configuration changes and OS, is if you use different OS in QA, UAT or PROD, but the advantage of docker image is we take same image from Dev to Sit, Uat, Prod. Thats why we call it as immutable image and portable, we even dont know what is the base OS we are using, but our intention is image should work.
@@ -78,7 +76,7 @@ Main issue is configuration changes and OS, is if you use different OS in QA, UA
 - You cannot use same port 8080 because it is already allocated, you can use any other random ports.
 - When you create container, you are getting random names.
 - To create with name use "docker run -d -p 8081:80 --name sai nginx"
-- How can you login to the existing container ? container is also a light weight VM is the below command
+- How can you login to the existing container ? container is also a light weight VM.
 - "docker exec -it <container_name/container_id> bash" to see OS, just cat /etc/*release
 - Container will also have IP address ---> docker inspect <container_id>
 
