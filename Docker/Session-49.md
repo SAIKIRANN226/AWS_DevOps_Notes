@@ -17,4 +17,4 @@
   "docker build -t from:v1 ." it will start building the image
 - Then see "docker images"
 - To push this image after saving in your local, you need to retag by using below command.
-  "docker tag from:v1 joindevops/from:v1"
+- "docker tag from:v1 joindevops/from:v1"
