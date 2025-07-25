@@ -53,4 +53,5 @@ To enable colors option, you need to give "-e"
   here in terminal, if you get any errors (or) not working properly you can delete that folder and clone again
   from the github (no problem)
 - To remove any package "sudo dnf remove <package_name>"
-- You can also redirect the output like this ? "yum install nginx -y > output.text"
+- You can also redirect the output like this ? "yum install nginx -y > output.text" you can keep any name
+- "yum install nginx -y > saikiran.text"
