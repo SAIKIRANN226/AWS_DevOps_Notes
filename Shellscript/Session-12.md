@@ -1,5 +1,5 @@
 ### Why we use SSH based authentication to connect to Github account ?
-To push our developed code from VS to Github account using gitbash client, we use SSH based authentication. Because we work with multiple github accounts, so for every account logging with username and password is not a good practice, so we prefer to use "SSH based authentication" since SSH(22) is more secure.
+To push our developed code from VS to Github account using gitbash client, we use SSH based authentication. Because we work with multiple github accounts, so for every account logging with username and password is not a good practice, so we prefer to use 'SSH based authentication' since SSH(22) is more secure.
 
 - First generate a new key-pair (or) use existing key-pair, "ssh-keygen -f <file_name>" press enter two times,   Public-Key will be with .pub extension, you need to give .pem extension manually for Private-Key. To enable
   extension go to the "File Explorer Options" in control_panel/view/unhide_extensions for known file types.
