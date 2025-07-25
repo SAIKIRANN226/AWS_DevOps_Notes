@@ -62,5 +62,5 @@ To push our developed code from VS to Github account using gitbash client, we us
   folder, if it is not there you need to create .ssh folder, It will be hidden, so to check this, enter this
   command "ls -la"
 - How to shift from main-master (or) master-main branch ? "git branch -M main"
-- If you want to create a folder in github with .md extension, just use "/" after naming your folder and after
-  "/" just create a file with .md extension. Example "AWS_DevOps_Notes/Shellscript/Session-01.md"
+- If you want to create a folder in github with .md extension, just use '/' after naming your folder and after
+  '/' just create a file with .md extension. Example 'AWS_DevOps_Notes(Repo)/Shellscript/Session-01.md'
