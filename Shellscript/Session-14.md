@@ -23,7 +23,7 @@ Installing any number of packages using "loops" instead of going to the script a
 - Dispatch ---> t2.micro
 
 ### SED editor (Stream Line Editor)
-To change the configuration for humans, we have VIM editor, but for scripts we have SED editor. It is a temperory editor, so use "-e" and If you want permanent change then use "i" in place of "e". Below is the Example:- sed -e '1 a I am  learning DevOps'<file-name> ---> e=enable, a=append (after). If you want before first line then "i", 1=line1. If want after 2nd line then "2 a". 
+To change the configuration for humans, we have VIM editor, but for scripts we have SED editor. It is a temperory editor, so use "-e" and If you want permanent change then use "i" in place of "e". Below is the Example:- sed -e '1 a I am  learning DevOps'<file-name> ---> e=enable, a=append (after). If you want before first line then "i", 1=line1. If want after 2nd line then "2 a".
 
 ### How to update lines using SED
 - sed -e 's/<word-to-find>/word-to-replace/' ---> First occurrence in the line.
@@ -31,9 +31,9 @@ To change the configuration for humans, we have VIM editor, but for scripts we h
 
 ### Points to remember
 - How to check logs? ---> sudo less /var/log/messages
-- To check the remote connections or ports use "netstat -lntp" command.
-- Shellscript is nothing but keeping all the individual Linux commands in one file, which was used while doing
-  manuall configuration.
+- To check the remote connections (or) ports ? "netstat -lntp" command.
+- Shellscript is nothing but keeping all the individual Linux commands in one file, which was used
+  while doing manuall configuration.
 - To remove any installed package in the server "sudo yum remove <package_name> -y"
-- To check installed or not "yum list installed | grep <package_name>"
+- To check any particular package is installed or not "yum list installed | grep <package_name>"
 - To remove file "rm -rf <file_name>"
