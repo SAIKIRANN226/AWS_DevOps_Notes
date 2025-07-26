@@ -36,7 +36,7 @@
 - Can we set $? (exit status) to automatically exit in shellscript and why we dont prefer this ?
 - Instead of giving &>> $LOGFILE everywhere, we can give "exec &>$LOGFILE" under logfile name.
 - What is the use of logs ? why we check logs ?
-- unzip -o /tmp/web.zip ----> Here "o" is to overwrite, if you run the script multiple times.
+- unzip -o /tmp/web.zip ---> Here "o" is to overwrite, if you run the script multiple times.
 - Even after changing something in the configuration file and if it is still not reflecting,
   then you need to restart "systemctl restart nginx"
 - To check the logs "sudo less /var/log/messages" in this logs, we can check wether the remote
