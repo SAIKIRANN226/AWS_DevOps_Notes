@@ -18,6 +18,9 @@ To push our developed code from VS to Github account using gitbash client, we us
                       PreferredAuthentications publickey
                       IdentityFile ~/saikiran.pem
   
+- Here the location of private-key is created in /c/Users/saikiran and i have given ~/saikiran.pem, how
+  come the location is same ? because when you enter command pwd it will show your current directory when
+  you are in "~" location.
 - We have HTTPS and SSH to the repository.
 - HTTPS is Username and Password, clone HTTPS_URL when you have read only access.
 - SSH is Just Private-Key, you can clone if you are the owner of the respository. But prefer HTTPS while
