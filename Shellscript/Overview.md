@@ -1,1 +1,11 @@
-
+- Why we use SSH based authentication to connect to github accounts ?
+- What is the port number of SSH ?
+- Algorithm for connecting to github account ?
+- Command to generate a Key-Pair ?
+- Which one should we prefer while cloning the repo HTTPS (or) SSH ?
+- HTTPS is for username and password
+- What is shibang in shellscript (or) bashscript ?
+- How do you capture the output of any linux command in a variable ?
+- What is the use of arguments in the shellscript ?
+- When you are connecting to external systems like DB, how to hide password while entering in terminal ?
+- 
