@@ -41,4 +41,4 @@
   then you need to restart "systemctl restart nginx"
 - To check the logs "sudo less /var/log/messages" in this logs, we can check wether the remote
   connections are successfully connected (or) not.
-- 
+- Configure the Roboshop project using shellscript ?
