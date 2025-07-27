@@ -45,4 +45,8 @@
 - Write a shellscript to delete old log files with .log extension ?
 - Why IFS is used in shellscript ? and what is the use ?
 - Write a shellscript to read a file which is in /etc/passwd using IFS ?
+- Check the Disk_usage and send alerts ?
+- Sometimes mail.sh will be not in our control, linux team will send us this script to call
+- Company will give us a mail server details to configure
+- What is crontab and why it is useful ?
 - 
