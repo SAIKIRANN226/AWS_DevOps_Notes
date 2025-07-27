@@ -1,26 +1,26 @@
 ### Today we have two tasks to work on
-1. Delete log files (more than 14 days old) only with ".log" extension not any other files.
-2. Check Disk Usage and Send email for alerts.
+- Delete log files more than 14 days old only with .log extension not any other files.
+- Check Disk Usage and Send email for alerts.
 
 ### Simple algorithm for deleting old log files
-- First decide, what is your Source-Directory (folder where we are storing log files).
-- Search for more than 14 days old, only with ".log" extension not any other files.
+- First decide, what is your Source-Directory (Folder where we are storing log files).
+- Search for more than 14 days old, only with .log extension not any other files.
 - Then Delete "rm -rf". Below is the simple script to delete old log files.
 
 ### 15-delete-old-log.sh
-- Create a folder for logs in cd location in linux server "mkdir /tmp/saikiran-logs"
-- Create few files with old date in that folder, "touch -d 20231201 <anyname.log>"
-- find . -type f -mtime +14 ---> f(files), .(means current directory)
+- Create a folder for logs in cd location in linux server 'mkdir /tmp/saikiran-logs'
+- Create few files with old date in that folder 'touch -d 20231201 <anyname.log>'
+- find . -type f -mtime +14 ---> f(Files), .(Means current directory)
 - find . -type f -mtime +14 -name "*.log" ---> We want only with .log extension files.
 - Now we can delete using "rm -rf" but we use while loop to read "command_output" line by line.
 - You can search in chatgpt like write a shell script to delete old log files in a folder morethan 14 days
   old, you will get the script then copy and adjust according to your requirement and it worked for me.
 
 ### 16-ifs.sh
-Generally we have "cat /etc/passwd" in this we have all the users information like user_id, group_id, user_name and manymore other information, so how to read this whole information properly ? or in a structured way, for that we can use IFS (Internal field separator).
+Generally we have "cat /etc/passwd" in this we have all the users information like user_id, group_id, user_name etc. So how to read this whole information properly ? or in a structured way, for that we can use IFS (Internal field separator).
 
 ### 17-disk-usage.sh
-Command is "df -hT", if the disk usage goes above 70% we need to triggger a mail, so create another disk of 12gb for practice because in real time there will be more disks, so go to aws console and then navigate to Elastic Block Store ---> Volumes ---> Create volume ---> Action ---> Attach to the instance, so while creating disk there is one condition like for example disk should always near to the laptop. Similarly here also disk should create in the same availability zone where the server is created, when you check in the server "df -hT" still created disk is not showing, so you need to explicitly mount it by using a command "lsblk" and to make into usage, create a file system using "sudo file -s /dev/xvdf" ---> dev (devices) and we are creating xvdf folder inside the devices folder, then check wether it is created or not "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a folder in root folder "cd /" by using this command "sudo mkdir /data" then mount it by "sudo mount /dev/xvdf /data".
+Command is "df -hT", if the disk usage goes above 70% we need to triggger a mail, so create another disk of 12GB for practice because, in real time there will be more disks, so go to aws console and then navigate to Elastic Block Store ---> Volumes ---> Create volume ---> Action ---> Attach to the instance, so while creating disk there is one condition like for example disk should always near to the laptop. Similarly here also disk should create in the same availability zone where the server is created, when you check in the server "df -hT" still created disk is not showing, so you need to explicitly mount it by using a command "lsblk" and to make into usage, create a file system using "sudo file -s /dev/xvdf" ---> dev (Devices) and we are creating xvdf folder inside the devices folder, then check wether it is created or not ? "sudo lsblk -f" and then run this command "sudo mkfs -t xfs /dev/xvdf" and then create a folder in root folder "cd /" by using this command "sudo mkdir /data" then mount it by "sudo mount /dev/xvdf /data".
 
 ### Overview steps of the above disk creation
 - Create a disk in Elastic Block Store and attach to the instance.
