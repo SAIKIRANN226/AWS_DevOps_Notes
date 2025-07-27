@@ -42,3 +42,7 @@
 - To check the logs "sudo less /var/log/messages" in this logs, we can check wether the remote
   connections are successfully connected (or) not.
 - Configure the Roboshop project using shellscript ?
+- Write a shellscript to delete old log files with .log extension ?
+- Why IFS is used in shellscript ? and what is the use ?
+- Write a shellscript to read a file which is in /etc/passwd using IFS ?
+- 
