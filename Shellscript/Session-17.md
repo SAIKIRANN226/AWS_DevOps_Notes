@@ -3,7 +3,7 @@ Instead of logging manually and deleting old log files with .log extensions, we 
 
 ### Usage of crontab and giving the script location
 - Just type "crontab -e" in server in CD location (-e is editor), then enter the below line.
-- * * * * * sh /home/centos/shell-script/15.delete-old-logs.sh (Give only absolute path)
+- "* * * * * sh /home/centos/shell-script/15.delete-old-logs.sh" (Give only absolute path)
 - Save using :wq!
 - To see the logs "tail -f /var/log/cron"
 
