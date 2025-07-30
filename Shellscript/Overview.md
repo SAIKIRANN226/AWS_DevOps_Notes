@@ -1,6 +1,6 @@
 ### Session-12
 - Why we use SSH based authentication to connect to github accounts ?
-- ~ This indicate /c/Users/saikiran
+- ~ ---> This indicate /c/Users/saikiran
 - What is the port number of SSH ?
 - Algorithm for connecting to github account ?
 - Command to generate a Key-Pair ?
