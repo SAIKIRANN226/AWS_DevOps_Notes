@@ -1,1 +1,22 @@
-
+- What are the disadvantages in shellscript ?
+- Advantages of ansible over shellscript ?
+- What is configuration management ?
+- What are the application deployment basic steps ?
+- What is Idempotence Behaviour in ansible ?
+- Create two servers Ansible & Node ?
+- Connect to Node server from Ansible server ?
+- Create a file in Node from the Ansible server ?
+- Install any github session into Node from ansible server ?
+- What is PUSH architecture ?
+- What is Pull architecture ?
+- Configuration-server (or) Ansible-server (or) Main-server (or) Controller-machine
+- Install ansible in server and connect to Node ?
+- Install nginx in Node from Ansible ?
+- What is the difference between Commands and Modules ?
+- What is the difference between shellscript and playbook ?
+- What is the syntax of ansible playbook ?
+- What is Data Transfer Object ?
+- Identation is mandatory in yaml format.
+- What is Inventory in ansible ?
+- Go through the files 01-playbook.yaml & 02-nginx.yaml files in VS ?
+- 
