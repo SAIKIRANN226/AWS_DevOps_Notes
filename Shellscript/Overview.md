@@ -48,5 +48,29 @@
 - Check the Disk_usage and send alerts ?
 - Sometimes mail.sh will be not in our control, linux team will send us this script to call
 - Company will give us a mail server details to configure
+
+
+
 - What is crontab and why it is useful ?
 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
