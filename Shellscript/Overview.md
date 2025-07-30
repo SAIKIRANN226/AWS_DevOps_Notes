@@ -52,25 +52,20 @@
 
 
 - What is crontab and why it is useful ?
-- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Usage of crontab and giving the script location ?
+- How to see logs of a crontab ? tail -f /var/log/cron
+- What is Optargs in shellscript ?
+- How to set any shellscript as Native Linux Command ?
+- Automating the creation of aws instances and route53 records using aws CLI ?
+- What are Roles to Resources ?
+- How to create a role for ec2 in aws console ?
+- How will you asign above role to the ec2 in aws console ?
+- Remove old credentials which was created for aws console in .aws folder by using rm -rf
+- Command to create instances with tags ?
+- Command to list instances and find the one with your specific Name tag ?
+- Command to terminate the instances ?
+- How do you create administrator user in aws console ?
+- How do you configure aws ?
+- Why we created roles in IAM ?
+- Write a shellscript to create all instances and route53 records using aws CLI ?
+- What is UPSERT in shellscript ?
