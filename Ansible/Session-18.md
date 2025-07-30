@@ -1,21 +1,21 @@
 ### Disadvantages in Shellscript
-- Shellscript will not work for all linux distributions even though 99% commands may be same but you need to
-  write separate scripts for separate distributions like debian,centos,ubuntu,rhel etc. We have hundreds of
-  linux distributions.
+- We have hundreds of linux distributions like debian, centos, ubuntu, rhel etc.
+- Shellscript will not work for all linux distributions even though 99% commands may be same.
+- You need to write separate scripts for separate distributions.
 - Scalability issues, shellscript cannot configure more number of servers incase of big billion days.
 - Error handling, to handle errors we need to write functions, validations explicitly.
 - Readability issues, shellscript syntax is not easy to understand for everyone without learning linux.
-- Shell will only work for linux, not for external systems like aws,azure etc. We need to work manually on
-  external systems by using their particular modules (or) commands (or) syntax.
-- Shellscript will not manage sensitive information like passwords,keys etc.
+- Shell will only work for linux, not for external systems like aws,azure etc.
+- We need to work manually on external systems by using their particular modules, commands, syntax.
+- Shellscript will not manage sensitive information like passwords, keys etc.
 
-### Advantages of ansible over shellscript
-Ansible is an open-source automation tool used for
+### Advantages of Ansible over Shellscript
+- Ansible is an open-source automation tool.
 - Configuration management tool.
 - Application deployment.
-- Cloud Provisioning and Orchestration (But not recommended). It can also connect to external systems like
-  aws,azure,gcp,gitlab etc. to create instances but this is not recommended because ansible is only intended
-  for configuration management and application deployment.
+- Cloud Provisioning and Orchestration (But not recommended).
+- It can also connect to external systems like aws, azure, gcp, gitlab etc to create instances. But it is
+  not recommended, because ansible is only intended for configuration management & application deployment.
 
 ### What is configuration management ?
 For example if you buy a new laptop, you need to install softwares and setup like username and passwords and connect to wifi etc. This is nothing but configuring your new laptop what you required. So similarly in linux also, before deploying application, we need to make the server ready. For example below
@@ -39,7 +39,7 @@ For example if you buy a new laptop, you need to install softwares and setup lik
 - Restart the server.
 
 ### Ansible has Idempotence Behaviour
-If you run program multiple times, that can create samething multiple times, where as in ansible, if the user does not exist then it will create, if exist it will ignore, that means even if you run the program infinite times also it will not create any damage. Definition:- Providing same results irrespective of the number of executions is called idempotence.
+If you run program multiple times, that can create samething multiple times, where as in ansible, if the user does not exist then it will create, if exist it will ignore, that means even if you run the program infinite times also, it will not create any damage. Definition:- Providing same results irrespective of the number of executions is called idempotence.
 
 ### Just create 2 servers in aws Server & Node
 Now take the NodeIP and go to the Server instance "sshpass -p "DevOps321" ssh centos@nodeIP", so now you are logged in to node from the server instance successfully, you can do anything here (or) exit from the node server then "sshpass -p "DevOps321" ssh centos@nodeIP -C "echo hello > /tmp/hello.txt", here no need to login into the node to create file in node server from the server. You can also install packages without touching, for example take any github repository like installing MySQL file, copy the URL from the URL tab then enter the following command "sshpass -p "DevOps321" ssh centos@nodeIP -C "curl <paste_the_URL> | sudo bash" Note: Curl appears to point to the webpage of a GitHub repository, rather than a raw script file. To fix this, you should use the raw URL for the script file on GitHub. You can get the raw link by clicking the "Raw" button when viewing the file on GitHub or you can test any of your session by taking raw URL and apply the command, all the content of the session will appear in the terminal.
