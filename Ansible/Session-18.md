@@ -3,7 +3,7 @@
   write separate scripts for separate distributions like debian,centos,ubuntu,rhel etc. We have hundreds of
   linux distributions.
 - Scalability issues, shellscript cannot configure more number of servers incase of big billion days.
-- Error handling, to handle errors we need to write functions,validations explicitly.
+- Error handling, to handle errors we need to write functions, validations explicitly.
 - Readability issues, shellscript syntax is not easy to understand for everyone without learning linux.
 - Shell will only work for linux, not for external systems like aws,azure etc. We need to work manually on
   external systems by using their particular modules (or) commands (or) syntax.
