@@ -1,26 +1,26 @@
-### Ansible vault
-Till now we have given passwords (or) usernames in the terminal (or) in the command line (or) in the ansible.cfg file right ? but it is not secure, so we now use ansible-vault, nothing but storage of secrets like keys,passwords etc.
+### Ansible-Vault
+Till now we have given Passwords and Usernames in the terminal (or) in the command line (or) in the ansible.cfg file right ? but it is not secure, so we now use ansible-vault, nothing but storage of secrets like keys, passwords etc. 
 - Encoding ---> A proper pattern to encode the text, in this format everybody can guess the secret.
-- Encryption ---> Generating a random text using mathematic algorithm (AES256) tough to guess, so we encrypt
-  ansible-vault, those who know the password, they can only decrypt the code. Below are the examples.
-1. asaiaavaa ----> sai (encoding)
-2. hsdh234sk456jdksd ----> sai (encryption)
+- Encryption ---> Generating a random text using mathematic algorithm (AES256) tough to guess.
+- So we encrypt ansible-vault, those who know the password, they can only decrypt the code.
+1. asaiaavaa ----> sai (Encoding)
+2. hsdh234sk456jdksd ----> sai (Encryption)
 
 ### How to create ansible vault in ansible-server ?
-- Practice folder (your working directory)
-- vault folder (create inside the Practice folder), if we create vault folder in VS (windows), it will not
-  reflect in the server, so you need to create using linux server only, same for the group_vars folder also.
-- group_vars folder (create inside the vault folder) then
+- Practice folder (Your working directory)
+- vault folder (Create inside the Practice folder), if we create vault folder in VS (Windows), it will not
+  reflect in the server, so you need to create using linux server only, same for the group_vars folder.
+- group_vars folder (Create inside the vault folder) then
 - Create vault-file inside the group_vars folder using below command.
 - "ansible-vault create Practice/vault/group_vars/some_name.yaml" and also
-- Create ansible.cfg, inventory.ini and your playbook files (inside the Practice folder not in vault or
+- Create ansible.cfg, inventory.ini and your playbook files (Inside the Practice folder not in vault or
   group_vars folders)
 - Put "ask_vault_pass=True" in ansible.cfg (or) "ansible-playbook 01-playbook.yaml --ask-vault-pass"
 - How to connect to the instance ? "ansible-playbook 01-playbook.yaml" since we have inventory in
-  separate file and username/passwords are kept in vault.
-- Since our infra is in SSM Parameter in AWS systems manager, this is also a vault from AWS, but we integrate
-  ansible-vault with the SSM Parameter and we fetch the values from AWS instead of depending on ansible-vault
-  and ansible-vault commands.
+  separate file and Username/Passwords are kept in vault.
+- Since our whole infra is in SSM Parameter in AWS systems manager, this is also a vault from AWS, but we
+  integrate ansible-vault with the SSM Parameter and we fetch the values from AWS instead of depending on
+  ansible-vault and ansible-vault commands.
 
 ### Dynamic Inventory
 - Till now we dint used aws cloud services completely, its like a on-premise for us, like we have only servers
@@ -62,7 +62,7 @@ Till now we have given passwords (or) usernames in the terminal (or) in the comm
 - We use ansible.cfg to minimize the commands (or) arguments to the script in server.
 - If esc button is not working while saving the file you can use "ctrl+c"
 - Use "ansible-vault encrypt group_vars/<some_name>.yaml" if already has existing vault.
-- If you want to edit then "ansible-vault edit web.yaml"
+- If you want to edit the existing vault ---> "ansible-vault edit web.yaml"
 - If you want to know wether it is encrypted or not ? then "cat group_vars/<some_name>.yaml"
 - If you want to see then "ansible-vault view group_vars/<some_name>.yaml"
 - You can use ansible-vault anywhere in the roboshop project for any components you want.
