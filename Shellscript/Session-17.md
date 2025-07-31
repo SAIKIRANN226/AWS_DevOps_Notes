@@ -90,4 +90,4 @@ If you want to run shellscript as Native linux command instead of "sh 18-greetin
 - Important point, So overall create any one instance and give a role to it, so that it will create multiple
   instances from this instance only, you need to clone the "roboshop-shellscript" in this server and run the
   "roboshop.sh" script.
-- UPSERT means if the record exists, update it, if it doesn’t exist, it will create.
+- UPSERT means if the record exists, update (or) edit it, if it doesn’t exist, it will create.
