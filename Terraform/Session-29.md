@@ -1,5 +1,5 @@
 ### Module development
-Dry concept, dont repeat yourself. For example we created infrastructure for a project, nothing but we wrote a terraform code for this infra right ? If we got another new project, do we write the terraform code from the scratch ? NO! we dont write the code from the scratch instead we reuse the code, so no need to write the infra for every project from the scratch, go through the code of "Terraform-Modules" in the VS. Provider will not be there in module developing. Module syntax is below.
+Dry concept, dont repeat yourself. For example we created infrastructure for a project, nothing but we wrote a terraform code for this infra right ? If we got another new project, do we write the terraform code from the scratch ? NO! we dont write the code from the scratch instead we reuse the code, so no need to write the infra for every project from the scratch if we developed modules. So go through the code of "Terraform-Modules" in the VS. Provider will not be there in module developing. Module syntax is below.
 
               module "name-of-module" {
 	                source = "../ec2"
