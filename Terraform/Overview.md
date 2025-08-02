@@ -59,6 +59,14 @@
 - Create s3 bucket and dynamodb table to lock ?
 
 ### Session-28
+- How to create multiple environments with terraform in 3 ways ?
+- Using same code but with different configuration ?
+- How to control using variables for different env's ? using tfvars
+- Different buckets to maintain states and creating different folders in VS "dev,prod"
+- Can we use one bucket for both dev and prod ?
+- Create two buckets and two dynamodb tables to lock the buckets ?
+- What is the function you have used to control different environments ?
+- 
 
 ### Session-29
 - What is module development in terraform ?
