@@ -78,6 +78,7 @@
 - Add Internet in the Public route table ?
 - Enable auto-asign public IPv4 address only to the public subnet.
 - Create Internet gateway and attach to your created VPC in aws console ?
+- Watch from 26:11 to 1:14:21 to understand how VPC works.
 
 ### Session-30
 - 
