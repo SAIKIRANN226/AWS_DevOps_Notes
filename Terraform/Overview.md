@@ -61,11 +61,23 @@
 ### Session-28
 - How to create multiple environments with terraform in 3 ways ?
 - Using same code but with different configuration ?
-- How to control using variables for different env's ? using tfvars
-- Different buckets to maintain states and creating different folders in VS "dev,prod"
-- Can we use one bucket for both dev and prod ?
-- Create two buckets and two dynamodb tables to lock the buckets ?
-- What is the function you have used to control different environments ?
+- How do you control different environments in tfvars method ? using which function ?
+- We create different buckets and dynamodb tables for dev & prod in tfvars method
+- Can we use one bucket for both dev and prod in tfvars method ?
+- Create 2 buckets & 2 dynamodb tables in aws console in tfvars method ?
+- You need to initiate dev backend while "terraform init" and same for prod also.
+- When you are switching from one env to another env, must reinitialize it.
+- Then you can terraform plan, apply (or) destroy using -var-file
+- What will happen when you forget to give -var-file ?
+- Only 1 bucket is created for workspace, inside that, it will organize into different folders.
+- If you want to know workspace commands just "terraform workspace"
+- How to create workspace ? "terraform workspace new dev" do it in gitbash
+- When you are using terraform it has default variable that is "terraform.workspace"
+- So we use lookup function in workspace method to control different environments.
+- So which approach is better ? tfvars, workspace, different repos for different envs ?
+- What are provisioners in terraform ?
+- What is local-exec provisioner in terraform ?
+- What is remote-exec provisioner in terraform ?
 - 
 
 ### Session-29
