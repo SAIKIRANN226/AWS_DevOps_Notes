@@ -63,7 +63,21 @@
 ### Session-29
 - What is module development in terraform ?
 - What is module syntax ?
-- Provider will be not there in module developing
+- Go through the EC2 module in "Terraform-modules" in VS.
+- Provider will be not there in module developing.
+- How many types of Modules are there ?
+- How many types of Roles are there ?
 - DevOps engineer writes a README.md file to let others know how to use the module.
-- Go through the EC2 module in "Terraform-modules" in VS
+- Develop yourself a terraform EC2 module and use it ?
+- Create a VPC in aws console ? CIDR ---> 10.0.0.0/16
+- Create Public subnet in aws console ? CIDR ---> 10.0.1.0/24
+- Create Private subnet in aws console ? CIDR ---> 10.0.2.0/24
+- Create Database subnet in aws console ? CIDR ---> 10.0.3.0/24
+- Create Public, Private & Database route tables in aws console ?
+- And associate Public, Private & Database route tables ?
+- Add Internet in the Public route table ?
+- Enable auto-asign public IPv4 address only to the public subnet.
+- Create Internet gateway and attach to your created VPC in aws console ?
+
+### Session-30
 - 
