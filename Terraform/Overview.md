@@ -59,4 +59,11 @@
 - Create s3 bucket and dynamodb table to lock ?
 
 ### Session-28
+
+### Session-29
+- What is module development in terraform ?
+- What is module syntax ?
+- Provider will be not there in module developing
+- DevOps engineer writes a README.md file to let others know how to use the module.
+- Go through the EC2 module in "Terraform-modules" in VS
 - 
