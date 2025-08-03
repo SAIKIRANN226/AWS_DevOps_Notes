@@ -21,31 +21,7 @@ Often we face the problem of different configurations in different environments 
 Basically CRUD over the infrastructure. Using terraform we can create entire infra in minutes reducing the human errors and deleting infra in minutes if not required and updating infra using terraform is also easy. Create the infra, Read the infra, Update the infra, Delete the infra.
 
 ### Inventory Management
-In Terraform, inventory management refers to how we manage and organize resources like servers, databases, and services, especially when we deploy multiple instances (or) environments. Unlike tools like Ansible which use a static inventory file, terraform uses dynamic mechanisms such as variables, count, foreach, and also modules. For example, if i want to create 3 EC2 instances, i can define a list variable like.
-
-          variable "instances" {
-            type = list
-            default = ["web", "mongodb", "cart"]
-          }
-          
-Then, using for_each, i can loop over these and create resources dynamically.
-
-          resource "aws_instance" "ec2" {
-              for_each = var.instances
-              ami = "ami-0c55b159cbfafe1f0"
-              instance_type = "t2.micro"
-              tags = {
-                Name = each.key
-              }
-          }
-          
-This way, terraform treats the variable as the inventory and automatically provisions resources for each item. To get the list of instance IPs (or) metadata, i can use an output block.
-
-          output "instance_ips" {
-            value = [aws_instance.ec2.public_ip]
-          }
-          
-We can also maintain different inventories for Dev, Staging (or) Prod using terraform.tfvars files, & apply them selectively with terraform apply -var-file="dev.tfvars". So overall, terraform manages infrastructure inventory through code using variables, iteration blocks, and outputs, instead of static files.
+When you login to aws console, we have lot of services like multiple vpc, route53, ec2, lb, cdn, s3 etc. If client ask for the full information about the whole infrastructure, we cannot show it in the aws console by navigating to each and every service and taking notes and then showing to the client and that is also not a good practice. But in terraform you can easily take notes and give reports because we have separate folders for every resources like vpc, sg, vpn, databases, app-alb, web-alb, cdn etc.
 
 ### Cost Optimization
 - Create Infra when required, Delete Infra when not required to save the cost.
