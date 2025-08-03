@@ -21,7 +21,7 @@
 - What is variable syntax ?
 - Is really data-type in variable syntax is important ?
 - Go through this https://github.com/daws-76s/terraform
-- We can also get authentication to AWS in provider section, under region
+- We can also get authentication to AWS in provider section, under region.
 - By giving access_key and secret_keys under region also, but why we dint prefer this ?
 - Why we only use aws CLI to authenticate ?
 - So Dont push the access_key and secret_key to the github (or) internet for safety reasons.
