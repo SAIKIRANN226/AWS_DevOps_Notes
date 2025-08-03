@@ -35,33 +35,43 @@
 - Write a terraform code using terraform.tfvars example ?
 - What are the variable preferences in terraform ?
 - Write a terraform code, if mongodb then t3.small and remaining t2.micro using condition ?
-- Create instances and route53 records using count based loop ?
-- Create instances and route53 records using for each loop ?
+- Create instances and route53 records using count_based loop ?
+- Create instances and route53 records using for_each loop ?
 - Count_based is to iterate lists and For_each is to iterate maps.
 - What is function in terraform and what is length function here ?
-- We cannot create our own functions, as to use terraform inbuilt functions only.
-- What is syntax of output in terraform ?
+- We cannot create our own functions, we have to use terraform inbuilt functions only.
+- What is the syntax of output in terraform ?
 - Go through the output block in VS ? and why the output block is used ?
 
 ### Session-27 
-- What is locals in terrafrom and what is the syntax of locals ?
+- What is locals in terraform and what is the syntax of locals ?
 - How to call a local in terraform code ?
 - What is Data-sources in terrafrom and why it is used ?
 - How do we search ? for example if you want AMI, then "terraform query ami" in google
 - Can we query data from the existing resources also ? apart from the providers ?
-- Types of loops ? count, for_each, dynamic_loop
+- Types of loops ? count_based, for_each, dynamic_loop
 - What is dynamic_loop and where it is useful ?
 - What is Terraform State (State and Remote state) ?
-- What is lock file in terraform state and why it is created ?
-- What is central state file (or) remote state (or) S3 bucket ?
+- What is Declarative state and Desired state ?
+- What is Current state in terraform ? and where it will be stored ? terraform.tfstate
+- When Desired state == Current state, then terraform will not take any action.
+- When Desired state =//= Current state, then terraform will create.
+- Why the terraform will create lock file ?
+- What is Remote state and explain the concept using 2 developers are working on same repo ?
+- What errors these developers will face, if they are working on same repo ?
 - Terraform.tfstate is a crucial file, should not delete.
-- What are the disadvantages if there is not state file in terraform ?
-- Create s3 bucket and dynamodb table to lock ?
+- What are the two disadvantages in local state ?
+- So create s3 bucket and lock that bucket using dynamodb table ?
+- What are the different remote states we have ? and why we use only "terraform s3 remote state"
+- Where to keep this remote state in terraform code ?
+- Another name of remote state is backend.
+- If we write more lines of script we say configuration is increasing.
+- S3 buckets are chargeable in aws, so delete after practice.
 
 ### Session-28
 - How to create multiple environments with terraform in 3 ways ?
 - Using same code but with different configuration ?
-- How do you control different environments in tfvars method ? using which function ?
+- How do you control different environments in tfvars method ? using startswith function ?
 - We create different buckets and dynamodb tables for dev & prod in tfvars method
 - Can we use one bucket for both dev and prod in tfvars method ?
 - Create 2 buckets & 2 dynamodb tables in aws console in tfvars method ?
