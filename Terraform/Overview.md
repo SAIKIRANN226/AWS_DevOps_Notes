@@ -111,4 +111,34 @@
 - Watch from 26:11 to 1:14:21 to understand how VPC works.
 
 ### Session-30
+- What is NAT Gateway and why it is used ?
+- In which subnet (1a or 1b) this NAT Gateway should be create and why ?
+- Creating NAT Gateway is not enough we need to add routes between private subnets and to
+  Internet gateway (NAT) which is in public subnet.
+- Which ever private subnets like database subnet or any other private subnets wants to connect
+  to internet, they should add route to the NAT gateway which is in public subnet.
+- Select any of the private_subnet/routes/edit_routes/add_route (Destination= 0.0.0.0/0,
+  Target= NAT gateway, select default one in dropdown under Target section only)
+- When you create a NAT gateway, aws will create instance in the background, We dont have
+  access to that instance, this instance IP is dynamic, whenever you off and on.
+- So create ElasticIP for this instance and then create NAT Gateway.
+- NAT and ElasticIP is chargeable, so delete after practice.
+- Can we get StaticIP for this instance ?
+- Even your home publicIP is dynamic, if you want staticIP, you need to pay money to ISP provider.
+- What is VPC peering ? and what is the condition to create VPC peering connection ?
+- Create a VPC peering connection between "Roboshop_VPC & Default_VPC"
+- Try to add routes in main route table, if not reflecting, then add explicitly ?
+- If you want only one or two private subnets wants to connect to the vpc peering main road
+  then you can add in those two route tables only.
+- You need to add from the other side also not just one side. This is nothing but routes in VPC.
+- Develop aws-vpc Module and test it ? or go through the code in VS.
+- What is tagging strategy and why we use it ?
+- We have Common_tags and Resource_tags ? what is the difference between them ?
+- Why we use merg function in tagging strategy ?
+- Now create all resources using terraform like vpc, igw, subnets, route tables etc. 
+- Go through the code of "Terraform-aws-vpc-module" in VS.
+
+### Session-31
+- In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
+  will do ?  we should inform them to add the acceptor route in their terraform code.
 - 
