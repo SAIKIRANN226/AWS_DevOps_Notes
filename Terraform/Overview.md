@@ -146,4 +146,18 @@
 - We install VPN in default VPC and then connect.
 
 ### Session-32
+- Till now we used allow-all method while creating SG, it is just for practice only, but now we need to
+  follow strict SG rules according to the Roboshop-documentation.
+- We have used our own customized modules for creating VPC and Security groups as per documentation.
+- Refer "Roboshop-aws-SGmodule" in VS.
+- Why we created different folders for every resources in "Roboshop-terraform"
+- Since they are in separate folders, consider it as different projects.
+- Go through the folders 01-vpc, 02-sg, 03-vpn, 04-ec2 code in VS.
+- What is the main input required to create SG ? VPC_ID
+- Big companies deals like 1 team is taking for VPC, another is taking care for SG etc.
+- What is SSM Parameter store in terraform ? it is like a configuration storage.
+- What does Configuration storage (or) Central storage do ?
+- What is the Naming convention while stroing the configuration (or) key-value pair in SSM ?
+- Generally Naming format will be in the linux structure like "/roboshop/dev/vpc_id"
+- Since VPC is in different folder, how do we get vpc_id in SG ? using SSM Parameter
 - 
