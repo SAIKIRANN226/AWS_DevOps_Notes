@@ -61,3 +61,4 @@ Till now we developed VPC and SG module and simultaneously we tested this module
 - In real time, whenever you want few ports to open, you need to write a mail to firewall team then, they will
   open the port, if they are using terraform they will do changes in main.tf
 - We used "cisco" VPN in our company.
+- We keep every ids in SSM, so that every body can use it if they want.
