@@ -141,4 +141,9 @@
 ### Session-31
 - In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
   will do ?  we should inform them to add the acceptor route in their terraform code.
+- Is really Peering connection is required ?
+- So how do we connect to other VPC which is in other company ?
+- We install VPN in default VPC and then connect.
+
+### Session-32
 - 
