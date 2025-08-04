@@ -73,3 +73,4 @@ Resource tags are specific tags. We have different tags like vpc tags, subnet ta
   this instance, this instance IP address will be changing dynamically whenever you off and on, so we need to
   create ElasticIP first and then create NAT gateway.
 - Tagging strategy is important in terraform.
+- You can also create s3 bucket for vpc_module.
