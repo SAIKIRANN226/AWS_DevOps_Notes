@@ -28,26 +28,26 @@
 - Go through the roboshop documentation https://github.com/daws-76s/roboshop-documentation
 - So what should be the ingress rule for mongodb ? mongodb should accept connections only from catalogue and
   user, then source ---> catalogueIP and port ---> 27017, here catalogueIP is constant every time ? NO! so
-  to get the catalogue staticIP what is the option we have ? we need to take elastic_ip which is costly, if
-  we take elastic_ip for every private modules, we need 12 elastic_IPs which is very costly. If it is a big
-  project we may need 1000's of elastic_IPs, then company may get bill of 5000 dollars. So better to give the
+  to get the catalogue staticIP what is the option we have ? we need to take elasticIP which is costly, if
+  we take elasticIP for every private modules, we need 12 elasticIPs which is very costly. If it is a big
+  project we may need 1000's of elasticIPs, then company may get bill of 5000 dollars. So better to give the
   security group_ids.
 - Create a mongodb_SG and catalogue_SG in VS (main.tf)
 - Then go to the security groups in aws console and select created mongodb_SG/Edit_inbound_rules/Add rule
-  Type --> custom TCP, port: 27017, and in source just type "sg" next to the custom, you will get the created
+  Type --> custom TCP, port: 27017 and in source just type "sg" next to the custom, you will get the created
   security groups, in that select already created catalogue_SG.
-- So write a terraform code for the above line in VS.
-- Similarly create for user also, and continue for redis, mysql, rabbitmq (refer documentation), here better
+- So write a terraform code for the above lines in VS.
+- Similarly create for user also and continue for redis, mysql, rabbitmq (Refer documentation), here better
   to create all security groups for all instances first and then write rules.
 
-### Now creating Ec2's for the roboshop 04-ec2 in VS
-Till now we developed VPC and SG module and simultaneously we tested this modules while creating vpc and sg. But here we are using modules directly from the internet developed by others to create EC2's. Nothing but from the open-source. Here the only disadvantage is you cannot connect to this private instances using SSH, because private instances dont have Public_IP addresses. For this we have below two options.
-- Create one EC2 in Public_subnet and login to this ec2 first and from there connect to the mongodb. We call
-  this as a "jump_host"
+### Now creating EC2's for the roboshop 04-ec2 in VS
+Till now we developed VPC and SG module and simultaneously we tested this modules while creating VPC and SG. But here for EC2 we are using modules directly from the internet developed by others. Nothing but from the Open-source. Here the only disadvantage is you cannot connect to this private instances using SSH, because private instances dont have PublicIP. For this we have below two options.
+- Create one EC2 in Public subnet and login to this ec2 first and from there connect to the mongodb. We call
+  this as a "Jump_host"
 - Another one is using VPN, install it in your laptop and connect to the mongodb using VPN.
 
 ### Points to remember
-- Data sources is used to query the data dynamically from the providers and from the existing resources also
+- Data sources is used to query the data dynamically from the providers and also from the existing resources,
   but to query from the existing resource, we need to give some input like vpc_id, this vpc_id we cant get 
   from the data source, but we used data source only to query the default vpc_id.
 - But if you want to take information of the created vpc, again data-source is not an option, because here
@@ -55,9 +55,9 @@ Till now we developed VPC and SG module and simultaneously we tested this module
 - Generally the path in ssm parameter should be like this "/roboshop/dev/vpc_id", because there will many
   env's right, so to identify easily we use this linux structure. It is like key-value, here key is path and
   value is vpc_id.
-- In security groups in aws console, we have two names 1.Name and 2.Security group name, we can change 1st one,
-  not 2nd one, if you change the 2nd one or updated then terraform will delete that SG and recreate (nothing
-  but after terraform apply)
+- In security groups in aws console, we have two names 1. Name and 2. Security group name, we can change 1st
+  one, not 2nd one, if you change the 2nd one or updated, then terraform will delete that SG and recreate
+  (Nothing but after terraform apply).
 - In real time, whenever you want few ports to open, you need to write a mail to firewall team then, they will
   open the port, if they are using terraform they will do changes in main.tf
 - We used "cisco" VPN in our company.
