@@ -23,7 +23,29 @@
 - az-2 = another Database_subnet = 10.0.22.0/24 ---> us-east-1b
 
 ### "NAT Gateway" is used to enable outgoing internet in Private subnets
-If we need to update any package or download something in the private subnets, for this we need to connect to internet. But what traffic is this ? is it OUTGOING ? or INCOMING ? If server wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in the private_subnets. So if we want to go outside and download safely we have something called "NAT Gateway" --> This should be created in the public subnet (1a or 1b) because we have given internet access to the public_subnets, creating NAT Gateway is not enough we need to add routes between private_subnets and to Internet gateway (NAT) which is in public_subnet. Then only private_subnets can access internet and download anything. Like for example if only one of the private_subnets wants to connect to internet then that private_subnet should have a road (Route) to internet gateway (NAT) which is in public_subnet. So like that which ever private_subnets like data base subnet or any other private_subnets wants to connect to internet, they should add route to the NAT gateway which is in public_subnet. So you need to add in the route tables (Private and Database) then only you will get access to the Internet. So select any of the private_subnet/routes/edit_routes/add_route (Destination= 0.0.0.0/0, Target= NAT gateway, select default one in dropdown under Target section only). Note:- Here when you create a NAT gateway, aws will create instance in the background (We dont have access to that) that means NAT and ElasticIP is chargeable, Before creating NAT gateway we have one rule because created instance in the background has IPaddress which is dynamic whenever you off and on, it will change the IPaddress, for that we need to create ElasticIP, so create elasticIP address first --> Then create NAT Gateway. Note:- If you want static IP, we need to pay money, like for example even your home PublicIP is dynamic it is changing everytime, so if you want static home Public IPaddress you need to pay to the ISP provider in your area.
+- If we need to update any package or download something in the private subnets, for this we need to connect
+  to internet. But what traffic is this ? is it OUTGOING ? or INCOMING ?
+- If server wants to download something then it is OUTGOING traffic, INCOMING traffic is already disabled in
+  the private subnets. So if we want to go outside and download safely we have "NAT Gateway"
+- This NAT Gateway should be created in the public subnet (1a or 1b) because we have given internet access
+  to the public subnets.
+- Creating NAT Gateway is not enough, we need to add routes between private subnets & to the Internet gateway
+  (NAT) which is in public subnet. Then only private subnets can access internet and download anything. Like
+  for example if only one of the private subnets wants to connect to internet then that private subnet should
+  have a road (Route) to Internet Gateway (NAT) which is in public subnet. So like that which ever private
+  subnets like data base subnet or any other private subnets wants to connect to internet, they should add
+  route to the NAT gateway which is in public subnet.
+- So you need to add in the route tables (Private and Database) then only you will get access to the Internet.
+  Select any of the private_subnet/routes/edit_routes/add_route (Destination= 0.0.0.0/0, Target= NAT gateway,
+  select default one in dropdown under Target section only).
+- Note when you create a NAT gateway, aws will create instance in the background (We dont have access to that)
+  that means NAT and ElasticIP is chargeable, Before creating NAT gateway we have one rule because created
+  instance in the background has IPaddress which is dynamic whenever you off and on, it will change the
+  IPaddress, for that we need to create ElasticIP.
+- So create ElasticIP first --> Then create NAT Gateway.
+- Note that if you want static IP, we need to pay money, like for example even your home PublicIP is dynamic
+  it is changing everytime, so if you want static home Public IPaddress you need to pay to the ISP provider
+  in your area.
 
 ### VPC peering in aws cloud
 Example of the two villages, for every village we have pincode, so similarly in the VPC what is pincode ? 
@@ -39,7 +61,20 @@ Acceptor VPC  = Ok i will accept your request.
 - VPC in different region and another account
 
 ### Below is the example of VPC peering
-So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC". Now try to create VPC peering connection, after creating in the same account you need to accept request in the "Actions" option. Take example of villages now you have created a main road (Peering Connection) between two villages, but if you want streets (Every subnets or only which ever subnet you want) to connect to main road, so connect all streets roads to the VPC peering main road, nothing but routes right ? so try to add routes in the main route table, go to the VPC main route table there edit routes in destination give the other VPC_CIDR to connect and target should be peering connection and under the peering connection select the dropdown option and save it. If it is not reflecting then you need to add routes in all route tables explicitly. If you want only one or two private subnets wants to connect to the vpc peering main road then you can add in those two route tables only. You need to add from the other side also not just one side. This is nothing but routes in VPC, generally when you are connecting to 2 villages we need to get pin codes of 2 villages in the destination and give peering connection in the target, add in all public and private and main route table explicitly if you want all subnets to connect to the vpc main road.
+- So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC".
+- Now try to create VPC peering connection, after creating in the same account you need to accept request in
+  the "Actions" option. Take example of villages now you have created a main road (Peering Connection)
+  between two villages, but if you want streets (Every subnets or only which ever subnet you want) to connect
+  to main road, so connect all streets roads to the VPC peering main road, nothing but routes right ?
+- So try to add routes in the main route table, go to the VPC main route table there edit routes in
+  destination give the other VPC_CIDR to connect and target should be peering connection and under the
+  peering connection select the dropdown option and save it.
+- If it is not reflecting then you need to add routes in all route tables explicitly.
+- If you want only one or two private subnets wants to connect to the vpc peering main road then you can add
+  in those two route tables only. You need to add from the other side also not just one side.
+- This is nothing but routes in VPC, generally when you are connecting to 2 villages we need to get pin codes
+  of 2 villages in the destination and give peering connection in the target, add in all public and private
+  and main route table explicitly if you want all subnets to connect to the vpc main road.
 
 ### Terraform-aws-vpc Module development in VS
 - Terraform-aws-vpc-module ---> Is a module we are developing.
