@@ -111,9 +111,10 @@
 - Watch from 26:11 to 1:14:21 to understand how VPC works.
 
 ### Session-30
+- What resources we have created in VPC from aws console ?
 - What is NAT Gateway and why it is used ?
 - In which subnet (1a or 1b) this NAT Gateway should be create and why ?
-- Creating NAT Gateway is not enough we need to add routes between private subnets and to
+- Creating NAT Gateway is not enough we need to add routes between private subnets and to the
   Internet gateway (NAT) which is in public subnet.
 - Which ever private subnets like database subnet or any other private subnets wants to connect
   to internet, they should add route to the NAT gateway which is in public subnet.
@@ -121,17 +122,19 @@
   Target= NAT gateway, select default one in dropdown under Target section only)
 - When you create a NAT gateway, aws will create instance in the background, We dont have
   access to that instance, this instance IP is dynamic, whenever you off and on.
-- So create ElasticIP for this instance and then create NAT Gateway.
+- So create ElasticIP for this instance first and then create NAT Gateway.
 - NAT and ElasticIP is chargeable, so delete after practice.
-- Can we get StaticIP for this instance ?
+- Can we get StaticIP for this instance ? yes but it is chargeble.
 - Even your home publicIP is dynamic, if you want staticIP, you need to pay money to ISP provider.
 - What is VPC peering ? and what is the condition to create VPC peering connection ?
 - Create a VPC peering connection between "Roboshop_VPC & Default_VPC"
+- So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC".
+- Accept request in the same account and then add routes in VPC.
 - Try to add routes in main route table, if not reflecting, then add explicitly ?
 - If you want only one or two private subnets wants to connect to the vpc peering main road
   then you can add in those two route tables only.
 - You need to add from the other side also not just one side. This is nothing but routes in VPC.
-- Develop aws-vpc Module and test it ? or go through the code in VS.
+- Go through the "Terraform-aws-vpc-module" how we developed vpc and resources inside it.
 - What is tagging strategy and why we use it ?
 - We have Common_tags and Resource_tags ? what is the difference between them ?
 - Why we use merg function in tagging strategy ?
@@ -160,4 +163,20 @@
 - What is the Naming convention while stroing the configuration (or) key-value pair in SSM ?
 - Generally Naming format will be in the linux structure like "/roboshop/dev/vpc_id"
 - Since VPC is in different folder, how do we get vpc_id in SG ? using SSM Parameter
-- 
+
+### Session-33
+- How to connect to Private Instances using VPN ?
+- In which vpc should we install open-vpn ? default_vpc
+- We must have a peering connection between default_vpc and roboshop_vpc.
+- We have to create all our private instances in roboshop_vpc only.
+- How the traffic is routing from home sever to aws network using open-vpn ?
+- What is the SG rule when mongodb is accepting connections from open-vpn ?
+- Make sure to enable vpn in all private instances and how can you do that ?
+- Enabling vpn in all private servers is nothing but giving SG of VPN_instance to the mongodb.
+- How to install open-vpn in server and connect to it ?
+- How do you write whole process using terraform code ? 03-vpn in VS.
+- Configuring VPN is not our responsibility, we have separate team for this.
+- We use cisco_vpn in our company.
+
+### Session-34
+- Create resources in terraform like 
