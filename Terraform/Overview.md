@@ -137,9 +137,7 @@
 - Go through the "Terraform-aws-vpc-module" how we developed vpc and resources inside it.
 - What is tagging strategy and why we use it ?
 - We have Common_tags and Resource_tags ? what is the difference between them ?
-- Why we use merg function in tagging strategy ?
-- Now create all resources using terraform like vpc, igw, subnets, route tables etc. 
-- Go through the code of "Terraform-aws-vpc-module" in VS.
+- We used merg function in tagging strategy to merge common_tags and resource_tags ?
 
 ### Session-31
 - In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
