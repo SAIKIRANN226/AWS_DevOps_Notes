@@ -31,3 +31,4 @@ For example according to the diagram, mongodb should accept connections only fro
 - Till now we used allow-all while creating SG, it is just for practice only, from next session we follow
   correct practice.
 - We put all the resources in 1a zone.
+- We need to write a document, how to use developed module by others.
