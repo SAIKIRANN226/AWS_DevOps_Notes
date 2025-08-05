@@ -141,10 +141,23 @@
 
 ### Session-31
 - In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
-  will do ?  we should inform them to add the acceptor route in their terraform code.
+  will do ? we should inform them to add the acceptor route in their terraform code.
 - Is really Peering connection is required ?
+- Peering may not require for everyone, when this peering is useful ?
+- Bydefault peering connection between two VPC's is not possible.
+- If we want to connect with the resources which are in another VPC, then you require peering.
+- Why does the big companies depends on multiple companies to deal different modules & why ?
 - So how do we connect to other VPC which is in other company ?
 - We install VPN in default VPC and then connect.
+- So users can decide if peering is required or not ? if required they have to give VPC peering_id,
+  if they are not giving, we should consider default VPC.
+- You have developed modules and we push to the github, then how to refer this ?
+- By using a command "source = "git"::<https_URL>ref=main"
+- How to use security groups effectively ? according to the roboshop documentation.
+- We install vpn in default_VPC to connect private instances which are present in roboshop_VPC.
+- We can create a folder (Example) and keep all the testing code in it, so that it will be easy for
+  everyone to use the module.
+- We keep all our resources in 1a zone.
 
 ### Session-32
 - Till now we used allow-all method while creating SG, it is just for practice only, but now we need to
