@@ -10,13 +10,15 @@
 - Note that when you create a VPC, aws will automatically create a default route table (10.0.0.0/16) this
   route table is used for communication between the subnets.
 
-### High Availability
+### High Availability on Public subnets
 - az-1 = one Public_subnet     = 10.0.1.0/24 ---> us-east-1a
 - az-2 = another Public_subnet = 10.0.2.0/24 ---> us-east-1b
 
+### High Availability on Private subnets
 - az-1 = one Private_subnet     = 10.0.11.0/24 ---> us-east-1a
 - az-2 = another Private_subnet = 10.0.12.0/24 ---> us-east-1b
 
+### High Availability on Database subnets
 - az-1 = one Database_subnet     = 10.0.21.0/24 ---> us-east-1a
 - az-2 = another Database_subnet = 10.0.22.0/24 ---> us-east-1b
 
