@@ -60,33 +60,49 @@
 - Why the terraform will create lock file ?
 - Explain the concept of local state using example of 2 developers are working on same repo ?
 - What errors these developers will face, if they are working on same repo ?
+- So terraform will compare my state and devops person state. If both are running terraform apply,
+  here duplicates may come and some may get error as already exists.
 - Terraform.tfstate is a crucial file, should not delete.
-- What are the two disadvantages in local state ?
+- What are the two disadvantages in local state ? for that only we have a remote state s3.
 - So create s3 bucket and lock that bucket using dynamodb table ?
 - What are the different remote states we have ? and why we use only "terraform s3 remote state"
 - Where to keep this remote state in terraform code ?
-- Another name of remote state is backend.
+- Another name of remote state ? we can also call as backend.
 - If we write more lines of script we say configuration is increasing.
 - S3 buckets are chargeable in aws, so delete after practice.
+- Interview question ? We are using s3bucket with dynamodb locking, here local state will not work
+  because it will create duplicates and errors, security will not be there inside the local. So thats
+  why we have to keep it safely in the remote storage like s3 bucket it will provide better
+  collaboration among the team members and errors free.
 
 ### Session-28
 - How to create multiple environments with terraform in 3 ways ?
-- Using same code but with different configuration ?
+- Creating multiple environments using same code but with different configuration ?
+- What does terraform.tfvars do ?
 - How do you control different environments in tfvars method ? using startswith function ?
-- We create different buckets and dynamodb tables for dev & prod in tfvars method
+- We create different buckets and dynamodb tables for dev & prod in tfvars method.
+- And also we create different folders for dev & prod in VS.
 - Can we use one bucket for both dev and prod in tfvars method ?
-- Create 2 buckets & 2 dynamodb tables in aws console in tfvars method ?
-- You need to initiate dev backend while "terraform init" and same for prod also.
+- So create 2 buckets & 2 dynamodb tables in aws console in tfvars method ?
+- You need to initialize dev backend while "terraform init" and same for prod also.
 - When you are switching from one env to another env, must reinitialize it.
 - Then you can terraform plan, apply (or) destroy using -var-file
-- What will happen when you forget to give -var-file ?
-- Only 1 bucket is created for workspace, inside that, it will organize into different folders.
+- What will happen when you forget to give -var-file ? it will load default variables.tf
+- What will happen when you comment variables.tf file ? it will ask for the prompt of var file.
+- So that you will come to know i forget to give -var-file.
+- Only 1 bucket is created for workspace, inside that it will organize into different folders.
+- There will be created a default bucket "env:/" and inside this env folder terraform will
+  automatically create dev/prod workspaces.
 - If you want to know workspace commands just "terraform workspace"
 - How to create workspace ? "terraform workspace new dev" do it in gitbash
 - When you are using terraform it has default variable that is "terraform.workspace"
 - So we use lookup function in workspace method to control different environments.
+- What is lookup function do ?
+- lookup(map, key) ---> Giving input as map and passing the key below is the example.
+- lookup(var.instance_type, terraform.workspace) ---> 1st one is map and another is key.
 - So which approach is better ? tfvars, workspace, different repos for different envs ?
-- What are provisioners in terraform ?
+- What are provisioners in terraform ? are used to execute scripts or commands on a local machine
+  or remote resource after it's created, typically used for initial configuration like bootstrapping.
 - What is local-exec provisioner in terraform ?
 - What is remote-exec provisioner in terraform ?
 - 
