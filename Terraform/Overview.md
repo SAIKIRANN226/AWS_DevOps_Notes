@@ -70,6 +70,8 @@
 - Another name of remote state ? we can also call as backend.
 - If we write more lines of script we say configuration is increasing.
 - S3 buckets are chargeable in aws, so delete after practice.
+- Use different key names in s3 bucket like in the previous you have used different key "foreach"
+  you can use as per your wish but not with the same key names because it will merge all.
 - Interview question ? We are using s3bucket with dynamodb locking, here local state will not work
   because it will create duplicates and errors, security will not be there inside the local. So thats
   why we have to keep it safely in the remote storage like s3 bucket it will provide better
@@ -103,18 +105,31 @@
 - So which approach is better ? tfvars, workspace, different repos for different envs ?
 - What are provisioners in terraform ? are used to execute scripts or commands on a local machine
   or remote resource after it's created, typically used for initial configuration like bootstrapping.
-- What is local-exec provisioner in terraform ?
-- What is remote-exec provisioner in terraform ?
-- 
-
+- Provisioners are used only for instances (or) EC2.
+- What is local-exec provisioner in terraform and what is syntax ? & enables a keyword "self"
+- Local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No
+  remote access is need.
+- What is remote-exec provisioner in terraform and what is syntax ?
+- Remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares, configure
+  ec2 post setup ---> Need SSH/WinRM to access remote host.
+- What is the disadvantage of local-exec ? local-exec provisioner runs only when the resource it’s
+  attached to is created or sometimes destroyed, not every time you run terraform apply.
+- Provisioners are useful to integrate terraform with configuration management tools like ansible
+  to get end to end automation.
+- We can write multiple provisioners also like for example "on_failure = continue" nothing but same
+  as ignore errors in ansible.
+- What is difference between Terraform and Ansible ?
+- If you integrate terraform and ansible you will get end-end automation using provisioners.
+- We can also create ec2 instances using ansbile but it does not have state file as terraform does,
+  that is why terraform is perfect for creation of infrastructure only.
+- What is Creation time and Destroy time in terraform ?
+  
 ### Session-29
-- What is module development in terraform ?
-- What is module syntax ?
+- What is module development in terraform and what is the syntax ?
 - Go through the EC2 module in "Terraform-modules" in VS.
 - Provider will be not there in module developing.
-- How many types of Modules are there ?
-- How many types of Roles are there ?
-- DevOps engineer writes a README.md file to let others know how to use the module.
+- How many types of Modules and How many types of Roles are there ?
+- DevOps engineer responsibility to write a README.md file to let others know how to use the module.
 - Develop yourself a terraform EC2 module and use it ?
 - Create a VPC in aws console ? CIDR ---> 10.0.0.0/16
 - Create Public subnet in aws console ? CIDR ---> 10.0.1.0/24
