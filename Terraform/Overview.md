@@ -32,6 +32,7 @@
 - What is the use of terraform.tfvars ?
 - How to give terraform.tfvars file from the command prompt ? for plan and apply
 - Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars"
+- If you dont give the -var-file, then terraform will take default value of variables.tf file
 - Write a terraform code using terraform.tfvars example ?
 - What are the variable preferences in terraform ?
 - Write a terraform code, if mongodb then t3.small and remaining t2.micro using condition ?
