@@ -38,11 +38,11 @@
 - Write a terraform code, if mongodb then t3.small and remaining t2.micro using condition ?
 - Create instances and route53 records using count_based loop ?
 - Create instances and route53 records using for_each loop ?
-- Count_based is to iterate lists and For_each is to iterate maps.
+- Count_based is to iterate list and For_each is to iterate maps.
 - What is function in terraform and what is length function here ?
 - We cannot create our own functions, we have to use terraform inbuilt functions only.
-- What is the syntax of output in terraform ?
-- Go through the output block in VS ? and why the output block is used ?
+- Why output block is used terraform ? and what is the syntax of output ?
+- Go through the output block in count folder VS ?
 
 ### Session-27 
 - What is locals in terraform and what is the syntax of locals ?
