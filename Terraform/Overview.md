@@ -58,7 +58,7 @@
 - When Desired state == Current state, then terraform will not take any action.
 - When Desired state =//= Current state, then terraform will create.
 - Why the terraform will create lock file ?
-- What is Remote state and explain the concept using 2 developers are working on same repo ?
+- Explain the concept of local state using example of 2 developers are working on same repo ?
 - What errors these developers will face, if they are working on same repo ?
 - Terraform.tfstate is a crucial file, should not delete.
 - What are the two disadvantages in local state ?
