@@ -79,37 +79,36 @@
 - How to create multiple environments with terraform in 3 ways ?
 - Creating multiple environments using same code but with different configuration ?
 - What does terraform.tfvars do ?
-- How do you control different environments in tfvars method ? using startswith function ?
+- How do you control different environments in tfvars method ? using "startswith" function ?
 - We create different buckets and dynamodb tables for dev & prod in tfvars method.
-- And also we create different folders for dev & prod in VS.
-- Can we use one bucket for both dev and prod in tfvars method ?
-- So create 2 buckets & 2 dynamodb tables in aws console in tfvars method ?
-- You need to initialize dev backend while "terraform init" and same for prod also.
-- When you are switching from one env to another env, must reinitialize it.
+- And also we create different folders for Dev & Prod in VS.
+- Can we use one bucket for both Dev and Prod in tfvars method ?
+- So create 2 Buckets & 2 Dynamodb tables in aws console in tfvars method ?
+- You need to initialize Dev backend while "terraform init" and same for Prod also.
+- When you are switching from one env to another env, you must reinitialize it.
 - Then you can terraform plan, apply (or) destroy using -var-file
-- What will happen when you forget to give -var-file ? it will load default variables.tf
+- What will happen when you forgot to give -var-file ? it will load default variables.tf
 - What will happen when you comment variables.tf file ? it will ask for the prompt of var file.
-- So that you will come to know i forget to give -var-file.
-- Only 1 bucket is created for workspace, inside that it will organize into different folders.
-- There will be created a default bucket "env:/" and inside this env folder terraform will
-  automatically create dev/prod workspaces.
+- So that you will come to know i forgot to give -var-file.
+- Only 1 bucket is created for workspace, inside that it will automatically create a default bucket
+  "env:/" and inside this env folder, terraform will automatically create Dev/Prod workspaces.
 - If you want to know workspace commands just "terraform workspace"
 - How to create workspace ? "terraform workspace new dev" do it in gitbash
 - When you are using terraform it has default variable that is "terraform.workspace"
-- So we use lookup function in workspace method to control different environments.
-- What is lookup function do ?
+- So we use "lookup" function in workspace method to control different environments.
+- What is lookup function do is the below ?
 - lookup(map, key) ---> Giving input as map and passing the key below is the example.
 - lookup(var.instance_type, terraform.workspace) ---> 1st one is map and another is key.
 - So which approach is better ? tfvars, workspace, different repos for different envs ?
-- What are provisioners in terraform ? are used to execute scripts or commands on a local machine
-  or remote resource after it's created, typically used for initial configuration like bootstrapping.
+- What are provisioners in terraform ? are used to execute scripts or commands on a local machine or
+  remote resource after it's created, typically used for initial configuration like bootstrapping.
 - Provisioners are used only for instances (or) EC2.
 - What is local-exec provisioner in terraform and what is syntax ? & enables a keyword "self"
-- Local-exec ---> Run on your local machine ---> Use case is to notify,trigger local scripts etc. ---> No
+- Local-exec --> Run on your local machine --> Use case is to notify, trigger local scripts etc --> No
   remote access is need.
 - What is remote-exec provisioner in terraform and what is syntax ?
-- Remote-exec ---> Runs on your remote-resource(ec2) ---> Use case is to install softwares, configure
-  ec2 post setup ---> Need SSH/WinRM to access remote host.
+- Remote-exec --> Runs on your remote-resource(ec2) --> Use case is to install softwares, configure
+  ec2 post setup --> Need SSH/WinRM to access remote host.
 - What is the disadvantage of local-exec ? local-exec provisioner runs only when the resource it’s
   attached to is created or sometimes destroyed, not every time you run terraform apply.
 - Provisioners are useful to integrate terraform with configuration management tools like ansible
