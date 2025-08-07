@@ -1,9 +1,8 @@
 ### Session-25
 - What is terraform and why it is used ? and In how many ways we configured our project ?
-- Why we prefer ansible while configuring big project ?
-- Another name of ansible ?
-- Why we din't prefer manual configuration ?
-- What are the advantages of terraform ? V,C,A,I,C,A,M,H
+- Why we prefer ansible while configuring big project, another name of ansible ?
+- Why we din't prefer manual configuration over ansible and shellscript ?
+- What are the advantages of terraform ? V,C,A,I,C,A,M,H.
 - What is declarative in terraform ?
 - How to install terraform and setup ?
 - Install "hashicorp terraform extension" to get colors.
@@ -11,9 +10,9 @@
 - How to test wether the aws CLI is installed or not in cmd & gitbash ? aws --version
 - If credentials are not found then use "aws configure"
 - Before "aws configure" you need to create terraform administrator user in IAM ?
-- Where the credentials like secret key and access key will be saved ?
-- What is the syntax of terrafrom to create any resources ?
-- What we call this syntax of terraform ?
+- Where the credentials like Secret-key and Access-key will be saved ?
+- What is the syntax of terrafrom to create any resources & what we call this syntax of terraform ?
+- 
 - What is the importance of provider in terraform & what is the extension of terrafrom to save ?
 - Where to run the terraform commands ?
 - What are the terraform commands and what is their functionality ?
