@@ -128,14 +128,35 @@
 - It is DevOps engineer responsibility to write README.md file to let others know how to use module.
 - Develop yourself a terraform EC2 module and use it ?
 - Create a VPC in aws console ? CIDR ---> 10.0.0.0/16
+- Internet has given some "PrivateIP address ranges" those only allocated to PrivateIP not for PublicIP,
+  there you can see 24,20,16 bit-blocks
+- Even ISP people will configure your PrivateIP address in any range among these 3 bit-blocks only.
+- We can select any range, but siva selected as 10.0.0.0/16 range.
+- Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k
+  servers, generally we give VPC_CIDR 10.0.0.0/16 only, because it does not cost anything, so we can
+  go for maximum.
 - Create Public subnet in aws console ? CIDR ---> 10.0.1.0/24
 - Create Private subnet in aws console ? CIDR ---> 10.0.2.0/24
 - Create Database subnet in aws console ? CIDR ---> 10.0.3.0/24
 - Create Public, Private & Database route tables in aws console ?
 - And associate Public, Private & Database route tables ?
-- Add Internet in the Public route table ?
+- Give internet access to the Public subnets.
 - Enable Auto-asign public IPv4 address only to the Public subnet.
-- Create Internet gateway and attach to your created VPC in aws console ?
+- Create Internet Gateway and attach to your created VPC in aws console ?
+- What is the difference between Public subnet and Private subnet ?
+- What is CIDR (Classless Inter-Domain Routing) ?
+- Use always terraform best practices for naming convention.
+- We used Open source modules sometimes, we have dedicated cloud team who develops module and we use them.
+- How do you check internet is working or not ? "ping google.com" Ipv4 is 32bit and Ipv6 is 64 bit
+- Router (Internet Gateway) ---> It has Public_IP & Private_IP. Public_IP is nothing but just type what
+  is my ip in google, there you can see Ipv4 address that is your Public_IP, not ipv6. What is your PrivateIP
+  just "ipconfig" in cmd there you can see IPv4 address under Under wireless LAN adapter Wifi.
+- What is your actual IPaddress ? Just type in google "what is my IP", if anybody wants to connect to my
+  laptop you can connect using this IP address only. You cannot connect with PrivateIP address.
+- Your created VPC is Isolated, even aws dont have access to it.
+- AWS wont charge for VPC's, subnets, route tables, it only charges when you are creating server.
+- We can create as many private subnets we want, however for functionality purpose we have only two subnets
+  which is Public and Private subnets.
 - Watch from 26:11 to 1:14:21 to understand how VPC works.
 
 ### Session-30
@@ -153,7 +174,8 @@
 - Creating NAT Gateway is not enough we need to add routes between Private subnets and to the
   Internet gateway (NAT) which is in Public subnet.
 - Which ever Private subnets like Database subnet (or) any other Private subnets wants to connect to the
-  internet, they should add route to the NAT gateway which is in Public subnet. How to add routes ?
+  internet, they should add route to the NAT gateway which is in Public subnet. How to add routes is
+  the below line ?
 - Select any of the Private subnet/routes/edit routes/add route (Destination = 0.0.0.0/0, Target = NAT
   gateway, then select default one in dropdown under Target section only)
 - When you create a NAT gateway, aws will create instance in the background, We dont have access to that
