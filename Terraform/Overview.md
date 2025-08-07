@@ -161,22 +161,25 @@
 
 ### Session-30
 - What resources we have created inside the VPC from aws console ?
-- We have created VPC, IGW and attached to the VPC, Public, Private & Database subnets in atleast 2-AZ's
-  for High Availability, Route tables (Public, Private & Database) and associated it with their respective
-  subnets in two regions 1a and 1b.
-- Added Internet Gateway route in the Public Route table, because internet should be enabled in Public not
-  in Private, that is the difference between Public and Private subnets.
+- We have created VPC in aws (Your created VPC is Isolated, even aws dont have access to it)
+- It is like your Private Data-Center in aws cloud.
+- Created Internet Gateway (IGW) and attached to the VPC.
+- Created Public, Private & Database subnets atleast 2-AZ's for High Availability
+- Created Route tables (Public, Private & Database) and associated it with their respective subnets in two
+  regions 1a and 1b.
+- Added Internet Gateway route in Public Route table, because internet should be enabled in Public not in
+  Private, that is the difference between Public and Private subnets.
 - Enabled Auto-asign Public IPv4 address only to the Public subnet not to the Private subnet.
 - When you create a VPC, aws will automatically creates a default route table (10.0.0.0/16) this route
   table is used for communication between the subnets inside the VPC.
 - What is NAT Gateway and why it is used ?
 - NAT Gateway should be created in Public subnet (1a or 1b) and why only in Public subnet ?
-- Creating NAT Gateway is not enough we need to add routes between Private subnets and to the
-  Internet gateway (NAT) which is in Public subnet.
+- Creating NAT Gateway is not enough we need to add routes between Private subnets and to the Internet
+  gateway (NAT) which is in Public subnet.
 - Which ever Private subnets like Database subnet (or) any other Private subnets wants to connect to the
   internet, they should add route to the NAT gateway which is in Public subnet. How to add routes is
   the below line ?
-- Select any of the Private subnet/routes/edit routes/add route (Destination = 0.0.0.0/0, Target = NAT
+- Select any of the Private subnet/Routes/Edit routes/Add route (Destination = 0.0.0.0/0, Target = NAT
   gateway, then select default one in dropdown under Target section only)
 - When you create a NAT gateway, aws will create instance in the background, We dont have access to that
   instance, this instance IP is dynamic, whenever you off and on.
