@@ -12,7 +12,6 @@
 - Before "aws configure" you need to create terraform administrator user in IAM ?
 - Where the credentials like Secret-key and Access-key will be saved ?
 - What is the syntax of terrafrom to create any resources & what we call this syntax of terraform ?
-- 
 - What is the importance of provider in terraform & what is the extension of terrafrom to save ?
 - Where to run the terraform commands ?
 - What are the terraform commands and what is their functionality ?
@@ -20,23 +19,23 @@
 - What is variable syntax ?
 - Is really data-type in variable syntax is important ?
 - Go through this https://github.com/daws-76s/terraform
-- We can also get authentication to AWS in provider section, under region.
-- By giving access_key and secret_keys under region also, but why we dint prefer this ?
+- We can also give Access-key and Secret-keys under region to get authentication to AWS in provider
+  section, under region, but why we dint prefer this ?
 - Why we only use aws CLI to authenticate ?
-- So Dont push the access_key and secret_key to the github (or) internet for safety reasons.
+- So Dont push the Access-key and Secret-key to the github (or) internet for safety reasons.
 - Go through the all files in Terraform folder in VS.
 
 ### Session-26
 - What is the importance of .gitignore in terraform ?
 - What is the use of terraform.tfvars ?
-- How to give terraform.tfvars file from the command prompt ? for plan and apply
+- How to give terraform.tfvars file from the command prompt ? for plan and apply.
 - Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars"
 - If you dont give the -var-file, then terraform will take default value of variables.tf file
 - Write a terraform code using terraform.tfvars example ?
 - What are the variable preferences in terraform ?
 - Write a terraform code, if mongodb then t3.small and remaining t2.micro using condition ?
-- Create instances and route53 records using count_based loop ?
-- Create instances and route53 records using for_each loop ?
+- Create instances and route53 records using Count_based loop ?
+- Create instances and route53 records using For_each loop ?
 - Count_based is to iterate list and For_each is to iterate maps.
 - What is function in terraform and what is length function here ?
 - We cannot create our own functions, we have to use terraform inbuilt functions only.
