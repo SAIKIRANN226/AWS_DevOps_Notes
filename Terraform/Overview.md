@@ -1,6 +1,6 @@
 ### Session-25
-- What is terraform and why it is used ? and In how many ways we configured our project ?
-- Why we prefer ansible while configuring big project, another name of ansible ?
+- What is terraform and why it is used ? and In how many ways we configured our project ? and why we prefer
+  ansible as configuration management while configuring the big project, another name of ansible ?
 - Why we din't prefer manual configuration over ansible and shellscript ?
 - What are the advantages of terraform ? V,C,A,I,C,A,M,H.
 - What is declarative in terraform ?
@@ -19,8 +19,8 @@
 - What is variable syntax ?
 - Is really data-type in variable syntax is important ?
 - Go through this https://github.com/daws-76s/terraform
-- We can also give Access-key and Secret-keys under region to get authentication to AWS in provider
-  section, under region, but why we dint prefer this ?
+- We can also give Access-key and Secret-keys under region to get authentication to AWS in provider section,
+  under region, but why we dint prefer this ?
 - Why we only use aws CLI to authenticate ?
 - So Dont push the Access-key and Secret-key to the github (or) internet for safety reasons.
 - Go through the all files in Terraform folder in VS.
@@ -122,11 +122,10 @@
 - What is Creation time and Destroy time in terraform ?
   
 ### Session-29
-- What is module development in terraform and what is the syntax ?
-- Go through the EC2 module in "Terraform-modules" in VS.
-- Provider will be not there in module developing.
+- What is Module Development in terraform and what is the syntax ? Go through the code of EC2 module in
+  "Terraform-modules" in VS. Here provider.tf will not be there in module developing.
 - How many types of Modules and How many types of Roles are there ?
-- DevOps engineer responsibility to write a README.md file to let others know how to use the module.
+- It is DevOps engineer responsibility to write README.md file to let others know how to use module.
 - Develop yourself a terraform EC2 module and use it ?
 - Create a VPC in aws console ? CIDR ---> 10.0.0.0/16
 - Create Public subnet in aws console ? CIDR ---> 10.0.1.0/24
@@ -135,38 +134,47 @@
 - Create Public, Private & Database route tables in aws console ?
 - And associate Public, Private & Database route tables ?
 - Add Internet in the Public route table ?
-- Enable auto-asign public IPv4 address only to the public subnet.
+- Enable Auto-asign public IPv4 address only to the Public subnet.
 - Create Internet gateway and attach to your created VPC in aws console ?
 - Watch from 26:11 to 1:14:21 to understand how VPC works.
 
 ### Session-30
-- What resources we have created in VPC from aws console ?
+- What resources we have created inside the VPC from aws console ?
+- We have created VPC, IGW and attached to the VPC, Public, Private & Database subnets in atleast 2-AZ's
+  for High Availability, Route tables (Public, Private & Database) and associated it with their respective
+  subnets in two regions 1a and 1b.
+- Added Internet Gateway route in the Public Route table, because internet should be enabled in Public not
+  in Private, that is the difference between Public and Private subnets.
+- Enabled Auto-asign Public IPv4 address only to the Public subnet not to the Private subnet.
+- When you create a VPC, aws will automatically creates a default route table (10.0.0.0/16) this route
+  table is used for communication between the subnets inside the VPC.
 - What is NAT Gateway and why it is used ?
-- In which subnet (1a or 1b) this NAT Gateway should be create and why ?
-- Creating NAT Gateway is not enough we need to add routes between private subnets and to the
-  Internet gateway (NAT) which is in public subnet.
-- Which ever private subnets like database subnet or any other private subnets wants to connect
-  to internet, they should add route to the NAT gateway which is in public subnet.
-- Select any of the private_subnet/routes/edit_routes/add_route (Destination= 0.0.0.0/0,
-  Target= NAT gateway, select default one in dropdown under Target section only)
-- When you create a NAT gateway, aws will create instance in the background, We dont have
-  access to that instance, this instance IP is dynamic, whenever you off and on.
+- NAT Gateway should be created in Public subnet (1a or 1b) and why only in Public subnet ?
+- Creating NAT Gateway is not enough we need to add routes between Private subnets and to the
+  Internet gateway (NAT) which is in Public subnet.
+- Which ever Private subnets like Database subnet (or) any other Private subnets wants to connect to the
+  internet, they should add route to the NAT gateway which is in Public subnet. How to add routes ?
+- Select any of the Private subnet/routes/edit routes/add route (Destination = 0.0.0.0/0, Target = NAT
+  gateway, then select default one in dropdown under Target section only)
+- When you create a NAT gateway, aws will create instance in the background, We dont have access to that
+  instance, this instance IP is dynamic, whenever you off and on.
 - So create ElasticIP for this instance first and then create NAT Gateway.
 - NAT and ElasticIP is chargeable, so delete after practice.
-- Can we get StaticIP for this instance ? yes but it is chargeble.
-- Even your home publicIP is dynamic, if you want staticIP, you need to pay money to ISP provider.
+- Can we get StaticIP for this instance ? yes we can get but it is very costly thing.
+- Even your home PublicIP is Dynamic. If you want StaticIP, you need to pay money to ISP provider.
 - What is VPC peering ? and what is the condition to create VPC peering connection ?
 - Create a VPC peering connection between "Roboshop_VPC & Default_VPC"
 - So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC".
 - Accept request in the same account and then add routes in VPC.
-- Try to add routes in main route table, if not reflecting, then add explicitly ?
-- If you want only one or two private subnets wants to connect to the vpc peering main road
-  then you can add in those two route tables only.
+- Try to add routes in main route table, because it is the default route table which is created automatically   created after vpc is created to communicate between subnets, if not reflecting, then add explicitly ?
+- If you want only one (or) two Private subnets wants to connect to the vpc peering main road then you can
+  add in those two route tables only.
 - You need to add from the other side also not just one side. This is nothing but routes in VPC.
 - Go through the "Terraform-aws-vpc-module" how we developed vpc and resources inside it.
 - What is tagging strategy and why we use it ?
 - We have Common_tags and Resource_tags ? what is the difference between them ?
-- We used merg function in tagging strategy to merge common_tags and resource_tags ?
+- We used "merg" function in tagging strategy to merge Common_tags and Resource_tags.
+- You can also create s3 bucket for vpc module.
 
 ### Session-31
 - In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
