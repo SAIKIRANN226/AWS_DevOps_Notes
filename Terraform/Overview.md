@@ -269,7 +269,14 @@
   Type --> custom TCP, port: 27017 and in source just type "sg" next to the custom, you will get the created
   security groups, in that select already created catalogue_SG. Same for the User also.
 - Now write a terraform code for all the Security groups according to the Roboshop Documentation.
-- 
+- Now creating EC2's for the roboshop 04-ec2 in VS using Open-source module from the internet.
+- Here the only disadvantage is you cannot connect to this private instances using SSH, because private
+  instances dont have PublicIP. We have two options and what are there ? "Jump_host" and "Installing VPN"
+  in default_VPC to connect to private instances which are in Roboshop_VPC, but we must have a Peering
+  connection between Default_VPC and Roboshop_VPC.
+- In real time, whenever you want few ports to open, you need to write a mail to firewall team then, they
+  will open the port, if they are using terraform they will do changes in main.tf
+- We used "cisco" VPN in our company.
 
 ### Session-33
 - How to connect to Private Instances using VPN ?
