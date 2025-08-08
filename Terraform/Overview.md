@@ -164,14 +164,18 @@
 - We have created VPC in aws (Your created VPC is Isolated, even aws dont have access to it)
 - It is like your Private Data-Center in aws cloud.
 - Created Internet Gateway (IGW) and attached to the VPC.
-- Created Public, Private & Database subnets atleast 2-AZ's for High Availability
+- Created Public, Private & Database subnets in atleast 2-AZ's for High Availability
 - Created Route tables (Public, Private & Database) and associated it with their respective subnets in two
   regions 1a and 1b.
 - Added Internet Gateway route in Public Route table, because internet should be enabled in Public not in
   Private, that is the difference between Public and Private subnets.
 - Enabled Auto-asign Public IPv4 address only to the Public subnet not to the Private subnet.
-- When you create a VPC, aws will automatically creates a default route table (10.0.0.0/16) this route
-  table is used for communication between the subnets inside the VPC.
+- When you create a VPC, a default route table, also known as the main route table, is automatically created
+  for that VPC. This main route table is initially associated with all subnets within the VPC that have not
+  been explicitly associated with a custom route table. It contains a local route that enables communication
+  within the VPC. While this default route table cannot be deleted, its routes can be modified, and custom
+  route tables can be created and associated with specific subnets to provide more granular control over
+  network traffic.
 - What is NAT Gateway and why it is used ?
 - NAT Gateway should be created in Public subnet (1a or 1b) and why only in Public subnet ?
 - Creating NAT Gateway is not enough we need to add routes between Private subnets and to the Internet
@@ -196,57 +200,54 @@
   add in those two route tables only.
 - You need to add from the other side also not just one side. This is nothing but routes in VPC.
 - Go through the "Terraform-aws-vpc-module" how we developed vpc and resources inside it.
-- What is tagging strategy and why we use it ?
+- We have a Tagging strategy because we have more resources, so we use better tagging strategy.
 - We have Common_tags and Resource_tags ? what is the difference between them ?
 - We used "merg" function in tagging strategy to merge Common_tags and Resource_tags.
 - You can also create s3 bucket for vpc module.
 
 ### Session-31
 - Go through the code of "Terraform-aws-vpc-module" in VS.
-- While developing VPC module, we come across peering section, is really Peering connection is required ?
-  Peering may not require for everyone, when this peering is useful ?
-- Bydefault peering connection between two VPC's is not possible.
+- While developing VPC module, we come across Peering section, is really Peering connection is required ?
+  Peering may not require for everyone, when this Peering is useful ?
+- Bydefault Peering connection between two VPC's is not possible.
 - If we want to connect with the resources which are in another VPC, then you require peering.
-- So how do we connect to other VPC which is in another company ? We install VPN in default VPC and
-  then connect.
-- So users can decide if peering is required or not ? if required they have to give VPC peering_id,
-  if they are not giving, we should consider default VPC.
-- For example consider Requestor is "Roboshop" and Acceptor is "User" provided VPC or Default VPC.
+- How to connect to other VPC which is in another company ? Install VPN in Default_VPC & Connect.
+- Example consider Requestor is "Roboshop" and Acceptor is "User" provided VPC or Default VPC.
 - In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
-  will do ? we should inform them to add the acceptor route in their terraform code.
-- Why does the big companies depends on multiple companies to deal different modules & why ?
+  will do ? We should inform them to add the acceptor route in their terraform code.
+- Big companies depends on multiple companies to deal different modules.
 - So users can decide if peering is required or not ? if required they have to give VPC peering_id,
   if they are not giving, we should consider default_VPC. Go through the peering.tf file
-- Overall developing your vpc module is completed and you push it to the internet (Github), then
-  how to refer this ?
-- By using a command "source = "git"::<https_URL>ref=main"
-- So when you do "terraform init" the module will be downloaded in the testing code and it will create
-  a folder called "module" automatically.
-- Till now we used allow-all method while creating SG, but now we use strict rules.
+- Overall developing your vpc module is completed and you pushed it to the internet (Github), then
+  how to refer this ? "source = "git"::<https_URL>ref=main"
+- So when you do "terraform init" the module will be downloaded in where we are testing the code and it
+  will automatically create a folder called "module"
+- Till now we used "Allow-all" method while creating SG, but now we use strict rules.
 - How to use Security Groups effectively according to the roboshop documentation ?
-- We install vpn in default_VPC to connect Private instances which are Present in Roboshop_VPC.
+- We install vpn in Default_VPC to connect Private instances which are Present in Roboshop_VPC.
 - We can create a folder (Example) and keep all the testing code in it, so that it will be easy for
   everyone to use the module.
 - We keep all our resources in 1a zone.
-- In vpc module developing, we need to push outputs then only users can get the information.
-- We have a database subnet groups, because databases have different behaviour, nothing but just adding
+- In vpc module developing, we need to publish outputs then only users can get the information.
+- We have a Database subnet groups, because Databases have different behaviour, nothing but just adding
   database subnet ids.
-- We also have Open-source modules for vpc also if you search in google, you can use that also, instead
+- We also have Open-source modules for vpc also, if you search in google you can use that also, instead
   of developing vpc module, but for practice you need to know.
 
 ### Session-32
-- Till now we used allow-all method while creating SG, it is just for practice only, but now we need to
-  follow strict SG rules according to the Roboshop-documentation only.
-- We have developed our own customized modules for creating VPC right ? In this session also we are going
-  to develop SG module, so refer "Roboshop-aws-SGmodule" in VS and also create all security groups for all
-  the components according to the Roboshop-documentation.
-- Why we created different folders for every resources in "Roboshop-terraform"
+- Till now we used "Allow-all" method while creating SG, it is just for practice only, but now we need to
+  follow strict SG rules according to the Roboshop-Documentation only.
+- We have developed our own customized module for creating VPC right ? In this session also we are going
+  to develop our own customized SG module, so refer "Roboshop-aws-SGmodule" in VS
+- We have created Security groups and Security group rules for all the components according to the Roboshop
+  Documentation, so go through the code in "02-sg" in "Roboshop-terraform" folder.
+- Why we created different folders for every resources in "Roboshop-terraform" ? Refresh time
 - Since they are in separate folders, consider they are like different projects.
-- Go through the folders 01-vpc, 02-sg, 03-vpn, 04-ec2 code in VS.
-- What is the main input required to create SG ? VPC_ID
-- For example in Big companies, 1 team is taking care for VPC, another team is taking care for SG etc. So
-  how do get the information of resource which is in another team or another project ? SSM Parameter
-- What is SSM Parameter store in "AWS systems manager" terraform ? its like a configuration storage.
+- Go through the folders 01-vpc, 02-sg, 03-vpn, 04-ec2 code in "Roboshop-terraform" folder in VS.
+- What is the main input required to create a SG ? VPC_ID
+- For example in Big companies, 1 team is taking care for VPC, another team is taking care for SG etc.
+  How do you get the information of resource which is in another team or another project ? SSM Parameter
+- What is SSM Parameter store in "AWS systems manager" ? Its like a configuration storage.
 - What does Configuration storage (or) Central storage do ?
 - What is the Naming convention while storing the Configuration (or) Key-Value pair in SSM ?
 - Generally Naming format will be in the linux structure like "/roboshop/dev/vpc_id"
@@ -254,29 +255,34 @@
   resources right ? but to query from the existing resource, we need to give some input like vpc_id, this
   vpc_id we cannot get from the data source, but we used data source only to query the default vpc_id, but to
   take the created vpc_id, again data-source is not an option, because we need to give vpc_id as input.
-- Since VPC is in different folder, how do we get vpc_id in SG ? using SSM Parameter
-- Go through the "Terraform-aws-SGmodule" in VS.
+- Since VPC is in different folder, how do we get vpc_id in SG ? You need to store vpc_id in SSM Parameter
+  store and read that saved Key-Value in SG using data-source option.
+- Go through the "Terraform-aws-SGmodule" in VS, just module developing.
 - Generally it is not mandatory to create ingress rules while creating SG and why ? but egress is static
   because this traffic creating from our server, mostly it will be constant.
-- In Security groups, we have two names "Name" and "Security group name" what is the difference ?
-- As a module developer, must output the resources in output.tf file like "sg_id"
-- Now create all Security groups according to the Roboshop Documentation
-- For example according to the Roboshop Documentation, Mongodb ---> Should accept connections from "Catalogue" and "User" what should be the ingress of mongodb now ? Source ---> CatalogueIP & Port 27017, Similarly for User also ?
-- Is CatalogueIP is constant everytime ? NO! then what should we do ? We need to take ElasticIP which is
-  very costly, because we have 12 Private servers that means we need to create 12 EIPs. If it is a Big project, we may need to create thousands of EIPs, bill may come like 5k dollars.
-- So Security groups has given one option, create Mongodb and Catalogue Security groups
-- Then go to the security groups in aws console and select created mongodb_SG/Edit_inbound_rules/Add rule
-  Type --> custom TCP, port: 27017 and in source just type "sg" next to the custom, you will get the created
-  security groups, in that select already created catalogue_SG. Same for the User also.
-- Now write a terraform code for all the Security groups according to the Roboshop Documentation.
-- Now creating EC2's for the roboshop 04-ec2 in VS using Open-source module from the internet.
-- Here the only disadvantage is you cannot connect to this private instances using SSH, because private
-  instances dont have PublicIP. We have two options and what are there ? "Jump_host" and "Installing VPN"
-  in default_VPC to connect to private instances which are in Roboshop_VPC, but we must have a Peering
-  connection between Default_VPC and Roboshop_VPC.
 - In real time, whenever you want few ports to open, you need to write a mail to firewall team then, they
-  will open the port, if they are using terraform they will do changes in main.tf
-- We used "cisco" VPN in our company.
+  will open the port, if they are using terraform they will do changes in main.tf file
+- In Security groups, we have two names "Name" and "Security group name" what is the difference ?
+- As a module developer, you must output the resources in output.tf file like IDs etc. So that other teams
+  will refer.
+- Now create all Security groups according to the Roboshop Documentation "02-sg" in VS.
+- For example according to the Roboshop Documentation, Mongodb ---> Should accept connections from
+  "Catalogue" and "User" what should be the ingress (Security group rule) of mongodb now ? Source should
+  be the CatalogueIP & Port 27017, Similarly for User also ? 
+- Is CatalogueIP is constant everytime ? NO! then what should we do ? We need to take the ElasticIP which
+  is very costly, because we have 12 Private servers that means we need to create 12 EIPs. If it is a Big
+  project, we may need to create thousands of EIPs, this will generate huge bill to the company.
+- So Security group has given one option, first create Mongodb and Catalogue Security groups.
+- Then go to the Security groups in aws console and select created mongodb_SG/Edit_inbound_rules/Add rule
+  Type --> Custom TCP, Port: 27017 and in source just type "sg" next to the custom, you will get the created
+  Security groups, in that select already created Catalogue_SG. Same for the User also.
+- Now write a terraform code for all the Security groups according to the Roboshop Documentation.
+- Now creating EC2's for the roboshop "04-ec2" in VS using Open-source module from the internet.
+- Here the only disadvantage is you cannot connect to this Private instances using SSH, because Private
+  instances dont have PublicIP. We have two options and what are there ? "Jump_host" & "Installing VPN"
+  in Default_VPC to connect to Private instances which are in Roboshop_VPC, but make sure you have Peering
+  connection between Default_VPC and Roboshop_VPC.
+- We used "CISCO" VPN in our company which is costly, but for practice we used "OpenVpn Connect"
 
 ### Session-33
 - How to connect to Private Instances using VPN ?
