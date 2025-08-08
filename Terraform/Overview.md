@@ -202,28 +202,41 @@
 - You can also create s3 bucket for vpc module.
 
 ### Session-31
-- In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
-  will do ? we should inform them to add the acceptor route in their terraform code.
-- Is really Peering connection is required ?
-- Peering may not require for everyone, when this peering is useful ?
+- Go through the code of "Terraform-aws-vpc-module" in VS.
+- While developing VPC module, we come across peering section, is really Peering connection is required ?
+  Peering may not require for everyone, when this peering is useful ?
 - Bydefault peering connection between two VPC's is not possible.
 - If we want to connect with the resources which are in another VPC, then you require peering.
-- Why does the big companies depends on multiple companies to deal different modules & why ?
-- So how do we connect to other VPC which is in other company ?
-- We install VPN in default VPC and then connect.
+- So how do we connect to other VPC which is in another company ? We install VPN in default VPC and
+  then connect.
 - So users can decide if peering is required or not ? if required they have to give VPC peering_id,
   if they are not giving, we should consider default VPC.
-- You have developed modules and we push to the github, then how to refer this ?
+- For example consider Requestor is "Roboshop" and Acceptor is "User" provided VPC or Default VPC.
+- In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
+  will do ? we should inform them to add the acceptor route in their terraform code.
+- Why does the big companies depends on multiple companies to deal different modules & why ?
+- So users can decide if peering is required or not ? if required they have to give VPC peering_id,
+  if they are not giving, we should consider default_VPC. Go through the peering.tf file
+- Overall developing your vpc module is completed and you push it to the internet (Github), then
+  how to refer this ?
 - By using a command "source = "git"::<https_URL>ref=main"
-- How to use security groups effectively ? according to the roboshop documentation.
-- We install vpn in default_VPC to connect private instances which are present in roboshop_VPC.
+- So when you do "terraform init" the module will be downloaded in the testing code and it will create
+  a folder called "module" automatically.
+- Till now we used allow-all method while creating SG, but now we use strict rules.
+- How to use Security Groups effectively according to the roboshop documentation ?
+- We install vpn in default_VPC to connect Private instances which are Present in Roboshop_VPC.
 - We can create a folder (Example) and keep all the testing code in it, so that it will be easy for
   everyone to use the module.
 - We keep all our resources in 1a zone.
+- In vpc module developing, we need to push outputs then only users can get the information.
+- We have a database subnet groups, because databases have different behaviour, nothing but just adding
+  database subnet ids.
+- We also have Open-source modules for vpc also if you search in google, you can use that also, instead
+  of developing vpc module, but for practice you need to know.
 
 ### Session-32
 - Till now we used allow-all method while creating SG, it is just for practice only, but now we need to
-  follow strict SG rules according to the Roboshop-documentation.
+  follow strict SG rules according to the Roboshop-documentation only.
 - We have used our own customized modules for creating VPC and Security groups as per documentation.
 - Refer "Roboshop-aws-SGmodule" in VS.
 - Why we created different folders for every resources in "Roboshop-terraform"
