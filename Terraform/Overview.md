@@ -237,18 +237,39 @@
 ### Session-32
 - Till now we used allow-all method while creating SG, it is just for practice only, but now we need to
   follow strict SG rules according to the Roboshop-documentation only.
-- We have used our own customized modules for creating VPC and Security groups as per documentation.
-- Refer "Roboshop-aws-SGmodule" in VS.
+- We have developed our own customized modules for creating VPC right ? In this session also we are going
+  to develop SG module, so refer "Roboshop-aws-SGmodule" in VS and also create all security groups for all
+  the components according to the Roboshop-documentation.
 - Why we created different folders for every resources in "Roboshop-terraform"
-- Since they are in separate folders, consider it as different projects.
+- Since they are in separate folders, consider they are like different projects.
 - Go through the folders 01-vpc, 02-sg, 03-vpn, 04-ec2 code in VS.
 - What is the main input required to create SG ? VPC_ID
-- Big companies deals like 1 team is taking for VPC, another is taking care for SG etc.
-- What is SSM Parameter store in terraform ? it is like a configuration storage.
+- For example in Big companies, 1 team is taking care for VPC, another team is taking care for SG etc. So
+  how do get the information of resource which is in another team or another project ? SSM Parameter
+- What is SSM Parameter store in "AWS systems manager" terraform ? its like a configuration storage.
 - What does Configuration storage (or) Central storage do ?
-- What is the Naming convention while stroing the configuration (or) key-value pair in SSM ?
+- What is the Naming convention while storing the Configuration (or) Key-Value pair in SSM ?
 - Generally Naming format will be in the linux structure like "/roboshop/dev/vpc_id"
+- As we know Data-sources is used to query the data dynamically from the providers and also from the existing
+  resources right ? but to query from the existing resource, we need to give some input like vpc_id, this
+  vpc_id we cannot get from the data source, but we used data source only to query the default vpc_id, but to
+  take the created vpc_id, again data-source is not an option, because we need to give vpc_id as input.
 - Since VPC is in different folder, how do we get vpc_id in SG ? using SSM Parameter
+- Go through the "Terraform-aws-SGmodule" in VS.
+- Generally it is not mandatory to create ingress rules while creating SG and why ? but egress is static
+  because this traffic creating from our server, mostly it will be constant.
+- In Security groups, we have two names "Name" and "Security group name" what is the difference ?
+- As a module developer, must output the resources in output.tf file like "sg_id"
+- Now create all Security groups according to the Roboshop Documentation
+- For example according to the Roboshop Documentation, Mongodb ---> Should accept connections from "Catalogue" and "User" what should be the ingress of mongodb now ? Source ---> CatalogueIP & Port 27017, Similarly for User also ?
+- Is CatalogueIP is constant everytime ? NO! then what should we do ? We need to take ElasticIP which is
+  very costly, because we have 12 Private servers that means we need to create 12 EIPs. If it is a Big project, we may need to create thousands of EIPs, bill may come like 5k dollars.
+- So Security groups has given one option, create Mongodb and Catalogue Security groups
+- Then go to the security groups in aws console and select created mongodb_SG/Edit_inbound_rules/Add rule
+  Type --> custom TCP, port: 27017 and in source just type "sg" next to the custom, you will get the created
+  security groups, in that select already created catalogue_SG. Same for the User also.
+- Now write a terraform code for all the Security groups according to the Roboshop Documentation.
+- 
 
 ### Session-33
 - How to connect to Private Instances using VPN ?
