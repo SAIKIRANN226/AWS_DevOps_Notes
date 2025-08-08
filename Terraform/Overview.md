@@ -148,8 +148,8 @@
 - Use always terraform best practices for naming convention.
 - We used Open source modules sometimes, we have dedicated cloud team who develops module and we use them.
 - How do you check internet is working or not ? "ping google.com" Ipv4 is 32bit and Ipv6 is 64 bit
-- Router (Internet Gateway) ---> It has Public_IP & Private_IP. Public_IP is nothing but just type what
-  is my ip in google, there you can see Ipv4 address that is your Public_IP, not ipv6. What is your PrivateIP
+- Router (Internet Gateway) ---> It has Public_IP & Private_IP. PublicIP is nothing but just type what
+  is my ip in google, there you can see Ipv4 address that is your PublicIP, not ipv6. What is your PrivateIP
   just "ipconfig" in cmd there you can see IPv4 address under Under wireless LAN adapter Wifi.
 - What is your actual IPaddress ? Just type in google "what is my IP", if anybody wants to connect to my
   laptop you can connect using this IP address only. You cannot connect with PrivateIP address.
