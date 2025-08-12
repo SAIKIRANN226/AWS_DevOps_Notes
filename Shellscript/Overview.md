@@ -70,6 +70,9 @@
 - What is the use of logs ? In shell scripting, logs are used to record what the script did, when it did it,
   and whether it succeeded or failed. They act like a black box recorder for your script — if something goes
   wrong, you can look back and see why.
+- To see full log file ---> sudo cat /var/log/messages
+- To see page by page ---> sudo less /var/log/syslog
+- To follow logs in real time ---> tail -f /var/log/messages
 
 ### Session-15
 - How do we set to exit automatically when shellscript faces errors ?
