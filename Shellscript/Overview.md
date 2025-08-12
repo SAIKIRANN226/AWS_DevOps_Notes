@@ -75,15 +75,16 @@
 - To follow logs in real time ---> tail -f /var/log/messages
 
 ### Session-15
-- How do we set to exit automatically when shellscript faces errors ?
-- Does really "set -e" helpful in exiting the shellscript when it faces error ?
-- How do you store logs in shellscript ?
+- How do we set to exit automatically when shellscript faces errors ? Does really "set -e" useful in exiting
+  the shellscript when it faces error ?
+- How do you store logs in shellscript ? Instead of giving &>> $LOGFILE everywhere, we can give like below
+  "exec &>$LOGFILE" under logfile name. See in redis.sh
 - Where to check the logs wether the remote connections are successfully connected (or) not ?
 - Command to check logs ---> "sudo less /var/log/messages"
 - unzip -o /tmp/web.zip ---> Here "o" is to overwrite, if you run the script multiple times.
 - mkdir -p /app ---> Here -p means if folder exists, it will not create.
-- Dont forget to restart nginx after changing in configuration file.
-- Make sure to add all private servers in the web cofiguration
+- Dont forget to restart nginx server after doing any changes in configuration file.
+- Make sure to add all private servers in the web cofiguration.
   
 ### Session-16
 - Write a shellscript to delete old logfiles which are morethan 14 days old ?
