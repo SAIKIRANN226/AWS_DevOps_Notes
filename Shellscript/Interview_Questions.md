@@ -59,7 +59,61 @@ $@ and $* both are used to access all the arguments passed to the bash script. $
     Using $*:
     arge one arg two
 
-### How do you handle errors in shellscript ?
+### How do you handle errors in shellscript (or) How do you debug a shellscript ?
 Shellscript will not exit when it faces errors, it will continue to run, we need to check every command using exit-status "$?" and exit if faces any error, we can also "set -e" also after shibang, but it will not work most of the times.
 
+### What’s the difference between > and >> in shell scripting ?
+Greaterthan symbol > means overwrites the file and >> appends the file.
+
+### How do you read a file line-by-line in bash ?
+        while IFS= read -r line; do
+          echo "$line"
+        done < file.txt
+### Explain the difference between soft link and hard link ?
+Soft link (symbolic link): Points to the file path, can link across file systems, breaks if the original is deleted. Hard link: Points directly to the inode, must be on the same file system, remains valid even if the original is deleted.
+
+### How do you check if a process is running in a shell script ?
+        if pgrep -x "nginx" > /dev/null; then
+          echo "Running"
+        else
+          echo "Not running"
+        fi
+
+### How do you replace all occurrences of a string in a file using shell commands ?
+sed -i 's/old_text/new_text/g' file.txt
+
+### How do you find the number of lines, words, and characters in a file ?
+wc file.txt
+
+### Write a script that reads usernames from a file and checks if they exist in the system ?
+        #!/bin/bash
+        while read -r user; do
+          if id "$user" &>/dev/null; then
+            echo "$user exists"
+          else
+            echo "$user not found"
+          fi
+        done < users.txt
+### Write a script to read a file and print only lines that contain the word "ERROR" ?
+        #!/bin/bash
+        LOG_FILE="/var/log/messages"
+        grep "ERROR" "$LOG_FILE"
+
+### Write a script to check if a service is running; if not, start it ?
+        #!/bin/bash
+        SERVICE="nginx"
+        
+        if ! pgrep -x "$SERVICE" > /dev/null; then
+          echo "$SERVICE is not running. Starting..."
+          systemctl start "$SERVICE"
+        else
+          echo "$SERVICE is running."
+        fi
+
 ### 
+
+
+
+
+
+
