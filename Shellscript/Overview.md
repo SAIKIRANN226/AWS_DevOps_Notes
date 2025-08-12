@@ -20,7 +20,8 @@
 - If git is not configured in the github account yet, still developers can start writing their code
   in the VS until git is ready and later they can push it to the git.
 - A normal folder will become git, when you initialize by using command "git init"
-- How do you capture the output of any linux command in a variable ? DATE=$(date)
+- How do you capture the output of any linux command in a variable ? using command substitution like this
+  DATE=$(date)
 - What is the use of arguments in the shellscript ?
 - While connecting to external systems like DB, how to hide password while entering in terminal ?
 - Is really data-types are important in shellscript ?
