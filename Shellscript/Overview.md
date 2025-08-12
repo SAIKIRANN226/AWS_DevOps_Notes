@@ -49,7 +49,7 @@
   going to home folder (cd) like ~ ---> Here you can store the logs for practicing as siva showed in the
   terminal, here in terminal, if you get any errors (or) not working properly you can delete that folder
   and clone again from the github (NO problem)
-- Removing package ? sudo dnf remove <package_name> -y (or) sudo yum remove <package_name> -y 
+- Sudo dnf remove <package_name> -y (or) sudo yum remove <package_name> -y 
 - How do you handle the errors in shellscript ? using a special variable called exit-status "$?"
 - What is the disadvantage in shellscript ? Even if shellscript faces error, it wont stop, it will continue
   to run the script. It is our responsibility to check the errors by writing conditions and exit-status.
