@@ -1,5 +1,5 @@
 ### Have you worked on any automation scripts recently ?
-Yes we have few applications running on VM, i was asked to write resources monitoring scripts, so i wrote for CPU Utilization, Memory Utilization, Disk Utilization. I developed this script and scheduled through crontab for every 15 min and i configured it to send alerts in email and team channels and also i wrote log cleanup script, since our application creates logs every day in our servers, for example "user-05-06-2024.log" My script archives logs older than 7 days, I moved this archives to S3 bucket, I delete zip files older than 30 days from the server.
+Yes we have few applications running on VM, i was asked to write resources monitoring scripts, so i wrote for Disk Utilization. I developed this script and scheduled through crontab for every 15 min and i configured it to send alerts in email and team channels and also i wrote log cleanup script, since our application creates logs every day in our servers, for example "user-05-06-2024.log"
 
 ### Can you write a simple shellscript to list all S3 buckets ?
     #!/bin/bash
