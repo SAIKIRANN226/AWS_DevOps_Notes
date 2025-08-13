@@ -123,27 +123,27 @@
 ### Session-17
 - What is Crontab and why it is useful ? Usage of crontab and giving the script location ? crontab -e
 - How to see the running logs of a Crontab ? tail -f /var/log/cron
-- What is Optargs in shellscript ?
+- What is Optargs in shellscript ? we can control the script behaviour by giving extra inputs to the script
+  using a tool called Optargs.
 - How to set any shellscript as Native Linux Command ? echo $PATH
 - If you install any softwares in these PATHS then, automatically windows (or) linux will pick up from
-  this PATHS.
-- Generally if you put your script in "/usr/local/bin" then you NO need to give ".sh" while running
-  the script
+  this PATHS only.
+- Generally if you keep your script in "/usr/local/bin" then you NO need to give ".sh"
 - So "sudo cp 18-greetings.sh /usr/local/bin/greeting (Copied as a greeting name)
 - Give executive access "sudo chmod +x /usr/local/bin/greeting" now if you are in any folder otherthan the
   script folder also, just run by using name "greeting" (or) greeting -n sai -w good evening.
-- Till now we have created ec2 instances and route53_records manually by logging into aws console.
-- If web then PublicIP, if not web then PrivateIP right ?
-- And also if mongodb, mysql, shipping then t3.small & remaining t2.micro.
-- We can now create using aws CLI "aws command line" to automate.
-- In every server we have aws command line, you can check using "aws help" in server.
-- So we need to write a script to automate using "aws command line"
+- Till now we have created ec2 instances and route53 records manually by logging into aws console.
+- Like if web then PublicIP, if not web then PrivateIP right ? and also if mongodb, mysql, shipping then
+  t3.small & remaining t2.micro.
+- We can now create using aws CLI "aws command line" to automate. In every server we have aws command line,
+  you can check using "aws help" in server.
+- So we need to write a script to automate using "aws command line" for creating instances & records.
 - What are Roles to Resources ? Not only for persons, resources should also have access to access another
   resource, for that we have Roles to Resources like for example if you have created one EC2 and this EC2
-  instance should go and create other new instances (or) route53 records.
+  instance should go and create another new instances (or) route53 records.
 - How to create a role for ec2 in aws console ? IAM/roles/create role/select EC2 as use case/next/admin
   access (or) amazonEc2fullaccess/route53 full access/give any name to the role.
-- How will you asign above role to the ec2 in aws console ? select the already created instance &
+- How will you asign above role to the ec2 in aws console ? select the already created instance & go to
   Actions/Security/Modify IAM role/Select your created role.
 - Remove old credentials which was created for aws console in .aws folder by using rm -rf, if you got
   any errors.
@@ -153,13 +153,13 @@
 - How do you create administrator user in aws console ? By going to IAM, Users, Create user, Attach
   policies directly, Administrator access, Click on the created user, Security credentials, Create
   accesskey, select CLI.
-- Then configure "aws configure" after creating administrator user in aws console
+- Then "aws configure" after creating administrator user in aws console.
 - Why we created roles in IAM ? Here if it is a person, he can keep Access_key & Secret_keys safely, will
   EC2 can keep these credentials secretly ? If anybody has access to this EC2, he can able to see these
-  credentials using ls -la in cd .aws/ because these keys are saved in .aws/ folder only. Thats why created
-  roles in IAM.
-- Write a shellscript to create all instances and route53 records using aws CLI ? Go through the
-  "roboshop.sh" file in Roboshop-Shellscript.
+  credentials using "ls -la" command in cd .aws/ because these keys are saved in .aws/ folder only. Thats
+  why we created roles to resources in IAM.
+- Write a shellscript to create all instances & records using aws CLI ? Go through the "roboshop.sh" file
+  in Roboshop-Shellscript.
 - What is UPSERT in shellscript ? if the record exists, update (or) edit it, if it doesn’t exist, it will
   create.
 - Important point, So overall create any one instance and give a role to it, so that it will create multiple
