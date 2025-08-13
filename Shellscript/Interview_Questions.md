@@ -47,8 +47,8 @@ Here .tar means It’s a single file that contains many files/folders bundled to
 ### How do you pass arguments to the shellscript ?
 I will pass arguments to the shellscript while executing the script, for example "sh greetings.sh morning" i receive the args inside the script through special variables like $1,$2,$3...$N. Number of args "$#" All args special variable is like "$@"
 
-### What is the difference between $@ and $* in bash scripts ?
-$@ and $* both are used to access all the arguments passed to the bash script. $@ expand each argument individually. $* Joins all arguments as one string.
+### What is the difference between "$@" and "$*" in bash scripts ?
+"$@" and "$*" both are used to access all the arguments passed to the bash script. "$@" expand each argument individually. "$*" Joins all arguments as one string.
 
     #!/bin/bash
     echo "Using $@"
