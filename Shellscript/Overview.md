@@ -31,12 +31,12 @@
 - Write a shellscript of array, using FRUITS example ?
 
 ### Session-13
-- Write a shellscript using condition, if given number is greater than 100 (or) given number is
+- Write a shellscript using condition for if given number is greater than 100 (or) given number is
   lessthan 100.
 - Install mysql, git, postfix, net-tools first using conditions then functions & store logs in tmp.
 - Write a loop script to print numbers from 1 to 1000 ?
 - Write a shellscript to install multiple packages using loops ?
-- What is root user and exit status ? id (or) id -u and $?
+- What is root user and exit status ? id, (id -u), $?
 - What is function in shellscript ? we generally keep our functions under variables.
 - There will be NO logs in "less /var/log/messages" we need to store that logs, otherwise we cannot
   troubleshoot, make sure you should not log in the current folder of server come outside and then do.
@@ -72,11 +72,11 @@
   wrong, you can look back and see why.
 - To see full log file ---> sudo cat /var/log/messages
 - To see page by page ---> sudo less /var/log/syslog
-- To follow logs in real time ---> tail -f /var/log/messages
+- To follow logs in real time (or) to see running logs ---> tail -f /var/log/messages
 
 ### Session-15
 - How do we set to exit automatically when shellscript faces errors ? Does really "set -e" useful in exiting
-  the shellscript when it faces error ?
+  the shellscript when it faces error ? NO! why ?
 - How do you store logs in shellscript ? Instead of giving &>> $LOGFILE everywhere, we can give like below
   "exec &>$LOGFILE" under logfile name. See in redis.sh
 - Where to check the logs wether the remote connections are successfully connected (or) not ?
@@ -88,47 +88,45 @@
   
 ### Session-16
 - Write a shellscript to delete old logfiles which are morethan 14 days old ?
-- Generally we have "cat /etc/passwd" in this we have all the users information like user_id, group_id,
-  user_name etc. So how to read this whole information properly ? or in a structured way, for that we can
-  use IFS (Internal field separator).
-- Write a shellscript to read a file which is in /etc/passwd using IFS ?
-- What is the algorithm for deleting old log files ?
 - Check Disk Usage and Send email for alerts ?
-- How do you create files with old date in server ?
+- Generally we have "cat /etc/passwd" in this, we have all the users information like user_id, group_id,
+  user_name etc. So how to read this whole information properly ? or in a structured way ? for that we can
+  use IFS (Internal field separator).
+- What is the algorithm for deleting old log files ? decide source_dir/search for files/delete.
+- How do you create files with old date in server ? "touch -d 20231201 <anyname.log>"
 - Command to find old logfiles morethan 14 days old with .log extensions only ?
-- Instead of "rm -rf" we used while loop to read "command_output" line by line and then delete.
+- Instead of direct "rm -rf" we used while loop to read "command output" line by line & then delete.
 - Command to check the information about total space and available space on a file system ?
 - How to create a new volume (or) disk in aws console and what is the condition for that ?
-- What are the commands to make the disk into usage ? Overview steps of the disk creation.
+- What are the commands to make the disk into usage ? go through the overview steps of the disk creation.
 - Creating disk is the work of "Storage team" not DevOps. But just know how it works.
 - How do we find different types of file systems ? using reverse search.
-- How do you mail the above disk usage from linux server ?
-- We will configure the company mail server details to send email alerts.
+- How do you mail the above disk usage from linux server ? we will configure the company mail server details
+  to send email alerts.
 - So we call mail.sh whenever we want to monitor on disk_usage, not only on disk_usage, we can also call for
-  CPU_Utilization, Memory_Utilization etc. For monitoring purpose using shellscripting, because sometimes
+  CPU_Utilization, Memory_Utilization etc for monitoring purpose using shellscript, because sometimes
   mailing is not in our control, linux team will give a script like "mail.sh" we can simply call that instead
-  of writing this command "echo "$message" | mail -s "High Disk Usage" info@joindevops.com"
+  of writing this whole command "echo "$message" | mail -s "High Disk Usage" info@joindevops.com"
 - Then how to call mail.sh ? "sh mail.sh" "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com"
   "ALERT High Disk Usage", whatever you write after sh mail.sh is arguments we are passing.
-- How to go all the way to down in config file ? shift+G
-- How to go all the way to top in config file ? gg
+- How to go all the way to down in config file ? "shift+G"
+- How to go all the way to top in config file ? "gg"
 - Basically no need to follow the color coding or formatting, we can just use as it is in mail configuration
-  gmail.MD document, or if your company provides the email configuration document just simply follow that.
+  gmail.MD document (or) if your company provide the email configuration document just simply follow that.
 - So configuring gmail.MD document for sending mails is morethan enough.
 - Monitoring team responsibility is, if websites are down, then monitoring team will send alerts to
-  Developers team.
-- Monitoring team responsibility is, if servers are down, then monitoring team will send alerts to DevOps
-  team.
+  Developers team. If servers are down, then monitoring team will send alerts to DevOps team.
 
 ### Session-17
-- What is Crontab and why it is useful ? Usage of crontab and giving the script location ? crontab -e
-- How to see the running logs of a Crontab ? tail -f /var/log/cron
+- What is Crontab & why it is useful ? Usage of crontab & giving the script location in "crontab -e"
+- How to see the running logs of a Crontab ? "tail -f /var/log/cron"
 - What is Optargs in shellscript ? we can control the script behaviour by giving extra inputs to the script
   using a tool called Optargs.
 - How to set any shellscript as Native Linux Command ? echo $PATH
 - If you install any softwares in these PATHS then, automatically windows (or) linux will pick up from
   this PATHS only.
-- Generally if you keep your script in "/usr/local/bin" then you NO need to give ".sh"
+- Generally if you keep your script in "/usr/local/bin" location, then you NO need to give ".sh" while
+  executing the shellscript.
 - So "sudo cp 18-greetings.sh /usr/local/bin/greeting (Copied as a greeting name)
 - Give executive access "sudo chmod +x /usr/local/bin/greeting" now if you are in any folder otherthan the
   script folder also, just run by using name "greeting" (or) greeting -n sai -w good evening.
@@ -145,24 +143,24 @@
   access (or) amazonEc2fullaccess/route53 full access/give any name to the role.
 - How will you asign above role to the ec2 in aws console ? select the already created instance & go to
   Actions/Security/Modify IAM role/Select your created role.
-- Remove old credentials which was created for aws console in .aws folder by using rm -rf, if you got
-  any errors.
+- Remove old credentials which was created for aws console in .aws/ folder by using rm -rf, if you got
+  any errors in cd location using "ls -la" command because that was hidden folder.
 - Command to create instances with tags ?
-- Command to list instances and find the one with your specific Name tag ?
+- Command to list instances and find the one with your specific name tag ?
 - Command to terminate the instances ?
 - How do you create administrator user in aws console ? By going to IAM, Users, Create user, Attach
   policies directly, Administrator access, Click on the created user, Security credentials, Create
   accesskey, select CLI.
 - Then "aws configure" after creating administrator user in aws console.
 - Why we created roles in IAM ? Here if it is a person, he can keep Access_key & Secret_keys safely, will
-  EC2 can keep these credentials secretly ? If anybody has access to this EC2, he can able to see these
+  EC2 keep these credentials secretly ? If anybody has access to this EC2, he can able to see these
   credentials using "ls -la" command in cd .aws/ because these keys are saved in .aws/ folder only. Thats
-  why we created roles to resources in IAM.
+  why we have created roles to resources in IAM.
 - Write a shellscript to create all instances & records using aws CLI ? Go through the "roboshop.sh" file
   in Roboshop-Shellscript.
 - What is UPSERT in shellscript ? if the record exists, update (or) edit it, if it doesn’t exist, it will
-  create.
+  create the records.
 - Important point, So overall create any one instance and give a role to it, so that it will create multiple
-  instances from this instance only, you need to clone the "roboshop-shellscript" in this server and run the
+  instances from this instance only, you need to clone the "roboshop-shellscript" in the server and run the
   "roboshop.sh" script.
 - We used --query is to get the PrivateIP of the instances nothing but query from the existing resource.
