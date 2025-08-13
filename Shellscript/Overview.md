@@ -97,18 +97,28 @@
 - How do you create files with old date in server ?
 - Command to find old logfiles morethan 14 days old with .log extensions only ?
 - Instead of "rm -rf" we used while loop to read "command_output" line by line and then delete.
-- Command to check information about total space and available space on a file system ?
+- Command to check the information about total space and available space on a file system ?
 - How to create a new volume (or) disk in aws console and what is the condition for that ?
-- What are the commands to make disk into usage ?
+- What are the commands to make the disk into usage ? Overview steps of the disk creation.
+- Creating disk is the work of "Storage team" not DevOps. But just know how it works.
 - How do we find different types of file systems ? using reverse search.
 - How do you mail the above disk usage from linux server ?
 - We will configure the company mail server details to send email alerts.
-- Sometimes mailing is not in our control, linux admin team will configure in mail.sh to use.
-- How to go all the way to down in config file ?
-- How to go all the way to top in config file ?
-- Creating disk is the work of "Storage team" not DevOps. But just know how it works.
-- If websites are down, then monitoring team will send alerts to Developers team.
-- If servers are down, then monitoring team will send alerts to DevOps team.
+- So we call mail.sh whenever we want to monitor on disk_usage, not only on disk_usage, we can also call for
+  CPU_Utilization, Memory_Utilization etc. For monitoring purpose using shellscripting, because sometimes
+  mailing is not in our control, linux team will give a script like "mail.sh" we can simply call that instead
+  of writing this command "echo "$message" | mail -s "High Disk Usage" info@joindevops.com"
+- Then how to call mail.sh ? "sh mail.sh" "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com"
+  "ALERT High Disk Usage", whatever you write after sh mail.sh is arguments we are passing.
+- How to go all the way to down in config file ? shift+G
+- How to go all the way to top in config file ? gg
+- Basically no need to follow the color coding or formatting, we can just use as it is in mail configuration
+  gmail.MD document, or if your company provides the email configuration document just simply follow that.
+- So configuring gmail.MD document for sending mails is morethan enough.
+- Monitoring team responsibility is, if websites are down, then monitoring team will send alerts to
+  Developers team.
+- Monitoring team responsibility is, if servers are down, then monitoring team will send alerts to DevOps
+  team.
 
 ### Session-17
 - What is crontab and why it is useful ?
