@@ -3,8 +3,13 @@ Yes we have few applications running on VM, i was asked to write resources monit
 
 ### Can you write a simple shellscript to list all S3 buckets ?
     #!/bin/bash
+    R="\e[31m"
+    G="\e[32m"
+    Y="\e[33m"
+    N="\e[0m"
+    
     echo "Fetching the list of S3 buckets...."
-    aws sts get-caller-identity >/dev/null 2>&1
+    aws sts get-caller-identity
     if [ $? -ne 0 ]
     then 
         echo -e "$R AWS_CLI is not configured properly. Run aws configure first $N"
@@ -15,38 +20,45 @@ Yes we have few applications running on VM, i was asked to write resources monit
     
 ### How do you write a shellscript to backup a directory everyday ?
     #!/bin/bash
+    R="\e[31m"
+    G="\e[32m"
+    Y="\e[33m"
+    N="\e[0m"
+    
     SOURCE_DIR="/path/to/your/data"
-    BACKIP_DIR="/path/to/your/backups"
+    BACKUP_DIR="/path/to/your/backups"
     DATE=$(date)
-    BACKUP_NAME="backup-$DATE.tar.gz"
+    BACKUP_NAME="Backup-$DATE.tar.gz"
 
-    echo "Backing up $SOURCE_DIR to $BACKUP_DIR/$BACKUP_NAME...."
+    echo "Backing up $SOURCE_DIR to $BACKUP_DIR/$BACKUP_NAME.."
     mkdir -p "$BACKUP_DIR"
     tar -czf "$BACKUP_DIR/$BACKUP_NAME" "$SOURCE_DIR"
 
-    if [ $? -eq 0 ]
+    if [ $? -ne 0 ]
     then 
-      echo -e "$G Backup is successful $N"
-    else 
       echo -e "$R Backup is failed $N"
+    else 
+      echo -e "$G Backup is success $N"
     fi 
-Here .tar means It’s a single file that contains many files/folders bundled together — kind of like putting everything into one big box, but without compression and .gz means After making the .tar archive, it is compressed with the gzip algorithm to make it smaller. This results in a .tar.gz file — a compressed archive. Think of it like putting all your files in a box (.tar) and then shrinking the box (.gz) so it takes less space.
+    
+Here .tar means It’s a single file that contains many files/folders bundled together — kind of like putting everything into one big box, but without compression and .gz means After making the .tar archive, it is compressed with the gzip algorithm to make it smaller. This results in a .tar.gz file — a compressed archive. Think of it like putting all your files in a box (.tar) and then shrinking the box (.gz) so it takes less space. tar -czf ---> -c → Create a new archive file. -z → Compress it with gzip (so the file becomes .tar.gz).
+-f → File name to write the archive to (the argument right after this is the archive file’s name).In shell scripting, archiving a file or directory refers to the process of combining multiple files and directories into a single file, known as an archive file. This single archive file then contains the original files and their associated metadata, such as file permissions, ownership and timestamps.
 
 ### How do you pass arguments to the shellscript ?
-I will pass arguments to the shellscript while executing the script, for example "sh greetings.sh morning" i receive the args inside the sript through special variables like $1,$2,$3...$N. Number of args "$#" All args special variable is like "$@"
+I will pass arguments to the shellscript while executing the script, for example "sh greetings.sh morning" i receive the args inside the script through special variables like $1,$2,$3...$N. Number of args $#. All args special variable is like $@
 
 ### What is the difference between $@ and $* in bash scripts ?
 $@ and $* both are used to access all the arguments passed to the bash script. $@ expand each argument individually. $* Joins all arguments as one string.
 
     #!/bin/bash
     echo "Using $@"
-    for arg in "$@";
+    for arg in "$@"
     do 
         echo "$arg"
     done
 
     echo "Using $*"
-    for arg in "$*";
+    for arg in "$*"
     do 
         echo "$arg"
     done 
@@ -60,57 +72,71 @@ $@ and $* both are used to access all the arguments passed to the bash script. $
     arge one arg two
 
 ### How do you handle errors in shellscript (or) How do you debug a shellscript ?
-Shellscript will not exit when it faces errors, it will continue to run, we need to check every command using exit-status "$?" and exit if faces any error, we can also "set -e" also after shibang, but it will not work most of the times.
+Shellscript will not exit when it faces errors, it will continue to run, we need to check every command using exit-status "$?" we can also "set -e" after shibang, but it will not work most of the times.
 
 ### What’s the difference between > and >> in shell scripting ?
-Greaterthan symbol > means overwrites the file and >> appends the file.
+Greaterthan symbol > means overwrites the file and >> means appends the file.
 
 ### How do you read a file line-by-line in bash ?
-        while IFS= read -r line; do
+            
+        while IFS= read -r line
+        do
           echo "$line"
         done < file.txt
+        
 ### Explain the difference between soft link and hard link ?
-Soft link (symbolic link): Points to the file path, can link across file systems, breaks if the original is deleted. Hard link: Points directly to the inode, must be on the same file system, remains valid even if the original is deleted.
+Soft link (symbolic link) Points to the file path, can link across file systems, breaks if the original is deleted. Hard link Points directly to the inode, must be on the same file system, remains valid even if the original is deleted.
 
 ### How do you check if a process is running in a shell script ?
-        if pgrep -x "nginx" > /dev/null; then
+
+        if pgrep -x "nginx" > /dev/null
+        then
           echo "Running"
         else
           echo "Not running"
         fi
 
 ### How do you replace all occurrences of a string in a file using shell commands ?
-sed -i 's/old_text/new_text/g' file.txt
+Using Stream line editor ---> sed -i 's/old_text/new_text/g' file.txt
 
 ### How do you find the number of lines, words, and characters in a file ?
-wc file.txt
+Using word count ---> wc file.txt
 
 ### Write a script that reads usernames from a file and checks if they exist in the system ?
+
         #!/bin/bash
-        while read -r user; do
-          if id "$user" &>/dev/null; then
+        while read -r user
+        do
+          if id "$user" &>/dev/null
+          then
             echo "$user exists"
           else
             echo "$user not found"
           fi
         done < users.txt
+
+Here &>/dev/null ---> &> → Redirect both standard output (stdout) and standard error (stderr).
+/dev/null ---> The “black hole” of Linux — anything sent here is discarded. That means Run the id command 
+for $user, but throw away all output (whether it’s normal output or error messages).
+        
 ### Write a script to read a file and print only lines that contain the word "ERROR" ?
+
         #!/bin/bash
         LOG_FILE="/var/log/messages"
         grep "ERROR" "$LOG_FILE"
 
 ### Write a script to check if a service is running; if not, start it ?
+
         #!/bin/bash
         SERVICE="nginx"
         
-        if ! pgrep -x "$SERVICE" > /dev/null; then
+        if ! pgrep -x "$SERVICE" > /dev/null
+        then
           echo "$SERVICE is not running. Starting..."
           systemctl start "$SERVICE"
         else
           echo "$SERVICE is running."
         fi
-
-### 
 
 
 
