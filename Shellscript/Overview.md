@@ -88,12 +88,15 @@
   
 ### Session-16
 - Write a shellscript to delete old logfiles which are morethan 14 days old ?
-- What is the use of IFS (Internal field separator) ?
+- Generally we have "cat /etc/passwd" in this we have all the users information like user_id, group_id,
+  user_name etc. So how to read this whole information properly ? or in a structured way, for that we can
+  use IFS (Internal field separator).
 - Write a shellscript to read a file which is in /etc/passwd using IFS ?
 - What is the algorithm for deleting old log files ?
 - Check Disk Usage and Send email for alerts ?
 - How do you create files with old date in server ?
 - Command to find old logfiles morethan 14 days old with .log extensions only ?
+- Instead of "rm -rf" we used while loop to read "command_output" line by line and then delete.
 - Command to check information about total space and available space on a file system ?
 - How to create a new volume (or) disk in aws console and what is the condition for that ?
 - What are the commands to make disk into usage ?
