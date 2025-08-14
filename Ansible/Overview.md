@@ -1,5 +1,6 @@
 ### Session-18
-- What are the disadvantages in shellscript ? what are the advantages of ansible over shellscript ?
+- What are the disadvantages in shellscript ? L, S, E, R, E, S
+- what are the advantages of ansible over shellscript ? O, C, A, CP, CI
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? yes But it is not
   recommended, because ansible is only intended for configuration management & application deployment.
 - If so why dont we use ansible to create instances ? Because it doesnt have a state file to create instances
