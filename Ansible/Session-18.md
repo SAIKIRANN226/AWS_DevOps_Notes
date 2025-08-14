@@ -47,7 +47,7 @@ Now take the NodeIP and go to the Server instance "sshpass -p DevOps321 ssh cent
 ### Overview of the above
 - sshpass -p DevOps321 ssh centos@NodeIP
 - sshpass -p DevOps321 ssh centos@NodeIP -C "echo hi saikiran > /tmp/sai.txt"
-- sshpass -p DevOps321 ssh centos@NodeIP -C "curl <paste_the_URL> | sudo bash"
+- sshpass -p DevOps321 ssh centos@NodeIP -C "curl <paste_the_RAW_URL> | sudo bash"
 
 ### PUSH Architecture (Ansible is a PUSH)
 Configuration server (or) Ansible-server (or) Main server (or) Controller machine is agentless. It can connect to any number of remote servers. Main configuration server pushes the configuration to the nodes without logging into the nodes in the background itself and ofcourse it is using SSH connection in the background, we only just make sure wether the connection is established successfully between nodes and ansible server. Here the Node-1, Node-2, Node-3 etc. are nothing but Remote servers.
