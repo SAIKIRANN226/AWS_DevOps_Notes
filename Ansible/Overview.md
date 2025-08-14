@@ -1,7 +1,7 @@
 ### Session-18
 - Another name of ansible is Configuration-server (or) Ansible-server (or) Main-server (or) Controller
   machine.
-- What are the disadvantages in shellscript ? L, S, E, R, E, S
+- What are the disadvantages in shellscript ? L, S, E, R, E, S, R, E
 - What are the advantages of ansible over shellscript ? O, C, A, C, O
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
   recommended, because ansible is only intended for configuration management & application deployment.
