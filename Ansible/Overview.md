@@ -39,10 +39,16 @@
 - Make sure to install ansible in the Ansible-Server by "sudo yum install ansible -y" then it becomes
   ansible server.
 - ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <playbook_name>
-- ansible.builtin.ping ---> Its a ping module
-- ansible.builtin.package ---> Its a package module
-- ansible.builtin.service ---> Its a service module
-- ansible.builtin.debug ---> It will print whatever you give
+- ansible.builtin.ping ---> Its a ping module.
+- ansible.builtin.package ---> Its a package module.
+- ansible.builtin.service ---> Its a service module.
+- ansible.builtin.debug ---> It will print whatever you give.
+- ansible.builtin.command ---> Used to run command on a remote machine directly without using shell.
+- We have variables in ansible like play-level, task-level, var_files, vars_prompt, inventory.ini, args
+- What are the variable preference in ansible ? CMD,Task,File,Prompt,Play,Inventory.ini,Ansible roles.
+- What are data-types in ansible ?
+- What are conditions in ansible ? write a condition for roboshop user exist or not ?
+- Similar to $? in shellscript, we have "rc" in ansible to check exit status of the previous command.
 - 
 
 ### Session-20 
