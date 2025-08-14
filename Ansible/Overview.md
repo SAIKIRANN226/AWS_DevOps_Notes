@@ -1,5 +1,6 @@
 ### Session-18
-- Another name of ansible is Configuration-server (or) Ansible-server (or) Main-server (or) Controller machine.
+- Another name of ansible is Configuration-server (or) Ansible-server (or) Main-server (or) Controller
+  machine.
 - What are the disadvantages in shellscript ? L, S, E, R, E, S
 - What are the advantages of ansible over shellscript ? O, C, A, C, O
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
@@ -35,39 +36,46 @@
 - https://github.com/daws-76s/concepts/blob/master/ansible.MD
 
 ### Session-19
-- Go through the all files in ansible folder in VS
-- Make sure to install ansible in the Ansible-Server by "sudo yum install ansible -y" then it becomes
+- Go through the all files in Ansible folder in VS
+- Make sure to install ansible in ansible server by "sudo yum install ansible -y" then only it becomes
   ansible server.
-- ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <playbook_name>
+- ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <playbook>
 - ansible.builtin.ping ---> Its a ping module.
 - ansible.builtin.package ---> Its a package module.
 - ansible.builtin.service ---> Its a service module.
-- ansible.builtin.debug ---> It will print whatever you give.
+- ansible.builtin.debug ---> This module is used to print whatever you give.
 - ansible.builtin.command ---> Used to run command on a remote machine directly without using shell.
-- We have variables in ansible like play-level, task-level, var_files, vars_prompt, inventory.ini, args
-- What are the variable preference in ansible ? CMD,Task,File,Prompt,Play,Inventory.ini,Ansible roles.
+- We have variables in ansible play-level, task-level, var_files, vars_prompt, inventory.ini, args
+- Variable preference in ansible ? CMD, Task, File, Prompt, Play, Inventory.ini, Ansible roles.
 - What are data-types in ansible ?
 - What are conditions in ansible ? write a condition for roboshop user exist or not ?
-- Similar to $? in shellscript, we have "rc" in ansible to check exit status of the previous command.
-- 
+- Similar to "$?" in shell, we have "rc" in ansible to check exit status of the previous command.
+- Write ansible-playbook to loop Ramesh, Suresh, Saikiran, Mahesh.
+- Write ansible-playbook to install nginx, mysql, postfix, net-tools using loop.
+- Write ansible-playbook to install nginx, mysql, postfix, net-tools and also loop "name and state"
+- What are tags in ansible ? In the server, if you want a particular task then you can use tags below.
+- ansible-playbook -t devops 16-tags.yaml ; ansible-playbook -t aws 16-tags.yaml
+- When we can use tags ? For example take a catalogue component, if there is any new version of catalogue,
+  what will you do basically ? we do new deployment/new release right ? by using basic deployment steps.
+  Command will be ---> ansible-playbook -e component=catalogue -t deployment main.yaml
 
 ### Session-20 
-- Configure roboshop project using ansible ?
+- Configure roboshop project using ansible ? go through "Roboshop-ansible" in VS.
 - Create all the instances and route53 records using shellscript (roboshop.sh)
-- Dont forget to give role to the ansible instance, before creating instances.
-- Delete the old records. If exists ---> Hosted zones --> Except NS and SOA.
+- Dont forget to give role to the ansible instance, before creating instances and route53 records.
+- Delete the old records if exists ---> Hosted zones --> Except NS and SOA.
 - In ansible i have used file module, dnf module, user module, get url modules etc.
-- sudo tail -f /var/log/messages to check remote connections.
+- How to check remote connections ? sudo tail -f /var/log/messages.
 
 ### Session-21
-- What is UPSERT in shellscript ? previously it was "CREATE" now UPSERT.
-- What is the difference between command and shell ?
-- Shell ---> It is like you login inside the server and running the command, env variables and redirections
-  symbols will work here.
-- Command ---> It is like running the command outside the server, env variables and redirections symbols
-  will not work here.
-- We created functions in shell to avoid the repetition of the code right ? So similarly in ansible also
-  we have Roles.
+- What is "UPSERT" in roboshop.sh file in "Roboshop-shellscript" ? previously it was "CREATE" now "UPSERT".
+- What is the difference between Command and Shell ?
+- Shell ---> It is like you login inside the server and run the command, Environment variables and
+  redirections (Symbols) will work here.
+- Command ---> It is like running the command outside the server, Environment variables and redirections
+  (Symbols) will not work here.
+- We used functions in shellscript to avoid the repetition of the code right ? So similarly in ansible also
+  we have Ansible Roles.
 
 ### Session-22
 - How to run the file (or) playbook in the background ? "nohup ansible-playbook -i inventory.ini -e
