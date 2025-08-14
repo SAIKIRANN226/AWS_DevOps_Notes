@@ -39,6 +39,11 @@
 - Make sure to install ansible in the Ansible-Server by "sudo yum install ansible -y" then it becomes
   ansible server.
 - ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <playbook_name>
+- ansible.builtin.ping ---> Its a ping module
+- ansible.builtin.package ---> Its a package module
+- ansible.builtin.service ---> Its a service module
+- ansible.builtin.debug ---> It will print whatever you give
+- 
 
 ### Session-20 
 - Configure roboshop project using ansible ?
