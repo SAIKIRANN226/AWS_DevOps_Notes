@@ -29,8 +29,8 @@
 - What is the difference between Shellscript and Ansible-playbook ?
 - YAML is the markup language used in ansible. Identation is mandatory in yaml format.
 - What is Inventory in ansible ? Nothing but a list of hosts (servers) where Ansible will run its automation
-  tasks. It’s basically your address book for servers — telling Ansible what machines exist, how to connect to
-  them, and how they’re grouped.
+  tasks on these servers. It’s basically your address book for servers — telling Ansible what machines exist,
+  how to connect to them, and how they’re grouped.
 - Go through the all files in "Ansible" folder in VS.
 - https://github.com/daws-76s/concepts/blob/master/ansible.MD
 
