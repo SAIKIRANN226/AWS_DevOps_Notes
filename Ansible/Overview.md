@@ -1,29 +1,37 @@
 ### Session-18
+- Another name of ansible is Configuration-server (or) Ansible-server (or) Main-server (or) Controller machine.
 - What are the disadvantages in shellscript ? L, S, E, R, E, S
-- what are the advantages of ansible over shellscript ? O, C, A, CP, CI
-- Can ansible create instances on external systems like azure, aws, gitlab etc ? yes But it is not
+- What are the advantages of ansible over shellscript ? O, C, A, C, O
+- Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
   recommended, because ansible is only intended for configuration management & application deployment.
 - If so why dont we use ansible to create instances ? Because it doesnt have a state file to create instances
-  as terraform does.
+  as terraform does. So thats why terraform is best for creation of infrastructure.
 - What is configuration management in general ?
 - As a DevOps engineer we need to do this effectively (Basically CRUD over the server)
 - What are the application deployment basic steps ?
 - What is Idempotence Behaviour in ansible ?
 - Create two servers Ansible & Node ?
-- Connect to Node server from Ansible server ?
-- Create a file in Node from the Ansible server ?
-- Install any github session into Node from ansible server ?
-- Configuration-server (or) Ansible-server (or) Main-server (or) Controller-machine
+- Connect to Node server from Ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP"
+- Create a file in Node from the Ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "echo Hello
+  saikiran how are you > /tmp/sai.txt"
+- Install any github session into Node from ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "curl
+  <paste_the_RAW_URL> | sudo bash" (or) For example if you want to just see all the content of your session in
+  the terminal only, then use "curl <paste_the_RAW_URL>" just enter without double qotes. Curl command will
+  not download the file, instead it will show the content on the terminal.
+- But to download the file use "wget <paste_the_RAW_URL>"
 - What is PUSH architecture in ansible ?
-- What is Pull architecture in ansible ? what is the advantage in pull based in some scenarios.
-- Install ansible in server and connect to Node ? make sure we got ping-pong results.
-- Install nginx in Node from Ansible ?
+- What is PULL architecture in ansible ?
+- Install ansible in ansible-server and connect to Node ? make sure connection is success ? "ansible -i
+  NodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping"
+- Install nginx in Node from Ansible ? ansible -i 34.203.214.64, all -e ansible_user=centos -e
+  ansible_password=DevOps321 --become -m yum/service -a "name=nginx state=present/started/stopped"
 - What is the difference between Commands and Modules ?
-- What is the difference between shellscript and ansible playbook ?
-- What is the syntax format of ansible playbook ? YAML format, Identation is mandatory in yaml format.
-- What is Data Transfer Object ?
-- What is Inventory in ansible ?
-- Go through the files 01-playbook.yaml & 02-nginx.yaml files in VS ?
+- What is the difference between Shellscript and Ansible-playbook ?
+- YAML is the markup language used in ansible. Identation is mandatory in yaml format.
+- What is Inventory in ansible ? Nothing but a list of hosts (servers) where Ansible will run its automation
+  tasks. It’s basically your address book for servers — telling Ansible what machines exist, how to connect to
+  them, and how they’re grouped.
+- Go through the all files in "Ansible" folder in VS.
 - https://github.com/daws-76s/concepts/blob/master/ansible.MD
 
 ### Session-19
