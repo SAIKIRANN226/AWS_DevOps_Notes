@@ -8,6 +8,8 @@
 - Shell will only work for linux, not for external systems like aws,azure etc.
 - We need to work manually on external systems by using their particular modules, commands, syntax.
 - Shellscript will not manage sensitive information like passwords, keys etc.
+- Ansible is rich in modules to interact with almost all popular platforms.
+- Ansible playbooks are easy to understand through YAML format.
 
 ### Advantages of Ansible over Shellscript
 - Ansible is an open-source automation tool.
