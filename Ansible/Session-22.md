@@ -4,6 +4,19 @@
 ### Ansible roles
 It is a dry principle, dont repeat yourself like we have used functions in shellscript to avoid the repetition of the code. It is a proper directory structure to keep our configuration and we can share this with other users also. Refer "Roboshop-ansible-roles" in VS. Command to run playbook for ansible role is "ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml"
 
+- Generally playbook contains multiple plays and multiple tasks, we have written multiple tasks while
+  configuring the roboshop project right ? apart from the tasks, we have other things also like handlers,
+  templates, vars etc. These are called roles to maintain a proper directory structure.
+- What are files in ansible roles ? These are nothing but supporting files like we have catalogue.service,
+  roboshop.conf, mongodb.repo etc. Without these files we cannot complete our configuration.
+- We have vars in ansible roles ? we have come across variable preferences in ansible variables right ?
+  which comes last or least in preference.
+- We have meta in ansible roles ? nothing but like meta information, who wrote the script, when it was
+  updated etc.
+- We also have library in ansible roles ? like if no module is found in ansible website, you can develop
+  your custom modules using pythong script.
+- We also have lookup_plugins in ansible roles ? to connect to external systems.
+
 ### How to debug, if you are facing any error
 "ansible-playbook -vvv -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml" we will get the full information in the terminal, which is happening in the background, so that we can see where is the error.
 
