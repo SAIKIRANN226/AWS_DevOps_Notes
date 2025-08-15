@@ -87,10 +87,12 @@
 - What are ansible roles ? It is a dry principle, dont repeat yourself like we have used functions in
   shellscript to avoid the repetition of the code. It is a proper directory structure to keep our
   configuration and we can share this with other users also.
+- Ansible roles ---> Again in common role, we have tasks, handlers, templates, files, vars, defaults, meta,
+  library, lookup_plugins.
 - How to debug, if you are facing any error in ansible playbook ? "ansible-playbook -vvv -i inventory.ini -e
   ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml" we will get the full
   information in the terminal, which is happening in the background, so that we can see where is the error.
-- What are supporting files in project ? like mongo.repo, catalogue.service, roboshop.conf etc.
+- What are supporting files in project ? like mongodb.repo, catalogue.service, roboshop.conf etc.
 - Is creating every role is mandatory in ansible roles ? NO! we create what we require.
 - How to call common role (any role) in another role ? "ansible.builtin.import_role"
 - How can we ignore errors in ansible ? using "ignore_errors: true"
