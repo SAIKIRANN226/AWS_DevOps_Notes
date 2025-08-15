@@ -66,6 +66,7 @@
 - Delete the old records if exists ---> Hosted zones --> Except NS and SOA.
 - In ansible i have used file module, dnf module, user module, get url modules etc.
 - How to check remote connections ? sudo tail -f /var/log/messages.
+- &>> /dev/null ---> It is called black hole. Output stored here will be discarded.
 
 ### Session-21
 - What is "UPSERT" in roboshop.sh file in "Roboshop-shellscript" ? previously it was "CREATE" now "UPSERT".
