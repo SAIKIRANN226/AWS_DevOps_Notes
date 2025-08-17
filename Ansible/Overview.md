@@ -99,12 +99,28 @@
 - How can we ignore errors in ansible ? using "ignore_errors: true"
 
 ### Session-23
-- What is "ansible.cfg" file ? it is main configuration file.
+- What is "ansible.cfg" file ? It is ansible main configuration file, we can control options from here.
 - How to see from where config file is loading in server ? ansible --version
 - What is the default location of config file ? "/etc/ansible/ansible.cfg"
+- For example create a folder "mkdir test" in CD location.
+- Then cd test/ and "cp /etc/ansible/ansible.cfg .", then pwd will be "/home/centos/test"
+- Then "export ANSIBLE_CONFIG=/home/centos/test/ansible.cfg" nothing but i have given first preference.
+- When you do "ansible --version" in any location, then you can see ansible_config file is loading from the
+  "/home/centos/test/ansible.cfg" location. Only if you set environment variable for "ANSIBLE_CONFIG" and
+  incase if you "UNSET" this environment variable, using "unset ANSIBLE_CONFIG", now it will be loading from
+  the default location that is "/etc/ansible/ansible.cfg"
+- We have many options in "ansible configuration settings" file nothing but "ansible.cfg". We may not use all
+  the options, we only use what we required like inventory_path, ask_vault, timeout, user_name, passwords etc.
 - What are the preferences of loading ansible.cfg file ?
-- How to set config file and how to UNSET config file ?
-
+- So instead of giving -i inventory -e user_name -e password to the command, we can put this is in
+  ansible.cfg and command usage is "ansible-playbook -e component=mongodb main.yaml"
+- Templates is nothing but a place holders, where we will submit our required values at the run time and it
+  is a Jinja2 format and extension is .j2, go through the code in VS. Like we have used for catalogue.service
+  files.
+- What are Handlers in ansible roles ?
+- What is the Usage of tags in ansible ? If you want to run a particular task, then we use Tags.
+- How to create a full config file ? "ansible-config init --disabled > ansible.cfg"
+  
 ### Session-24
 - Till now where we have given our Usernames and Passwords ? command line (or) ansible.cfg file
 - What is ansible vault and what is the purpose ? storing secrets like keys and passwords.
