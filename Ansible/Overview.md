@@ -137,6 +137,7 @@
   to AWS and fetch instances with name "web" which are present in us-east-1 region. We use "aws ec2
   inventory" This is a plugin. Go through the "web.aws_ec2.yaml" file in the VS. Paste the content of
   "web.aws_ec2.yaml" in the server in CD location using "vim web.aws_ec2.yaml"
+- You can keep any name like "saikiran.aws_ec2.yaml" but must end with ".aws_ec2.yaml" 
 - Make sure to install "botocore and boto3" then only plugins will work.
 - To install botocore and boto3 using python, we use "pip"
 - First know which version of python is using in ansible ? "ansible --version" pip should also be the same
