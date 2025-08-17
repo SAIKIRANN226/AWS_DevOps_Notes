@@ -135,9 +135,19 @@
   servers (Using auto-scaling). How ansible will fetch IP_addresses dynamically ?
 - For example, If you want to run update to the all the web instances then "ansible-instance" should connect
   to AWS and fetch instances with name "web" which are present in us-east-1 region. We use "aws ec2
-  inventory" This is a plugin. Go through the "web.aws_ec2.yaml" file in the VS. Paste the content of
-  "web.aws_ec2.yaml" in the server in CD location using "vim web.aws_ec2.yaml"
-- You can keep any name like "saikiran.aws_ec2.yaml" but must end with ".aws_ec2.yaml" 
+  inventory" This is a plugin. Go through the "web.aws_ec2.yaml" file in the VS. 
+- You can keep any name like "saikiran.aws_ec2.yaml" but must end with ".aws_ec2.yaml"
+- Syntax of the above plugin is below
+  
+        plugin: amazon.aws.aws_ec2
+        regions:
+          - us-east-1
+        filters:
+        tag:Name:         
+        - web
+  
+- Here Name is same as instance name in the aws console, you acan see name starts with capital letter N.
+- Paste the above syntax in "web.aws_ec2.yaml" in the server in CD location using "vim web.aws_ec2.yaml"
 - Make sure to install "botocore and boto3" then only plugins will work.
 - To install botocore and boto3 using python, we use "pip"
 - First know which version of python is using in ansible ? "ansible --version" pip should also be the same
