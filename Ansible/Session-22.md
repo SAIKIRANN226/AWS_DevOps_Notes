@@ -7,6 +7,10 @@ It's a dry principle, dont repeat yourself. It is similar to the functions in sh
 - We know playbook contains multiple plays and multiple tasks (or) modules, we have written multiple tasks
   while configuring the roboshop project right ? apart from the tasks, we have other things also like handlers,
   templates, vars, files, defaults etc. These are called roles to maintain a proper directory structure.
+- Common is also a role, where you can keep common things like creation of apps, users etc. will be there
+  right in every module ? so we keep them in common roles between all the roles and call it whenever required.
+  You can give any name like "app-setup" name for app creation etc.
+- So How to call a role in another role ? We have "ansible.builtin.import_role"
 - What are files in ansible roles ? These are nothing but supporting files like we have catalogue.service,
   roboshop.conf, mongodb.repo etc. Without these files we cannot complete our configuration.
 - Next we have "vars" in ansible roles ? We have come across variable preferences in ansible variables right ?
