@@ -1,3 +1,6 @@
+### What is Black Hole ?
+It’s a special file in Linux located at /dev/null. Any data written to it is immediately discarded (vanishes). It is just used for temperory only like "& >> /dev/null" , generally you need to save the ouput by "> output.txt 2>&1"
+
 ### To run the file (or) script in the background
 "nohup ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml & >> /dev/null" ---> Output will be in nohup.out, it will not come in the terminal, if it is a small instance, we can't run every script in the background, because memory consumption will be high, so you can run only few scripts in the background.
 
