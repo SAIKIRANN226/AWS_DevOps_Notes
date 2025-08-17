@@ -116,7 +116,9 @@
   reflect in the server, so you need to create in linux server only, same for the group_vars folder.
 - Next create "group_vars" folder inside the vault folder then.
 - Create "vault-file" inside the group_vars folder using below command.
-- "ansible-vault create Practice/vault/group_vars/some_name.yaml" and also
+- "ansible-vault create Practice/vault/group_vars/some_name.yaml" keep your Username and Password in this
+  file using "ansible-vault edit group_vars/saikiran.yaml" like ansible_user: centos ; ansible_password:
+  DevOps321 and save it using :wq!
 - Create ansible.cfg, inventory.ini and your playbook files (Inside the Practice folder not in vault or
   group_vars folders)
 - Put "ask_vault_pass=True" in ansible.cfg (or) "ansible-playbook 01-playbook.yaml --ask-vault-pass"
