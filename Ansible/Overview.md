@@ -123,18 +123,18 @@
   
 ### Session-24
 - Till now where we have given our Usernames and Passwords ? command line (or) ansible.cfg file
-- What is ansible vault and what is the purpose ? storing secrets like keys and passwords.
-- Difference between Encoding and Encryption ?
+- What is ansible-vault and what is the purpose ? storing secrets like keys and passwords etc.
+- Difference between encoding and encryption ?
 - Ansible uses mathematic algorithm (AES256) to encrypt the vault.
-- How to create ansible vault in ansible-server ?
+- How to create ansible-vault in ansible-server ?
 - Practice folder (Your working directory)
 - Create "vault" folder inside the Practice folder, if we create vault folder in VS (Windows), it will not
-  reflect in the server, so you need to create in linux server only, same for the group_vars folder.
+  reflect in the server, so you need to create in linux server only, same for the "group_vars" folder.
 - Next create "group_vars" folder inside the vault folder then.
 - Create "vault-file" inside the group_vars folder using below command.
-- "ansible-vault create Practice/vault/group_vars/some_name.yaml" keep your Username and Password in this
-  file using "ansible-vault edit group_vars/saikiran.yaml" like ansible_user: centos ; ansible_password:
-  DevOps321 and save it using :wq!
+- "ansible-vault create Practice/vault/group_vars/some_name.yaml" keep your username and password in this
+  file using "ansible-vault edit group_vars/saikiran.yaml" ansible_user: centos ; ansible_password: DevOps321
+  and save it using :wq!
 - Create ansible.cfg, inventory.ini and your playbook files (Inside the Practice folder not in vault or
   group_vars folders)
 - Put "ask_vault_pass=True" in ansible.cfg (or) "ansible-playbook 01-playbook.yaml --ask-vault-pass"
