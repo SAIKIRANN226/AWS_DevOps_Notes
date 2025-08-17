@@ -15,6 +15,9 @@ It's a dry principle, dont repeat yourself. It is similar to the functions in sh
 - We library in ansible roles ? Like if no module is found in ansible website, you can develop your custom
   modules using pythong script.
 - We also have lookup_plugins in ansible roles ? to connect to external systems like aws, azure etc.
+- So directory structure should be like Roles/mongodb/tasks/main.yaml
+- In every directory main.yaml should be there, ofcourse we have one main.yaml in Roles directory that is is
+  to call component thats it.
 
 ### How to debug, if you are facing any error
 "ansible-playbook -vvv -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml" we will get the full information in the terminal, which is happening in the background, so that we can see where is the error.
