@@ -102,23 +102,21 @@
 - lookup(map, key) ---> Giving input as map and passing the key below is the example.
 - lookup(var.instance_type, terraform.workspace) ---> 1st one is map and another is key.
 - So which approach is better ? tfvars, workspace, different repos for different envs ?
-- What are provisioners in terraform ? are used to execute scripts or commands on a local machine or remote
-  resource after it's created, typically used for initial configuration like bootstrapping.
+- Provisioners are used to execute the commands on a local machine (or) remote server after it's created,
+  typically used for initial configuration like boot strapping.
 - Provisioners are used only for instances (or) EC2.
-- What is local-exec provisioner in terraform and what is syntax ? & it enables a keyword "self"
+- What is local-exec provisioner in terraform & what is the syntax ? It enables a keyword ${self.id}
 - Local-exec --> Run on your local machine --> Use case is to notify, trigger local scripts etc --> No
   remote access is need.
-- What is remote-exec provisioner in terraform and what is syntax ?
-- Remote-exec --> Runs on your remote-resource(ec2) --> Use case is to install softwares, configure
+- What is remote-exec provisioner in terraform & what is the syntax ?
+- Remote-exec --> Runs on your remote server --> Use case is to install softwares, configure
   ec2 post setup --> Need SSH/WinRM to access remote host.
-- What is the disadvantage of local-exec ? local-exec provisioner runs only when the resource it’s
-  attached to is created or sometimes destroyed, not every time you run terraform apply.
+- What is the disadvantage of local-exec ? local-exec provisioner runs only one time not every time.
 - Provisioners are useful to integrate terraform with configuration management tools like ansible
   to get end to end automation.
 - We can write multiple provisioners also like for example "on_failure = continue" nothing but same
   as ignore errors in ansible.
 - What is difference between Terraform and Ansible ?
-- If you integrate terraform and ansible you will get end-end automation using provisioners.
 - We can also create ec2 instances using ansbile but it does not have state file as terraform does,
   that is why terraform is perfect for creation of infrastructure only.
 - What is Creation time and Destroy time in terraform ?
