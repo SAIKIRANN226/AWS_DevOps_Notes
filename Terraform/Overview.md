@@ -6,6 +6,8 @@
 - What is declarative in terraform and How to install terraform and setup ?
 - Install "hashicorp terraform extension" to get colors.
 - How to get authentication to AWS to push the created infra ? "aws CLI install"
+- You can install aws cli in two ways ? one is regular method of downloading aws cli software and run the
+  file in windows laptop and another one is just run the shown commands in cmd.
 - How to test wether the aws CLI is installed or not in cmd & gitbash ? "aws --version"
 - If credentials are not found, then "aws configure" Before "aws configure" you need to create terraform
   administrator user in IAM ?
