@@ -1,14 +1,14 @@
 ### Session-18
 - Another name of ansible is Configuration-server (or) Ansible-server (or) Main-server (or) Controller
   machine.
-- What are the disadvantages in shellscript ? L, S, E, R, E, S, R, E
-- What are the advantages of ansible over shellscript ? O, C, A, C, O
+- What are the disadvantages in shellscript ? L, S, E, R, E, S
+- What are the advantages of ansible over shellscript ? O, C, A, C, O, R, P
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
   recommended, because ansible is only intended for configuration management & application deployment.
-- If so why dont we use ansible to create instances ? Because it doesnt have a state file to create instances
-  as terraform does. So thats why terraform is best for creation of infrastructure.
-- What is configuration management in general ?
-- As a DevOps engineer we need to do this effectively (Basically CRUD over the server)
+- If so why dont we use ansible to create instances ? Because it does not have a state file to create
+  instances as terraform does. So thats why terraform is best for creation of infrastructure.
+- What is configuration management in general and in ansible ?
+- As a DevOps engineer we need to do CRUD over the server effectively.
 - What are the application deployment basic steps ?
 - What is Idempotence Behaviour in ansible ?
 - Create two servers Ansible & Node ?
@@ -20,8 +20,8 @@
   the terminal only, then use "curl <paste_the_RAW_URL>" just enter without double qotes. Curl command will
   not download the file, instead it will show the content on the terminal.
 - But to download the file use "wget <paste_the_RAW_URL>"
-- What is PUSH architecture in ansible ?
-- What is PULL architecture in ansible ?
+- What is PUSH (Ansible) architecture in ansible ? Agent less
+- What is PULL (Chef) architecture in ansible ? Need to install Agent
 - Install ansible in ansible-server and connect to Node ? make sure connection is success ? "ansible -i
   NodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping"
 - Install nginx in Node from Ansible ? ansible -i 34.203.214.64, all -e ansible_user=centos -e
