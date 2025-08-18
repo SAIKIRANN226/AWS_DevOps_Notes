@@ -49,7 +49,7 @@
 - How to call a local in terraform code ?
 - What is Data-sources in terrafrom and why it is used ? How do we search ? for example if you want AMI, then
   "terraform query ami" in google
-- Can we query data from the existing resources also ? apart from the providers ?
+- Can we query data from the existing resources also apart from the providers ?
 - Types of loops ? Count_based, For_each, Dynamic_loop
 - What is Dynamic_loop and where it is useful ?
 - What is Terraform State (State and Remote state) ?
