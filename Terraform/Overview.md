@@ -13,13 +13,13 @@
   administrator user in IAM ?
 - Where the credentials like Secret-key and Access-key will be saved ? in ".aws" folder
 - What is the syntax of terrafrom to create any resources & what we call this syntax of terraform ?
-- What is the importance of provider in terraform & what is the extension of terrafrom to save ?
+- What is the importance of provider in terraform & what is the extension of terraform to save ?
 - Where to run the terraform commands ? Terraform commands should be run in gitbash.
 - What are the terraform commands and what is their functionality ?
 - What is variable syntax ? Is really data-type in variable syntax is important ? NO!
 - Go through this https://github.com/daws-76s/terraform
 - We can also give Access-key and Secret-keys under region to get authentication to AWS in provider section,
-  under region, but why we dint prefer this ? Thats why we aws CLI to authenticate ?
+  but why we dint prefer this ? Thats why we aws CLI to authenticate ?
 - So Dont push the Access-key and Secret-key to the github (or) internet for safety reasons.
 - Go through the all files in Terraform folder in VS.
 
@@ -30,7 +30,7 @@
 - Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars"
 - If you dont give the -var-file, then terraform will take default value of variables.tf file
 - Write a terraform code using terraform.tfvars example ?
-- What are the variable preferences in terraform ? are below
+- What are the variable preferences in terraform ?
 - Command line ---> terraform plan -var="instance_type=t3.small"
 - Var_file ---> terraform plan -var-file="saikiran.tfvars"
 - terraform.tfvars
