@@ -117,7 +117,7 @@
 - Templates is nothing but a place holders, where we will submit our required values at the run time and it
   is a Jinja2 format and extension is .j2, go through the code in VS. Like we have used for catalogue.service
   files.
-- What are Handlers in ansible roles ?
+- What are Handlers in ansible roles and why we use ?
 - What is the Usage of tags in ansible ? If you want to run a particular task, then we use Tags.
 - How to create a full config file ? "ansible-config init --disabled > ansible.cfg"
   
