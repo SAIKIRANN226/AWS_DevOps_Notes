@@ -3,25 +3,21 @@
   ansible as configuration management while configuring the big project, another name of ansible ?
 - Why we din't prefer manual configuration over ansible and shellscript ?
 - What are the advantages of terraform ? V,C,A,I,C,A,M,H.
-- What is declarative in terraform ?
-- How to install terraform and setup ?
+- What is declarative in terraform and How to install terraform and setup ?
 - Install "hashicorp terraform extension" to get colors.
-- How to get authentication to AWS to push the created infra ? aws CLI install
-- How to test wether the aws CLI is installed or not in cmd & gitbash ? aws --version
-- If credentials are not found then use "aws configure"
-- Before "aws configure" you need to create terraform administrator user in IAM ?
-- Where the credentials like Secret-key and Access-key will be saved ?
+- How to get authentication to AWS to push the created infra ? "aws CLI install"
+- How to test wether the aws CLI is installed or not in cmd & gitbash ? "aws --version"
+- If credentials are not found, then "aws configure" Before "aws configure" you need to create terraform
+  administrator user in IAM ?
+- Where the credentials like Secret-key and Access-key will be saved ? in ".aws" folder
 - What is the syntax of terrafrom to create any resources & what we call this syntax of terraform ?
 - What is the importance of provider in terraform & what is the extension of terrafrom to save ?
-- Where to run the terraform commands ?
+- Where to run the terraform commands ? Terraform commands should be run in gitbash.
 - What are the terraform commands and what is their functionality ?
-- Terraform commands should be run in gitbash.
-- What is variable syntax ?
-- Is really data-type in variable syntax is important ?
+- What is variable syntax ? Is really data-type in variable syntax is important ? NO!
 - Go through this https://github.com/daws-76s/terraform
 - We can also give Access-key and Secret-keys under region to get authentication to AWS in provider section,
-  under region, but why we dint prefer this ?
-- Why we only use aws CLI to authenticate ?
+  under region, but why we dint prefer this ? Thats why we aws CLI to authenticate ?
 - So Dont push the Access-key and Secret-key to the github (or) internet for safety reasons.
 - Go through the all files in Terraform folder in VS.
 
@@ -32,30 +28,34 @@
 - Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars"
 - If you dont give the -var-file, then terraform will take default value of variables.tf file
 - Write a terraform code using terraform.tfvars example ?
-- What are the variable preferences in terraform ?
+- What are the variable preferences in terraform ? are below
+- Command line ---> terraform plan -var="instance_type=t3.small"
+- Var_file ---> terraform plan -var-file="saikiran.tfvars"
+- terraform.tfvars
+- Environment variable.
 - Write a terraform code, if mongodb then t3.small and remaining t2.micro using condition ?
 - Create instances and route53 records using Count_based loop ?
 - Create instances and route53 records using For_each loop ?
 - Count_based is to iterate list and For_each is to iterate maps.
-- What is function in terraform and what is length function here ?
-- We cannot create our own functions, we have to use terraform inbuilt functions only.
+- What is function in terraform and what is length function here ? We cannot create our own functions, we
+  have to use terraform inbuilt functions only.
 - Why output block is used terraform ? and what is the syntax of output ?
 - Go through the output block in count folder VS ?
 
 ### Session-27 
-- What is locals in terraform and what is the syntax of locals ?
+- What is locals in terraform and what is the syntax of the locals ?
 - How to call a local in terraform code ?
-- What is Data-sources in terrafrom and why it is used ?
-- How do we search ? for example if you want AMI, then "terraform query ami" in google
+- What is Data-sources in terrafrom and why it is used ? How do we search ? for example if you want AMI, then
+  "terraform query ami" in google
 - Can we query data from the existing resources also ? apart from the providers ?
-- Types of loops ? count_based, for_each, dynamic_loop
-- What is dynamic_loop and where it is useful ?
+- Types of loops ? Count_based, For_each, Dynamic_loop
+- What is Dynamic_loop and where it is useful ?
 - What is Terraform State (State and Remote state) ?
 - What is Declarative state and Desired state ?
 - What is Current state in terraform ? and where it will be stored ? terraform.tfstate
 - When Desired state == Current state, then terraform will not take any action.
 - When Desired state =//= Current state, then terraform will create.
-- Why the terraform will create lock file ?
+- Why the terraform will create lock file while terraform is working on it ?
 - Explain the concept of local state using example of 2 developers are working on same repo ?
 - What errors these developers will face, if they are working on same repo ?
 - So terraform will compare my state and devops person state. If both are running terraform apply,
@@ -65,7 +65,7 @@
 - So create s3 bucket and lock that bucket using dynamodb table ?
 - What are the different remote states we have ? and why we use only "terraform s3 remote state"
 - Where to keep this remote state in terraform code ?
-- Another name of remote state ? we can also call as backend.
+- Another name of remote state ? we can also call as Backend.
 - If we write more lines of script we say configuration is increasing.
 - S3 buckets are chargeable in aws, so delete after practice.
 - Use different key names in s3 bucket like in the previous you have used different key "foreach"
@@ -82,7 +82,7 @@
 - How do you control different environments in tfvars method ? using "startswith" function ?
 - We create different buckets and dynamodb tables for dev & prod in tfvars method.
 - And also we create different folders for Dev & Prod in VS.
-- Can we use one bucket for both Dev and Prod in tfvars method ?
+- Can we use one bucket for both Dev and Prod in tfvars method ? YES!
 - So create 2 Buckets & 2 Dynamodb tables in aws console in tfvars method ?
 - You need to initialize Dev backend while "terraform init" and same for Prod also.
 - When you are switching from one env to another env, you must reinitialize it.
