@@ -60,7 +60,7 @@
   Command will be ---> ansible-playbook -e component=catalogue -t deployment main.yaml
 
 ### Session-20 
-- Configure roboshop project using ansible ? go through "Roboshop-ansible" in VS.
+- Configure roboshop project using ansible ? Go through the "Roboshop-ansible" in VS.
 - Create all the instances and route53 records using shellscript (roboshop.sh)
 - Dont forget to give role to the ansible instance, before creating instances and route53 records.
 - Delete the old records if exists ---> Hosted zones --> Except NS and SOA.
@@ -69,7 +69,7 @@
 - &>> /dev/null ---> It is called black hole. Output stored here will be discarded.
 
 ### Session-21
-- What is "UPSERT" in roboshop.sh file in "Roboshop-shellscript" ? previously it was "CREATE" now "UPSERT".
+- What is "UPSERT" in roboshop.sh file in "Roboshop-shellscript" ? Previously it was "CREATE" now "UPSERT".
 - What is the difference between Command and Shell ?
 - Shell ---> It is like you login inside the server and run the command, Environment variables and
   redirections (Symbols) will work here.
@@ -81,45 +81,47 @@
 ### Session-22
 - How to run the file (or) playbook in the background ? "nohup ansible-playbook -i inventory.ini -e
   ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml & >> /dev/null"
-- Output will be in nohup.out, it will not come in the terminal, if it is a small instance, we can't run
-  every script in the background, because memory consumption will be high, so you can run only few scripts
-  in the background.
+- Output will be in nohup.out, it will not come in the terminal, you can run the script if it is a small
+  instance, we can't run every script in the background, because memory consumption will be high, so you can
+  run only few scripts in the background.
 - How to see running logs in the background use "tail -f nohup.out"
-- What are ansible roles ? It is a dry principle, dont repeat yourself like we have used functions in
+- What are ansible roles ? It is a dry principle, dont repeat yourself like we have used functions in the
   shellscript to avoid the repetition of the code. It is a proper directory structure to keep our
   configuration and we can share this with other users also.
-- Ansible roles ---> Again in common role, we have tasks, handlers, templates, files, vars, defaults, meta,
+- Ansible roles ---> Common is also a role, we have tasks, handlers, templates, files, vars, defaults, meta,
   library, lookup_plugins.
 - How to debug, if you are facing any error in ansible playbook ? "ansible-playbook -vvv -i inventory.ini -e
   ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml" we will get the full
-  information in the terminal, which is happening in the background, so that we can see where is the error.
+  information in the terminal, what is happening in the background, so that we can see where is the error.
 - What are supporting files in project ? like mongodb.repo, catalogue.service, roboshop.conf etc.
-- Is creating every role is mandatory in ansible roles ? NO! we create what we require.
-- How to call common role (any role) in another role ? "ansible.builtin.import_role"
-- How can we ignore errors in ansible ? using "ignore_errors: true"
+- Creating every role is mandatory in ansible roles ? NO! we create what we require.
+- How to call common role (Any role) in another role ? "ansible.builtin.import_role"
+- How can we ignore errors in ansible ? Using "ignore_errors: true"
 
 ### Session-23
 - What is "ansible.cfg" file ? It is ansible main configuration file, we can control options from here.
-- How to see from where config file is loading in server ? "ansible --version"
+- How to see from where the config file is loading in ansible server ? "ansible --version"
 - What is the default location of config file ? "/etc/ansible/ansible.cfg"
-- For example create a folder "mkdir test" in CD location.
+- For example create a test folder in CD location "mkdir test"
 - Then cd test/ and "cp /etc/ansible/ansible.cfg ." then pwd will be "/home/centos/test"
 - Then "export ANSIBLE_CONFIG=/home/centos/test/ansible.cfg" nothing but i have given first preference.
-- When you do "ansible --version" in any location, then you can see ansible_config file is loading from the
+- When you test "ansible --version" in any location, then you can see ansible config file is loading from the
   "/home/centos/test/ansible.cfg" location. Only if you set environment variable for "ANSIBLE_CONFIG" and
   incase if you "UNSET" this environment variable using "unset ANSIBLE_CONFIG", now it will be loading from
   the default location that is "/etc/ansible/ansible.cfg"
-- We have many options in "ansible configuration settings" file nothing but "ansible.cfg". We may not use all
-  the options, we only use what we require like inventory_path, ask_vault, timeout, user_name, passwords etc.
+- There are many options in ansible.cfg file (Ansible configuration settings) we may not use all the options,
+  we only use what is require like inventory_path, ask_vault, timeout, user_name, passwords etc.
 - What are the preferences of loading ansible.cfg file ?
-- So instead of giving -i inventory -e ansible_user=centos -e ansible_password=DevOps321 to the command, we
-  can put this is in ansible.cfg & command usage is "ansible-playbook -e component=mongodb main.yaml"
+- Instead of giving "ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 -e
+  component=mongodb main.yaml" We can keep -i inventory as a separate file and keep your username and
+  password in ansible.cfg, then command usage is "ansible-playbook -e component=mongodb main.yaml"
 - Templates is nothing but a place holders, where we will submit our required values at the run time and it
   is a Jinja2 format and extension is .j2, go through the code in VS. Like we have used for catalogue.service
   files.
 - What are Handlers in ansible roles and why we use ?
 - What is the Usage of tags in ansible ? If you want to run a particular task, then we use Tags.
-- How to create a full config file ? "ansible-config init --disabled > ansible.cfg"
+- How to create a full config file ? "ansible-config init --disabled > ansible.cfg" Here disabled means
+  by default all options will are commented, you can uncomment which ever options you want to use.
   
 ### Session-24
 - Till now where we have given our usernames and passwords ? Command line (or) ansible.cfg file
