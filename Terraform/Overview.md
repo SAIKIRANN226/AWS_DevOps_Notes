@@ -126,56 +126,52 @@
   "Terraform-modules" in VS. Here provider.tf will not be there in module developing.
 - How many types of Modules and How many types of Roles are there ?
 - It is DevOps engineer responsibility to write README.md file to let others know how to use module.
-- Develop yourself a terraform EC2 module and use it ?
 - Create a VPC in aws console ? CIDR ---> 10.0.0.0/16
-- Internet has given some "PrivateIP address ranges" those only allocated to PrivateIP not for PublicIP,
-  there you can see 24,20,16 bit-blocks
+- Google has given some "PrivateIP address ranges" those only allocated to PrivateIP not for PublicIP,
+  there you can see 24,20,16 bit-blocks.
 - Even ISP people will configure your PrivateIP address in any range among these 3 bit-blocks only.
 - We can select any range, but siva selected as 10.0.0.0/16 range.
 - Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k
-  servers, generally we give VPC_CIDR 10.0.0.0/16 only, because it does not cost anything, so we can
+  servers, generally we give VPC_CIDR as 10.0.0.0/16 only, because it does not cost anything, so we can
   go for maximum.
 - Create Public subnet in aws console ? CIDR ---> 10.0.1.0/24
 - Create Private subnet in aws console ? CIDR ---> 10.0.2.0/24
 - Create Database subnet in aws console ? CIDR ---> 10.0.3.0/24
 - Create Public, Private & Database route tables in aws console ?
-- And associate Public, Private & Database route tables ?
+- And associate Public, Private & Database route tables with their respective subnets ?
 - Give internet access to the Public subnets.
 - Enable Auto-asign public IPv4 address only to the Public subnet.
 - Create Internet Gateway and attach to your created VPC in aws console ?
 - What is the difference between Public subnet and Private subnet ?
-- What is CIDR (Classless Inter-Domain Routing) ?
-- Use always terraform best practices for naming convention.
+- What is CIDR (Classless Inter-Domain Routing) ? We can asign custom IP address range to the subnets.
+- Use always terraform best practices for naming convention like using "_" avoid double naming.
 - We used Open source modules sometimes, we have dedicated cloud team who develops module and we use them.
-- How do you check internet is working or not ? "ping google.com" Ipv4 is 32bit and Ipv6 is 64 bit
-- Router (Internet Gateway) ---> It has Public_IP & Private_IP. PublicIP is nothing but just type what
+- How do you check internet is working or not ? "ping google.com" Ipv4 is 32bit and Ipv6 is 64 bit.
+- Router (Internet Gateway) ---> It has PublicIP & PrivateIP. PublicIP is nothing but just type what
   is my ip in google, there you can see Ipv4 address that is your PublicIP, not ipv6. What is your PrivateIP
-  just "ipconfig" in cmd there you can see IPv4 address under Under wireless LAN adapter Wifi.
+  just "ipconfig" in cmd there you can see IPv4 address Under wireless LAN adapter Wifi.
 - What is your actual IPaddress ? Just type in google "what is my IP", if anybody wants to connect to my
   laptop you can connect using this IP address only. You cannot connect with PrivateIP address.
-- Your created VPC is Isolated, even aws dont have access to it.
 - AWS wont charge for VPC's, subnets, route tables, it only charges when you are creating server.
 - We can create as many private subnets we want, however for functionality purpose we have only two subnets
   which is Public and Private subnets.
 - Watch from 26:11 to 1:14:21 to understand how VPC works.
 
 ### Session-30
-- What resources we have created inside the VPC from aws console ?
-- We have created VPC in aws (Your created VPC is Isolated, even aws dont have access to it)
-- It is like your Private Data-Center in aws cloud.
+- What resources we have created inside the VPC in aws console ?
+- First we have created VPC in aws (Your created VPC is Isolated, even aws dont have access to it). It is
+  like your Private Data-Center in aws cloud.
 - Created Internet Gateway (IGW) and attached to the VPC.
-- Created Public, Private & Database subnets in atleast 2-AZ's for High Availability
-- Created Route tables (Public, Private & Database) and associated it with their respective subnets in two
+- Created Public, Private & Database subnets in atleast 2-AZ's for High Availability.
+- Created Route tables (Public, Private & Database) and associated it with their respective subnets in both
   regions 1a and 1b.
 - Added Internet Gateway route in Public Route table, because internet should be enabled in Public not in
   Private, that is the difference between Public and Private subnets.
 - Enabled Auto-asign Public IPv4 address only to the Public subnet not to the Private subnet.
-- When you create a VPC, a default route table, also known as the main route table, is automatically created
-  for that VPC. This main route table is initially associated with all subnets within the VPC that have not
-  been explicitly associated with a custom route table. It contains a local route that enables communication
-  within the VPC. While this default route table cannot be deleted, its routes can be modified, and custom
-  route tables can be created and associated with specific subnets to provide more granular control over
-  network traffic.
+- When you create a VPC, a default route table also known as main route table is automatically created
+  to that VPC. It contains a local route that enables communication with the subnets within the VPC. While
+  this default route table cannot be deleted, its routes can be modified and custom route tables can be
+  created and associated with specific subnets to provide more granular control over network traffic.
 - What is NAT Gateway and why it is used ?
 - NAT Gateway should be created in Public subnet (1a or 1b) and why only in Public subnet ?
 - Creating NAT Gateway is not enough we need to add routes between Private subnets and to the Internet
@@ -186,16 +182,16 @@
 - Select any of the Private subnet/Routes/Edit routes/Add route (Destination = 0.0.0.0/0, Target = NAT
   gateway, then select default one in dropdown under Target section only)
 - When you create a NAT gateway, aws will create instance in the background, We dont have access to that
-  instance, this instance IP is dynamic, whenever you off and on.
-- So create ElasticIP for this instance first and then create NAT Gateway.
+  instance, this instance IP is dynamic, whenever you off and on. So create ElasticIP for this instance first
+  and then create NAT Gateway.
 - NAT and ElasticIP is chargeable, so delete after practice.
-- Can we get StaticIP for this instance ? yes we can get but it is very costly thing.
+- Can we get StaticIP for this instance ? YES! we can get but it is very costly thing.
 - Even your home PublicIP is Dynamic. If you want StaticIP, you need to pay money to ISP provider.
-- What is VPC peering ? and what is the condition to create VPC peering connection ?
+- What is VPC peering and what is the condition to create VPC peering connection ?
 - Create a VPC peering connection between "Roboshop_VPC & Default_VPC"
 - So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC".
 - Accept request in the same account and then add routes in VPC.
-- Try to add routes in main route table, because it is the default route table which is created automatically   created after vpc is created to communicate between subnets, if not reflecting, then add explicitly ?
+- Try to add routes in main route table, because it is the default route table which is created automatically   to communicate between the subnets, if not reflecting, then add explicitly ?
 - If you want only one (or) two Private subnets wants to connect to the vpc peering main road then you can
   add in those two route tables only.
 - You need to add from the other side also not just one side. This is nothing but routes in VPC.
