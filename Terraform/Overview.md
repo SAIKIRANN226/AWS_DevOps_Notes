@@ -143,7 +143,7 @@
 - Enable Auto-asign public IPv4 address only to the Public subnet.
 - Create Internet Gateway and attach to your created VPC in aws console ?
 - What is the difference between Public subnet and Private subnet ?
-- What is CIDR (Classless Inter-Domain Routing) ? We can asign custom IP address range to the subnets.
+- CIDR (Classless Inter-Domain Routing) ? We can asign custom IP address range to the subnets.
 - Use always terraform best practices for naming convention like using "_" avoid double naming.
 - We used Open source modules sometimes, we have dedicated cloud team who develops module and we use them.
 - How do you check internet is working or not ? "ping google.com" Ipv4 is 32bit and Ipv6 is 64 bit.
