@@ -64,6 +64,7 @@
 - In ansible i have used file module, dnf module, user module, get url modules etc.
 - How to check remote connections or running logs ? sudo tail -f /var/log/messages.
 - Black Hole ---> &>> /dev/null (Output stored here will be discarded)
+- All the Users informations will be there in "cat /etc/passwd" in server.
 
 ### Session-21
 - What is "UPSERT" in roboshop.sh file in "Roboshop-shellscript" ? Previously it was "CREATE" now "UPSERT".
