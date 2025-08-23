@@ -5,7 +5,7 @@
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
   recommended, because ansible is only intended for configuration management & application deployment.
 - If so why dont we use ansible to create instances ? Because it does not have a state file to create
-  instances as terraform does. So thats why terraform is used for creation of infrastructure only.
+  instances as terraform does. So thats why terraform is best for creation of infrastructure only.
 - What is configuration management in general and in ansible ?
 - As a DevOps engineer we need to do CRUD over the server effectively.
 - What are the application deployment basic steps ?
