@@ -23,7 +23,7 @@
 - What is PULL (Chef) architecture in ansible, how do you configure PULL ? Install Agents
 - Install ansible in ansible-server & connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e
   ansible_password=DevOps321 -m ping" Hence connection is success between Ansible and Node.
-- Install nginx in Node from Ansible ? "ansible -i 34.203.214.64, all -e ansible_user=centos -e
+- Install nginx in Node from Ansible ? "ansible -i NodeIP, all -e ansible_user=centos -e
   ansible_password=DevOps321 --become -m yum/service -a "name=nginx state=present/started/stopped"
 - What is the difference between Shell commands and Ansible modules ?
 - What is the difference between Shellscript and Ansible-playbook ?
@@ -46,28 +46,28 @@
 - Variable preference in ansible ? CMD, Task, File, Prompt, Play, Inventory.ini, Ansible roles.
 - What are Data-types in ansible ? We have Skills (List type) and Experience (Map type)
 - What are conditions in ansible ? Write a condition for roboshop user exist or not ?
-- Similar to "$?" in shell, we have "rc" in ansible to check exit status of the previous command.
+- Similar to $? in shell, we have "rc" in ansible to check the exit status of the previous command.
 - Write ansible-playbook to loop Ramesh, Suresh, Saikiran, Mahesh.
 - Write ansible-playbook to install nginx, mysql, postfix, net-tools using loop.
-- Write ansible-playbook to install nginx, mysql, postfix, net-tools and also loop "name and state"
-- What are tags in ansible ? In the server, if you want a particular task then you can use tags below.
+- Write ansible-playbook to install nginx, mysql, postfix, net-tools & also loop "name and state"
+- What are tags in ansible ? Tags are used in server, if you want a particular task to run.
 - ansible-playbook -t devops 16-tags.yaml ; ansible-playbook -t aws 16-tags.yaml
-- When we can use tags ? For example take a catalogue component, if there is any new version of catalogue,
-  what will you do basically ? we do new deployment/new release right ? by using basic deployment steps.
+- When we can use tags ? For example take catalogue component, if there is any new version of catalogue,
+  what will you do basically ? we do new deployment/new release right ? By using basic deployment steps.
   Command will be ---> ansible-playbook -e component=catalogue -t deployment main.yaml
 
 ### Session-20 
-- Configure roboshop project using ansible ? Go through the "Roboshop-ansible" in VS.
-- Create all the instances and route53 records using shellscript (roboshop.sh)
+- Configure Roboshop Project using ansible ? Go through the "Roboshop-ansible" in VS.
+- Create all the instances and route53 records using shellscript (roboshop.sh) script.
 - Dont forget to give role to the ansible instance, before creating instances and route53 records.
 - Delete the old records if exists ---> Hosted zones --> Except NS and SOA.
 - In ansible i have used file module, dnf module, user module, get url modules etc.
-- How to check remote connections ? sudo tail -f /var/log/messages.
-- &>> /dev/null ---> It is called black hole. Output stored here will be discarded.
+- How to check remote connections or running logs ? sudo tail -f /var/log/messages.
+- Black Hole ---> &>> /dev/null (Output stored here will be discarded)
 
 ### Session-21
 - What is "UPSERT" in roboshop.sh file in "Roboshop-shellscript" ? Previously it was "CREATE" now "UPSERT".
-- What is the difference between Command and Shell ?
+- What is the difference between Command and Shell ? Is the below line.
 - Shell ---> It is like you login inside the server and run the command, Environment variables and
   redirections (Symbols) will work here.
 - Command ---> It is like running the command outside the server, Environment variables and redirections
@@ -78,7 +78,7 @@
 ### Session-22
 - How to run the file (or) playbook in the background ? "nohup ansible-playbook -i inventory.ini -e
   ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml & >> /dev/null"
-- Output will be in nohup.out, it will not come in the terminal, you can run the script if it is a small
+- Output will be in "nohup.out" it will not come in the terminal, you can run the script if it is a small
   instance, we can't run every script in the background, because memory consumption will be high, so you can
   run only few scripts in the background.
 - How to see running logs in the background use "tail -f nohup.out"
@@ -90,8 +90,8 @@
 - How to debug, if you are facing any error in ansible playbook ? "ansible-playbook -vvv -i inventory.ini -e
   ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml" we will get the full
   information in the terminal, what is happening in the background, so that we can see where is the error.
-- What are supporting files in project ? like mongodb.repo, catalogue.service, roboshop.conf etc.
-- Creating every role is mandatory in ansible roles ? NO! we create what we require.
+- What are the supporting files in project ? Like mongodb.repo, catalogue.service, roboshop.conf etc.
+- Creating every role is not mandatory, we create what we require.
 - How to call common role (Any role) in another role ? "ansible.builtin.import_role"
 - How can we ignore errors in ansible ? Using "ignore_errors: true"
 
@@ -104,10 +104,10 @@
 - Then "export ANSIBLE_CONFIG=/home/centos/test/ansible.cfg" nothing but i have given first preference.
 - When you test "ansible --version" in any location, then you can see ansible config file is loading from the
   "/home/centos/test/ansible.cfg" location. Only if you set environment variable for "ANSIBLE_CONFIG" and
-  incase if you "UNSET" this environment variable using "unset ANSIBLE_CONFIG", now it will be loading from
+  incase if you "UNSET" this environment variable using "unset ANSIBLE_CONFIG" now it will be loading from
   the default location that is "/etc/ansible/ansible.cfg"
 - There are many options in ansible.cfg file (Ansible configuration settings) we may not use all the options,
-  we only use what is require like inventory_path, ask_vault, timeout, user_name, passwords etc.
+  we only use what is required like inventory_path, ask_vault, timeout, user_name, passwords etc.
 - What are the preferences of loading ansible.cfg file ?
 - Instead of giving "ansible-playbook -i inventory -e ansible_user=centos -e ansible_password=DevOps321 -e
   component=mongodb main.yaml" We can keep -i inventory as a separate file and keep your username and
@@ -118,7 +118,7 @@
 - What are Handlers in ansible roles and why we use ?
 - What is the Usage of tags in ansible ? If you want to run a particular task, then we use Tags.
 - How to create a full config file ? "ansible-config init --disabled > ansible.cfg" Here disabled means
-  by default all options will are commented, you can uncomment which ever options you want to use.
+  by default all options are commented, you can uncomment which ever options you want to use.
   
 ### Session-24
 - Till now where we have given our usernames and passwords ? Command line (or) ansible.cfg file
