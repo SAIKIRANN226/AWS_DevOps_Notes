@@ -6,7 +6,7 @@
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
   recommended, because ansible is only intended for configuration management & application deployment.
 - If so why dont we use ansible to create instances ? Because it does not have a state file to create
-  instances as terraform does. So thats why terraform is best for creation of infrastructure.
+  instances as terraform does. So thats why terraform is best for creation of infrastructure only.
 - What is configuration management in general and in ansible ?
 - As a DevOps engineer we need to do CRUD over the server effectively.
 - What are the application deployment basic steps ?
@@ -19,36 +19,34 @@
   <paste_the_RAW_URL> | sudo bash" (or) For example if you want to just see all the content of your session in
   the terminal only, then use "curl <paste_the_RAW_URL>" just enter without double qotes. Curl command will
   not download the file, instead it will show the content on the terminal.
-- But to download the file use "wget <paste_the_RAW_URL>"
+- But to download the file use "wget <paste_the_RAW_URL> or <normal_url>"
 - What is PUSH (Ansible) architecture in ansible ? Agent less
-- What is PULL (Chef) architecture in ansible ? Need to install Agent
-- Install ansible in ansible-server and connect to Node ? make sure connection is success ? "ansible -i
-  NodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping"
-- Install nginx in Node from Ansible ? ansible -i 34.203.214.64, all -e ansible_user=centos -e
+- What is PULL (Chef) architecture in ansible, how do you configure PULL ? Need to install Agents
+- Install ansible in ansible-server and connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e
+  ansible_password=DevOps321 -m ping" Hence connection is success between Ansible and Node.
+- Install nginx in Node from Ansible ? "ansible -i 34.203.214.64, all -e ansible_user=centos -e
   ansible_password=DevOps321 --become -m yum/service -a "name=nginx state=present/started/stopped"
-- What is the difference between Commands and Modules ?
+- What is the difference between Shell commands and Ansible modules ?
 - What is the difference between Shellscript and Ansible-playbook ?
 - YAML is the markup language used in ansible. Identation is mandatory in yaml format.
-- What is Inventory in ansible ? Nothing but a list of hosts (servers) where Ansible will run its automation
+- What is Inventory in ansible ? Nothing but a list of hosts (Servers) where Ansible will run its automation
   tasks on these servers. It’s basically your address book for servers — telling Ansible what machines exist,
-  how to connect to them, and how they’re grouped.
-- Go through the all files in "Ansible" folder in VS.
+  how to connect to them and how they’re grouped.
+- Go through all the files in "Ansible" folder in VS.
 - https://github.com/daws-76s/concepts/blob/master/ansible.MD
 
 ### Session-19
-- Go through the all files in Ansible folder in VS
-- Make sure to install ansible in ansible server by "sudo yum install ansible -y" then only it becomes
-  ansible server.
+- Ansible-Server ---> "sudo yum install ansible -y" then only it becomes ansible server.
 - ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 <playbook>
 - ansible.builtin.ping ---> Its a ping module.
 - ansible.builtin.package ---> Its a package module.
 - ansible.builtin.service ---> Its a service module.
-- ansible.builtin.debug ---> This module is used to print whatever you give.
+- ansible.builtin.debug ---> This module prints whatever you give.
 - ansible.builtin.command ---> Used to run command on a remote machine directly without using shell.
-- We have variables in ansible play-level, task-level, var_files, vars_prompt, inventory.ini, args
+- We have variables in ansible play-level, task-level, var_files, vars_prompt, inventory.ini, args.
 - Variable preference in ansible ? CMD, Task, File, Prompt, Play, Inventory.ini, Ansible roles.
-- What are data-types in ansible ?
-- What are conditions in ansible ? write a condition for roboshop user exist or not ?
+- What are Data-types in ansible ?
+- What are conditions in ansible ? Write a condition for roboshop user exist or not ?
 - Similar to "$?" in shell, we have "rc" in ansible to check exit status of the previous command.
 - Write ansible-playbook to loop Ramesh, Suresh, Saikiran, Mahesh.
 - Write ansible-playbook to install nginx, mysql, postfix, net-tools using loop.
