@@ -5,7 +5,7 @@
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
   recommended, because ansible is only intended for configuration management & application deployment.
 - If so why dont we use ansible to create instances ? Because it does not have a state file to create
-  instances as terraform does. So thats why terraform is best for creation of infrastructure only.
+  instances as terraform does. So thats why terraform is used for creation of infrastructure only.
 - What is configuration management in general and in ansible ?
 - As a DevOps engineer we need to do CRUD over the server effectively.
 - What are the application deployment basic steps ?
@@ -20,7 +20,7 @@
   not download the file, instead it will show the content on the terminal.
 - But to download the file use "wget <paste_the_RAW_URL> or <normal_url>"
 - What is PUSH (Ansible) architecture in ansible ? Agent less
-- What is PULL (Chef) architecture in ansible, how do you configure PULL ? Need to install Agents
+- What is PULL (Chef) architecture in ansible, how do you configure PULL ? Install Agents
 - Install ansible in ansible-server and connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e
   ansible_password=DevOps321 -m ping" Hence connection is success between Ansible and Node.
 - Install nginx in Node from Ansible ? "ansible -i 34.203.214.64, all -e ansible_user=centos -e
@@ -44,7 +44,7 @@
 - ansible.builtin.command ---> Used to run command on a remote machine directly without using shell.
 - We have variables in ansible play-level, task-level, var_files, vars_prompt, inventory.ini, args.
 - Variable preference in ansible ? CMD, Task, File, Prompt, Play, Inventory.ini, Ansible roles.
-- What are Data-types in ansible ?
+- What are Data-types in ansible ? We have Skills (List type) and Experience (Map type)
 - What are conditions in ansible ? Write a condition for roboshop user exist or not ?
 - Similar to "$?" in shell, we have "rc" in ansible to check exit status of the previous command.
 - Write ansible-playbook to loop Ramesh, Suresh, Saikiran, Mahesh.
