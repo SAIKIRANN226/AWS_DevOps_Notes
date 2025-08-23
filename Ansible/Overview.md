@@ -15,10 +15,10 @@
 - Create a file in Node from the Ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "echo Hello
   saikiran how are you > /tmp/sai.txt"
 - Install any github session into Node from ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "curl
-  <paste_the_RAW_URL> | sudo bash" (or) For example if you want to just see all the content of your session in
-  the terminal only, then use "curl <paste_the_RAW_URL>" just enter without double qotes. Curl command will
-  not download the file, instead it will show the content on the terminal.
-- But to download the file use "wget <paste_the_RAW_URL> or <normal_url>"
+  <paste_the_RAW_URL> | sudo bash"
+- To show the file content in the terminal just use "curl <paste_the_RAW_URL> or <normal_url>"
+- Curl command will not download the file, instead it will show the content on the terminal.
+- To download the file just use "wget <paste_the_RAW_URL> or <normal_url>"
 - What is PUSH (Ansible) architecture in ansible ? Agent less
 - What is PULL (Chef) architecture in ansible, how do you configure PULL ? Install Agents
 - Install ansible in ansible-server and connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e
