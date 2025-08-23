@@ -21,7 +21,7 @@
 - To download the file just use "wget <paste_the_RAW_URL> or <normal_url>"
 - What is PUSH (Ansible) architecture in ansible ? Agent less
 - What is PULL (Chef) architecture in ansible, how do you configure PULL ? Install Agents
-- Install ansible in ansible-server and connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e
+- Install ansible in ansible-server & connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e
   ansible_password=DevOps321 -m ping" Hence connection is success between Ansible and Node.
 - Install nginx in Node from Ansible ? "ansible -i 34.203.214.64, all -e ansible_user=centos -e
   ansible_password=DevOps321 --become -m yum/service -a "name=nginx state=present/started/stopped"
