@@ -69,9 +69,9 @@ just enter "ctrl+c"
 - Protocol ---> We have different protocols like https,http etc.
 - Port number for SSH ---> 22
 - Ec2 server ---> SSH server
-- $ ---> Normal user
-- # ---> Root user(sudo su -) to exit from root just "exit"
-- pwd ---> Present working directory you will be launched in /home/ec2-user
-- uname ---> Will tell the kernel name
-- <command-name> --help ---> Get help from that particular command (or) you can get help from man command also
+- "$" ---> Normal user
+- "#" ---> Root user(sudo su -) to exit from root just "exit"
+- "pwd" ---> Present working directory you will be launched in /home/ec2-user
+- "uname" ---> Will tell the kernel name
+- {command-name} --help ---> Get help from that particular command (or) you can get help from man command also
   "man <command-name>"
