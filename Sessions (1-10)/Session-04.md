@@ -1,5 +1,4 @@
-Algorithm for connecting to instance
--------------------------------------
+### Algorithm for connecting to instance
 1. Keygenerate
 2. Import publickey
 3. Firewall
@@ -7,10 +6,8 @@ Algorithm for connecting to instance
 5. Connected. If we follow algorithm, troubleshooting will be easy nothing but writing yourself in a 
    notes in general language
 
-Service management
--------------------
+### Service management
 Watch from (05:40 to 17:50)
-
 1. Install nginx "sudo amazon-linux-extras install nginx1 -y" ---> Package installing
 2. "systemctl start nginx" ---> This how to make a package into a service
 3. "systemctl status nginx"---> To know if it is running or not (or) we can also check with
@@ -19,30 +16,26 @@ Watch from (05:40 to 17:50)
 5. "systemctl enable nginx"---> Automatically services will run
 6. "systemctl disable nginx" ---> Will disable nginx
 
-Network managment
-------------------
+### Network managment
 Network statistics "netstat -lntp" this command is used to check if ports are running (or) not.
-   l ---> Listing means ports waiting for connections,
-   n ---> Shows IPaddresses instead of hostnames (or) services, 
-   t ---> Shows only TCP connections ignore UDP,
-   p ---> Shows the process ID (PID) and the name of the program that is using the socket.
+- l ---> Listing means ports waiting for connections,
+- n ---> Shows IPaddresses instead of hostnames (or) services, 
+- t ---> Shows only TCP connections ignore UDP,
+- p ---> Shows the process ID (PID) and the name of the program that is using the socket.
 If netstat is not installed then install it, "sudo yum install net-tools". To check their process also 
 then use "sudo netstat -lntp". To check wether the netstat is installed (or) not ? Just type "netstat"
 
-Trouble shooting process
--------------------------
-1. Check system resources like 
-   CPU memory high consumption ---> Generally we check this in task manager, But in terminal 
-   Just "top" command ; Hardisk full ---> "df -hT" ; RAM full ---> "free --help" If ram is using 
+### Trouble shooting process
+1. Check system resources like CPU memory high consumption ---> Generally we check this in task manager, But
+   in terminal Just "top" command ; Hardisk full ---> "df -hT" ; RAM full ---> "free --help" If ram is using 
    more and more we need to kill it and restart
-2. Check if the process is running or not ? ---> "ps -ef | grep nginx"
-3. Wether the port is opened or not ? ---> "netstat -lntp"
-4. Check wether the service is running or not ? ---> "systemctl status <service-name>"
-5. Check wether the firewall is opened or not ?
-6. Check if internet is working or not by "ping google.com (or) ping IPaddress"
+3. Check if the process is running or not ? ---> "ps -ef | grep nginx"
+4. Wether the port is opened or not ? ---> "netstat -lntp"
+5. Check wether the service is running or not ? ---> "systemctl status <service-name>"
+6. Check wether the firewall is opened or not ?
+7. Check if internet is working or not by "ping google.com (or) ping IPaddress"
 
-How to give admin access (or) any other access to linux users ?
-----------------------------------------------------------------
+### How to give admin access (or) any other access to linux users ?
 Example two types of users.
 Linux admin team ---> Full access
 DevOps team ---> Limited sudo access
@@ -55,8 +48,7 @@ DevOps team ---> Limited sudo access
 6. Add suresh in DevOps team :- usermod -g DevOps suresh
 7. To check their details :- id suresh, id ramesh
 
-Now how to give access ? 
--------------------------
+### Now how to give access ? 
 All the below process is done in git after connecting to instance using keypair
 Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers", It is not 
 recommended to open this file because it is crucial so linux has given one command to open then 
@@ -72,8 +64,8 @@ command then open "visudo" under the %wheel group add this line for suresh
 "%devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl" So this way we can give limited access
 
 Everytime opening "visudo" is also a risky, So linux has given one location ---> vim /etc/sudoers.d
-# vim /etc/sudoers.d/DevOps(created folder) ---> %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
-# vim /etc/sudoers.d/Admin(created folder) ---> %admin ALL=(ALL)   ALL
+- vim /etc/sudoers.d/DevOps(created folder) ---> %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
+- vim /etc/sudoers.d/Admin(created folder) ---> %admin ALL=(ALL)   ALL
 
 3Tier architecture(52:33)
 --------------------------
@@ -86,8 +78,7 @@ Backend servers  :- Jboss,tomcat,weblogic etc. Applications we deploy in backend
                     Java,.net,python etc.
 Database servers :- sql,mysql,nosql,redis etc.
 
-Points to remember
-*******************
+### Points to remember
 1. Why adding in the wheel group only ? Because wheel group has admin access
 2. To change password authentication to yes "vim /etc/ssh/sshd_config" make sure to restart
    "systemctl restart sshd"
