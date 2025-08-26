@@ -137,8 +137,8 @@
 - In previous session how do we connected to servers in gitbash ? Then how putty will connect ?
 - In gitbash we call Privatekey as ".pem" but in putty we call it as ".ppk" (Putty privatekey)
 - How to create this putty private key (.ppk) ? Load .pem file in puttygen save with .ppk extension
-- Open putty --> connection ---> ssh ---> auth ---> credentials ---> load your saved .ppk file
-- Connection ---> data ---> username (ec2-user) ---> then go to session and save (Important)
+- Open putty --> connection --> ssh ---> auth --> credentials ---> load your saved .ppk file
+- Connection --> data --> username (ec2-user) --> then go to session and save (Important)
 - Create a server in aws and take the IP and paste it in putty (Hostname) click on load to connect.
 - To change the font open putty --> appearence --> change and then save to make effect in superputty.
 - From where the html files will load in nginx ? "/usr/share/nginx/html"
@@ -158,5 +158,3 @@
 - Generally frontend servers called as http servers open port No:80,hosts html, java based applications.
 - Backend is also http servers but port No:8080, hosts like tomcat,jboss,.net,python etc.
 - These frontend and back will connect through API's
-
-
