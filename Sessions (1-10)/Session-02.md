@@ -3,7 +3,7 @@
 - cd ---> change directory
 - cd .. ---> to change the current working directory to its parent directory.
 - / ---> root directory
-- - ---> file
+- "-" ---> file
 - w ---> write
 - r ---> read
 - x ---> execute
