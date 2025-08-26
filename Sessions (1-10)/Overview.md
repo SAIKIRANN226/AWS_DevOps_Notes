@@ -16,6 +16,8 @@
 - Launch instance with keypairs and take Amazon Linux 2AMI (HVM)
 - Take PublicIP of the instance and username is "ec2-user" (or) Centos & "Privatekey"
 - ssh -i saikiran.pem ec2-user@123.23.234.5 ---> In pwd location. Use Centos as username not ec2-user.
+- Make sure the key pair name while you are launching instance should match the key pair in Network &
+  Security (Key Pairs).
 - Cheapest region is "us-east-1" ---> Latency is somewhat slow which is negligible.
 - What is Absolute path and Relative path ?
 - HTTP --> 80 Hypertext Transfer Protocol (Unencrypted web traffic)
