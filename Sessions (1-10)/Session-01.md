@@ -35,8 +35,8 @@ KEY = Private key (should be with you)
 
 So here we need to generate (or) create a link between "LOCK and KEY" by using a command in gitbash 
 "ssh-keygen -f <filename>" and press enter two times, so there will be two files generated with ".pub" and one more file with the same name but "without extension" to unable extension go to Controlpanel, File explorer options, View, Unhide extensions for known files and then rename your private key with ".pem" and the syntax for the keys are below.
-- Syntax for Publickey is ---> ssh-rsa <code> Laptop-name
-- Syntax for Privatekey is ---> BEGIN OPENSSH PRIVATE KEY <code> END OPENSSH PRIVATE KEY
+- Syntax for Publickey is ---> ssh-rsa {code} Laptop-name
+- Syntax for Privatekey is ---> BEGIN OPENSSH PRIVATE KEY {code} END OPENSSH PRIVATE KEY
 So you have created a link, now create a server in aws and connect to that server with these keys.
 
 ### Steps to connect to SSH-server with keys in the gitbash 
