@@ -1,11 +1,11 @@
 - What is Computer and what characterstics does computer hold and What are the use cases of Server, TV,
   Phone etc. Linux is the servers world.
-- What is Client-Server Architecture ?
+- What is Client-Server Architecture ? Transferring media from Phone to Laptop (Viceversa)
 - What is Operating systems like Windows and what does it do ?
 - What is the difference between Operating systems Linux and Windows ?
 - How to connect to Linux servers and what is the another name of Server ?
 - What are the Authentication mechanisms to connect to linux server ?
-- How to generate (or) create a link between "LOCK and KEY" using a command ?
+- How to generate (or) create a link between "LOCK & KEY" using command ? ssh-keygen -f <file_name>
 - How to enable extensions in control panel ? File explorer, view, unhide extenions for known files.
 - What is the syntax of Public-key ? ssh-rsa {code} Laptop-name
 - What is the syntax of Private-key ? BEGIN OPENSSH PRIVATE KEY {code} END OPENSSH PRIVATE KEY
@@ -33,7 +33,7 @@
 - Protocol ---> We have different protocols like https, http etc.
 - Ec2 server ---> SSH server
 - "$" ---> Normal user
-- "#" ---> Root user(sudo su -) to exit from root just "exit"
+- "#" ---> Root user (sudo su -) to exit from root just "exit"
 - "pwd" ---> Present working directory you will be launched in /c/users/saikiran
 - "uname" ---> Will tell the kernel name
 - "command-name" --help ---> Get help from that particular command
@@ -44,24 +44,24 @@
 - Copy command in linux and how to copy the files ?
 - Move command in linux and how to move the files ? With in the same folder if you use mv command, it
   works as a rename also.
-- Grep command in linux grep Linux is a case sensitive. Linux will treat DevOps and DEVOPS as different.
-  So to make this case insensitive (i) use "grep -i"
+- Grep command in Linux is a case sensitive. Linux will treat DevOps and DEVOPS as different. So to make this
+  case insensitive (i) use "grep -i" ---> ps -ef | grep -i nginx
 - Piping symbol ? | ---> One command output will become the input to the another command.
 - What is wget and curl commands in linux and what is the difference ?
-- What is cut and awk commands in linux ? We use cut to quickly extract specific columns or character ranges
-  from text using delimiters. It’s simple and lightweight. We use awk when we need more advanced processing
-  like filtering rows, formatting output, or doing calculations — since it’s a full text-processing language.
+- What is cut and awk commands in linux ? We use cut to quickly extract specific columns or character
+  ranges from text using delimiters. We use awk when we need more advanced processing like filtering rows,
+  formatting output.
 - What are Head and Tail commands in linux ? Head is used to view the first few lines of a file, while tail
-  is used to view the last few lines. Both are useful for quickly inspecting logs or large files, and tail -f
+  is used to view the last few lines. Both are useful for quickly inspecting logs or large files and tail -f
   allows real-time monitoring.
 - What is VIM in linux ? Is used for creating files and editing files.
 - Different types of search in a file in server ? :/, :?, shift+G, gg, n
-- How to find and replace something in the server ?
+- How to find and replace something in the server ? ":%s/sbin/SBIN/g" --> %s means all occurances.
 - Permissions in Linux ? and what is the file notation we have in server ? and what are the permissions
   we have ? R(4), W(2), X(1) (Read, Write, Execution). Execution access is used to run the scripts and
   commands. In linux when you create a user a group with same name will be created.
 - To give execution permission to user then "chmod u+x"
-- Only for owner then "chmod g-rw " removing read,write to group
+- Only for owner then "chmod g-rw " removing read, write to group
 - To give read access to all users to all groups then "chmod ugo+r"
 - To remove write access to a group and inside folder also then "chmod g-w -R"
 - User management like creating users and giving access to the servers in two methods like Password
