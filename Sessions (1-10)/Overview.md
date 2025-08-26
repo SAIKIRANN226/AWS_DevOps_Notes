@@ -57,6 +57,106 @@
 - What is VIM in linux ? Is used for creating files and editing files.
 - Different types of search in a file in server ? :/, :?, shift+G, gg, n
 - How to find and replace something in the server ?
-- 
+- Permissions in Linux ? and what is the file notation we have in server ? and what are the permissions
+  we have ? R(4), W(2), X(1) (Read, Write, Execution). Execution access is used to run the scripts and
+  commands. In linux when you create a user a group with same name will be created.
+- To give execution permission to user then "chmod u+x"
+- Only for owner then "chmod g-rw " removing read,write to group
+- To give read access to all users to all groups then "chmod ugo+r"
+- To remove write access to a group and inside folder also then "chmod g-w -R"
+- User management like creating users and giving access to the servers in two methods like Password
+  authentication mechanism ; SSH access authentication mechanism.
+- Create a user ---> "sudo useradd saikiran"
+- Create password for saikiran ---> "passwd saikiran" and all user entries in "cat /etc/passwd"
+- First number and second number is the groupID and third number is othergroupsID (or) to get clear details
+  just "id ramesh"
+- To get groups ---> getent group
+- If this ramesh wants to connect to the server using IPaddress we need to change a configuration by going
+  to "vim /etc/ssh/sshd_config" in gitbash only, Here by default linux is disabled for login through password
+  authentication no, So make this yes, then "systemctl restart sshd". Must restart the service then only user
+  will get access.
+- sshd -t ---> Will know any mistakes have done in the previous command, checks syntax of file
+- So now how will ramesh login (Connect) to the server ? ---> "ssh ramesh@IP"
+- Now create raheem user and give SSH authentication (or) using private key ?
+- I will ask the raheem to give his Public key through mail
+- cd /home/raheem/ enter this command in gitbash after connecting to the server, here we will create folder
+  "mkdir .ssh" and then "chmod -R 700 .ssh" here only User (raheem) has RWX (7) access and others have zero
+  access & also make the .ssh folder to raheem ownership by "chown -R raheem:raheem(group) .ssh" now create
+  a file inside .ssh folder "vim authorized_key" paste the raheem public key here, ask him to create keypair
+  for this. Then change modification to "chmod 400 authorized_key" so that raheem can only read, he cant write
+  because it is better to put read only to protect the file.
+- 7 --> RWX , 0 --> group , 0 --> others ===> "chmod -R 700 .ssh" to .ssh folder
+- Now we will tell raheem that your username is configured and we will give him the IPaddress then raheem will
+  login using this command "ssh -i raheem raheem@IP" Here first raheem is his Privatekey and second reheem is
+  Username.
+- Creating group and adding users in that group ? groupadd DevOps
+- Add ramesh to the DevOps group by "usermod -g DevOps ramesh" Note:- Every user will have a Primary group and
+  Secondary group
+- chown ---> Even file owner also cannot run this command, only sudo user can change the ownership, so how
+  to change the ownership, below are the commands "chown : " ---> For file "chown : -R " ---> For folder
+- We will create testing group(Temperory) and give ramesh access to testing group by "usermod -gG testing
+  ramesh" a = appending ; g = Primary group ; G = Secondary group (Used for giving temperory access)
+- After his work is done then remove ramesh by "gpasswd -d testing ramesh" deletes ramesh from testing group,
+  if ramesh exit from the company then make sure he logout from the server and delete from the group
+  "groupdel ramesh" ---> Deleting the group
+- useradd --help
+- Whole process is done manually, we can also do this by automation using shellscript
+- This all process may be done by devops but generally we have dedicated linux admin they will take care of
+  this user creations etc.
+- What is Process management in linux ? "ps -ef | grep jenkins"
+- When process struck kill the process ---> "kill PID" do not kill parent process id 1st is PID second one
+  is parent id. If even kill cannot kill then forcefull terminate "kill -9 PID"
+- What is Package management in linux ? yum install ; yum list installed ; yum remove -y
+- What is Service management in linux ?
+- Install nginx "sudo amazon-linux-extras install nginx1 -y" ---> Package installing
+- "systemctl start nginx" ---> This how to make a package into a service
+- "systemctl status nginx"---> To know if it is running or not (or) we can also check with process "ps -ef |
+  grep nginx"
+- "systemctl stop nginx"---> To stop the service
+- "systemctl enable nginx"---> Automatically services will run
+- "systemctl disable nginx" ---> Will disable nginx
+- What is Network managment in linux ? netstat -lntp
+- What are the general trouble shooting process you do ?
+- How to give admin access (or) any other access to linux users ? Example two types of users. Linux admin
+  team ---> Full access ; DevOps team ---> Limited sudo access
+- Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers", It is not recommended
+  to open this file because it is crucial so linux has given one command to open then file safely that is
+  "visudo"
+- Ramesh give Admin full access, under wheelgroup and enter %admin ALL=(ALL) ALL
+- Suresh limited access ---> %devops ALL=(ALL) /usr/bin/yum,/usr/bin/systemctl
+- For ramesh we have given full admin access but for suresh we can give only few limited access like "yum"
+  command(To know where this command is installed "which yum" (or) "which systemctl" command then open
+  "visudo" under the %wheel group add this line for suresh "%devops ALL=(ALL)
+  /usr/bin/yum,/usr/bin/systemctl" So this way we can give limited access
+- Everytime opening "visudo" is also a risky, So linux has given one location ---> vim /etc/sudoers.d
+- vim /etc/sudoers.d/DevOps(created folder) ---> %devops ALL=(ALL) /usr/bin/yum,/usr/bin/systemctl
+- vim /etc/sudoers.d/Admin(created folder) ---> %admin ALL=(ALL) ALL
+- What is 3Tier architecture ?
+
+
+- In previous session how do we connected to servers in gitbash ? Then how putty will connect ?
+- In gitbash we call Privatekey as ".pem" but in putty we call it as ".ppk" (Putty privatekey)
+- How to create this putty private key (.ppk) ? Load .pem file in puttygen save with .ppk extension
+- Open putty --> connection ---> ssh ---> auth ---> credentials ---> load your saved .ppk file
+- Connection ---> data ---> username (ec2-user) ---> then go to session and save (Important)
+- Create a server in aws and take the IP and paste it in putty (Hostname) click on load to connect.
+- To change the font open putty --> appearence --> change and then save to make effect in superputty.
+- From where the html files will load in nginx ? "/usr/share/nginx/html"
+- How to keep sample html website from the internet ? First remove html folder then keep yours.
+- What is the Linux file system structure ?
+- When putty stucks (or) unable to enter any command then open putty first load your session then go to
+  connection ---> Give 30 in seconds then go to session & save, generally we have value 0 you need to give
+  any value like 30, that means every 30 seconds connection will be alive, you can give max 300
+- What is Symlink and Hardlink ? and what is Inode ?
+- How to create a symlink for a file ? "ln -s /home/ec2-user/hello /tmp/hello-soft"
+- How to create a hardlink for a file ? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will
+  become hardlink.
+- We use nginx as front-end servers because it can handle high traffic, it is often used as a reverse proxy,
+  we used nginx only in all sessions.
+- IIS is only used for windows based infrastructure.
+- We have "winscp" for file transfer, it is a mini windows for linux server 
+- Generally frontend servers called as http servers open port No:80,hosts html, java based applications.
+- Backend is also http servers but port No:8080, hosts like tomcat,jboss,.net,python etc.
+- These frontend and back will connect through API's
 
 
