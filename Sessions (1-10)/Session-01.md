@@ -1,5 +1,5 @@
 ### What is computer ?
-Laptop, Mobile, Phone, Refrigerator, Washing machine etc. We can call these also a computer because a computer has some characterstics like CPU, RAM, STORAGE etc. When we connect these devices to Internet (WiFi) an IPaddress will be created to operate the computer (or) to compute with in the local and worldwide from anywhere in the world.
+Laptop, Mobile, Refrigerator, Washing machine etc. We can call these also a computer because a computer has some characterstics like CPU, RAM, STORAGE etc. When we connect these devices to Internet (WiFi) an IPaddress will be created to operate the computer (or) to compute with in the local and worldwide from anywhere in the world.
 
 ### Below is the example of Usecases
 - www.facebook.com ---> Is a Server, Based on the purpose like below.
