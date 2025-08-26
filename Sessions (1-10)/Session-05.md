@@ -56,7 +56,7 @@ When putty stucks (or) unable to enter any command then open putty first load yo
 to give any value like 30, that means every 30 seconds connection will be alive, you can give maximum 300
 
 ### Symlink and hardlink (1:01:31)
-Inode is the representation of file and folder inside the memory (It is a number), So if you create a file and try ls -i then there is pointer with some number that is nothing file location, We dont have idea where that location is ? That is handled by kernel.
+Inode is the representation of file and folder inside the memory (It is a number), So if you create a file and try ls -li then there is pointer with some number that is nothing file location, We dont have idea where that location is ? That is handled by kernel.
 
 Symlink ---> Is nothing but a shortcut which targets the actual location, In the same way we 
 can also create a shortcut for a file by "ln -s <source_where_is_your_file> <destination_path>"  
