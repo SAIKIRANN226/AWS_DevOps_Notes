@@ -54,14 +54,14 @@ Every developer writes code in VS and pushes to the github for that we have two 
   in c/users/saikiran(user) ---> In this create a file with a name of "config" with no extension 
   and then paste the below content (or) you can search in google like "git ssh config syntax"
 
-Host github.com
-  HostName github.com
-  User git
-  PreferredAuthentication publickey
-  IdentityFile ~/.ssh/daws-76s -----------------> Private key location it can be anywhere it 
-                                                  is not mandatory to be in the 
-                                                  ~homefolder(~ ---> home folder)but need to
-                                                  to give the location correctly
+        Host github.com
+          HostName github.com
+          User git
+          PreferredAuthentication publickey
+          IdentityFile ~/.ssh/daws-76s -----------------> Private key location it can be anywhere it 
+                                                          is not mandatory to be in the 
+                                                          ~homefolder(~ ---> home folder)but need to
+                                                          to give the location correctly
 
 ### When you create a new repo in github
 To clone any repo we have "HTTPS and SSH"
