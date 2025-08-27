@@ -158,3 +158,35 @@
 - Generally frontend servers called as http servers open port No:80,hosts html, java based applications.
 - Backend is also http servers but port No:8080, hosts like tomcat,jboss,.net,python etc.
 - These frontend and back will connect through API's
+- What is the difference between PublicIP vs PrivateIP ? How the Modem will provide PrivateIPs ?
+- What is "ipconfig" "what is my ip" "what is your private ip"
+- What is NAT (Network address translation) ?
+- What is Fibre exchange points ?
+- What is Enterprise archive file ? Servlets (DB) ; JSPS (UI)
+- What Monolithic vs Microservices ?
+- Frontend (80)---> HTML, JS, AngularJS, Java applications.
+- Backend (8080) ---> Databases like mysql, postgre etc.
+- To connect from one server to another server we use "telnet port" Usage ---> telnet 3.34.345.0 8080
+- If telnet is not installed ---> sudo yum install telnet -y ; If connection is refused, check wether any
+  process or application is working on that particular port by using "netstat -lntp" so change inbound.
+- If you type "ipconfig" you will get all details, IPv4 is my PrivateIP, IP under default gateway is modem.
+  IPv4 are exhausting and we are upgrading to IPv6 till then we can use IPv4. We have 2power32 IPaddresses,
+  If we allocate all these we get problems so they brought "NAT" Network Address Translation, However Latency
+  will become slow is nothing but time to respond.
+- What does Security groups (Firewalls) do ?
+- Frontend (Web) and Backend (Api) are Stateless ; DB is Statefull.
+- Web and Api will work only when DB is in existence. Example of a CRUD over facebook
+- We are using webservers as nginx on http protocol only, it can also use https
+- Installing packages using yum and dnf, dnf is preferred while configuring project manually because it
+  consumes less memory.
+- In the server where does the nginx configuration is saved ? "cd /etc/nginx/" vim nginx.conf
+- Where does the default content will be saved in the nginx server ? "cd usr/share/nginx/html/"
+- What is Forward proxy and Reverse proxy ?
+- Reverse proxy is mainly used for loadbalancers and server anonyms.
+- Where is the reverse proxy configuration ? "vim /etc/nginx/default.d/roboshop.conf"
+- What are famous HTTP status codes ?
+- Configure the Roboshop project manually ?
+- What is cache server ? Example of downloaded a movie by one user. Redis component is the cache server.
+- What is Domain name system (DNS) and how do you register your domain ?
+- Steps to install any application in linux ?
+- What is Synchronous vs Asynchronous ?
