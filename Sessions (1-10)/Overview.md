@@ -90,13 +90,13 @@
 - What is Package management in linux ? yum install ; yum list installed ; yum remove -y
 - What is Service management in linux ?
 - Install nginx "sudo amazon-linux-extras install nginx1 -y" ---> Package installing
-- "systemctl start nginx" ---> This how to make a package into a service
-- "systemctl status nginx"---> To know if it is running or not (or) we can also check with process "ps -ef |
-  grep nginx"
-- "systemctl stop nginx"---> To stop the service
-- "systemctl enable nginx"---> Automatically services will run
-- "systemctl disable nginx" ---> Will disable nginx
-- What is Network managment in linux ? netstat -lntp
+- systemctl start nginx ---> This is how to make a package into service.
+- systemctl status nginx ---> To know if it is running or not (or) we can also check with process "ps -ef |
+  grep -i nginx"
+- systemctl stop nginx ---> To stop the service.
+- systemctl enable nginx ---> Automatically services will run.
+- systemctl disable nginx ---> Will disable nginx.
+- What is Network managment in linux ? How do you check port and process running ? netstat -lntp
 - What are the general trouble shooting process you do ?
 - How to give admin access (or) any other access to linux users ? Example two types of users. Linux admin
   team ---> Full access ; DevOps team ---> Limited sudo access
