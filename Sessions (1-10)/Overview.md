@@ -83,42 +83,37 @@
   login using this command "ssh -i raheem raheem@IP" Here first raheem is his Privatekey and second reheem is
   Username.
 - The process of creating users and groups is done by linux admin team but just know how to create users
-  and groups and adding users into groups etc.
+  and groups, adding users into groups etc.
 - What is Process management in linux ? "ps -ef | grep jenkins"
-- When process struck kill the process ---> "kill PID" do not kill parent process id 1st is PID second one
-  is parent id. If even kill cannot kill then forcefull terminate "kill -9 PID"
+- When process stuck kill the process ---> "kill PID" do not kill parent process id 1st is PID second one
+  is parent id. If even kill cannot kill, then forcefull terminate "kill -9 PID"
 - What is Package management in linux ? yum install ; yum list installed ; yum remove -y
 - What is Service management in linux ?
-- Install nginx "sudo amazon-linux-extras install nginx1 -y" ---> Package installing
 - systemctl start nginx ---> This is how to make a package into service.
 - systemctl status nginx ---> To know if it is running or not (or) we can also check with process "ps -ef |
   grep -i nginx"
 - systemctl stop nginx ---> To stop the service.
 - systemctl enable nginx ---> Automatically services will run.
 - systemctl disable nginx ---> Will disable nginx.
-- What is Network managment in linux ? How do you check port and process running ? netstat -lntp
+- What is Network managment in linux ? How do you check port & process running ? netstat -lntp
 - What are the general trouble shooting process you do ?
 - How to give admin access (or) any other access to linux users ? Example two types of users. Linux admin
-  team ---> Full access ; DevOps team ---> Limited sudo access
-- Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers", It is not recommended
+  team ---> Full admin access ; DevOps team ---> Limited sudo access
+- Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers" It is not recommended
   to open this file because it is crucial so linux has given one command to open then file safely that is
   "visudo"
-- Ramesh give Admin full access, under wheelgroup and enter %admin ALL=(ALL) ALL
+- Ramesh ---> Give Admin full access, under wheelgroup and enter %admin ALL=(ALL) ALL
 - Suresh limited access ---> %devops ALL=(ALL) /usr/bin/yum,/usr/bin/systemctl
 - For ramesh we have given full admin access but for suresh we can give only few limited access like "yum"
-  command(To know where this command is installed "which yum" (or) "which systemctl" command then open
-  "visudo" under the %wheel group add this line for suresh "%devops ALL=(ALL)
-  /usr/bin/yum,/usr/bin/systemctl" So this way we can give limited access
-- Everytime opening "visudo" is also a risky, So linux has given one location ---> vim /etc/sudoers.d
-- vim /etc/sudoers.d/DevOps(created folder) ---> %devops ALL=(ALL) /usr/bin/yum,/usr/bin/systemctl
-- vim /etc/sudoers.d/Admin(created folder) ---> %admin ALL=(ALL) ALL
+  command (To know where this command is installed "which yum" (or) "which systemctl"
+- Everytime opening "visudo" is also a risky. Linux has given one location "vim /etc/sudoers.d"
+- vim /etc/sudoers.d/DevOps (Created folder) --> %devops ALL=(ALL) /usr/bin/yum,/usr/bin/systemctl
+- vim /etc/sudoers.d/Admin (Created folder) --> %admin ALL=(ALL) ALL
 - What is 3Tier architecture ?
-
-
 - In previous session how do we connected to servers in gitbash ? Then how putty will connect ?
 - In gitbash we call Privatekey as ".pem" but in putty we call it as ".ppk" (Putty privatekey)
 - How to create this putty private key (.ppk) ? Load .pem file in puttygen save with .ppk extension
-- Open putty --> connection --> ssh ---> auth --> credentials ---> load your saved .ppk file
+- Open putty --> connection --> ssh --> auth --> credentials --> load your saved .ppk file
 - Connection --> data --> username (ec2-user) --> then go to session and save (Important)
 - Create a server in aws and take the IP and paste it in putty (Hostname) click on load to connect.
 - To change the font open putty --> appearence --> change and then save to make effect in superputty.
@@ -127,47 +122,48 @@
 - What is the Linux file system structure ?
 - When putty stucks (or) unable to enter any command then open putty first load your session then go to
   connection ---> Give 30 in seconds then go to session & save, generally we have value 0 you need to give
-  any value like 30, that means every 30 seconds connection will be alive, you can give max 300
-- What is Symlink and Hardlink ? and what is Inode ?
+  any value like 30, that means every 30 seconds connection will be alive, you can give max 300.
+- What is Symlink and Hardlink and what is Inode ?
 - How to create a symlink for a file ? "ln -s /home/ec2-user/hello /tmp/hello-soft"
 - How to create a hardlink for a file ? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will
   become hardlink.
 - We use nginx as front-end servers because it can handle high traffic, it is often used as a reverse proxy,
   we used nginx only in all sessions.
 - IIS is only used for windows based infrastructure.
-- We have "winscp" for file transfer, it is a mini windows for linux server 
-- Generally frontend servers called as http servers open port No:80,hosts html, java based applications.
-- Backend is also http servers but port No:8080, hosts like tomcat,jboss,.net,python etc.
+- We have "winscp" for file transfer, it is a mini windows for linux server.
+- Generally frontend servers called as http servers port 80. Hosts html, java based applications.
+- Backend is also http servers but port 8080. Hosts like tomcat, jboss, .net, python etc.
 - These frontend and back will connect through API's
-- What is the difference between PublicIP vs PrivateIP ? How the Modem will provide PrivateIPs ?
-- What is "ipconfig" "what is my ip" "what is your private ip"
+- What is the difference between PublicIP vs PrivateIP ? How the Modem will provide PrivateIPs to the
+  internal systems (or) to laptops ?
+- What is ipconfig, what is my ip, what is your private ip
 - What is NAT (Network address translation) ?
 - What is Fibre exchange points ?
 - What is Enterprise archive file ? Servlets (DB) ; JSPS (UI)
 - What Monolithic vs Microservices ?
 - Frontend (80)---> HTML, JS, AngularJS, Java applications.
 - Backend (8080) ---> Databases like mysql, postgre etc.
-- To connect from one server to another server we use "telnet port" Usage ---> telnet 3.34.345.0 8080
+- To connect from one server to another server we use "telnet port" Usage is "telnet 3.34.345.0 8080"
 - If telnet is not installed ---> sudo yum install telnet -y ; If connection is refused, check wether any
-  process or application is working on that particular port by using "netstat -lntp" so change inbound.
+  process or application is working on that particular port by using "netstat -lntp" then change inbound.
 - If you type "ipconfig" you will get all details, IPv4 is my PrivateIP, IP under default gateway is modem.
   IPv4 are exhausting and we are upgrading to IPv6 till then we can use IPv4. We have 2power32 IPaddresses,
-  If we allocate all these we get problems so they brought "NAT" Network Address Translation, However Latency
-  will become slow is nothing but time to respond.
+  If we allocate all these, we get problems. So they brought "NAT" Network Address Translation, However
+  latency will become slow is nothing but time to respond.
 - What does Security groups (Firewalls) do ?
 - Frontend (Web) and Backend (Api) are Stateless ; DB is Statefull.
-- Web and Api will work only when DB is in existence. Example of a CRUD over facebook
-- We are using webservers as nginx on http protocol only, it can also use https
-- Installing packages using yum and dnf, dnf is preferred while configuring project manually because it
+- Web and Api will work only when DB is in existence. Example of a CRUD over facebook.
+- We are using webservers as nginx on http protocol only, it can also use https.
+- Installing packages using yum and dnf. But dnf is preferred while configuring project manually because it
   consumes less memory.
 - In the server where does the nginx configuration is saved ? "cd /etc/nginx/" vim nginx.conf
-- Where does the default content will be saved in the nginx server ? "cd usr/share/nginx/html/"
+- Where does the default content of the nginx will be saved ? "cd usr/share/nginx/html/"
 - What is Forward proxy and Reverse proxy ?
-- Reverse proxy is mainly used for loadbalancers and server anonyms.
-- Where is the reverse proxy configuration ? "vim /etc/nginx/default.d/roboshop.conf"
-- What are famous HTTP status codes ?
+- Reverse proxy is mainly used for loadbalancers and server anonymous.
+- Where will be the reverse proxy configuration ? "vim /etc/nginx/default.d/roboshop.conf"
+- What are the famous HTTP status codes ?
 - Configure the Roboshop project manually ?
-- What is cache server ? Example of downloaded a movie by one user. Redis component is the cache server.
+- What is cache server ? Example of downloaded movie by 1 user. Redis is the cache server.
 - What is Domain name system (DNS) and how do you register your domain ?
 - Steps to install any application in linux ?
-- What is Synchronous vs Asynchronous ?
+- What is Synchronous vs Asynchronous networking ?
