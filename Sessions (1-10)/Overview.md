@@ -166,4 +166,4 @@
 - What is cache server ? Example of downloaded movie by 1 user. Redis is the cache server.
 - What is Domain name system (DNS) and how do you register your domain ?
 - Steps to install any application in linux ?
-- What is Synchronous vs Asynchronous networking ?
+- What is Synchronous vs Asynchronous in networking ?
