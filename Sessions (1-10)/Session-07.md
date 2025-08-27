@@ -45,11 +45,11 @@ not give access to their DB or API to know, So in protect their applications the
 to secure their code, similarly in roboshop project also nginx is used as reverse proxy.
 
 ### Famous HTTP status codes
-100 To 199 ---> Informational responses
-200 To 299 ---> Success 
-300 To 399 ---> Redirect 
-400 To 499 ---> Client (We) side errors (Purely client side error) like if we dont give proper input.
-500 To 599 ---> Server side errors (Purely project side error) 
+- 100 To 199 ---> Informational responses
+- 200 To 299 ---> Success 
+- 300 To 399 ---> Redirect 
+- 400 To 499 ---> Client (We) side errors (Purely client side error) like if we dont give proper input.
+- 500 To 599 ---> Server side errors (Purely project side error) 
 
 ### Roboshop configuration
 Better to follow below sequences (or) you can follow according to the document
