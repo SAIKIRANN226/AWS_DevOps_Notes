@@ -67,19 +67,18 @@ Everytime opening "visudo" is also a risky, So linux has given one location --->
 - vim /etc/sudoers.d/DevOps(created folder) ---> %devops  ALL=(ALL)  /usr/bin/yum,/usr/bin/systemctl
 - vim /etc/sudoers.d/Admin(created folder) ---> %admin ALL=(ALL)   ALL
 
-3Tier architecture(52:33)
---------------------------
-Load balancer
-     |   
-     *
-Frontend servers :- Apache,nginx,IIS etc. Applications we deploy in frontend is 
-                    HTML,JS,reactJS,AngularJS etc.
-Backend servers  :- Jboss,tomcat,weblogic etc. Applications we deploy in backend is 
-                    Java,.net,python etc.
-Database servers :- sql,mysql,nosql,redis etc.
+### 3Tier architecture (52:33)
+      Load balancer
+           |   
+           *
+      Frontend servers :- Apache,nginx,IIS etc. Applications we deploy in frontend is 
+                          HTML,JS,reactJS,AngularJS etc.
+      Backend servers  :- Jboss,tomcat,weblogic etc. Applications we deploy in backend is 
+                          Java,.net,python etc.
+      Database servers :- sql,mysql,nosql,redis etc.
 
 ### Points to remember
-1. Why adding in the wheel group only ? Because wheel group has admin access
-2. To change password authentication to yes "vim /etc/ssh/sshd_config" make sure to restart
-   "systemctl restart sshd"
-3. https://github.com/daws-76s/roboshop-documentation ---> 3-Tier architecture diagram
+- Why adding in the wheel group only ? Because wheel group has admin access
+- To change password authentication to yes "vim /etc/ssh/sshd_config" make sure to restart
+  "systemctl restart sshd"
+- https://github.com/daws-76s/roboshop-documentation ---> 3-Tier architecture diagram
