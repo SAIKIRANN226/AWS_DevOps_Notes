@@ -1,108 +1,89 @@
-- What is Computer and what characterstics does computer hold and What are the use cases of Server, TV,
-  Phone etc. Linux is the servers world.
+- What is Computer & what characterstics does computer hold ? What are the use cases of Server, TV, Phone
+  etc. Linux is the servers world.
 - What is Client-Server Architecture ? Transferring media from Phone to Laptop (Viceversa)
 - What is Operating systems like Windows and what does it do ?
-- What is the difference between Operating systems Linux and Windows ?
+- What is the difference between Linux and Windows Operating systems ?
 - How to connect to Linux servers and what is the another name of Server ?
 - What are the Authentication mechanisms to connect to linux server ?
-- How to generate (or) create a link between "LOCK & KEY" using command ? ssh-keygen -f <file_name>
-- How to enable extensions in control panel ? File explorer, view, unhide extenions for known files.
+- Generate (or) create a link between "LOCK & KEY" ? ssh-keygen -f <file_name>
+- Enable extensions in control panel ? File explorer, view, unhide extenions for known files.
 - What is the syntax of Public-key ? ssh-rsa {code} Laptop-name
 - What is the syntax of Private-key ? BEGIN OPENSSH PRIVATE KEY {code} END OPENSSH PRIVATE KEY
-- Now create a server in aws and connect to that server using Public and Private keys.
+- Now create a server in aws and connect to that server using Public & Private keys.
 - Import keypair in aws by going to --> Network & security options --> Keypairs --> Actions and Import
   key pair (Publickey) without any gaps.
 - Create a Security group (Firewall) for inbound. All traffic 0.0.0.0/0 (Representation of internet)
-- Launch instance with keypairs and take Amazon Linux 2AMI (HVM)
-- ssh -i saikiran.pem ec2-user@123.23.234.5 ---> In pwd location.
+- Launch instance with keypairs and take Amazon Linux 2AMI (HVM). Make sure the key pair name while you are
+  creating server should match the key pair in Network & Security (Key Pairs).
+- ssh -i saikiran.pem ec2-user@52.23.206.196 ---> In pwd location.
 - Amazon Linux / Amazon Linux 2 ---> Default user name is "ec2-user"
 - Ubuntu ---> Default user name is "ubuntu"
 - Centos ---> Default user name is "centos"
 - Debian ---> Default user name is "admin (or) debian"
 - RHEL ---> Default user name is "ec2-user (or) root"
-- Make sure the key pair name while you are launching instance should match the key pair in Network &
-  Security (Key Pairs).
 - Cheapest region is "us-east-1" ---> Latency is somewhat slow which is negligible.
-- What is Absolute path and Relative path ?
+- What is Absolute path and Relative path ? An absolute path is the complete path to a file or directory
+  starting from the root. Relative path is relative to current directory.
 - HTTP --> 80 Hypertext Transfer Protocol (Unencrypted web traffic)
 - HTTPS --> 443 Hypertext Transfer Protocol Secure (Encrypted web traffic)
 - SSH --> 22 Secure Shell (Secure remote login and file transfer)
 - SMTP --> 25 Simple Mail Transfer Protocol (Sending email)
 - DNS --> 53 Domain Name System (Resolving domain names to IP addresses)
-- Gitbash ---> Is an ssh client and also a mini linux
-- Protocol ---> We have different protocols like https, http etc.
-- Ec2 server ---> SSH server
-- "$" ---> Normal user
-- "#" ---> Root user (sudo su -) to exit from root just "exit"
-- "pwd" ---> Present working directory you will be launched in /c/users/saikiran
-- "uname" ---> Will tell the kernel name
+- Gitbash ---> Is an ssh client and also a mini linux.
+- Protocol ---> We have different protocols like https, http, ssh, smtp, dns etc.
+- "$" ---> Normal user "#" ---> Root user (sudo su -) to exit from root just "exit"
+- "pwd" ---> Present working directory you will be directly launched in /c/users/saikiran
 - "command-name" --help ---> Get help from that particular command
 - What are the basic linux commands ?
 - What does CRUD do in software industry. Example of facebook
-- Updating file with content commands and how to save or read the file ?
+- Updating file with content commands and how to save or read the file ? Enter & ctrl+D
 - Removing file and folder commands.
-- Copy command in linux and how to copy the files ?
-- Move command in linux and how to move the files ? With in the same folder if you use mv command, it
+- Copy command in linux & how to copy the files ?
+- Move command in linux & how to move the files ? If you use mv command with in the same folder, it
   works as a rename also.
 - Grep command in Linux is a case sensitive. Linux will treat DevOps and DEVOPS as different. So to make this
   case insensitive (i) use "grep -i" ---> ps -ef | grep -i nginx
 - Piping symbol ? | ---> One command output will become the input to the another command.
 - What is wget and curl commands in linux and what is the difference ?
-- What is cut and awk commands in linux ? We use cut to quickly extract specific columns or character
-  ranges from text using delimiters. We use awk when we need more advanced processing like filtering rows,
-  formatting output.
+- What is cut & awk commands in linux ? We use cut to quickly extract what we require from the text using
+  delimiters. We use awk when we need more advanced processing like filtering rows, formatting output.
 - What are Head and Tail commands in linux ? Head is used to view the first few lines of a file, while tail
-  is used to view the last few lines. Both are useful for quickly inspecting logs or large files and tail -f
+  is used to view the last few lines. Both are useful for quickly inspecting logs or large files & tail -f
   allows real-time monitoring.
-- What is VIM in linux ? Is used for creating files and editing files.
+- What is VIM in linux ? Is used for creating & editing files.
 - Different types of search in a file in server ? :/, :?, shift+G, gg, n
-- How to find and replace something in the server ? ":%s/sbin/SBIN/g" --> %s means all occurances.
-- Permissions in Linux ? and what is the file notation we have in server ? and what are the permissions
-  we have ? R(4), W(2), X(1) (Read, Write, Execution). Execution access is used to run the scripts and
-  commands. In linux when you create a user a group with same name will be created.
+- How to find & replace something in the server ? :%s/sbin/SBIN/g --> %s means all occurances.
+- Permissions in Linux ? What is the file notation we have in server ? What are the permissions we have ?
+  R(4), W(2), X(1) (Read, Write, Execution). Execution access is used to run the scripts & commands.
+- In linux when you create a user a group with same name will be created.
 - To give execution permission to user then "chmod u+x"
 - Only for owner then "chmod g-rw " removing read, write to group
 - To give read access to all users to all groups then "chmod ugo+r"
-- To remove write access to a group and inside folder also then "chmod g-w -R"
-- User management like creating users and giving access to the servers in two methods like Password
-  authentication mechanism ; SSH access authentication mechanism.
-- Create a user ---> "sudo useradd saikiran"
-- Create password for saikiran ---> "passwd saikiran" and all user entries in "cat /etc/passwd"
-- First number and second number is the groupID and third number is othergroupsID (or) to get clear details
-  just "id ramesh"
-- To get groups ---> getent group
-- If this ramesh wants to connect to the server using IPaddress we need to change a configuration by going
-  to "vim /etc/ssh/sshd_config" in gitbash only, Here by default linux is disabled for login through password
-  authentication no, So make this yes, then "systemctl restart sshd". Must restart the service then only user
-  will get access.
-- sshd -t ---> Will know any mistakes have done in the previous command, checks syntax of file
+- To remove write access to a group & inside folder also then "chmod g-w -R"
+- User management like creating users and giving access to the servers in two methods.
+- Password authentication mechanism & SSH access authentication mechanism.
+- Create a user & password ---> "sudo useradd saikiran" & "passwd saikiran" and all user entries will be in
+  "cat /etc/passwd" location. "sudo userdel <username>" ---> To delete user
+- "id ramesh" ---> 1st (uid) ; 2nd (gid) ; 3rd (other groups id). To get groups --> getent group
+- If this ramesh wants to connect to the server using IPaddress, we need to change a configuration by going
+  to "vim /etc/ssh/sshd_config" in gitbash only. Here by default linux is disabled for login through password
+  authentication no, So make this yes, then "systemctl restart sshd".
+- sshd -t ---> Will know any mistakes have done in the previous command, checks syntax of file.
 - So now how will ramesh login (Connect) to the server ? ---> "ssh ramesh@IP"
-- Now create raheem user and give SSH authentication (or) using private key ?
-- I will ask the raheem to give his Public key through mail
-- cd /home/raheem/ enter this command in gitbash after connecting to the server, here we will create folder
-  "mkdir .ssh" and then "chmod -R 700 .ssh" here only User (raheem) has RWX (7) access and others have zero
-  access & also make the .ssh folder to raheem ownership by "chown -R raheem:raheem(group) .ssh" now create
-  a file inside .ssh folder "vim authorized_key" paste the raheem public key here, ask him to create keypair
-  for this. Then change modification to "chmod 400 authorized_key" so that raheem can only read, he cant write
-  because it is better to put read only to protect the file.
-- 7 --> RWX , 0 --> group , 0 --> others ===> "chmod -R 700 .ssh" to .ssh folder
+- Now raheem joined and how to give SSH authentication (or) using Private key ? sudo useradd raheem
+- I will ask the raheem to give his Public key through mail.
+- sudo cd /home/raheem/ enter this command in gitbash after connecting to the server, here we will create
+  folder "mkdir .ssh" and then "chmod -R 700 .ssh" also make the .ssh folder to raheem ownership by
+  "chown -R raheem:raheem(group) .ssh" now create a file inside .ssh folder "vim authorized_key" paste the
+  raheem public key here, ask him to create keypair for this. Then change modification to "chmod 400
+  authorized_key" so that raheem can only read, he cant write because it is better to put read only to
+  protect the file.
+- 7 --> user (RWX) , 0 --> group , 0 --> others ===> "chmod -R 700 .ssh"
 - Now we will tell raheem that your username is configured and we will give him the IPaddress then raheem will
   login using this command "ssh -i raheem raheem@IP" Here first raheem is his Privatekey and second reheem is
   Username.
-- Creating group and adding users in that group ? groupadd DevOps
-- Add ramesh to the DevOps group by "usermod -g DevOps ramesh" Note:- Every user will have a Primary group and
-  Secondary group
-- chown ---> Even file owner also cannot run this command, only sudo user can change the ownership, so how
-  to change the ownership, below are the commands "chown : " ---> For file "chown : -R " ---> For folder
-- We will create testing group(Temperory) and give ramesh access to testing group by "usermod -gG testing
-  ramesh" a = appending ; g = Primary group ; G = Secondary group (Used for giving temperory access)
-- After his work is done then remove ramesh by "gpasswd -d testing ramesh" deletes ramesh from testing group,
-  if ramesh exit from the company then make sure he logout from the server and delete from the group
-  "groupdel ramesh" ---> Deleting the group
-- useradd --help
-- Whole process is done manually, we can also do this by automation using shellscript
-- This all process may be done by devops but generally we have dedicated linux admin they will take care of
-  this user creations etc.
+- The process of creating users and groups is done by linux admin team but just know how to create users
+  and groups and adding users into groups etc.
 - What is Process management in linux ? "ps -ef | grep jenkins"
 - When process struck kill the process ---> "kill PID" do not kill parent process id 1st is PID second one
   is parent id. If even kill cannot kill then forcefull terminate "kill -9 PID"
