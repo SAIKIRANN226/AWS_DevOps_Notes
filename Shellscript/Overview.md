@@ -1,6 +1,5 @@
 ### Session-12
-- Why we use SSH based authentication to connect to github accounts ? and ~ ---> This indicate that you
-  are directly landing in users directory "/c/Users/saikiran" in gitbash.
+- Why we use SSH based authentication to connect to github accounts ? and ~ ---> This indicate that you are directly landing in users directory "/c/Users/saikiran" in gitbash.
 - What is the Port number of SSH ? 22 its a secure connection.
 - What is the Algorithm for connecting to github accounts ?
 - Command to generate a Key-Pair ? "ssh-keygen -f saikiran"
@@ -11,15 +10,15 @@
   come the location is same ? because when you enter command "pwd" it will show your current directory when
   you are in "~" location.
 - Which one should we prefer while cloning the repo HTTPS (or) SSH ?
-- HTTPS is for Username and Password, SSH is for private key based authentication. But prefer HTTPS while
-  clonning any repository from github.
-- Github is nothing but a folder in internet with tracking capabilities.
+- HTTPS is for Username & Password, while SSH is used for Private key based authentication. But prefer HTTPS
+  while cloning any repository from github.
+- Github is nothing but just a folder in internet with tracking capabilities.
 - What is Shibang in Shellscript (or) Bashscript ? #!/bin/bash
-- If you want git in Visual Studio only, then go to view ---> Terminal ---> Select gitbash
-- If you enter wrong URL while pushing to github then we can set using the below command
+- If you want git in Visual Studio only, then go to view ---> Terminal ---> Select gitbash.
+- If you enter wrong URL while pushing to the github, then we can set using the below command
   "git remote set-url origin <url_of_the_repository>"
-- If git is not configured in the github account yet, still developers can start writing their code
-  in VS until git is ready and later they can push it to the git.
+- If git is not configured in the github account yet, still developers can start writing their code in VS
+  until git is ready and later they can push it to the git.
 - A normal folder will become git, when you initialize by using command "git init"
 - How do you capture the output of any linux command into a variable ? using command substitution like this
   DATE=$(date) ; ID=$(id -u) etc.
