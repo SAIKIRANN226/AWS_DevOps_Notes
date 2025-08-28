@@ -123,47 +123,39 @@
 - When putty stucks (or) unable to enter any command then open putty first load your session then go to
   connection ---> Give 30 in seconds then go to session & save, generally we have value 0 you need to give
   any value like 30, that means every 30 seconds connection will be alive, you can give max 300.
-- What is Symlink and Hardlink and what is Inode ?
-- How to create a symlink for a file ? "ln -s /home/ec2-user/hello /tmp/hello-soft"
-- How to create a hardlink for a file ? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will
-  become hardlink.
-- We use nginx as front-end servers because it can handle high traffic, it is often used as a reverse proxy,
-  we used nginx only in all sessions.
+- What is Symlink & Hardlink and what is Inode ?
+- How to create a Symlink for a file ? "ln -s /home/ec2-user/hello /tmp/hello-soft" We can give obsolute path or relative path also.
+- How to create a Hardlink for a file ? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will become hardlink.
+- We use nginx as front-end servers because it can handle high traffic, it is used as reverse proxy.
 - IIS is only used for windows based infrastructure.
-- We have "winscp" for file transfer, it is a mini windows for linux server.
-- Generally frontend servers called as http servers port 80. Hosts html, java based applications.
-- Backend is also http servers but port 8080. Hosts like tomcat, jboss, .net, python etc.
-- These frontend and back will connect through API's
-- What is the difference between PublicIP vs PrivateIP ? How the Modem will provide PrivateIPs to the
-  internal systems (or) to laptops ?
-- What is ipconfig, what is my ip, what is your private ip
+- We have "winscp" for file transfer, it is a mini windows in linux server.
+- Generally frontend servers called as HTTP servers port 80. Hosts html, java based applications.
+- Backend is also HTTP servers but port 8080. Hosts like tomcat, jboss, .net, python etc.
+- What is the difference between PublicIP vs PrivateIP ? How the Modem will provide PrivateIPs to the internal systems (or) to laptops ? Using NAT.
+- What is ipconfig, what is my ip, what is your private ip.
 - What is NAT (Network address translation) ?
 - What is Fibre exchange points ?
-- What is Enterprise archive file ? Servlets (DB) ; JSPS (UI)
-- What Monolithic vs Microservices ?
-- Frontend (80)---> HTML, JS, AngularJS, Java applications.
+- What is Enterprise archive file ? Servlets (DB) ; JSPS (UI) ---> Monolithic
+- What is Monolithic vs Microservices ? Monolithic means Single unified application, easy to start, hard to scale. Microservices will Split into independent services, scalable and flexible, but more complex.
+- Frontend (80) ---> HTML, JS, AngularJS, Java applications.
 - Backend (8080) ---> Databases like mysql, postgre etc.
-- To connect from one server to another server we use "telnet port" Usage is "telnet 3.34.345.0 8080"
-- If telnet is not installed ---> sudo yum install telnet -y ; If connection is refused, check wether any
-  process or application is working on that particular port by using "netstat -lntp" then change inbound.
-- If you type "ipconfig" you will get all details, IPv4 is my PrivateIP, IP under default gateway is modem.
-  IPv4 are exhausting and we are upgrading to IPv6 till then we can use IPv4. We have 2power32 IPaddresses,
-  If we allocate all these, we get problems. So they brought "NAT" Network Address Translation, However
-  latency will become slow is nothing but time to respond.
+- To connect from one server to another server "telnet 172.31.28.69 8080"
+- If telnet is not installed ---> sudo yum install telnet -y ; If connection is refused, check wether any process or application is working on that particular port by using "netstat -lntp" then change inbound.
+- To check if a command is installed or not ? Use "which" usage is "which telnet" "which yum" etc.
+- If you type "ipconfig" you will get all details, IPv4 is my PrivateIP, IP under default gateway is modem. IPv4 are exhausting and we are upgrading to IPv6 till then we can use IPv4. We have 2power32 IPaddresses. If we allocate all these, we get problems. So they brought "NAT" Network Address Translation. However latency will be slow that is nothing but time to respond will be somewhat slow.
 - What does Security groups (Firewalls) do ?
-- Frontend (Web) and Backend (Api) are Stateless ; DB is Statefull.
-- Web and Api will work only when DB is in existence. Example of a CRUD over facebook.
-- We are using webservers as nginx on http protocol only, it can also use https.
-- Installing packages using yum and dnf. But dnf is preferred while configuring project manually because it
-  consumes less memory.
-- In the server where does the nginx configuration is saved ? "cd /etc/nginx/" vim nginx.conf
-- Where does the default content of the nginx will be saved ? "cd usr/share/nginx/html/"
+- Frontend (WEB) and Backend (API) are Stateless ; DB is Statefull.
+- WEB & API will work only when DB is in existence. Example of a CRUD over facebook.
+- We are using webservers as nginx on HTTP protocol only, it can also use HTTPS.
+- Installing packages using yum and dnf. But dnf is preferred while configuring project manually because it consumes less memory when compared to yum. Yum is used in automation like shellscripting.
+- Location of nginx configuration "cd /etc/nginx/nginx.conf"
+- Location of the default content of the nginx "cd usr/share/nginx/html/"
 - What is Forward proxy and Reverse proxy ?
-- Reverse proxy is mainly used for loadbalancers and server anonymous.
-- Where will be the reverse proxy configuration ? "vim /etc/nginx/default.d/roboshop.conf"
+- Reverse proxy is mainly used for Load balancers & Server anonymous.
+- Location of reverse proxy configuration "vim /etc/nginx/default.d/roboshop.conf"
 - What are the famous HTTP status codes ?
 - Configure the Roboshop project manually ?
 - What is cache server ? Example of downloaded movie by 1 user. Redis is the cache server.
 - What is Domain name system (DNS) and how do you register your domain ?
 - Steps to install any application in linux ?
-- What is Synchronous vs Asynchronous in networking ?
+- What is the difference between Synchronous & Asynchronous in networking ?
