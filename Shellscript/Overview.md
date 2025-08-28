@@ -42,7 +42,6 @@
 - Configure the Roboshop project using shellscript ?
 - What is SED in shellscript ? If i want permanent change (sed -i) & temperory change (sed -e) ?
 - Where this SED is used in shellscript ? It is used to search, find, replace, insert or delete text in a file without opening the file in a text editor.
-- How to check logs in shellscript ? "sudo less /var/log/messages"
 - Command to check for remote connections ? "netstat -lntp"
 - Shellscript is like keeping all individual linux commands in one file, instead of running one by one commands, which was done while configuring the project manually.
 - yum list installed git (or) yum list installed | grep <package_name>
