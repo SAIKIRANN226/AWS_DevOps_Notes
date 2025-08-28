@@ -35,7 +35,7 @@
 - You should not do any changes (or) adding new files in server terminal, come one step back like after going to home folder (cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal, here in terminal, if you get any errors (or) not working properly you can delete that folder and clone again from the github (NO problem).
 - Sudo dnf remove <package_name> -y (or) sudo yum remove <package_name> -y 
 - How do you handle the errors in shellscript ? Using a special variable called exit-status "$?"
-- What is the disadvantage in shellscript ? Even if shellscript faces any error, it wont stop, it will continue to run the script. It is our responsibility to check the errors by writing conditions & exit-status.
+- What is the disadvantage in shellscript ? Even if shellscript faces any error, it wont stop, it will continue to run the script. It is our responsibility to check the errors by writing conditions & exit status.
   
 ### Session-14 
 - Write a shellscript to install multiple packages using loop, like giving args outside the script ?
