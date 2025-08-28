@@ -49,14 +49,12 @@
 - Instead of giving &>> $LOGFILE everywhere, we can give "exec &>$LOGFILE" under logfile name.
 - What is the use of logs ? In shell scripting, logs are used to record what the script did, when it did it, and whether it succeeded or failed. They act like a black box recorder for your script — if something goes wrong, you can look back and see why.
 - To see full log file ---> sudo cat /var/log/messages
-- To see page by page ---> sudo less /var/log/syslog
+- To see page by page ---> sudo less /var/log/messages
 - To follow logs in real time (or) to see running logs ---> tail -f /var/log/messages
 
 ### Session-15
 - How do we set to exit automatically when shellscript faces any errors ? Does really "set -e" useful in exiting the shellscript when it faces error ? NO! why ?
 - How do you store logs in shellscript ? Instead of giving &>> $LOGFILE everywhere, we can give like below "exec &>$LOGFILE" under logfile name. See in redis.sh
-- Where to check the logs wether the remote connections are successfully connected (or) not ?
-- Command to check logs ---> "sudo less /var/log/messages"
 - unzip -o /tmp/web.zip ---> Here "o" is to overwrite, if you run the script multiple times.
 - mkdir -p /app ---> Here -p means if folder exists, it will not create.
 - Dont forget to restart nginx server after doing any changes in configuration file.
