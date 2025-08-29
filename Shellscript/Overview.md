@@ -63,33 +63,22 @@
 ### Session-16
 - Write a shellscript to delete old logfiles which are morethan 14 days old ?
 - Check Disk Usage and Send email for alerts ?
-- Generally we have "cat /etc/passwd" in this, we have all the users information like user_id, group_id,
-  user_name etc. So how to read this whole information properly ? or in a structured way ? for that we can
-  use IFS (Internal field separator).
-- What is the algorithm for deleting old log files ? decide source_dir/search for files/delete.
+- Generally we have "cat /etc/passwd" in this, we have all the users information like user_id, group_id, user_name etc. So how to read this whole information properly (or) in a structured way ? For that we can use IFS (Internal field separator).
+- What is the algorithm for deleting old log files ? Decide SOURCE_DIR / Search for files /Delete.
 - How do you create files with old date in server ? "touch -d 20231201 <anyname.log>"
 - Command to find old logfiles morethan 14 days old with .log extensions only ?
 - Instead of direct "rm -rf" we used while loop to read "command output" line by line & then delete.
-- Command to check the information about total space and available space on a file system ?
-- How to create a new volume (or) disk in aws console and what is the condition for that ?
-- What are the commands to make the disk into usage ? go through the overview steps of the disk creation.
+- Command to check the information about total space & available space on a file system ? df -hT
+- How to create a new volume (or) disk in aws console & what is the condition for that ?
+- What are the commands to make the disk into usage ? Go through the overview steps of the disk creation.
 - Creating disk is the work of "Storage team" not DevOps. But just know how it works.
-- How do we find different types of file systems ? using reverse search.
-- How do you mail the above disk usage from linux server ? we will configure the company mail server details
-  to send email alerts.
-- So we call mail.sh whenever we want to monitor on disk_usage, not only on disk_usage, we can also call for
-  CPU_Utilization, Memory_Utilization etc for monitoring purpose using shellscript, because sometimes
-  mailing is not in our control, linux team will give a script like "mail.sh" we can simply call that instead
-  of writing this whole command "echo "$message" | mail -s "High Disk Usage" info@joindevops.com"
-- Then how to call mail.sh ? "sh mail.sh" "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com"
-  "ALERT High Disk Usage", whatever you write after sh mail.sh is arguments we are passing.
-- How to go all the way to down in config file ? "shift+G"
-- How to go all the way to top in config file ? "gg"
-- Basically no need to follow the color coding or formatting, we can just use as it is in mail configuration
-  gmail.MD document (or) if your company provide the email configuration document just simply follow that.
+- How do we find different types of file systems ? Using reverse search.
+- How do you mail the above disk usage from linux server ? We will configure the company mail server details to send email alerts.
+- So we call mail.sh whenever we want to monitor on disk_usage, not only on disk_usage, we can also call for CPU_Utilization, Memory_Utilization etc for monitoring purpose using shellscript, because sometimes mailing is not in our control, linux team will give a script like "mail.sh" we can simply call that instead of writing this whole command "echo "$message" | mail -s "High Disk Usage" info@joindevops.com"
+- Then how to call mail.sh ? "sh mail.sh" "DevOps Team" "High Disk Usage" "$message" "info@joindevops.com" "ALERT High Disk Usage" Whatever you write after sh mail.sh is arguments we are passing.
+- Basically no need to follow the color coding or formatting, we can just use as it is in mail configuration gmail.MD document (or) if your company provide the email configuration document just simply follow that.
 - So configuring gmail.MD document for sending mails is morethan enough.
-- Monitoring team responsibility is, if websites are down, then monitoring team will send alerts to
-  Developers team. If servers are down, then monitoring team will send alerts to DevOps team.
+- Monitoring team responsibility is, if websites are down, then monitoring team will send alerts to Developers team. If servers are down, then monitoring team will send alerts to DevOps team.
 
 ### Session-17
 - What is Crontab & why it is useful ? Usage of crontab & giving the script location in "crontab -e"
