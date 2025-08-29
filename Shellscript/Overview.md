@@ -92,11 +92,11 @@
 - Till now we have created ec2 instances & route53 records manually by logging into aws console.
 - Like if web then PublicIP, if not web then PrivateIP right ? Also if mongodb, mysql, shipping then t3.small & remaining t2.micro.
 - We can now create using aws CLI "aws command line" to automate. In every server we have aws command line, you can check using "aws help" in server.
-- So we need to write a script to automate using "aws command line" for creating instances & records.
+- So we need to write a script to automate using "aws CLI" for creating instances & records.
 - What are Roles to Resources ? Not only for persons, resources should also have access to access another resource, for that we have Roles to Resources like for example if you have created one EC2 and this EC2 instance should go and create another new instances (or) route53 records.
-- How to create a role for ec2 in aws console ? IAM/roles/create role/select EC2 as use case/next/admin access (or) amazonEc2fullaccess/route53 full access/give any name to the role.
-- How will you asign above role to the ec2 in aws console ? Select the already created instance & go to Actions/Security/Modify IAM role/Select your created role.
-- Remove old credentials which was created for aws console in .aws/ folder by using rm -rf, if you got any errors in cd location using "ls -la" command because that was hidden folder.
+- How to create a role for ec2 in aws console ? IAM/Roles/Create role/Select EC2 as use case/Next/Admin access (or) AmazonEc2fullaccess/Route53 full access/Give any name to the role.
+- How will you asign above role to the EC2 in aws console ? Select the already created instance & go to Actions/Security/Modify IAM role/Select your created role.
+- Remove old credentials which was created for aws console (For UI) in .aws/ folder by using rm -rf, if you got any errors in cd location using "ls -la" command because that was hidden folder.
 - Command to create instances with tags ?
 - Command to list instances and find the one with your specific name tag ?
 - Command to terminate the instances ?
@@ -104,6 +104,6 @@
 - Then "aws configure" after creating administrator user in aws console.
 - Why we created roles in IAM ? Here if person, he can keep Access_key & Secret_keys safely, will EC2 keep these credentials secretly ? If anybody has access to this EC2, he can able to see these credentials using "ls -la" command in cd .aws/ because these keys are saved in .aws/ folder only. Thats why we have created roles to resources in IAM.
 - Write a shellscript to create all instances & records using aws CLI ? Go through the "roboshop.sh" file in Roboshop-Shellscript.
-- What is UPSERT in shellscript ? if the record exists, update (or) edit it, if it doesn’t exist, it will create the records.
+- What is UPSERT in shellscript ? If the record exists, update (or) edit it, if it doesn’t exist, it will create the records.
 - Important point, So overall create any one instance and give a role to it, so that it will create multiple instances from this instance only, you need to clone the "roboshop-shellscript" in the server and run the "roboshop.sh" script.
 - We used --query is to get the PrivateIP of the instances nothing but query from the existing resource.
