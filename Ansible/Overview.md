@@ -1,21 +1,17 @@
 ### Session-18
-- Another name of Ansible-server is Configuration-server (or) Main-server (or) Controller machine.
+- Ansible-server (or) Configuration-server (or) Main-server (or) Controller machine.
 - What are the disadvantages in shellscript ? L, S, E, R, E, S
 - What are the advantages of ansible over shellscript ? O, C, A, C, O, R, P
-- Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not
-  recommended, because ansible is only intended for configuration management & application deployment.
-- If so why dont we use ansible to create instances ? Because it does not have a state file to create
-  instances as terraform does. So thats why terraform is best for creation of infrastructure only.
+- Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not recommended, because ansible is only intended for configuration management & application deployment.
+- If so why dont we use ansible to create instances ? Because it does not have a state file to create instances as terraform does. So thats why terraform is best for creation of infrastructure only.
 - What is configuration management in general and in ansible ?
 - As a DevOps engineer we need to do CRUD over the server effectively.
 - What are the application deployment basic steps ?
 - What is Idempotence Behaviour in ansible ?
 - Create two servers Ansible & Node ?
 - Connect to Node server from Ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP"
-- Create a file in Node from the Ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "echo Hello
-  saikiran how are you > /tmp/sai.txt"
-- Install any github session into Node from ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "curl
-  <paste_the_RAW_URL> | sudo bash"
+- Create a file in Node from the Ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "echo Hello saikiran how are you > /tmp/sai.txt"
+- Install any github session into Node from ansible server ? "sshpass -p DevOps321 ssh centos@NodeIP -C "curl <paste_the_RAW_URL> | sudo bash"
 - To show the file content in the terminal just use "curl <paste_the_RAW_URL> or <normal_url>"
 - Curl command will not download the file, instead it will show the content on the terminal.
 - To download the file just use "wget <paste_the_RAW_URL> or <normal_url>"
