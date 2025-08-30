@@ -17,16 +17,12 @@
 - To download the file just use "wget <paste_the_RAW_URL> or <normal_url>"
 - What is PUSH (Ansible) architecture in ansible ? Agent less
 - What is PULL (Chef) architecture in ansible, how do you configure PULL ? Install Agents
-- Install ansible in ansible-server & connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e
-  ansible_password=DevOps321 -m ping" Hence connection is success between Ansible and Node.
-- Install nginx in Node from Ansible ? "ansible -i NodeIP, all -e ansible_user=centos -e
-  ansible_password=DevOps321 --become -m yum/service -a "name=nginx state=present/started/stopped"
+- Install ansible in ansible-server & connect to Node ? "ansible -i NodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 -m ping" Hence connection is success between Ansible and Node.
+- Install nginx in Node from Ansible ? "ansible -i NodeIP, all -e ansible_user=centos -e ansible_password=DevOps321 --become -m yum/service -a "name=nginx state=present/started/stopped"
 - What is the difference between Shell commands and Ansible modules ?
 - What is the difference between Shellscript and Ansible-playbook ?
 - YAML is the markup language used in ansible. Identation is mandatory in yaml format.
-- What is Inventory in ansible ? Nothing but a list of hosts (Servers) where Ansible will run its automation
-  tasks on these servers. It’s basically your address book for servers — telling Ansible what machines exist,
-  how to connect to them and how they’re grouped.
+- What is Inventory in ansible ? Nothing but a list of hosts (Servers) where Ansible will run its automation tasks on these servers. It’s basically your address book for servers — telling Ansible what machines exist, how to connect to them and how they’re grouped.
 - Go through all the files in "Ansible" folder in VS.
 - https://github.com/daws-76s/concepts/blob/master/ansible.MD
 
@@ -45,32 +41,27 @@
 - Similar to $? in shell, we have "rc" in ansible to check the exit status of the previous command.
 - Write ansible-playbook to loop Ramesh, Suresh, Saikiran, Mahesh.
 - Write ansible-playbook to install nginx, mysql, postfix, net-tools using loop.
-- Write ansible-playbook to install nginx, mysql, postfix, net-tools & also loop "name and state"
+- Write ansible-playbook to install nginx, mysql, postfix, net-tools & also loop "name & state"
 - What are tags in ansible ? Tags are used in server, if you want a particular task to run.
 - ansible-playbook -t devops 16-tags.yaml ; ansible-playbook -t aws 16-tags.yaml
-- When we can use tags ? For example take catalogue component, if there is any new version of catalogue,
-  what will you do basically ? we do new deployment/new release right ? By using basic deployment steps.
-  Command will be ---> ansible-playbook -e component=catalogue -t deployment main.yaml
+- When we can use tags ? For example take catalogue component, if there is any new version of catalogue, what will you do basically ? We do new deployment (or) new release right ? By using basic deployment steps. Command will be ---> ansible-playbook -e component=catalogue -t deployment main.yaml
 
 ### Session-20 
 - Configure Roboshop Project using ansible ? Go through the "Roboshop-ansible" in VS.
-- Create all the instances and route53 records using shellscript (roboshop.sh) script.
-- Dont forget to give role to the ansible instance, before creating instances and route53 records.
+- Create all the instances & route53 records using shellscript (roboshop.sh) script.
+- Dont forget to give role to the ansible instance, before creating instances & route53 records.
 - Delete the old records if exists ---> Hosted zones --> Except NS and SOA.
-- In ansible i have used file module, dnf module, user module, get url modules etc.
-- How to check remote connections or running logs ? sudo tail -f /var/log/messages.
+- In ansible we have used file module, dnf module, user module, get url modules etc.
+- How to check remote connections (or) running logs ? sudo tail -f /var/log/messages.
 - Black Hole ---> &>> /dev/null (Output stored here will be discarded)
 - All the Users informations will be there in "cat /etc/passwd" in server.
 
 ### Session-21
 - What is "UPSERT" in roboshop.sh file in "Roboshop-shellscript" ? Previously it was "CREATE" now "UPSERT".
-- What is the difference between Command and Shell ? Is the below line.
-- Shell ---> It is like you login inside the server and run the command, Environment variables and
-  redirections (Symbols) will work here.
-- Command ---> It is like running the command outside the server, Environment variables and redirections
-  (Symbols) will not work here.
-- We used functions in shellscript to avoid the repetition of the code right ? So similarly in ansible also
-  we have Ansible Roles.
+- What is the difference between Command and Shell ?
+- Shell ---> It is like you login inside the server and run the command, Environment variables and redirections (Symbols) will work here.
+- Command ---> It is like running the command outside the server, Environment variables and redirections (Symbols) will not work here.
+- We used functions in shellscript to avoid the repetition of the code right ? So similarly in ansible also we have Ansible Roles.
 
 ### Session-22
 - How to run the file (or) playbook in the background ? "nohup ansible-playbook -i inventory.ini -e
