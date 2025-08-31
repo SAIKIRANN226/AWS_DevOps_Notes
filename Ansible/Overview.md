@@ -120,7 +120,6 @@
         filters:
         tag:Name:         
         - web
-  
 - Here tag:Name ---> Is same as what we see Instances section in aws, there we have Name, Instance ID, Instance state, Instance type etc. So first is we want Name.
 - Paste the above syntax in "web.aws_ec2.yaml" in server in CD location using "vim web.aws_ec2.yaml"
 - Make sure to install "botocore and boto3" then only plugins will work.
