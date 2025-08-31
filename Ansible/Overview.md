@@ -1,6 +1,6 @@
 ### Session-18
 - Ansible-server (or) Configuration-server (or) Main-server (or) Controller machine.
-- What are the disadvantages in shellscript ? L, S, E, R, E, S
+- What are the disadvantages in shellscript ? L, S, R, E, E, S
 - What are the advantages of ansible over shellscript ? O, C, A, C, O, R, P
 - Can ansible create instances on external systems like azure, aws, gitlab etc ? YES! But it is not recommended, because ansible is only intended for configuration management & application deployment.
 - If so why dont we use ansible to create instances ? Because it does not have a state file to create instances as terraform does. So thats why terraform is best for creation of infrastructure only.
