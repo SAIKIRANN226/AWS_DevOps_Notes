@@ -64,12 +64,13 @@
 - We used functions in shellscript to avoid the repetition of the code right ? So similarly in ansible also we have Ansible Roles.
 
 ### Session-22
-- How to run a file (or) playbook in the background ? "nohup ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml & >> /dev/null"
-- Output will be in "nohup.out" it will not come in the terminal, you can run the script if it is a small instance, we can't run every script in the background, because memory consumption will be high, so you can run only few scripts in the background.
+- We have a special file in linux called a "Black Hole" located at /dev/null. Any data written to it is immediately discarded (Vanishes). "& >> /dev/null" Here & → runs in background, >> /dev/null → discards output.
+- How to run a file (or) playbook in background ? "nohup ansible-playbook -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 mongodb.yaml & >> /dev/null"
+- Output will be in "nohup.out" it will not come in terminal. We cannot run every script in background because of memory consumption, you can only run few scripts (or) a small instance in background.
 - How to see running logs in the background ? "tail -f nohup.out"
-- What are ansible roles ? It is a dry principle, dont repeat yourself like we have used functions in the shellscript to avoid the repetition of the code. It is a proper directory structure to keep our configuration and we can share this with other users also.
+- What are ansible roles ? It is a dry principle, dont repeat yourself like we have used functions in shellscript to avoid the repetition of code. It is a proper directory structure to keep our configuration & we can share this with other users also.
 - Ansible roles ---> Common is also a role, we have tasks, handlers, templates, files, vars, defaults, meta, library, lookup_plugins.
-- How to debug, if you are facing any error in ansible playbook ? "ansible-playbook -vvv -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml" We will get the full information on the terminal, what is happening in the background, so that we can see where is the error.
+- How to debug, if you are facing any error in ansible playbook ? "ansible-playbook -vvv -i inventory.ini -e ansible_user=centos -e ansible_password=DevOps321 -e component=mongodb main.yaml" We will get the full information on terminal, what is happening in background, so that we can see where is the error.
 - What are the supporting files in project ? Like mongodb.repo, catalogue.service, roboshop.conf etc.
 - Creating every role is not mandatory, we create what we require.
 - How to call common role (Any role) in another role ? "ansible.builtin.import_role"
