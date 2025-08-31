@@ -94,8 +94,7 @@
 
 ### Session-24 
 - Till now where we have given Username & Password ? Command line (or) "ansible.cfg file"
-- What is Ansible-Vault ? Storing secrets like keys and passwords etc. Difference between encoding & encryption ?
-- Ansible uses mathematic algorithm (AES256) to encrypt the vault.
+- What is Ansible-Vault ? Storing secrets like keys and passwords etc. Difference between encoding & encryption ? Ansible uses mathematic algorithm (AES256) to encrypt the vault.
 - How to create ansible-vault in ansible-server ?
 - Practice folder (Your working directory)
 - Create "vault" folder inside the Practice folder, if we create vault folder in VS (Windows), it will not reflect in the server, so you need to create in linux server only. Same for "group_vars" folder.
