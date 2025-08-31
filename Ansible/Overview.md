@@ -94,8 +94,7 @@
 
 ### Session-24 
 - Till now where we have given Username & Password ? Command line (or) "ansible.cfg file"
-- What is Ansible-Vault ? Storing secrets like keys and passwords etc.
-- Difference between encoding & encryption ?
+- What is Ansible-Vault ? Storing secrets like keys and passwords etc. Difference between encoding & encryption ?
 - Ansible uses mathematic algorithm (AES256) to encrypt the vault.
 - How to create ansible-vault in ansible-server ?
 - Practice folder (Your working directory)
