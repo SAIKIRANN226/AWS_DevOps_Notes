@@ -93,24 +93,24 @@
 - How to create a full config file ? "ansible-config init --disabled > ansible.cfg" Here disabled means by default all options are commented, you can uncomment which ever options you want to use.
   
 ### Session-24
-- Till now where we have given our usernames and passwords ? Command line (or) ansible.cfg file
-- What is ansible-vault and what is the purpose ? Storing secrets like keys and passwords etc.
-- Difference between encoding and encryption ?
+- Till now where we have given Username & Password ? Command line (or) ansible.cfg file
+- What is Ansible-Vault ? Storing secrets like keys and passwords etc.
+- Difference between encoding & encryption ?
 - Ansible uses mathematic algorithm (AES256) to encrypt the vault.
-- How to create ansible-vault in ansible-server ? Below are the steps.
+- How to create ansible-vault in ansible-server ?
 - Practice folder (Your working directory)
 - Create "vault" folder inside the Practice folder, if we create vault folder in VS (Windows), it will not reflect in the server, so you need to create in linux server only. Same for "group_vars" folder.
 - Next create "group_vars" folder inside the vault folder then.
 - Create "vault-file" inside the group_vars folder using below command.
-- ansible-vault create Practice/vault/group_vars/some_name.yaml, keep your username and password in this file using "ansible-vault edit group_vars/saikiran.yaml" ansible_user: centos ; ansible_password: DevOps321 and save it :wq!
+- ansible-vault create Practice/vault/group_vars/some_name.yaml, keep your Username & Password in this file using "ansible-vault edit group_vars/saikiran.yaml" ansible_user: centos ; ansible_password: DevOps321 & save it :wq!
 - Also create ansible.cfg, inventory.ini & your playbook files (Inside the Practice folder not in vault or group_vars folders)
-- Put "ask_vault_pass=True" in ansible.cfg (or) "ansible-playbook saikiran.yaml --ask-vault-pass"
-- How to connect to the instance ? "ansible-playbook saikiran.yaml" since we have inventory in separate file and username/password are kept in vault.
-- Since our whole infra is in SSM Parameter in AWS systems manager, this is also a vault from AWS, but we integrate ansible-vault with the SSM Parameter and we fetch the values from AWS instead of depending on ansible-vault and ansible-vault commands and all those things etc.
+- Keep "ask_vault_pass=True" in ansible.cfg (or) "ansible-playbook saikiran.yaml --ask-vault-pass"
+- How to connect to the instance ? "ansible-playbook saikiran.yaml" since we have inventory in separate file & Username/Password are kept in vault.
+- Since our whole infra is in SSM Parameter in AWS systems manager, this is also a vault from AWS, but we integrate ansible-vault with the SSM Parameter and we fetch the values from AWS instead of depending on ansible-vault, ansible-vault commands and all those things etc.
 - What is Dynamic Inventory in ansible ? What is auto-scaling of servers ?
 - For example we have 10 servers now because of traffic and i need to run (or) manage these servers using ansible-playbooks. Till now we targeted only single server using ansible, but we never targeted multiple servers at a time.
-- When auto-scaling is created, ansible will connect to AWS to fetch the IP_addresses of the newly created servers (Using auto-scaling). How ansible will fetch IP_addresses dynamically ? we have a plugin called "aws ec2 inventory"
-- For example, If you want to run update to the all the web instances then "ansible-instance" should connect to AWS and fetch instances with the Name "web" which are present in us-east-1 region. We use "aws ec2 inventory" plugin. Go through the "web.aws_ec2.yaml" file in the VS. 
+- When auto-scaling is created, ansible will connect to AWS to fetch the IP addresses of the newly created servers (Using auto-scaling). How ansible will fetch IP addresses dynamically ? We have a plugin called "aws ec2 inventory"
+- For example, if you want to run update to the all the web instances then "ansible-instance" should connect to AWS and fetch instances with the Name "web" which are present in us-east-1 region. We use "aws ec2 inventory" plugin. Go through the "web.aws_ec2.yaml" file in the VS. 
 - You can keep any name like "saikiran.aws_ec2.yaml" but file must end with ".aws_ec2.yaml"
 - Syntax of the above plugin is below, you can search in google.
   
@@ -131,7 +131,7 @@
 - Now install "pip3.11 install boto3 botocore"
 - "ansible-inventory -i web.aws_ec2.yaml --list" now it will fetch the instances with name "web"
 - Ansible fetched all the web-instances right ? Now if you want to connect to this web instances. "ansible aws_ec2 -i web.aws_ec2.yaml -e ansible_user=centos -e ansible_password=DevOps321 -m ping" then web instances will give us replay "pong"
-- What is Plug and Play ? If your ansible-server wants to connect to the external systems like aws, azure, gcp or alibaba etc. Then we need to add some plug (Of aws, azure, gcp or alibaba) thats what we call plug, similarly if ansible have aws plugin to connect to aws ec2, then we can fetch IP_addresses. That is nothing but "AWS Dynamic inventory plugin"
+- What is Plug and Play ? If your ansible-server wants to connect to the external systems like aws, azure, gcp or alibaba etc. Then we need to add some plug (Of aws, azure, gcp or alibaba) thats what we call plug, similarly if ansible have aws plugin to connect to aws ec2, then we can fetch IP addresses. That is nothing but "AWS Dynamic inventory plugin"
 - We use ansible.cfg file to minimize the commands (or) arguments to the script in server.
 - Use "ansible-vault encrypt group_vars/<some_name>.yaml" If already has existing vault.
 - If you want to edit the existing vault ---> "ansible-vault edit web.yaml"
