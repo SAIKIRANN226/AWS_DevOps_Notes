@@ -93,7 +93,7 @@
 - How to create a full config file ? "ansible-config init --disabled > ansible.cfg" Here disabled means by default all options are commented, you can uncomment which ever options you want to use.
 
 ### Session-24 
-- Till now where we have given Username & Password ? Command line (or) ansible.cfg file
+- Till now where we have given Username & Password ? Command line (or) "ansible.cfg file"
 - What is Ansible-Vault ? Storing secrets like keys and passwords etc.
 - Difference between encoding & encryption ?
 - Ansible uses mathematic algorithm (AES256) to encrypt the vault.
