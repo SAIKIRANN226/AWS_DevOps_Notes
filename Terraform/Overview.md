@@ -1,17 +1,21 @@
 ### Session-25
-- What is terraform and why it is used ? and In how many ways we configured our project ? and why we prefer
-  ansible as configuration management while configuring the big project, another name of ansible ?
+- What is terraform and why it is used ? In how many ways we configured our project ? Why we prefer ansible
+  as configuration management while configuring the big project, another name of ansible ?
 - Why we din't prefer manual configuration over ansible and shellscript ?
-- What are the advantages of terraform ? V,C,A,I,C,A,M,H.
+- What are the advantages of terraform ? V,C,A,I,C,A,M,H
+- What is Inventory management in terraform ? It is about tracking all the infrastructure resources it
+  provisions and manages. This is done through the Terraform state file (Terraform.tfstate). This state file
+  acts like a inventory. When you terraform plan or apply. It will compare your desired state with current
+  state.
 - What is declarative in terraform and How to install terraform and setup ?
 - Install "hashicorp terraform extension" to get colors.
 - How to get authentication to AWS to push the created infra ? "aws CLI install"
-- You can install aws cli in two ways ? one is regular method of downloading aws cli software and run the
+- You can install aws cli in two ways ? One is regular method of downloading aws cli software and run the
   file in windows laptop and another one is just run the shown commands in cmd.
 - How to test wether the aws CLI is installed or not in cmd & gitbash ? "aws --version"
-- If credentials are not found, then "aws configure" Before "aws configure" you need to create terraform
-  administrator user in IAM ?
-- Where the credentials like Secret-key and Access-key will be saved ? in ".aws" folder
+- If credentials are not found, then "aws configure" Before that you need to create terraform administrator
+  user in IAM ?
+- Where this credentials like Secret-key and Access-key will be saved ? ".aws" folder
 - What is the syntax of terrafrom to create any resources & what we call this syntax of terraform ?
 - What is the importance of provider in terraform & what is the extension of terraform to save ?
 - Where to run the terraform commands ? Terraform commands should be run in gitbash.
@@ -24,11 +28,11 @@
 - Go through the all files in Terraform folder in VS.
 
 ### Session-26
-- What is the importance of .gitignore in terraform ?
+- What is the importance of .gitignore file in terraform ?
 - What is the use of terraform.tfvars ?
 - How to give terraform.tfvars file from the command prompt ? for plan and apply.
 - Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars"
-- If you dont give the -var-file, then terraform will take default value of variables.tf file
+- If you dont give the -var-file, then terraform will take default values from variables.tf file
 - Write a terraform code using terraform.tfvars example ?
 - What are the variable preferences in terraform ?
 - Command line ---> terraform plan -var="instance_type=t3.small"
