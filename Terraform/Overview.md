@@ -113,17 +113,17 @@
 - Local-exec --> Run on your local machine --> Use case is to notify, trigger local scripts etc --> No
   remote access is need.
 - What is remote-exec provisioner in terraform & what is the syntax ?
-- Remote-exec --> Runs on your remote server --> Use case is to install softwares, configure
-  ec2 post setup --> Need SSH/WinRM to access remote host.
-- What is the disadvantage of local-exec ? local-exec provisioner runs only one time not every time.
+- Remote-exec --> Runs on your remote server --> Use case is to install softwares, configure ec2 post setup,
+  need SSH/WinRM to access remote host.
+- What is the disadvantage of local-exec ? Local-exec provisioner runs only one time not every time.
 - Provisioners are useful to integrate terraform with configuration management tools like ansible to get end
   to end automation.
 - We can write multiple provisioners also like for example "on_failure = continue" nothing but same as ignore
   errors in ansible.
-- What is difference between Terraform and Ansible ?
-- We can also create ec2 instances using ansbile but it does not have state file as terraform does, that is
-  why terraform is perfect for creation of infrastructure only.
-- What is Creation time and Destroy time in terraform ?
+- What is the difference between Terraform and Ansible ?
+- We can also create ec2 instances using ansible but it does not have state file as terraform does, that is
+  why terraform is best for creation of infrastructure & ansible is best for configuration management.
+- What is Creation time & Destroy time in terraform ? Why we use them ?
 
 ### Session-29
 - What is Module Development in terraform and what is the syntax ? Go through the code of EC2 module in
