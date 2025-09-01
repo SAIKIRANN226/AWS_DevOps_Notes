@@ -29,74 +29,76 @@
 ### Session-26
 - What is the importance of .gitignore file in terraform ?
 - What is the use of terraform.tfvars ?
-- How to give terraform.tfvars file from the command prompt ? for plan and apply.
+- How to give terraform.tfvars file from the command prompt for plan and apply ?
 - Here terraform.tfvars name is not mandatory we can use any name like "saikiran.tfvars"
-- If you dont give the -var-file, then terraform will take default values from variables.tf file
+- If you dont give -var-file, then terraform will take default values from variables.tf file
 - Write a terraform code using terraform.tfvars example ?
-- What are the variable preferences in terraform ?
+- Variable preferences in terraform are below ?
 - Command line ---> terraform plan -var="instance_type=t3.small"
 - Var_file ---> terraform plan -var-file="saikiran.tfvars"
 - terraform.tfvars
 - Environment variable.
-- Write a terraform code, if mongodb then t3.small and remaining t2.micro using condition ?
-- Create instances and route53 records using Count_based loop ?
-- Create instances and route53 records using For_each loop ?
-- Count_based is to iterate list and For_each is to iterate maps.
-- What is function in terraform and what is length function here ? We cannot create our own functions, we
+- Write a terraform code, if mongodb then t3.small & remaining t2.micro using condition ?
+- Create instances & route53 records using Count_based loop ?
+- Create instances & route53 records using For_each loop ?
+- Count_based is to iterate list & For_each is to iterate maps.
+- What is function in terraform & what is length function here ? We cannot create our own functions, we
   have to use terraform inbuilt functions only.
-- Why output block is used terraform ? and what is the syntax of output ?
+- Why output block is used in terraform and what is the syntax of output ?
 - Go through the output block in count folder VS ?
 
 ### Session-27 
-- What is locals in terraform and what is the syntax of the locals ?
+- What is locals in terraform & what is the syntax of the locals ?
 - How to call a local in terraform code ?
-- What is Data-sources in terrafrom and why it is used ? How do we search ? for example if you want AMI, then
+- What is Data-sources in terraform & why it is used ? How do we search ? For example if you want AMI, then
   "terraform query ami" in google
-- Can we query data from the existing resources also apart from the providers ?
+- Can we query data from the existing resources also apart from the providers ? YES!
 - Types of loops ? Count_based, For_each, Dynamic_loop
 - What is Dynamic_loop and where it is useful ?
 - What is Terraform State (State and Remote state) ?
-- What is Declarative state and Desired state ?
-- What is Current state in terraform ? and where it will be stored ? terraform.tfstate
+- What is Declarative state & Desired state ?
+- What is Current state in terraform and where it will be stored ? terraform.tfstate
 - When Desired state == Current state, then terraform will not take any action.
 - When Desired state =//= Current state, then terraform will create.
 - Why the terraform will create lock file while terraform is working on it ?
-- Explain the concept of local state using example of 2 developers are working on same repo ?
-- What errors these developers will face, if they are working on same repo ?
-- So terraform will compare my state and devops person state. If both are running terraform apply,
-  here duplicates may come and some may get error as already exists.
+- Explain the concept of local state using example of 2 persons are working on same repo ?
+- What errors these persons will face, if they are working on same repo ?
+- So terraform will compare my state and devops person state. If both are running terraform apply, here
+  duplicates may come & some may get error as already exists.
+- So for this issue we have a central state file to check wether the infra already exists or not ? That is
+  remote state (S3 bucket).
 - Terraform.tfstate is a crucial file, should not delete.
-- What are the two disadvantages in local state ? for that only we have a remote state s3.
-- So create s3 bucket and lock that bucket using dynamodb table ?
-- What are the different remote states we have ? and why we use only "terraform s3 remote state"
+- What are the two disadvantages in local state ? For that only we have a remote state s3.
+- So create s3 bucket & lock that bucket using dynamodb table ?
+- What are the different remote states we have & why we use only "terraform s3 remote state"
 - Where to keep this remote state in terraform code ?
-- Another name of remote state ? we can also call as Backend.
+- Another name of remote state ? Backend.
 - If we write more lines of script we say configuration is increasing.
 - S3 buckets are chargeable in aws, so delete after practice.
-- Use different key names in s3 bucket like in the previous you have used different key "foreach"
-  you can use as per your wish but not with the same key names because it will merge all.
-- Interview question ? We are using s3bucket with dynamodb locking, here local state will not work
-  because it will create duplicates and errors, security will not be there inside the local. So thats
-  why we have to keep it safely in the remote storage like s3 bucket it will provide better
-  collaboration among the team members and errors free.
+- Use different key names in s3 bucket like in the previous you have used different key "foreach" you can use
+  as per your wish but not with the same key names because it will merge all.
+- Interview question ? We are using S3 bucket with Dynamodb locking, here local state will not work because
+  it will create duplicates and errors, security will not be there inside the local. So thats why we have to
+  keep it safely in the remote storage like S3 bucket, it will provide better collaboration among the team
+  members and errors free.
 
 ### Session-28
 - How to create multiple environments with terraform in 3 ways ? Using same code but with different
   configuration ?
-- First method is "terraform.tfvars" and what does this do ?
+- First method is "terraform.tfvars" & what does this do ?
 - How do you control different environments in tfvars method ? Using "startswith" function ?
-- We create different buckets and dynamodb tables for Dev & Prod in tfvars method.
+- We create different buckets & dynamodb tables for Dev & Prod in tfvars method.
 - And also we create different folders for Dev & Prod in VS.
 - Can we use 1 bucket for both Dev and Prod in tfvars method ? YES!
 - So create 2 Buckets & 2 Dynamodb tables in aws console in tfvars method ?
-- You need to initialize Dev backend while "terraform init" and same for Prod also.
+- You need to initialize Dev backend while "terraform init" & same for Prod also.
 - When you are switching from one env to another env, you must reinitialize it.
 - Then you can terraform plan, apply (or) destroy using -var-file
-- What will happen when you forgot to give -var-file ? It will load default variables.tf
-- What will happen when you comment variables.tf file ? It will ask the user to prompt inputs.
+- What if you forgot to give -var-file ? It will load default values from variables.tf
+- What if you commented variables.tf file ? It will ask the user to prompt inputs.
 - So that you will come to know i forgot to give -var-file.
-- Only 1 bucket is created for workspace, inside that it will automatically create a default folder
-  "env:/" and inside this env folder, terraform will automatically create Dev/Prod workspaces.
+- Only 1 bucket is created for workspace, inside that it will automatically create a default folder "env:/"
+  and inside this env folder, terraform will automatically create Dev/Prod workspaces.
 - If you want to know workspace commands just "terraform workspace"
 - How to create workspace ? "terraform workspace new dev" do it in gitbash.
 - When you are using terraform it has default variable that is "terraform.workspace"
