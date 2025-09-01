@@ -1,17 +1,16 @@
 ### Session-25
-- What is terraform and why it is used ? In how many ways we configured our project ? Why we prefer ansible
-  as configuration management while configuring the big project, another name of ansible ?
+- What is terraform & why it is used ? In how many ways we configured our project ? Why we prefer ansible
+  as configuration management while configuring the big project ? Another name of ansible ?
 - Why we din't prefer manual configuration over ansible and shellscript ?
 - What are the advantages of terraform ? V,C,A,I,C,A,M,H
-- What is Inventory management in terraform ? It is about tracking all the infrastructure resources it
-  provisions and manages. This is done through the Terraform state file (Terraform.tfstate). This state file
-  acts like a inventory. When you terraform plan or apply. It will compare your desired state with current
-  state.
-- What is declarative in terraform and How to install terraform and setup ?
+- What is Inventory management in terraform ? It is about tracking all the infrastructure resources which
+  terraform provisions and manages using terraform state file (Terraform.tfstate). This state file acts like
+  a inventory. When you terraform plan or apply. It will compare your desired state with current state.
+- What is declarative in terraform and How to install terraform & setup ?
 - Install "hashicorp terraform extension" to get colors.
 - How to get authentication to AWS to push the created infra ? "aws CLI install"
 - You can install aws cli in two ways ? One is regular method of downloading aws cli software and run the
-  file in windows laptop and another one is just run the shown commands in cmd.
+  file in windows laptop & another one is just run the shown commands in cmd.
 - How to test wether the aws CLI is installed or not in cmd & gitbash ? "aws --version"
 - If credentials are not found, then "aws configure" Before that you need to create terraform administrator
   user in IAM ?
@@ -23,7 +22,7 @@
 - What is variable syntax ? Is really data-type in variable syntax is important ? NO!
 - Go through this https://github.com/daws-76s/terraform
 - We can also give Access-key and Secret-keys under region to get authentication to AWS in provider section,
-  but why we dint prefer this ? Thats why we aws CLI to authenticate ?
+  but why we dint prefer this ? Thats why we "aws CLI" to authenticate ?
 - So Dont push the Access-key and Secret-key to the github (or) internet for safety reasons.
 - Go through the all files in Terraform folder in VS.
 
