@@ -103,10 +103,9 @@
 - How to create workspace ? "terraform workspace new dev" do it in gitbash.
 - When you are using terraform it has default variable that is "terraform.workspace"
 - So we use "lookup" function in workspace method to control different environments.
-- What will lookup function do is the below ?
 - lookup(map, key) ---> Giving input as map and passing the key below is the example.
 - lookup(var.instance_type, terraform.workspace) ---> 1st one is map and another is key.
-- So which approach is better ? tfvars, workspace, different repos for different envs ?
+- So which approach is better ? Tfvars, Workspace, Different repos for different envs ?
 - Provisioners are used to execute the commands on a local machine (or) remote server after it's created,
   typically used for initial configuration like boot strapping.
 - Provisioners are used only for instances (or) EC2.
@@ -117,15 +116,15 @@
 - Remote-exec --> Runs on your remote server --> Use case is to install softwares, configure
   ec2 post setup --> Need SSH/WinRM to access remote host.
 - What is the disadvantage of local-exec ? local-exec provisioner runs only one time not every time.
-- Provisioners are useful to integrate terraform with configuration management tools like ansible
-  to get end to end automation.
-- We can write multiple provisioners also like for example "on_failure = continue" nothing but same
-  as ignore errors in ansible.
+- Provisioners are useful to integrate terraform with configuration management tools like ansible to get end
+  to end automation.
+- We can write multiple provisioners also like for example "on_failure = continue" nothing but same as ignore
+  errors in ansible.
 - What is difference between Terraform and Ansible ?
-- We can also create ec2 instances using ansbile but it does not have state file as terraform does,
-  that is why terraform is perfect for creation of infrastructure only.
+- We can also create ec2 instances using ansbile but it does not have state file as terraform does, that is
+  why terraform is perfect for creation of infrastructure only.
 - What is Creation time and Destroy time in terraform ?
-  
+
 ### Session-29
 - What is Module Development in terraform and what is the syntax ? Go through the code of EC2 module in
   "Terraform-modules" in VS. Here provider.tf will not be there in module developing.
