@@ -85,7 +85,7 @@
 ### Session-28
 - How to create multiple environments with terraform in 3 ways ? Using same code but with different
   configuration ?
-- First method is "terraform.tfvars" & what does this do ?
+- First method is terraform.tfvars & what does this do ?
 - How do you control different environments in tfvars method ? Using "startswith" function ?
 - We create different buckets & dynamodb tables for Dev & Prod in tfvars method.
 - And also we create different folders for Dev & Prod in VS.
@@ -126,21 +126,21 @@
 - What is Creation time & Destroy time in terraform ? Why we use them ?
 
 ### Session-29
-- What is Module Development in terraform and what is the syntax ? Go through the code of EC2 module in
-  "Terraform-modules" in VS. Here provider.tf will not be there in module developing.
+- What is Module Development in terraform & what is the syntax ? Go through the code of EC2 module in
+  Terraform-modules in VS. Here provider.tf will not be there in module developing.
 - How many types of Modules and How many types of Roles are there ?
 - It is DevOps engineer responsibility to write README.md file to let others know how to use module.
-- Create a VPC in aws console ? CIDR ---> 10.0.0.0/16
-- Google has given some "PrivateIP address ranges" those only allocated to PrivateIP not for PublicIP,
+- Create a VPC in aws console ? CIDR (10.0.0.0/16)
+- Google has given some PrivateIP address ranges those only allocated to PrivateIP not for PublicIP,
   there you can see 24,20,16 bit-blocks.
 - Even ISP people will configure your PrivateIP address in any range among these 3 bit-blocks only.
 - We can select any range, but siva selected as 10.0.0.0/16 range.
 - Atleast you need to create 16 servers to use VPC, 10.0.0.0/28 ---> 16 servers, 10.0.0.0/16 ---> 65k
-  servers, generally we give VPC_CIDR as 10.0.0.0/16 only, because it does not cost anything, so we can
+  servers, generally we give VPC CIDR as 10.0.0.0/16 only, because it does not cost anything, so we can
   go for maximum.
-- Create Public subnet in aws console ? CIDR ---> 10.0.1.0/24
-- Create Private subnet in aws console ? CIDR ---> 10.0.2.0/24
-- Create Database subnet in aws console ? CIDR ---> 10.0.3.0/24
+- Create Public subnet in aws console ? CIDR 10.0.1.0/24
+- Create Private subnet in aws console ? CIDR 10.0.2.0/24
+- Create Database subnet in aws console ? CIDR 10.0.3.0/24
 - Create Public, Private & Database route tables in aws console ?
 - And associate Public, Private & Database route tables with their respective subnets ?
 - Give internet access to the Public subnets.
@@ -149,16 +149,16 @@
 - What is the difference between Public subnet and Private subnet ?
 - CIDR (Classless Inter-Domain Routing) ? We can asign custom IP address range to the subnets.
 - Use always terraform best practices for naming convention like using "_" avoid double naming.
-- We used Open source modules sometimes, we have dedicated cloud team who develops module and we use them.
-- How do you check internet is working or not ? "ping google.com" Ipv4 is 32bit and Ipv6 is 64 bit.
+- We used Open source modules sometimes, we have dedicated cloud team who develops module & we use them.
+- How do you check internet is working or not ? ping google.com, Ipv4 is 32bit & Ipv6 is 64 bit.
 - Router (Internet Gateway) ---> It has PublicIP & PrivateIP. PublicIP is nothing but just type what
   is my ip in google, there you can see Ipv4 address that is your PublicIP, not ipv6. What is your PrivateIP
-  just "ipconfig" in cmd there you can see IPv4 address Under wireless LAN adapter Wifi.
-- What is your actual IPaddress ? Just type in google "what is my IP", if anybody wants to connect to my
+  just ipconfig in cmd there you can see IPv4 address Under wireless LAN adapter Wifi.
+- What is your actual IPaddress ? Just type in google what is my IP, if anybody wants to connect to my
   laptop you can connect using this IP address only. You cannot connect with PrivateIP address.
-- AWS wont charge for VPC's, subnets, route tables, it only charges when you are creating server.
+- AWS wont charge for VPC, subnets, route tables, it only charges when you are creating server.
 - We can create as many private subnets we want, however for functionality purpose we have only two subnets
-  which is Public and Private subnets.
+  which is Public & Private subnets.
 - Watch from 26:11 to 1:14:21 to understand how VPC works.
 
 ### Session-30
@@ -166,8 +166,8 @@
 - First we have created VPC in aws (Your created VPC is Isolated, even aws dont have access to it). It is
   like your Private Data-Center in aws cloud.
 - Created Internet Gateway (IGW) and attached to the VPC.
-- Created Public, Private & Database subnets in atleast 2-AZ's for High Availability.
-- Created Route tables (Public, Private & Database) and associated it with their respective subnets in both
+- Created Public, Private & Database subnets in atleast 2-AZs for High Availability.
+- Created Route tables (Public, Private & Database) & associated it with their respective subnets in both
   regions 1a and 1b.
 - Added Internet Gateway route in Public Route table, because internet should be enabled in Public not in
   Private, that is the difference between Public and Private subnets.
@@ -192,64 +192,64 @@
 - Can we get StaticIP for this instance ? YES! we can get but it is very costly thing.
 - Even your home PublicIP is Dynamic. If you want StaticIP, you need to pay money to ISP provider.
 - What is VPC peering and what is the condition to create VPC peering connection ?
-- Create a VPC peering connection between "Roboshop_VPC & Default_VPC"
-- So let us take "Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC".
+- Create a VPC peering connection between Roboshop_VPC & Default_VPC
+- So let us take Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC
 - Accept request in the same account and then add routes in VPC.
 - Try to add routes in main route table, because it is the default route table which is created automatically   to communicate between the subnets, if not reflecting, then add explicitly ?
 - If you want only one (or) two Private subnets wants to connect to the vpc peering main road then you can
   add in those two route tables only.
 - You need to add from the other side also not just one side. This is nothing but routes in VPC.
-- Go through the "Terraform-aws-vpc-module" how we developed vpc and resources inside it.
+- Go through the Terraform-aws-vpc-module, how we developed VPC & resources inside it.
 - We have a Tagging strategy because we have more resources, so we use better tagging strategy.
-- We have Common_tags and Resource_tags ? what is the difference between them ?
-- We used "merg" function in tagging strategy to merge Common_tags and Resource_tags.
-- You can also create s3 bucket for vpc module.
+- We have Common_tags and Resource_tags ? What is the difference between them ?
+- We used merg function in tagging strategy to merge Common_tags & Resource_tags.
+- You can also create s3 bucket in VPC module development.
 
 ### Session-31
-- Go through the code of "Terraform-aws-vpc-module" in VS.
+- Go through the code of Terraform-aws-vpc-module in VS.
 - While developing VPC module, we come across Peering section, is really Peering connection is required ?
   Peering may not require for everyone, when this Peering is useful ?
-- Bydefault Peering connection between two VPC's is not possible.
+- By default Peering connection between two VPC is not possible.
 - If we want to connect with the resources which are in another VPC, then you require peering.
 - How to connect to other VPC which is in another company ? Install VPN in Default_VPC & Connect.
-- Example consider Requestor is "Roboshop" and Acceptor is "User" provided VPC or Default VPC.
-- In VPC peering, when you are adding routes in VPC, if acceptor vpc is not in our control what you
-  will do ? We should inform them to add the acceptor route in their terraform code.
+- Example consider Requestor is Roboshop & Acceptor is User provided VPC or Default VPC.
+- In VPC peering, when you are adding routes in VPC, if acceptor VPC is not in our control what you will do ?
+  We should inform them to add the acceptor route in their terraform code.
 - Big companies depends on multiple companies to deal different modules.
-- So users can decide if peering is required or not ? if required they have to give VPC peering_id,
-  if they are not giving, we should consider default_VPC. Go through the peering.tf file
-- Overall developing your vpc module is completed and you pushed it to the internet (Github), then
-  how to refer this ? "source = "git"::<https_URL>ref=main"
-- So when you do "terraform init" the module will be downloaded in where we are testing the code and it
-  will automatically create a folder called "module"
-- Till now we used "Allow-all" method while creating SG, but now we use strict rules.
-- How to use Security Groups effectively according to the roboshop documentation ?
-- We install vpn in Default_VPC to connect Private instances which are Present in Roboshop_VPC.
-- We can create a folder (Example) and keep all the testing code in it, so that it will be easy for
-  everyone to use the module.
+- So users can decide if peering is required or not ? If required they have to give VPC peering id, if they
+  are not giving, we should consider default VPC. Go through the peering.tf file
+- Overall developing your VPC module is completed & you pushed it to the internet (Github), then how to refer
+  this ? source = "git::<https_URL>ref=main"
+- So when you do terraform init the module will be downloaded in where we are testing the code & it will
+  automatically create a folder called module.
+- Till now we used Allow-all method while creating SG, but now we use strict rules.
+- How to use Security Groups effectively according to the Roboshop documentation ?
+- We install VPN in Default_VPC to connect to Private instances which are Present in Roboshop_VPC.
+- We can create a folder (Example) & keep all the testing code in it, so that it will be easy for everyone to
+  use the module.
 - We keep all our resources in 1a zone.
-- In vpc module developing, we need to publish outputs then only users can get the information.
-- We have a Database subnet groups, because Databases have different behaviour, nothing but just adding
+- In VPC module developing, we need to publish outputs then only users can get the information.
+- We have a Database subnet group, because Databases have different behaviour, nothing but just adding
   database subnet ids.
-- We also have Open-source modules for vpc also, if you search in google you can use that also, instead
-  of developing vpc module, but for practice you need to know.
+- We also have Open source modules for VPC, if you search in google you can use that also, instead of
+  developing, but for practice you need to know.
 
 ### Session-32
 - Till now we used Allow-all method while creating SG, it is just for practice only, but now we need to
   follow strict SG rules according to the Roboshop Documentation only.
 - We have developed our own customized module for creating VPC right ? In this session also we are going
   to develop our own customized module for SG. Refer Roboshop-aws-sg-module in VS.
-- We created SG's & SG rules for all components according to the Roboshop Documentation.
+- We created Security groups & SG rules for all components according to the Roboshop Documentation.
 - Why we created separate folders for every resources in Roboshop-terraform ? Refresh time
 - Since they are in separate folders, consider they are like different projects.
 - Go through 01-vpc, 02-sg, 03-vpn, 04-ec2 code in Roboshop-terraform in VS.
 - What is the main input required to create a SG ? VPC_ID
 - For example in Big companies, 1 team is taking care for VPC, another team is taking care for SG etc. How do
   you get the information of resource which is in another team, project, folder ? SSM Parameter store
-- What is SSM Parameter store in "AWS systems manager" ? Configuration storage.
+- What is SSM Parameter store in AWS systems manager ? Configuration storage.
 - What does Configuration storage (or) Central storage do ?
 - What is the Naming convention while storing Configuration (or) Key-Value pair in SSM ?
-- Generally Naming format will be in linux structure like "/roboshop/dev/vpc_id"
+- Generally Naming format will be in linux structure like /roboshop/dev/vpc_id
 - As we know Data-sources is used to query the data dynamically from the providers & also from the existing
   resources right ? But to query from the existing resource, we need to give some input like vpc_id, this
   vpc_id we cannot get from the data source, but we used data source only to query the default vpc_id, but to
@@ -263,9 +263,9 @@
 - In Security groups, we have two names "Name" & "Security group name" what is the difference ?
 - As a module developer, you must output the resources in output.tf file like IDs etc. So that other teams
   will use it.
-- Now creating all SG's according to the Roboshop Documentation, Mongodb --> Should accept connections from
-  Catalogue & User, what should be the ingress (Security group rule) of mongodb now ? Source should be the
-  CatalogueIP & Port 27017, Similarly for User also.
+- Now creating all Security groups according to the Roboshop Documentation, Mongodb --> Should accept
+  connections from Catalogue & User, what should be the ingress (Security group rule) of mongodb now ? Source
+  should be the CatalogueIP & Port 27017, Similarly for User also.
 - Is CatalogueIP is constant everytime ? NO! then what should we do ? We need to take the ElasticIP which
   is very costly, because we have 12 Private servers, that means we need to create 12 EIPs. If it is Big
   project, we may need to create thousands of EIPs, this will generate huge bill to the company.
@@ -276,23 +276,23 @@
 - Now write a terraform code for all the SGs according to the Roboshop Documentation.
 - Now creating EC2s for the roboshop 04-ec2 in VS, using Open-source module from the internet.
 - Here the only disadvantage is you cannot connect to this Private instances using SSH, because Private
-  instances dont have PublicIP. We have two options "Jump host" & "Installing VPN" in Default VPC to connect
+  instances dont have PublicIP. We have two options Jump host & Installing VPN in Default VPC to connect
   to private instances which are in Roboshop VPC, but make sure you have Peering connection between
   Default VPC & Roboshop VPC.
 
 ### Session-33
 - What are the two ways to connect to Private Instances ? Jump Host & VPN
 - How to connect to Private Instances using VPN ?
-- In which VPC should we install OpenVpn ? Default_VPC
+- In which VPC should we install OpenVpn (or) create server for VPN ? Default_VPC
 - We must have a peering connection between Default_VPC & Roboshop_VPC.
 - All our private instances are in Roboshop_VPC only.
 - How the traffic is routing from Home server to Private instances ?
 - What is the SG rule when mongodb is accepting connections from OpenVpn ?
-- Make sure to enable VPN in all private instances & how can you do that ?
-- Enabling VPN in all private servers by giving SG of OpenVpn instance to the mongodb (Add SSH rule)
-- How to install OpenVpn in server & connect to it ?
-- Configuring VPN is not our responsibility, we have separate team for this.
-- We use Cisco VPN in our company. Which is costly, but for practice we used "OpenVpn Connect"
+- Make sure to enable VPN in all private instances by giving SG of OpenVpn instance to all private instances.
+  Add SSH rule.
+- How to install OpenVpn in server & connect to it ? Configuring VPN is not our responsibility, we have
+  separate team for this. We use Cisco VPN in our company. Which is costly, but for practice we used OpenVpn
+  Connect.
 
 ### Session-34
 ### Session-35
