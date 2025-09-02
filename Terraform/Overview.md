@@ -236,52 +236,50 @@
 
 ### Session-32
 - Till now we used "Allow-all" method while creating SG, it is just for practice only, but now we need to
-  follow strict SG rules according to the Roboshop-Documentation only.
+  follow strict SG rules according to the Roboshop Documentation only.
 - We have developed our own customized module for creating VPC right ? In this session also we are going
-  to develop our own customized SG module, so refer "Roboshop-aws-SGmodule" in VS
-- We have created Security groups and Security group rules for all the components according to the Roboshop
-  Documentation, so go through the code in "02-sg" in "Roboshop-terraform" folder.
-- Why we created different folders for every resources in "Roboshop-terraform" ? Refresh time
+  to develop our own customized module for SG. Refer "Roboshop-aws-sg-module" in VS.
+- We have created Security groups & Security group rules for all the components according to the Roboshop
+  Documentation.
+- Why we created separate folders for every resources in "Roboshop-terraform" ? Refresh time
 - Since they are in separate folders, consider they are like different projects.
 - Go through the folders 01-vpc, 02-sg, 03-vpn, 04-ec2 code in "Roboshop-terraform" folder in VS.
 - What is the main input required to create a SG ? VPC_ID
-- For example in Big companies, 1 team is taking care for VPC, another team is taking care for SG etc.
-  How do you get the information of resource which is in another team or another project ? SSM Parameter
-- What is SSM Parameter store in "AWS systems manager" ? Its like a configuration storage.
+- For example in Big companies, 1 team is taking care for VPC, another team is taking care for SG etc. How do
+  you get the information of resource which is in another team, project, folder ? SSM Parameter store
+- What is SSM Parameter store in "AWS systems manager" ? Configuration storage.
 - What does Configuration storage (or) Central storage do ?
 - What is the Naming convention while storing the Configuration (or) Key-Value pair in SSM ?
-- Generally Naming format will be in the linux structure like "/roboshop/dev/vpc_id"
+- Generally Naming format will be in linux structure like "/roboshop/dev/vpc_id"
 - As we know Data-sources is used to query the data dynamically from the providers and also from the existing
-  resources right ? but to query from the existing resource, we need to give some input like vpc_id, this
+  resources right ? But to query from the existing resource, we need to give some input like vpc_id, this
   vpc_id we cannot get from the data source, but we used data source only to query the default vpc_id, but to
   take the created vpc_id, again data-source is not an option, because we need to give vpc_id as input.
 - Since VPC is in different folder, how do we get vpc_id in SG ? You need to store vpc_id in SSM Parameter
-  store and read that saved Key-Value in SG using data-source option.
-- Go through the "Terraform-aws-SGmodule" in VS, just module developing.
-- Generally it is not mandatory to create ingress rules while creating SG and why ? but egress is static
-  because this traffic creating from our server, mostly it will be constant.
+  store first & then read that saved Key-Value in SG using data-source option.
+- Generally it is not mandatory to create ingress rules while creating SG & why ? But egress is static
+  because this traffic is creating from our server, mostly it will be constant.
 - In real time, whenever you want few ports to open, you need to write a mail to firewall team then, they
   will open the port, if they are using terraform they will do changes in main.tf file
-- In Security groups, we have two names "Name" and "Security group name" what is the difference ?
+- In Security groups, we have two names "Name" & "Security group name" what is the difference ?
 - As a module developer, you must output the resources in output.tf file like IDs etc. So that other teams
-  will refer.
-- Now create all Security groups according to the Roboshop Documentation "02-sg" in VS.
-- For example according to the Roboshop Documentation, Mongodb ---> Should accept connections from
-  "Catalogue" and "User" what should be the ingress (Security group rule) of mongodb now ? Source should
-  be the CatalogueIP & Port 27017, Similarly for User also ? 
+  will use it.
+- Now creating Security groups, for example according to the Roboshop Documentation, Mongodb --> Should
+  accept connections from Catalogue & User, what should be the ingress (Security group rule) of mongodb
+  now ? Source should be the CatalogueIP & Port 27017, Similarly for User also.
 - Is CatalogueIP is constant everytime ? NO! then what should we do ? We need to take the ElasticIP which
-  is very costly, because we have 12 Private servers that means we need to create 12 EIPs. If it is a Big
+  is very costly, because we have 12 Private servers, that means we need to create 12 EIPs. If it is Big
   project, we may need to create thousands of EIPs, this will generate huge bill to the company.
-- So Security group has given one option, first create Mongodb and Catalogue Security groups.
-- Then go to the Security groups in aws console and select created mongodb_SG/Edit_inbound_rules/Add rule
-  Type --> Custom TCP, Port: 27017 and in source just type "sg" next to the custom, you will get the created
-  Security groups, in that select already created Catalogue_SG. Same for the User also.
-- Now write a terraform code for all the Security groups according to the Roboshop Documentation.
-- Now creating EC2's for the roboshop "04-ec2" in VS using Open-source module from the internet.
+- So Security group has given one option, first create Mongodb & Catalogue Security groups.
+- Then go to the Security groups in aws console & select created mongodb SG/Edit inbound rules/Add rule
+  Type --> Custom TCP, Port 27017 & in source just type "sg" next to the custom, you will get the created
+  SGs, in that select already created Catalogue SG. Same for the User also.
+- Now write a terraform code for all the SGs according to the Roboshop Documentation.
+- Now creating EC2s for the roboshop 04-ec2 in VS, using Open-source module from the internet.
 - Here the only disadvantage is you cannot connect to this Private instances using SSH, because Private
-  instances dont have PublicIP. We have two options and what are there ? "Jump_host" & "Installing VPN"
-  in Default_VPC to connect to Private instances which are in Roboshop_VPC, but make sure you have Peering
-  connection between Default_VPC and Roboshop_VPC.
+  instances dont have PublicIP. We have two options "Jump host" & "Installing VPN" in Default VPC to connect
+  to private instances which are in Roboshop VPC, but make sure you have Peering connection between
+  Default VPC & Roboshop VPC.
 - We used "CISCO" VPN in our company which is costly, but for practice we used "OpenVpn Connect"
 
 ### Session-33
