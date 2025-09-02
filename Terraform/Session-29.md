@@ -1,19 +1,19 @@
 ### Module development
-Dry concept, dont repeat yourself. For example we created infrastructure for a project, nothing but we wrote a terraform code for this whole infra right ? If we got another new project, do we write the terraform code from the scratch ? NO! we dont write the code from the scratch instead we reuse the code, so no need to write the infra for every project from the scratch if we developed modules. So go through the code of "Terraform-Modules" in the VS, where we developed EC2 module. Provider will not be there in module developing.
+Dry concept, dont repeat yourself. For example we created infrastructure for a project, nothing but we wrote a terraform code for this whole infra right ? If we got another new project, do we write the terraform code from the scratch ? NO! we dont write the code from the scratch instead we reuse the code, so no need to write the infra for every project from the scratch if we developed modules. So go through the code of "Terraform Modules" in the VS, where we developed EC2 module. Provider will not be there in module developing.
 
-              module "name-of-module" {
-	                source = "../ec2"
-              }
+	  module "name-of-module" {
+			source = "../ec2"
+	  }
 	      
 ### Two types of Modules
-1. Customised modules for our organisation, this will be developed by central team in cloud.
+1. Customized modules for our organisation, this will be developed by central team in cloud.
 2. Open-source modules, this can be used from the internet.
 
 ### Two types of Roles
 1. "Module Developer" ---> Who develops the module
 2. "Module User" ---> Who consumes the module.
    
-Note:- Put one README.md file to provide the documentation on the module how to use it by others, purely its DevOps responsibility to write documentation.
+Put one README.md file to provide the documentation on the module how to use it by others, purely its DevOps responsibility to write documentation.
 
 ### VPC (Virtual Private Cloud)
 Amazon VPC is a virtual network that you create in AWS. It’s your own isolated section of the AWS cloud where you can launch AWS resources (Like EC2 instances, Databases, etc.) in a secure and controlled environment. Think of it like your own Private Data-center in aws cloud. Breaking main building block of VPC as below.
