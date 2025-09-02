@@ -280,7 +280,7 @@
   instances dont have PublicIP. We have two options "Jump host" & "Installing VPN" in Default VPC to connect
   to private instances which are in Roboshop VPC, but make sure you have Peering connection between
   Default VPC & Roboshop VPC.
-- We used "CISCO" VPN in our company which is costly, but for practice we used "OpenVpn Connect"
+- We use Cisco_VPN in our company 
 
 ### Session-33
 - How to connect to Private Instances using VPN ?
@@ -294,7 +294,12 @@
 - How to install open-vpn in server and connect to it ?
 - How do you write whole process using terraform code ? 03-vpn in VS.
 - Configuring VPN is not our responsibility, we have separate team for this.
-- We use cisco_vpn in our company.
+- We use Cisco_VPN in our company. Which is costly, but for practice we used "OpenVpn Connect"
 
 ### Session-34
-- Create resources in terraform like 
+### Session-35
+### Session-36
+### Session-37
+### Session-38
+### Session-39
+### Session-40
