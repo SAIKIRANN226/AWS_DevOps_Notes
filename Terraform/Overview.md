@@ -235,23 +235,22 @@
   of developing vpc module, but for practice you need to know.
 
 ### Session-32
-- Till now we used "Allow-all" method while creating SG, it is just for practice only, but now we need to
+- Till now we used Allow-all method while creating SG, it is just for practice only, but now we need to
   follow strict SG rules according to the Roboshop Documentation only.
 - We have developed our own customized module for creating VPC right ? In this session also we are going
-  to develop our own customized module for SG. Refer "Roboshop-aws-sg-module" in VS.
-- We have created Security groups & Security group rules for all the components according to the Roboshop
-  Documentation.
-- Why we created separate folders for every resources in "Roboshop-terraform" ? Refresh time
+  to develop our own customized module for SG. Refer Roboshop-aws-sg-module in VS.
+- We created SG's & SG rules for all components according to the Roboshop Documentation.
+- Why we created separate folders for every resources in Roboshop-terraform ? Refresh time
 - Since they are in separate folders, consider they are like different projects.
-- Go through the folders 01-vpc, 02-sg, 03-vpn, 04-ec2 code in "Roboshop-terraform" folder in VS.
+- Go through 01-vpc, 02-sg, 03-vpn, 04-ec2 code in Roboshop-terraform in VS.
 - What is the main input required to create a SG ? VPC_ID
 - For example in Big companies, 1 team is taking care for VPC, another team is taking care for SG etc. How do
   you get the information of resource which is in another team, project, folder ? SSM Parameter store
 - What is SSM Parameter store in "AWS systems manager" ? Configuration storage.
 - What does Configuration storage (or) Central storage do ?
-- What is the Naming convention while storing the Configuration (or) Key-Value pair in SSM ?
+- What is the Naming convention while storing Configuration (or) Key-Value pair in SSM ?
 - Generally Naming format will be in linux structure like "/roboshop/dev/vpc_id"
-- As we know Data-sources is used to query the data dynamically from the providers and also from the existing
+- As we know Data-sources is used to query the data dynamically from the providers & also from the existing
   resources right ? But to query from the existing resource, we need to give some input like vpc_id, this
   vpc_id we cannot get from the data source, but we used data source only to query the default vpc_id, but to
   take the created vpc_id, again data-source is not an option, because we need to give vpc_id as input.
@@ -259,18 +258,18 @@
   store first & then read that saved Key-Value in SG using data-source option.
 - Generally it is not mandatory to create ingress rules while creating SG & why ? But egress is static
   because this traffic is creating from our server, mostly it will be constant.
-- In real time, whenever you want few ports to open, you need to write a mail to firewall team then, they
+- In real time, whenever you want few ports to open, you need to write a mail to firewall team, then they
   will open the port, if they are using terraform they will do changes in main.tf file
 - In Security groups, we have two names "Name" & "Security group name" what is the difference ?
 - As a module developer, you must output the resources in output.tf file like IDs etc. So that other teams
   will use it.
-- Now creating Security groups, for example according to the Roboshop Documentation, Mongodb --> Should
-  accept connections from Catalogue & User, what should be the ingress (Security group rule) of mongodb
-  now ? Source should be the CatalogueIP & Port 27017, Similarly for User also.
+- Now creating all SG's according to the Roboshop Documentation, Mongodb --> Should accept connections from
+  Catalogue & User, what should be the ingress (Security group rule) of mongodb now ? Source should be the
+  CatalogueIP & Port 27017, Similarly for User also.
 - Is CatalogueIP is constant everytime ? NO! then what should we do ? We need to take the ElasticIP which
   is very costly, because we have 12 Private servers, that means we need to create 12 EIPs. If it is Big
   project, we may need to create thousands of EIPs, this will generate huge bill to the company.
-- So Security group has given one option, first create Mongodb & Catalogue Security groups.
+- So Security group has given 1 option, first create Mongodb & Catalogue Security groups.
 - Then go to the Security groups in aws console & select created mongodb SG/Edit inbound rules/Add rule
   Type --> Custom TCP, Port 27017 & in source just type "sg" next to the custom, you will get the created
   SGs, in that select already created Catalogue SG. Same for the User also.
@@ -280,21 +279,20 @@
   instances dont have PublicIP. We have two options "Jump host" & "Installing VPN" in Default VPC to connect
   to private instances which are in Roboshop VPC, but make sure you have Peering connection between
   Default VPC & Roboshop VPC.
-- We use Cisco_VPN in our company 
 
 ### Session-33
+- What are the two ways to connect to Private Instances ? Jump Host & VPN
 - How to connect to Private Instances using VPN ?
-- In which vpc should we install open-vpn ? default_vpc
-- We must have a peering connection between default_vpc and roboshop_vpc.
-- We have to create all our private instances in roboshop_vpc only.
-- How the traffic is routing from home sever to aws network using open-vpn ?
-- What is the SG rule when mongodb is accepting connections from open-vpn ?
-- Make sure to enable vpn in all private instances and how can you do that ?
-- Enabling vpn in all private servers is nothing but giving SG of VPN_instance to the mongodb.
-- How to install open-vpn in server and connect to it ?
-- How do you write whole process using terraform code ? 03-vpn in VS.
+- In which VPC should we install OpenVpn ? Default_VPC
+- We must have a peering connection between Default_VPC & Roboshop_VPC.
+- All our private instances are in Roboshop_VPC only.
+- How the traffic is routing from Home server to Private instances ?
+- What is the SG rule when mongodb is accepting connections from OpenVpn ?
+- Make sure to enable VPN in all private instances & how can you do that ?
+- Enabling VPN in all private servers by giving SG of OpenVpn instance to the mongodb (Add SSH rule)
+- How to install OpenVpn in server & connect to it ?
 - Configuring VPN is not our responsibility, we have separate team for this.
-- We use Cisco_VPN in our company. Which is costly, but for practice we used "OpenVpn Connect"
+- We use Cisco VPN in our company. Which is costly, but for practice we used "OpenVpn Connect"
 
 ### Session-34
 ### Session-35
