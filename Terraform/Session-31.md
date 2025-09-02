@@ -5,9 +5,9 @@
 - Database subnet group, since database has different behaviour
 - Elastic_IP
 - NAT Gateway
-- Public, Private, and Database Route_tables
+- Public, Private, and Database Route tables
 - Added Public, Private, and Database routes
-- Public, Private, and Database Route_table associations
+- Public, Private, and Database Route table associations
 - Peering connection
 - Next add the routes, nothing but we call it as routes in VPC. If accepter VPC is not in our control can we
   add the route ? NO! we should inform them to add the acceptor route in their terraform code
