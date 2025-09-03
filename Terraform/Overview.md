@@ -267,8 +267,8 @@
   connections from Catalogue & User, what should be the ingress (Security group rule) of mongodb now ? Source
   should be the CatalogueIP & Port 27017, Similarly for User also.
 - Is CatalogueIP is constant everytime ? NO! then what should we do ? We need to take the ElasticIP which
-  is very costly, because we have 12 Private servers, that means we need to create 12 EIPs. If it is Big
-  project, we may need to create thousands of EIPs, this will generate huge bill to the company.
+  is very costly, because we have 12 Private servers, that means we need to create 12 EIPs. If Big project,
+  we may need to create thousands of EIPs, this will generate huge bill to the company.
 - So Security group has given 1 option, first create Mongodb & Catalogue Security groups.
 - Then go to the Security groups in aws console & select created mongodb SG/Edit inbound rules/Add rule
   Type --> Custom TCP, Port 27017 & in source just type "sg" next to the custom, you will get the created
@@ -289,7 +289,7 @@
 - How the traffic is routing from Home server to Private instances ?
 - What is the SG rule when mongodb is accepting connections from OpenVpn ?
 - Make sure to enable VPN in all private instances by giving SG of OpenVpn instance to all private instances.
-  Add SSH rule.
+  with SSH rule.
 - How to install OpenVpn in server & connect to it ? Configuring VPN is not our responsibility, we have
   separate team for this. We use Cisco VPN in our company. Which is costly, but for practice we used OpenVpn
   Connect.
@@ -299,19 +299,19 @@
   configured, for that we need to create ansible server in default subnet (Default VPC) this server will
   provision all instances using ansible playbooks & also create SG for ansible on port SSH 22 to connect to
   all instances securely.
-- For this we need to write a small shellscript to provision the instances ec2-provision.sh in VS. No need to
+- For this we need to write a small shellscript to provision the instances ec2-provision.sh in VS. NO need to
   give sudo access in this script, because userdata will get sudo access automatically but in provisioners we
   need to give sudo access.
 - There is one disadvantage in user-data, if user-data fails one time, it will not come again, so we will
   address this issue with provisioners. So delete ansible-server & do again terraform init, plan, apply.
-- User-data logs will be in sudo cd /var/log/, ls -la, tail -f cloud-init-output.log
+- Userdata logs will be in sudo cd /var/log/, ls -la, tail -f cloud-init-output.log
 - LB (Target groups & Rules) and Launch templates (Auto scaling & Policy)
-- First create 2 nginx servers, while creating add user-data like #!/bin/bash yum install nginx -y mkdir -p
-  /usr/share/nginx/html/ui echo "<h1GreaterthanSymbolHi we are from UI team<h1GreaterthanSymbol" >
+- First create 2 nginx servers (UI & UX), while creating add userdata like #!/bin/bash yum install nginx -y
+  mkdir -p /usr/share/nginx/html/ui echo "<h1GreaterthanSymbolHi we are from UI team<h1GreaterthanSymbol" >
   /usr/share/nginx/html/ui/index.html systemctl restart nginx.
-- We are using Application LB becasue it is most intelligent and Classic LB is very old.
+- We are using Application LB becasue it is most intelligent & Classic LB is very old.
 - Create LB security group, here from where the tarffic is coming to this LB ? From the internet, therefore
-  ingress rule should be http & cidr is 0.0.0.0/0
+  ingress rule should be HTTP & CIDR 0.0.0.0/0
 - Create SGs for these two nginx servers, these servers will get request from LB, therefore ingress rule
   should be a SG which is attached to LB.
 - Create target groups for example UI, UX in Listeners first, then register using include as pending in
@@ -320,7 +320,7 @@
 - Rules in Load balancers, there is default rule, you can add as many rules you want, you can put path as a
   condition in this UI/UX example, if path is /ui/* then send to UI target group. Keep Priority as 1.
 - Load Balancer will give us a DNS name, generally we configure this name in route53 record, so create a new
-  record, copy the DNS name & paste, and you need to keep Alias and select Alias to Application & Classic
+  record, copy the DNS name & paste and you need to keep Alias and select Alias to Application & Classic
   Load Balancer.
 - Mostly in companies, errors are not because of coding, it is because of configuration change, even if we
   make small changes in configuration, we get errors, so thats why we need to keep config independently in
@@ -331,33 +331,33 @@
   should reach to the end service which is present in aws, request will cross many stages like client-side
   configuration should be clear, vpc, igw, subnets etc. have many resources to cross to reach the end
   service. So this visualization should there in us. Thats why SG is important to use in every resources.
-- No Problem if you delete ".terraform" folder and lock file.
+- No Problem if you delete ".terraform" folder & lock file.
   
 ### Session-35
 - Understand the concept of 3-Tier architecture diagram.
-- Start a project Roboshop-infra-Dev in VS, this is for Dev environment, as this is multi-env, you have
-  three options Tfvars-method, Workspace-method & Different repos for different env, present siva is now
-  creating different repos for different environments. Every method has pros & cons, you can tell this in
-  interview. We also need to create for SIT, UAT, PROD.
-- We keep Web-ALB in https on port 443, because it is facing to the public. App-ALB is private LB, since this
-  App-ALB is within our network, we can keep this in http on port 8080.
+- Start a project Roboshop-infra-Dev in VS, this is for Dev environment, since this is multi-env, you have
+  three options Tfvars-method, Workspace-method & Different repos for different environments, present siva is
+  now creating different repos for different environments. Every method has pros & cons, you can tell this in
+  interview. We also need to create for SIT, UAT, PROD Environments.
+- We keep Web-ALB in https on port 443, because it is facing to the public. App-ALB is private LB, this
+  App-ALB is within our network, we can keep this in http on port 8080 (or) 80.
 - There will be NO direct connections from now, only through LB.
 - We use Auto-scaling only for frontend & backend. For Databases we use RDS, DynamoDB etc.
-- Creating Databases using PULL strategy. We have one disadvantage in PUSH. Once we pushed the configuration
-  from the ansible server to the nodes and if the configuration is disturbed or anybody did changes in
-  ansible server, we dont have any idea, so ansible implemented PULL architecture aswel, we can schedule a
-  crontab to PULL the configuration periodically from Git not from the ansible-server and run it, since
-  ansible is idempotence in nature, even if the program runs multiple times, nothing will happen. So go
+- Creating Databases using PULL strategy. We have one disadvantage in PUSH that is Once we pushed the
+  configuration from the ansible server to the nodes and if the configuration is disturbed or anybody did
+  changes in ansible server, we dont have any idea, so ansible implemented PULL architecture aswel, we can
+  schedule a crontab to PULL the configuration periodically from Git not from the ansible-server & run it,
+  since ansible is idempotence in nature, even if the program runs multiple times, nothing will happen. So go
   through the code of Roboshop-ansible-roles-Terraform in VS.
 - Why we use terraform provisioners (Null resource) instead of user-data ? Because we dont know wether the
-  user-data is succeeded or not until we see the logs in server and moreover it will run only one time. But
-  in provisioner we can see on terminal if bootstraping is happening or not ?
-- Every platform like azure, gcp or aws cloud platform will have its own solution to maintain configuration
-  and secrets, in aws cloud we have more resources like ec2, dynamodb, lb etc. So for every service you may
-  use passwords or any other secrets in the configuration at some point of time like in mysql we have
-  password Roboshop@, so we have SSM Parameter store, services will refer this.
-- For example in aws cloud, EC2 is a service and if this EC2 wants to retrieve the configuration or passwords
-  which are present in the SSM Parameter, then this EC2 must have access to that SSM right ? For that only we
+  user-data is succeeded or not until we see the logs in server & moreover it will run only one time. But
+  in provisioner we can see on terminal, wether the bootstrap is happening or not ?
+- Every platform like azure, gcp, aws cloud platform will have its own solution to maintain configuration
+  & secrets, in aws cloud we have more resources like ec2, dynamodb, lb etc. So for every service you may
+  use passwords or any other secrets in the configuration at some point of time like in mysql, we have
+  password Roboshop1@, so we have SSM Parameter store, services will refer this.
+- For example in aws cloud, EC2 is a service & if this EC2 wants to retrieve the configuration or passwords
+  which are present in SSM Parameter, then this EC2 must have access to that SSM right ? For that only we
   give roles to the EC2 in IAM. Second thing is here we are using ansible to provision servers, so ansible
   should pull the configuration or passwords whatever present in the SSM Parameter, which is present in aws,
   then ansible should connect to the aws first, that means ansible should download boto3 and botocore
