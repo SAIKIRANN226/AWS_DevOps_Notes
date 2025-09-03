@@ -300,7 +300,8 @@
   provision all instances using ansible playbooks & also create SG for ansible on port SSH 22 to connect to
   all instances securely.
 - For this we need to write a small shellscript to provision the instances ec2-provision.sh in VS. No need to
-  give sudo access in this script, because userdata will get sudo access automatically.
+  give sudo access in this script, because userdata will get sudo access automatically but in provisioners we
+  need to give sudo access.
 - There is one disadvantage in user-data, if user-data fails one time, it will not come again, so we will
   address this issue with provisioners. So delete ansible-server & do again terraform init, plan, apply.
 - User-data logs will be in sudo cd /var/log/, ls -la, tail -f cloud-init-output.log
@@ -333,7 +334,47 @@
 - No Problem if you delete ".terraform" folder and lock file.
   
 ### Session-35
-- 
+- Understand the concept of 3-Tier architecture diagram.
+- Start a project Roboshop-infra-Dev in VS, this is for Dev environment, as this is multi-env, you have
+  three options like Tfvars-method, Workspaces-method & Different repos for different env, present siva is
+  now creating using different repos for different env method. Every method has pros & cons, you can tell
+  this in interview. We also need to create for SIT, UAT, PROD. So any project starts with VPC.
+- We keep Web-ALB in https on port 443, because it is facing to the public. App-ALB is private LB, since this
+  App-ALB is in our network, we can keep this in http on port 8080
+- No direct connections now, only through LB.
+- We use Auto-scaling only for frontend & backend. For Databases we use RDS, DynamoDB etc.
+- Creating Databases using PULL strategy. We have one disadvantage in PUSH. Once we pushed the configuration
+  from the ansible server to the nodes and if the configuration is disturbed or anybody do changes in
+  ansible server, we dont have any idea, so ansible implemented PULL architecture aswel, we can schedule a
+  crontab to PULL the configuration periodically from Git not from the ansible-server and run it, since
+  ansible is idempotence in nature, even if it runs the program multiple times nothing will happen. So go
+  through the code of Roboshop-ansible-roles-Terraform in VS.
+- Why we use terraform provisioners (Null resource) instead of user-data ? Because we dont know wether the
+  user-data is succeeded or not until we see the logs in server and moreover it will run only one time. But
+  in provisioner we can see on terminal if bootstraping is happening or not ?
+- Every platform like azure, gcp or aws cloud platform will have its own solution to maintain configuration
+  and secrets, in aws cloud we have more resources like ec2, dynamodb, lb etc. So for every service you may
+  use passwords or any other secrets in the configuration at some point of time like in mysql we have
+  password Roboshop@, so we have SSM Parameter store, services will refer this.
+- For example in aws cloud, EC2 is a service and if this EC2 wants to retrieve the configuration or passwords
+  which are present in the SSM Parameter, then this EC2 must have access to that SSM right ? for that only we
+  give roles to the EC2 in IAM. Second thing is here we are using ansible to provision servers, so ansible
+  should pull the configuration or passwords whatever present in the SSM Parameter, which is present in aws,
+  then ansible should connect to the aws first, that means ansible should download "boto3 and botocore
+  python" modules. Third thing is ansible-server should also have IAM role (or) IAM policy to PULL the
+  configuration or passwords from the AWS. If these 3 things are there, we can implement vault.
+- IAM role we have given in the code is iam_instance_profile = role-name, present this role has full admin
+  access, later we can restrict in IAM concepts.
+- We store passwords in SSM Parameter by manual only not automated.
+- So first store the password in SSM Paramater, for example we have root_password in mysql right ? so store
+  that and naming should be "roboshop/dev/msql_root_pass" and use "secure string" and value should be the
+  password itself "Roboshop@1", so here ansible should retrieve this password, for that we have a syntax
+  called "lookup" put this syntax in the ansible-roles, where ever this password is there.
+- If you go manually like ansible.builtin.command/shell there is one disadvantage, there will be no
+  idempotence behaviour, thats why mostly use module only. If there is no official modules from ansible, we
+  can use community modules.
+- Web & App tier (If traffic increases, Auto-scaling will create instances)
+
 ### Session-36
 ### Session-37
 ### Session-38
