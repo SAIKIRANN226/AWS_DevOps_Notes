@@ -295,6 +295,19 @@
   Connect.
 
 ### Session-34
+- We have created VPC, Security groups, VPN, Instances. So now we want all instances to automatically
+  configured, for that we need to create ansible server in default subnet (Default VPC) this server will
+  provision all instances using ansible playbooks & also create SG for ansible on port SSH 22 to connect to
+  all instances securely.
+- For this we need to write a small shellscript to provision the instances ec2-provision.sh in VS. No need to
+  give sudo access in this script, because userdata will get sudo access automatically.
+- There is one disadvantage in user-data, if user-data fails one time, it will not come again, so we will
+  address this issue with provisioners. So delete ansible-server & do again terraform init, plan, apply.
+- User-data logs will be in sudo cd /var/log/, ls -la, tail -f cloud-init-output.log
+- LB (Target groups & Rules) and Launch templates (Auto scaling & Policy)
+- First create 2 nginx servers, while creating add user-data like #!/bin/bash yum install nginx -y mkdir -p
+  /usr/share/nginx/html/ui echo "<h1GreaterthanSymbolHi we are from UI team<h1GreaterthanSymbol" >
+  /usr/share/nginx/html/ui/index.html systemctl restart nginx. 
 ### Session-35
 ### Session-36
 ### Session-37
