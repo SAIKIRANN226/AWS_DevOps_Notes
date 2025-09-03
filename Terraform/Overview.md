@@ -307,8 +307,33 @@
 - LB (Target groups & Rules) and Launch templates (Auto scaling & Policy)
 - First create 2 nginx servers, while creating add user-data like #!/bin/bash yum install nginx -y mkdir -p
   /usr/share/nginx/html/ui echo "<h1GreaterthanSymbolHi we are from UI team<h1GreaterthanSymbol" >
-  /usr/share/nginx/html/ui/index.html systemctl restart nginx. 
+  /usr/share/nginx/html/ui/index.html systemctl restart nginx.
+- We are using Application LB becasue it is most intelligent and Classic LB is very old.
+- Create LB security group, here from where the tarffic is coming to this LB ? From the internet, therefore
+  ingress rule should be http & cidr is 0.0.0.0/0
+- Create SGs for these two nginx servers, these servers will get request from LB, therefore ingress rule
+  should be a SG which is attached to LB.
+- Create target groups for example UI, UX in Listeners first, then register using include as pending in
+  default subnet.
+- Now create Load Balancer with port 80 in Default_VPC subnet with min two AZs.
+- Rules in Load balancers, there is default rule, you can add as many rules you want, you can put path as a
+  condition in this UI/UX example, if path is /ui/* then send to UI target group. Keep Priority as 1.
+- Load Balancer will give us a DNS name, generally we configure this name in route53 record, so create a new
+  record, copy the DNS name & paste, and you need to keep Alias and select Alias to Application & Classic
+  Load Balancer.
+- Mostly in companies, errors are not because of coding, it is because of configuration change, even if we
+  make small changes in configuration, we get errors, so thats why we need to keep config independently in
+  SSM Parameter store (Central storage or Configuration storage)
+- SG is very important, since we are connecting to every resources present in aws.
+- Individually we can understand every concept, but when we configure the project using all concepts, it will
+  create huge confusion, like for example if we give a request from client (or) from our laptop, the request
+  should reach to the end service which is present in aws, request will cross many stages like client-side
+  configuration should be clear, vpc, igw, subnets etc. have many resources to cross to reach the end
+  service. So this visualization should there in us. Thats why SG is important to use in every resources.
+- No Problem if you delete ".terraform" folder and lock file.
+  
 ### Session-35
+- 
 ### Session-36
 ### Session-37
 ### Session-38
