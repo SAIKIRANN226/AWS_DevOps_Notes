@@ -377,8 +377,74 @@
 
 ### Session-36
 - How is the workflow in company like from client to team members ?
-- 
+- What is Launch template ? It is like hiring template like HR (Auto-scaling)
+- So first create Application Load balancer is a latest generation works on TCP layer7, we can redirect to
+  different project using one single App_ALB
+- What is context path & host path ?
+- Now create catalogue target group nothing but like a team creation. Who will take resources in this team ?
+  HR (Auto-scaling) for this we need hiring template. How this hiring template will be ready ? Below are the
+  points.
+- Then create instance.
+- Provision instance with ansible or shell.
+- Stop the instance
+- Take the AMI from the ec2 instance only.
+- Delete the instance.
+- Now create launch template with AMI.
+- If we give this Launch template to the auto-scaling, it will create the instances depending up on the
+  traffic.
+- Listener or rule
+- Auto-scaling policy.
+  
 ### Session-37
+- What is deregistration ? Once the de-registration started, instance should complete its pending requests
+  and LB should not give any new requests. We have given 300 or 60 seconds time for this.
+- What is rolling update ?
+- Now for web component. First create security group and then "Web_ALB" here listener is 443 (give access
+  from internet) and rule should be if anybody enter "web-dev.daws76s.online" our website should open. Before
+  creating listener, you need to create certificate that is HTTS, there should be a domain for certificate,
+  so create domain on "*.daws76s.online" and attach this certificate to listener. Go through 07-acm in VS. If
+  you are mentioning listener 443 then you should attach the certificate.
+- You need to validate the domain, so aws will give you CNAME name & CNAME value using this you need to
+  create a record in whichever domain you are using like we are using hostinger or in aws or some other,
+  you can only create records if you have those particular domains login credentials only.
+- If you mentioning listener 443, you need to attach certificates to the listener.
+- Few applications are in cloud VM based, and few applications are in containers.
+  
 ### Session-38
+- Creating 07-acm using terraform code
+- Now start creating web component 08-web-alb
+- Now create web components 09-web
+- Then create CDN cloud front. What is CDN ? Cloud front is useful to cache only static (Like media & images)
+  content not dynamic content.
+- AWS will charges for data transfer also, like how much data you transferred
+- Till now we have created web, catalogue right ? next go for cart, shipping, payment etc. Nothing but do
+  samething like copy paste, but siva told we can also develop module for this instead of copy paste, this
+  module is only for roboshop project, not for other projects. Because backend components have same
+  behaviour. But you can only focus on copy paste, you just know how to develop this module.
+
 ### Session-39
+- Terraform-roboshop-app in VS. It is nothing but module developing for roboshop instances, this module is
+  only for roboshop project not for other projects. Just know how siva is creating this module, you can
+  follow the previous process only to avoid confusion. This is completely customised modules only for
+  roboshop project.
+
 ### Session-40
+- We have Behaviours options in cloud front. What does it do ?
+- In behaviours by default, it is sending all path patterns to the origin "web-dev.daws76s.online"
+- So we need to create behaviours, if "/media/* (or) "/images/* ---> Then only apply cache policy and get the
+  remaining content from the origin (or) Load balancer "web-dev.daws76s.online"
+- Depends upon the project, we can create cache policies.
+- We have few policies like we can disable the cache policy to the dynamic content and enable to the static
+  content.
+- What is Ordered cache behaviour ?
+- What is Invalidation options in cloud front ?
+- How the traffic will travel from CDN to Web component ?
+- We have two types of services. VPC based & Non VPC based what it means ?
+- What is project infra ? Non frequently changing like VPC, SG, VPN, Databases, Web-ALB, App-ALB
+- What is application infra ? Frequently changing like catalogue, shipping, cart etc.
+- Whenever there is a change in application then CICD for catalogue, shipping cart etc. should run
+- What does this CICD do ? Clone, build, scan, creating artifacts this is CI and CD is create instance,
+  deploy latest version, stop the instance, take ami, refresh auto-scaling group.
+- If we give all the paths or secrets of our whole infra which is in SSM Parameter to the developers, then
+  they will create application infra on top of project infra.
+- We are using shift left strategy in our pipeline.
