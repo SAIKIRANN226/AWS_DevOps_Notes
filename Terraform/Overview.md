@@ -376,6 +376,8 @@
 - Web & App tier (If traffic increases, Auto-scaling will create instances)
 
 ### Session-36
+- How is the workflow in company like from client to team members ?
+- 
 ### Session-37
 ### Session-38
 ### Session-39
