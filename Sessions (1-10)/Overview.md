@@ -126,7 +126,7 @@
 - Location of reverse proxy configuration "vim /etc/nginx/default.d/roboshop.conf"
 - What are the famous HTTP status codes ?
 - Configure the Roboshop project manually ?
-- What is cache server ? Example of downloaded movie by 1 user. Redis is the cache server.
-- What is Domain name system (DNS) and how do you register your domain ?
+- What is cache (Redis) server ? Example of downloaded movie by 1 user.
+- What is Domain name system (DNS) & how do you register your domain ?
 - Steps to install any application in linux ?
 - What is the difference between Synchronous & Asynchronous in networking ?
