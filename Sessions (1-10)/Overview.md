@@ -88,40 +88,51 @@
 - In gitbash we call Privatekey as ".pem" but in putty we call it as ".ppk" (Putty privatekey)
 - How to create this putty private key (.ppk) ? Load .pem file in puttygen save with .ppk extension
 - Open putty --> connection --> ssh --> auth --> credentials --> load your saved .ppk file
-- Connection --> data --> username (ec2-user) --> then go to session and save (Important)
-- Create a server in aws and take the IP and paste it in putty (Hostname) click on load to connect.
-- To change the font open putty --> appearence --> change and then save to make effect in superputty.
+- Connection --> data --> username (ec2-user) --> then go to session & save (Important)
+- Create a server in aws & take the IP and paste it in putty (Hostname) click on load to connect.
+- To change the font open putty --> appearence --> change & then save to make effect in superputty.
 - What is the Linux file system structure ?
-- When putty stucks (or) unable to enter any command then open putty first load your session then go to connection ---> Give 30 in seconds then go to session & save, generally we have value 0 you need to give any value like 30, that means every 30 seconds connection will be alive, you can give max 300.
-- What is Symlink & Hardlink and what is Inode ? Inode is the representation of file and folder inside the memory, it is a number. To that number "ls -li"
-- How to create a Symlink for a file ? "ln -s /home/ec2-user/hello /tmp/hello-soft" We can give obsolute path or relative path also.
-- How to create a Hardlink for a file ? "ln /home/ec2-user/hello hello-hard" if you dont give "s" it will become hardlink.
+- When putty stucks (or) unable to enter any command then open putty first load your session then go to
+  connection ---> Give 30 in seconds then go to session & save, generally we have value 0 you need to give
+  any value like 30, that means every 30 seconds connection will be alive, you can give max 300.
+- What is Inode ? Inode is the representation of file & folder inside the memory, it is a number. How to
+  get that number ? ls -li
+- What is Symlink & Hardlink ? Symlink will point to the file not to the inode while Hardlink will point
+  directly to the inode not to the file.
+- How to create a Symlink for a file ? First create a file hello & add content in it using cat command, then
+  create symlinnk "ln -s /home/ec2-user/hello /tmp/hello-soft" We can give obsolute path or relative path.
+- How to create a Hardlink for a file ? "ln /home/ec2-user/hello /tmp/hello-hard"
 - We use nginx as front-end servers because it can handle high traffic, it is used as reverse proxy.
-- IIS is only used for windows based infrastructure.
+- IIS is only used for windows based applications.
 - We have "winscp" for file transfer, it is a mini windows in linux server.
-- Generally frontend servers called as HTTP servers port 80. Hosts html, java based applications.
-- Backend is also HTTP servers but port 8080. Hosts like tomcat, jboss, .net, python etc.
-- What is the difference between PublicIP vs PrivateIP ? How the Modem will provide PrivateIPs to the internal systems (or) to laptops ? Using NAT.
-- What is ipconfig, what is my ip, what is your private ip.
+- Generally frontend servers called as HTTP servers on port 80. Hosts html, java based applications.
+- Backend is also HTTP servers but on port 8080. Hosts like tomcat, jboss, .net, python etc.
+- What is the difference between PublicIP vs PrivateIP ? How the Modem will provide PrivateIPs to the
+  internal systems (or) to laptops ? Using NAT
 - What is NAT (Network address translation) ?
 - What is Fibre exchange points ?
 - What is Enterprise archive file ? Servlets (DB) ; JSPS (UI) ---> Monolithic
-- What is Monolithic vs Microservices ? Monolithic means Single unified application, easy to start, hard to scale. Microservices will Split into independent services, scalable and flexible, but more complex.
+- What is Monolithic vs Microservices ? Monolithic means Single unified application, easy to start, hard to
+  scale. Microservices will Split into independent services, scalable and flexible, but more complex.
 - Frontend (80) ---> HTML, JS, AngularJS, Java applications.
 - Backend (8080) ---> Databases like mysql, postgre etc.
 - To connect from one server to another server "telnet 172.31.28.69 8080"
-- If telnet is not installed ---> sudo yum install telnet -y ; If connection is refused, check wether any process or application is working on that particular port by using "netstat -lntp" then change inbound.
+- If telnet is not installed ---> sudo yum install telnet -y ; "netstat -lntp" shows all TCP ports currently
+  being listened on, along with the process using each port. I use it in DevOps to check whether services
+  like Nginx, MySQL, or application servers are actually listening on the expected ports.
 - To check if a command is installed or not ? Use "which" usage is "which telnet" "which yum" etc.
-- If you type "ipconfig" you will get all details, IPv4 is my PrivateIP, IP under default gateway is modem. IPv4 are exhausting and we are upgrading to IPv6 till then we can use IPv4. We have 2power32 IPaddresses. If we allocate all these, we get problems. So they brought "NAT" Network Address Translation. However latency will be slow that is nothing but time to respond will be somewhat slow.
-- What does Security groups (Firewalls) do ?
-- Frontend (WEB) and Backend (API) are Stateless ; DB is Statefull.
-- WEB & API will work only when DB is in existence. Example of a CRUD over facebook.
-- We are using webservers as nginx on HTTP protocol only, it can also use HTTPS.
-- Installing packages using yum and dnf. But dnf is preferred while configuring project manually because it
+- If you type "ipconfig" in cmd you will get all details, IPv4 is my PrivateIP, IP under default gateway is
+  modem. IPv4 are exhausting and we are upgrading to IPv6 till then we can use IPv4. We have 2power32
+  IPaddresses. If we allocate all these, we get problems. So they brought "NAT" Network Address Translation.
+  However latency will be slow that is nothing but time to respond will be somewhat slow.
+- Frontend (WEB) & Backend (API) are Stateless ; DB is Statefull.
+- WEB & API will work only when DB is in existence. Example of CRUD over facebook.
+- We are using web servers as nginx on HTTP protocol only, it can also use HTTPS.
+- Installing packages using yum & dnf. But dnf is preferred while configuring project manually because it
   consumes less memory when compared to yum. Yum is used in automation like shellscripting.
 - Location of nginx configuration "cd /etc/nginx/nginx.conf"
 - Location of the default content of the nginx "cd usr/share/nginx/html/"
-- What is Forward proxy and Reverse proxy ?
+- What is Forward proxy and Reverse proxy ? Nginx is used as reverse proxy.
 - Reverse proxy is mainly used for Load balancers & Server anonymous.
 - Location of reverse proxy configuration "vim /etc/nginx/default.d/roboshop.conf"
 - What are the famous HTTP status codes ?
