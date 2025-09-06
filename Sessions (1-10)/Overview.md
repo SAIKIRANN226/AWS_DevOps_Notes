@@ -117,7 +117,8 @@
 - Frontend (WEB) and Backend (API) are Stateless ; DB is Statefull.
 - WEB & API will work only when DB is in existence. Example of a CRUD over facebook.
 - We are using webservers as nginx on HTTP protocol only, it can also use HTTPS.
-- Installing packages using yum and dnf. But dnf is preferred while configuring project manually because it consumes less memory when compared to yum. Yum is used in automation like shellscripting.
+- Installing packages using yum and dnf. But dnf is preferred while configuring project manually because it
+  consumes less memory when compared to yum. Yum is used in automation like shellscripting.
 - Location of nginx configuration "cd /etc/nginx/nginx.conf"
 - Location of the default content of the nginx "cd usr/share/nginx/html/"
 - What is Forward proxy and Reverse proxy ?
