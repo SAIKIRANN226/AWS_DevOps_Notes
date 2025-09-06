@@ -14,10 +14,10 @@
 7. Testing
 
 ### Synchronous vs Asynchronous
-http and https websites are ---> synchronous communication server should be always up and running, if servers not running. We get error code like 400/500. that is called synchronous
+http and https websites are ---> synchronous communication server should be always up and running, where the sender waits for the receiver to respond before continuing. It is blocking – the connection is held open until the response comes. If servers not running. We get error code like 400/500. that is called synchronous
 
 ### Asynchronous
-Servers should 100% up and always running it should not down for that we use asynchronous
+Servers should 100% up and always running. Communication where the sender does not wait for an immediate response. So they use Messaging broker between client and servers.
 Between, Client ---> Messaging broker (Messaging queue) ---> Servers
 Example:- Whatsapp messaging when other person is offline
 
