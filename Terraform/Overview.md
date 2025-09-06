@@ -123,8 +123,10 @@
 ### Session-29
 - What is Module Development in terraform & what is the syntax ? Go through the code of EC2 module in
   Terraform-modules in VS. Here provider.tf will not be there in module developing.
-- How many types of Modules and How many types of Roles are there ?
-- It is DevOps engineer responsibility to write README.md file to let others know how to use module.
+- How many types of Modules & How many types of Roles are there ?
+- It is DevOps engineer responsibility to write README.md file to let others know how to use module. We keep
+  information like what resources we have created in HA and inputs like what are required, what are optional.
+  What outputs we are provided etc.
 - Create a VPC in aws console ? CIDR (10.0.0.0/16)
 - Google has given some PrivateIP address ranges those only allocated to PrivateIP not for PublicIP,
   there you can see 24,20,16 bit-blocks.
@@ -137,14 +139,14 @@
 - Create Private subnet in aws console ? CIDR 10.0.2.0/24
 - Create Database subnet in aws console ? CIDR 10.0.3.0/24
 - Create Public, Private & Database route tables in aws console ?
-- And associate Public, Private & Database route tables with their respective subnets ?
+- Associate Public, Private & Database route tables with their respective subnets ?
 - Give internet access to the Public subnets.
 - Enable Auto-asign public IPv4 address only to the Public subnet.
-- Create Internet Gateway and attach to your created VPC in aws console ?
-- What is the difference between Public subnet and Private subnet ?
+- Create Internet Gateway & attach to your created VPC in aws console.
+- What is the difference between Public & Private subnets ?
 - CIDR (Classless Inter-Domain Routing) ? We can asign custom IP address range to the subnets.
 - Use always terraform best practices for naming convention like using "_" avoid double naming.
-- We used Open source modules sometimes, we have dedicated cloud team who develops module & we use them.
+- We used Open source modules sometimes, we have dedicated cloud team who develops module & use them.
 - How do you check internet is working or not ? ping google.com, Ipv4 is 32bit & Ipv6 is 64 bit.
 - Router (Internet Gateway) ---> It has PublicIP & PrivateIP. PublicIP is nothing but just type what
   is my ip in google, there you can see Ipv4 address that is your PublicIP, not ipv6. What is your PrivateIP
@@ -160,19 +162,19 @@
 - What resources we have created inside the VPC in aws console ?
 - First we have created VPC in aws (Your created VPC is Isolated, even aws dont have access to it). It is
   like your Private Data-Center in aws cloud.
-- Created Internet Gateway (IGW) and attached to the VPC.
+- Created Internet Gateway (IGW) & attached to the VPC.
 - Created Public, Private & Database subnets in atleast 2-AZs for High Availability.
 - Created Route tables (Public, Private & Database) & associated it with their respective subnets in both
   regions 1a and 1b.
 - Added Internet Gateway route in Public Route table, because internet should be enabled in Public not in
-  Private, that is the difference between Public and Private subnets.
+  Private, that is the difference between Public & Private subnets.
 - Enabled Auto-asign Public IPv4 address only to the Public subnet not to the Private subnet.
 - When you create a VPC, a default route table also known as main route table is automatically created
   to that VPC. It contains a local route that enables communication with the subnets within the VPC. While
   this default route table cannot be deleted, its routes can be modified and custom route tables can be
   created and associated with specific subnets to provide more granular control over network traffic.
-- What is NAT Gateway and why it is used ?
-- NAT Gateway should be created in Public subnet (1a or 1b) and why only in Public subnet ?
+- What is NAT Gateway & why it is used ?
+- NAT Gateway should be created in Public subnet (1a or 1b) & why only in Public subnet ?
 - Creating NAT Gateway is not enough we need to add routes between Private subnets and to the Internet
   gateway (NAT) which is in Public subnet.
 - Which ever Private subnets like Database subnet (or) any other Private subnets wants to connect to the
@@ -186,7 +188,7 @@
 - NAT and ElasticIP is chargeable, so delete after practice.
 - Can we get StaticIP for this instance ? YES! we can get but it is very costly thing.
 - Even your home PublicIP is Dynamic. If you want StaticIP, you need to pay money to ISP provider.
-- What is VPC peering and what is the condition to create VPC peering connection ?
+- What is VPC peering & what is the condition to create VPC peering connection ?
 - Create a VPC peering connection between Roboshop_VPC & Default_VPC
 - So let us take Requestor VPC = Roboshop VPC ; Acceptor VPC = Default VPC
 - Accept request in the same account and then add routes in VPC.
@@ -196,7 +198,7 @@
 - You need to add from the other side also not just one side. This is nothing but routes in VPC.
 - Go through the Terraform-aws-vpc-module, how we developed VPC & resources inside it.
 - We have a Tagging strategy because we have more resources, so we use better tagging strategy.
-- We have Common_tags and Resource_tags ? What is the difference between them ?
+- We have Common_tags & Resource_tags ? What is the difference between them ?
 - We used merg function in tagging strategy to merge Common_tags & Resource_tags.
 - You can also create s3 bucket in VPC module development.
 
@@ -220,8 +222,8 @@
 - Till now we used Allow-all method while creating SG, but now we use strict rules.
 - How to use Security Groups effectively according to the Roboshop documentation ?
 - We install VPN in Default_VPC to connect to Private instances which are Present in Roboshop_VPC.
-- We can create a folder (Example) & keep all the testing code in it, so that it will be easy for everyone to
-  use the module.
+- We can create a folder (Example) & keep all the testing code in it, so that it will be easy for everyone
+  to use the module.
 - We keep all our resources in 1a zone.
 - In VPC module developing, we need to publish outputs then only users can get the information.
 - We have a Database subnet group, because Databases have different behaviour, nothing but just adding
@@ -303,8 +305,8 @@
 - LB (Target groups & Rules) and Launch templates (Auto scaling & Policy)
 - First create 2 nginx servers (UI & UX), while creating add userdata like #!/bin/bash yum install nginx -y
   mkdir -p /usr/share/nginx/html/ui echo "<h1GreaterthanSymbolHi we are from UI team<h1GreaterthanSymbol" >
-  /usr/share/nginx/html/ui/index.html systemctl restart nginx.
-- We are using Application LB becasue it is most intelligent & Classic LB is very old.
+  /usr/share/nginx/html/ui/index.html systemctl restart nginx. Create same for Backend team.
+- We are using Application LB because it is most intelligent & Classic LB is very old.
 - Create LB security group, here from where the tarffic is coming to this LB ? From the internet, therefore
   ingress rule should be HTTP & CIDR 0.0.0.0/0
 - Create SGs for these two nginx servers, these servers will get request from LB, therefore ingress rule
@@ -312,7 +314,7 @@
 - Create target groups for example UI, UX in Listeners first, then register using include as pending in
   default subnet.
 - Now create Load Balancer with port 80 in Default_VPC subnet with min two AZs.
-- Rules in Load balancers, there is default rule, you can add as many rules you want, you can put path as a
+- Rules in Load balancers, there is default rule, you can add as many rules you want, you can keep path as a
   condition in this UI/UX example, if path is /ui/* then send to UI target group. Keep Priority as 1.
 - Load Balancer will give us a DNS name, generally we configure this name in route53 record, so create a new
   record, copy the DNS name & paste and you need to keep Alias and select Alias to Application & Classic
@@ -324,7 +326,7 @@
 - Individually we can understand every concept, but when we configure the project using all concepts, it will
   create huge confusion, like for example if we give a request from client (or) from our laptop, the request
   should reach to the end service which is present in aws, request will cross many stages like client-side
-  configuration should be clear, vpc, igw, subnets etc. have many resources to cross to reach the end
+  configuration should be clear, vpc, igw, subnets etc. have many resources to cross and reach the end
   service. So this visualization should there in us. Thats why SG is important to use in every resources.
 - No Problem if you delete ".terraform" folder & lock file.
   
