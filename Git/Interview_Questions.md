@@ -17,6 +17,7 @@ Git is a distributed version control system used to track changes in code. In De
 - In DevOps, rebasing is used for cleaner commits, while merge is safer for preserving history.
 
 ### How do you resolve Git conflicts ?
+To resolve merge conflicts, I run git status to identify conflicted files, then edit them manually to keep the correct changes. After resolving, I run git add and git commit (or git rebase --continue if rebasing)
 - Run git status to identify conflicted files.
 - Manually edit files to resolve conflicts.
 - Mark resolution with git add <file> and commit.
