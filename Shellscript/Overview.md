@@ -1,24 +1,29 @@
 ### Session-12
-- Why we use SSH based authentication to connect to github accounts ? and ~ ---> This indicate that you are directly landing in users directory "/c/Users/saikiran" in gitbash.
+- Why we use SSH based authentication to connect to github accounts ?
 - What is the Port number of SSH ? 22 its a secure connection.
-- What is the Algorithm for connecting to github accounts ?
-- Command to generate a Key-Pair ? "ssh-keygen -f saikiran"
 - We can add multiple github accounts in config file.
-- You can keep your private key in any location but make sure to give correct location of your Private key in config file.
-- Here the location of private key is created in /c/Users/saikiran and i have given ~ / saikiran.pem, how come the location is same ? because when you enter command "pwd" it will show your current directory when you are in "~" location.
+- You can keep your private key in any location but make sure to give correct location of your Private key in
+  config file.
+- Here the location of private key is created in /c/Users/saikiran & i have given ~ / saikiran.pem, how come
+  the location is same ? Because when you enter command "pwd" it will show your current directory when you
+  are in "~" location.
 - Which one should we prefer while cloning the repo HTTPS (or) SSH ?
-- HTTPS is for Username & Password, while SSH is used for Private key based authentication. But prefer HTTPS while cloning any repository from github.
+- HTTPS is for Username & Password, while SSH is used for Private key based authentication. But prefer HTTPS
+  while cloning any repository from github.
 - Github is nothing but just a folder in internet with tracking capabilities.
 - What is Shibang in Shellscript (or) Bashscript ? #!/bin/bash
-- If you want git in Visual Studio only, then go to view ---> Terminal ---> Select gitbash.
+- If you want git in Visual Studio only, then go to View, Terminal, Select gitbash.
 - If you enter wrong URL while pushing to github "git remote set-url origin <url_of_the_repository>"
-- If git is not configured in the github account yet, still developers can start writing their code in VS until git is ready and later they can push it to the git.
+- If git is not configured in the github account yet, still developers can start writing their code in VS
+  until git is ready and later they can push it to the git.
 - A normal folder will become git, when you initialize "git init"
-- How do you capture the output of any linux command into a variable ? using command substitution like this DATE=$(date) ; ID=$(id -u) etc.
+- How do you capture the output of any linux command into a variable ? using command substitution like this
+  DATE=$(date) ; ID=$(id -u) etc.
 - What is the use of arguments in the shellscript ? $1, $2, $3... $N, $@, $#
 - While connecting to external systems like DB, how to hide password while entering in terminal ?
 - Is really Data-types are important in shellscript ? NO!
-- What is arrays in shellscript ? Array index will start from 0,1,2,3.... We have notation for "ALL" that is "@" and how many args are passed is "#"
+- What is arrays in shellscript ? Array index will start from 0,1,2,3.... We have notation for "ALL" that is
+  "@" and how many args are passed is "#"
 - Write a shellscript of array using FRUITS example ?
 
 ### Session-13
@@ -28,33 +33,45 @@
 - Write a shellscript to install multiple packages using loops ?
 - What is root user and exit status ? id=0, (id -u), $?
 - What is function in shellscript ? We generally keep our functions under variables.
-- There will be NO logs in "less /var/log/messages" we need to store that logs, otherwise we cannot troubleshoot, but the best practice is to keep a separate log file for applications and only push critical events to /var/log/messages. Make sure you should not log in the current folder of server come outside and then do.
+- There will be NO logs in "less /var/log/messages" we need to store that logs, otherwise we cannot
+  troubleshoot, but the best practice is to keep a separate log file for applications and only push critical
+  events to /var/log/messages. Make sure you should not log in the current folder of server come outside and
+  then do.
 - What is the purpose of redirection ? Nothing but storing the output in our required folder.
-- How to redirect the output ? "yum install nginx -y > output.text" you can keep any name in place of output like saikiran.text etc.
-- What are special variables in shellscript and they should be in double qotes and how do you use the colour coding in shellscript ?
-- You should not do any changes (or) adding new files in server terminal, come one step back like after going to home folder (cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal, here in terminal, if you get any errors (or) not working properly you can delete that folder and clone again from the github (NO problem).
+- How to redirect the output ? "yum install nginx -y > output.text" you can keep any name in place of output
+  like saikiran.text etc.
+- What are special variables in shellscript and they should be in double qotes and how do you use the colour
+  coding in shellscript ?
+- You should not do any changes (or) adding new files in server terminal, come one step back like after going
+  to home folder (cd) like ~ ---> Here you can store the logs for practicing as siva showed in the terminal,
+  here in terminal, if you get any errors (or) not working properly you can delete that folder and clone
+  again from the github (NO problem).
 - Sudo dnf remove <package_name> -y (or) sudo yum remove <package_name> -y 
-- How do you handle the errors in shellscript ? Using a special variable called exit-status "$?"
-- What is the disadvantage in shellscript ? Even if shellscript faces any error, it wont stop, it will continue to run the script. It is our responsibility to check the errors by writing conditions & exit status.
+- How do you handle the errors in shellscript ? Using a special variable called exit-status $?
+- What is the disadvantage in shellscript ? Even if shellscript faces any error, it wont stop, it will
+  continue to run the script. It is our responsibility to check the errors by writing conditions & exit
+  status.
   
 ### Session-14 
 - Write a shellscript to install multiple packages using loop, like giving args outside the script ?
 - Configure the Roboshop project using shellscript ?
 - What is SED in shellscript ? If i want permanent change (sed -i) & temperory change (sed -e) ?
-- Where this SED is used in shellscript ? It is used to search, find, replace, insert or delete text in a file without opening the file in a text editor.
-- Command to check for remote connections ? "netstat -lntp"
-- Shellscript is like keeping all individual linux commands in one file, instead of running one by one commands, which was done while configuring the project manually.
+- Where this SED is used in shellscript ? It is used to search, find, replace, insert or delete text in a
+  file without opening the file in a text editor.
+- Command to check for remote connections ? netstat -lntp
+- Shellscript is like keeping all individual linux commands in one file, instead of running one by one
+  commands, which was done while configuring the project manually.
 - yum list installed git (or) yum list installed | grep <package_name>
 - Can we set $? (Exit status) to automatically exit in shellscript ? "set -e" but it wont work.
 - Instead of giving &>> $LOGFILE everywhere, we can give "exec &>$LOGFILE" under logfile name.
-- What is the use of logs ? In shell scripting, logs are used to record what the script did, when it did it, and whether it succeeded or failed. They act like a black box recorder for your script — if something goes wrong, you can look back and see why.
+- What is the use of logs ? In shell scripting, logs are used to record what the script did, when it did it,
+  and whether it succeeded or failed. They act like a black box recorder for your script — if something goes
+  wrong, you can look back and see why.
 - To see full log file ---> sudo cat /var/log/messages
 - To see page by page ---> sudo less /var/log/messages
 - To follow logs in real time (or) to see running logs ---> tail -f /var/log/messages
 
 ### Session-15
-- How do we set to exit automatically when shellscript faces any errors ? Does really "set -e" useful in exiting the shellscript when it faces error ? NO! why ?
-- How do you store logs in shellscript ? Instead of giving &>> $LOGFILE everywhere, we can give like below "exec &>$LOGFILE" under logfile name. See in redis.sh
 - unzip -o /tmp/web.zip ---> Here "o" is to overwrite, if you run the script multiple times.
 - mkdir -p /app ---> Here -p means if folder exists, it will not create.
 - Dont forget to restart nginx server after doing any changes in configuration file.
@@ -63,7 +80,9 @@
 ### Session-16
 - Write a shellscript to delete old logfiles which are morethan 14 days old ?
 - Check Disk Usage and Send email for alerts ?
-- Generally we have "cat /etc/passwd" in this, we have all the users information like user_id, group_id, user_name etc. So how to read this whole information properly (or) in a structured way ? For that we can use IFS (Internal field separator).
+- Generally we have "cat /etc/passwd" in this, we have all the users information like user_id, group_id,
+  user_name etc. So how to read this whole information properly (or) in a structured way ? For that we can
+  use IFS (Internal field separator).
 - What is the algorithm for deleting old log files ? Decide SOURCE_DIR / Search for files /Delete.
 - How do you create files with old date in server ? "touch -d 20231201 <anyname.log>"
 - Command to find old logfiles morethan 14 days old with .log extensions only ?
