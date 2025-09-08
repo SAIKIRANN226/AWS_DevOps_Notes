@@ -98,11 +98,15 @@
 - systemctl disable nginx ---> Will disable nginx.
 - What is Network managment in linux ? How do you check port & process running ? netstat -lntp
 - What are the general trouble shooting process you do ?
-- How to give admin access (or) any other access to linux users ? Example two types of users. Linux admin team ---> Full admin access ; DevOps team ---> Limited sudo access
-- Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers" It is not recommended to open this file because it is crucial so linux has given one command to open then file safely that is "visudo"
-- Ramesh ---> Give Admin full access, under wheelgroup and enter %admin ALL=(ALL) ALL
+- How to give admin access (or) any other access to linux users ? Example two types of users. Linux admin
+  team ---> Full admin access ; DevOps team ---> Limited sudo access
+- Generally to give sudo access we have one file "/etc/sudoers" So "vim /etc/sudoers" It is not recommended
+  to open this file because it is crucial so linux has given one command to open then file safely that is
+  "visudo"
+- Ramesh ---> Give Admin full access, under wheelgroup & enter %admin ALL=(ALL) ALL
 - Suresh limited access ---> %devops ALL=(ALL) /usr/bin/yum,/usr/bin/systemctl
-- For ramesh we have given full admin access but for suresh we can give only few limited access like "yum" command (To know where this command is installed "which yum" (or) "which systemctl"
+- For ramesh we have given full admin access but for suresh we can give only few limited access like "yum"
+  command (To know where this command is installed "which yum" (or) "which systemctl"
 - Everytime opening "visudo" is also a risky. Linux has given one location "vim /etc/sudoers.d"
 - vim /etc/sudoers.d/DevOps (Created folder) --> %devops ALL=(ALL) /usr/bin/yum,/usr/bin/systemctl
 - vim /etc/sudoers.d/Admin (Created folder) --> %admin ALL=(ALL) ALL
@@ -136,11 +140,11 @@
 - What is Fibre exchange points ?
 - What is Enterprise archive file ? Servlets (DB) ; JSPS (UI) ---> Monolithic
 - What is Monolithic vs Microservices ? Monolithic means Single unified application, easy to start, hard to
-  scale. Microservices will Split into independent services, scalable and flexible, but more complex.
+  scale. Microservices will Split into independent services, scalable & flexible, but more complex.
 - Frontend (80) ---> HTML, JS, AngularJS, Java applications.
 - Backend (8080) ---> Databases like mysql, postgre etc.
-- To connect from one server to another server "telnet 172.31.28.69 8080"
-- If telnet is not installed ---> sudo yum install telnet -y ; "netstat -lntp" shows all TCP ports currently
+- To connect from one server to another server "telnet <IP> <port_number>"
+- If telnet is not installed ---> sudo yum install telnet -y ; netstat -lntp shows all TCP ports currently
   being listened on, along with the process using each port. I use it in DevOps to check whether services
   like Nginx, MySQL, or application servers are actually listening on the expected ports.
 - To check if a command is installed or not ? Use "which" usage is "which telnet" "which yum" etc.
@@ -155,7 +159,7 @@
   consumes less memory when compared to yum. Yum is used in automation like shellscripting.
 - Location of nginx configuration "cd /etc/nginx/nginx.conf"
 - Location of the default content of the nginx "cd usr/share/nginx/html/"
-- What is Forward proxy and Reverse proxy ? Nginx is used as reverse proxy.
+- What is Forward proxy & Reverse proxy ? Nginx is used as reverse proxy.
 - Reverse proxy is mainly used for Load balancers & Server anonymous.
 - Location of reverse proxy configuration "vim /etc/nginx/default.d/roboshop.conf"
 - What are the famous HTTP status codes ?
