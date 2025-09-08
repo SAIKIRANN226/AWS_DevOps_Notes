@@ -1,3 +1,12 @@
+### What you know about Git and Linux ?
+- Git commands and Linux commands.
+- Permissions in linux.
+- User management
+- Process management
+- Package management
+- Service management
+- Giving admin access or limited access to the users
+
 ### What is the difference between Git and Github ?
 Git is a distributed version control used to track code changes in local and manage the versions. Github is a cloud based platform we can hosts our Git repositories, Providing collaboration features like PR, issue tracking etc.
 
