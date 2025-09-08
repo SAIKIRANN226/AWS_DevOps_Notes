@@ -7,6 +7,27 @@
 - Service management
 - Giving admin access or limited access to the users
 
+### How do you check the size of a folder in linux ?
+du -sh <folder-path>
+
+### How to check if a port is open ?
+netstat -lntp
+
+### How do you check running logs ?
+tail -f /path/to/logs
+
+### What is swap memory in linux ?
+Swap memory is extra space in your computer hard drive that works like a backup RAM, when your computer runs out of RAM, it temporarily moves less used data to this space, so your system doesnt slow down or crash.
+
+### How to check IP address of a linux server ?
+ifconfig
+
+### What is the purpose of a chmod ?
+Is used to change the permissions of a file or folder. We can set permissions to RWX permissions to owner, group and others
+
+### How to reboot the server when reboot command is not responding ?
+We can use the shutdown command with the reboot option ---> "sudo shutdown -r -f now"
+
 ### What is the difference between Git and Github ?
 Git is a distributed version control used to track code changes in local and manage the versions. Github is a cloud based platform we can hosts our Git repositories, Providing collaboration features like PR, issue tracking etc.
 
