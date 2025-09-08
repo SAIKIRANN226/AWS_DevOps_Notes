@@ -1,10 +1,10 @@
-- What is Computer & what characterstics does computer hold ? What are the use cases of Server,TV,Phone.
+- What is Computer & what characterstics does computer hold ? What are the use cases of Server, TV, Phone.
 - What is Client-Server Architecture ? Transferring media from Phone to Laptop (Viceversa)
 - What is Operating systems like Windows & what does it do ?
 - What is the difference between Linux (Servers world) & Windows Operating systems ?
 - How to connect to Linux server (Node) ?
 - What are the Authentication mechanisms to connect to linux server ?
-- Generate (or) create a link between "LOCK & KEY" ? ssh-keygen -f <file_name>
+- Generate (or) create a link between LOCK & KEY ? ssh-keygen -f <file_name>
 - Enable extensions in control panel ? File explorer, view, unhide extenions for known files.
 - What is the syntax of Public-key ? ssh-rsa {code} Laptop-name
 - What is the syntax of Private-key ? BEGIN OPENSSH PRIVATE KEY {code} END OPENSSH PRIVATE KEY
@@ -20,7 +20,7 @@
 - Centos ---> Default user name is "centos"
 - Debian ---> Default user name is "admin (or) debian"
 - RHEL ---> Default user name is "ec2-user (or) root"
-- Cheapest region is "us-east-1" ---> Latency is somewhat slow which is negligible.
+- Cheapest region is us-east-1 ---> Latency is somewhat slow which is negligible.
 - What is Absolute path & Relative path ? An absolute path is the complete path to a file or directory
   starting from the root. Relative path is relative to current directory.
 - HTTP --> 80 Hypertext Transfer Protocol (Unencrypted web traffic)
@@ -68,7 +68,8 @@
   vim /etc/ssh/sshd_config in gitbash. Here by default linux is disabled for login through password
   authentication as no, So make this yes, then systemctl restart sshd
 - So now how will saikiran login (Connect) to the server ? ---> ssh saikiran@IP
-- Now raheem joined & how to give SSH authentication (or) using Private key ? sudo useradd raheem
+- Now raheem joined & how to give SSH authentication (or) using Private key ? "sudo useradd raheem" No need
+  to create password for raheem because we are giving access to him using private key.
 - I will ask the raheem to give his Public key through mail.
 - sudo cd /home/raheem/ enter this command in gitbash after connecting to the server, here we will create
   folder mkdir .ssh and then chmod -R 700 .ssh also make the .ssh folder to raheem ownership by "chown -R
