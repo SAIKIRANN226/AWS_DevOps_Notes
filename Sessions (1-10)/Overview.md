@@ -5,6 +5,7 @@
 - How to connect to Linux server (Node) ?
 - What are the Authentication mechanisms to connect to linux server ?
 - Generate (or) create a link between LOCK & KEY ? ssh-keygen -f <file_name>
+- You can directly generate keys in .ssh folder using "ssh-keygen -f <file_name>"
 - Enable extensions in control panel ? File explorer, view, unhide extenions for known files.
 - What is the syntax of Public-key ? ssh-rsa {code} Laptop-name
 - What is the syntax of Private-key ? BEGIN OPENSSH PRIVATE KEY {code} END OPENSSH PRIVATE KEY
