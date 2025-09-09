@@ -54,13 +54,24 @@
 - Now create a cataloge repository to hold the catalogue artifacts using "maven2 hosted" format. What is
   maven2 hosted format ? It is popular format, used for maintaining application artifacts in unique way. Group
   id ---> com.roboshop, artifact id ---> catalogue, version ---> 1.0.0. Folder structure be like
-  com/roboshop/catalogue/version
+  com/roboshop/catalogue/version folder (1.0.0)
 - We have version policy Release (Prod), Snapshot (Dev), Mixed (Both)
 - Allow redeploy in Deployment policy because we are in dev.
 - Now we get URL of that repository.
 - Remove workspace directory after pipeline success.
+- Install "Pipeline Stage View Plugin" in jenkins.
+- How to create any file as backup ? Example Jenkinsfile.bkp (or) main.tf.bkp
 
 ### Session-44
+- We have artifact in jenkins, how to push this to catalogue nexus repository ? We have Nexus artifcat
+  uploader plugin, install this in jenkins UI and also keep the code in jenkinsfile.
+- What is the Algorithm for Catalogue (CI) ? Until the creation & pushing the artifacts to Nexus.
+- What is the Algorithm for Catalogue (CD) ?
+- Go through the code of Catalogue CI & CD in VS.
+- What is Upstream (CI) & Downstream (CD) in jenkins pipeline ?
+- How to call another pipeline from jenkins pipeline ? Using Buildjob
+- You need to attach vpn SG to the agent, because catalogue is accepting connections from vpn.
+
 ### Session-45
 ### Session-46
 ### Session-47
