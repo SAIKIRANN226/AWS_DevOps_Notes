@@ -1,5 +1,5 @@
 ### Session-42
-- How to install Jenkins in server ? Use t3.small, 30GB & default SG
+- How to install Jenkins in server ? 30GB
 - Installing java in Jenkins is mandatory, No need to install java in agent. No need to install jenkins in
   agent, java is enough to work for agent.
 - Jenkins-Master may not required to know everything, but agent should know everything because, actual work is
