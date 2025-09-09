@@ -4,11 +4,11 @@
   jenkins in agent (Java is enough for the agent to work).
 - Jenkins-Master may not required to know everything, but agent must know everything because actual work is
   done by the agent only, however logs will be shown in Jenkins-Master.
-- Jenkins port number is 8080
-- What is Free-style project in Jenkins ? Nothing but creating job in Jenkins console UI.
+- Jenkins port number is 8080, Nexus port number is 8081
+- What is Free-style project in Jenkins ?
 - What is the difference between creating aws resources in aws console & through code ?
 - Difference between Free-style job & Pipeline job ?
-- Create a job first using Free-style and then Pipeline ?
+- Create a job first using Free-style & then Pipeline ?
 - What is Pipeline script from SCM or GitOps ? 
 - Write a RAW syntax of a Declarative pipeline ?
 - What is agent in Jenkins ? How many agents are required ?
@@ -28,33 +28,32 @@
 ### Session-43
 - Difference between Scripted pipeline & Declarative pipeline ?
 - Input option in Jenkins pipeline ?
-- Create a Jenkins file for infra like vpc. Use terraform init, plan, apply. Use input option before apply.
-  Since this pipeline is running on agent. We need to install terraform command & aws credentials (aws
+- Create a Jenkins file in infra for vpc. Use terraform init, plan, apply. Use input option before apply.
+  Since this pipeline is running on agent. We need to install terraform command & aws credentials (Aws
   configure) in agent server. While aws configure dont take sudo access because jenkins-master is connecting
-  to agent using centos. Search in google like install terraform linux
+  to agent using centos. Search in google like install terraform linux.
 - To get colours we have a plugin called ansiColor('xterm') in options itself. So install this plugin in
-  manage jenkins, plugins aswel as write code in script in options. If plugins are not working even after
-  installing just do systemctl restart jenkins
+  manage jenkins, plugins. Also write a code in jenkins file in options. If plugins are not working even after
+  installing just do systemctl restart jenkins.
 - Jenkins pipeline when with parameters.
 - That means overall we can write CICD for infra also. But in this project we are creating infra in normal way
-  like using terraform. We create CICD for only applications like catalogue, shipping etc.
+  like using terraform in gitbash. We create CICD for only applications like catalogue, shipping etc.
 - Before doing CICD for application infra, project infra should be ready.
-- What we do in CICD for application infra like catalogue ?
 - What does CI part & CD part stages in application like catalogue ?
 - What is pipeline utility steps plugin ? To read the Json file.
 - Next is installing dependency ? Installing nodejs (From the roboshop documentation) in agent is mandatory
   in order to install npm dependency.
-- Next zip the above catalogue output code nothing but artifact & store in nexus repository (80801). We use
-  Sonatype nexus because it is a widely adopted and reliable artifact repository manager. Create an instance
-  with a minimum of 2GB RAM & 30GB storage (t3.medium). While the actual installation is typically handled by
-  the SRE (Site Reliability Engineering) team, it's important to understand the concept. Dont worry about
-  installation or updates. What is internal YUM repositories ? This is why Nexus acts as a central point — not
-  only for storing build artifacts but also for serving as a local repository for all required libraries and
-  dependencies.
+- Next zip (Build) the above catalogue output code nothing but artifact & store in nexus repository.
+- We use Sonatype nexus because it is a widely adopted and reliable artifact repository manager. Create an
+  instance with a minimum of 2GB RAM & 30GB storage (T3.medium). While the actual installation is typically
+  handled by the SRE (Site Reliability Engineering) team, it's important to understand the concept. Dont worry
+  about installation or updates. What is internal YUM repositories ? This is why Nexus acts as a central point
+  not only for storing build artifacts but also for serving as a local repository for all required libraries
+  and dependencies.
 - Now create a cataloge repository to hold the catalogue artifacts using "maven2 hosted" format. What is
   maven2 hosted format ? It is popular format, used for maintaining application artifacts in unique way. Group
   id ---> com.roboshop, artifact id ---> catalogue, version ---> 1.0.0. Folder structure be like
-  com/roboshop/catalogue/version folder (1.0.0)
+  com/roboshop/catalogue/version folder 1.0.0, 1.0.1, 2.0.0 etc.
 - We have version policy Release (Prod), Snapshot (Dev), Mixed (Both)
 - Allow redeploy in Deployment policy because we are in dev.
 - Now we get URL of that repository.
@@ -63,9 +62,9 @@
 - How to create any file as backup ? Example Jenkinsfile.bkp (or) main.tf.bkp
 
 ### Session-44
-- We have artifact in jenkins, how to push this to catalogue nexus repository ? We have Nexus artifcat
-  uploader plugin, install this in jenkins UI and also keep the code in jenkinsfile.
-- What is the Algorithm for Catalogue (CI) ? Until the creation & pushing the artifacts to Nexus.
+- We have artifact in jenkins, how to push this to catalogue nexus repository ? We have Nexus artifact
+  uploader plugin, install this in jenkins UI & also keep the code in jenkinsfile.
+- What is the Algorithm for Catalogue (CI) ?
 - What is the Algorithm for Catalogue (CD) ?
 - Go through the code of Catalogue CI & CD in VS.
 - What is Upstream (CI) & Downstream (CD) in jenkins pipeline ?
