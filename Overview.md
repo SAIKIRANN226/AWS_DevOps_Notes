@@ -1003,13 +1003,11 @@
 - You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
   objects etc. Everything will be stored in this folder only.
 
-### Jenkins
+#### Jenkins
 ### Session-42
 - How to install Jenkins in server ?
-- Installing java in Jenkins is mandatory because jenkins is developed on java only, but no need to install
-  jenkins in agent (Java is enough for the agent to work).
-- Jenkins-Master may not required to know everything, but agent must know everything because actual work is
-  done by the agent only, however logs will be shown in Jenkins-Master.
+- Installing java in Jenkins is mandatory because jenkins is developed on java only, but no need to install jenkins in agent (Java is enough for the agent to work).
+- Jenkins-Master may not required to know everything, but agent must know everything because actual work is done by the agent only, however logs will be shown in Jenkins-Master.
 - Jenkins port number is 8080, Nexus port number is 8081
 - What is Free-style project in Jenkins ?
 - What is the difference between creating aws resources in aws console & through code ?
@@ -1018,14 +1016,9 @@
 - What is Pipeline script from SCM or GitOps ? 
 - Write a RAW syntax of a Declarative pipeline ?
 - What is agent in Jenkins ? How many agents are required ?
-- How do you configure Master-Agent architecture in jenkins ? Manage jenkins, nodes, create node, executors,
-  remote root directory, labels, launch methods, host, configure credentials, host key verification strategy. 
-- Where does the entire jenkins database will be ? /var/lib/jenkins, similarly we need to create a directory
-  for agent also in /home/centos/jenkins-agent (Any-name) because CentOS dont have sudo access in
-  /var/lib/jenkins, it has only in home folder (or) click on question mark ? symbol, there you can see how to
-  give the path.
-- How many agents you are using in your company ? We are supporting multiple programming languages like java,
-  python, nodesjs, .net for each language, we have 2-2 agents.
+- How do you configure Master-Agent architecture in jenkins ? Manage jenkins, nodes, create node, executors, remote root directory, labels, launch methods, host, configure credentials, host key verification strategy. 
+- Where does the entire jenkins database will be ? /var/lib/jenkins, similarly we need to create a directory for agent also in /home/centos/jenkins-agent (Any-name) because CentOS dont have sudo access in /var/lib/jenkins, it has only in home folder (or) click on question mark ? symbol, there you can see how to give the path.
+- How many agents you are using in your company ? We are supporting multiple programming languages like java, python, nodesjs, .net for each language, we have 2-2 agents.
 - Triggers in Jenkins pipeline ?
 - Environment in Jenkins pipeline ?
 - Options in Jenkins pipeline ?
@@ -1034,32 +1027,17 @@
 ### Session-43
 - Difference between Scripted pipeline & Declarative pipeline ?
 - Input option in Jenkins pipeline ?
-- Create a Jenkins file in infra for vpc. Use terraform init, plan, apply. Use input option before apply.
-  Since this pipeline is running on agent. We need to install terraform command & aws credentials (Aws
-  configure) in agent server. While aws configure dont take sudo access because jenkins-master is connecting
-  to agent using centos. Search in google like install terraform linux.
-- To get colours we have a plugin called ansiColor('xterm') in options itself. So install this plugin in
-  manage jenkins, plugins. Also write a code in jenkins file in options. If plugins are not working even after
-  installing just do systemctl restart jenkins.
+- Create a Jenkins file in infra for vpc. Use terraform init, plan, apply. Use input option before apply. Since this pipeline is running on agent. We need to install terraform command & aws credentials (Aws configure) in agent server. While aws configure dont take sudo access because jenkins-master is connecting to agent using centos. Search in google like install terraform linux.
+- To get colours we have a plugin called ansiColor('xterm') in options itself. So install this plugin in manage jenkins, plugins. Also write a code in jenkins file in options. If plugins are not working even after installing just do systemctl restart jenkins.
 - Jenkins pipeline when with parameters.
-- That means overall we can write CICD for infra also. But in this project we are creating infra in normal way
-  like using terraform in gitbash. We create CICD for only applications like catalogue, shipping etc.
+- That means overall we can write CICD for infra also. But in this project we are creating infra in normal way like using terraform in gitbash. We create CICD for only applications like catalogue, shipping etc.
 - Before doing CICD for application infra, project infra should be ready.
 - What does CI part & CD part stages in application like catalogue ?
 - What is pipeline utility steps plugin ? To read the Json file.
-- Next is installing dependency ? Installing nodejs (From the roboshop documentation) in agent is mandatory
-  in order to install npm dependency.
+- Next is installing dependency ? Installing nodejs (From the roboshop documentation) in agent is mandatory in order to install npm dependency.
 - Next zip (Build) the above catalogue output code nothing but artifact & store in nexus repository.
-- We use Sonatype nexus because it is a widely adopted and reliable artifact repository manager. Create an
-  instance with a minimum of 2GB RAM & 30GB storage (T3.medium). While the actual installation is typically
-  handled by the SRE (Site Reliability Engineering) team, it's important to understand the concept. Dont worry
-  about installation or updates. What is internal YUM repositories ? This is why Nexus acts as a central point
-  not only for storing build artifacts but also for serving as a local repository for all required libraries
-  and dependencies.
-- Now create a cataloge repository to hold the catalogue artifacts using "maven2 hosted" format. What is
-  maven2 hosted format ? It is popular format, used for maintaining application artifacts in unique way. Group
-  id ---> com.roboshop, artifact id ---> catalogue, version ---> 1.0.0. Folder structure be like
-  com/roboshop/catalogue/version folder 1.0.0, 1.0.1, 2.0.0 etc.
+- We use Sonatype nexus because it is a widely adopted and reliable artifact repository manager. Create an instance with a minimum of 2GB RAM & 30GB storage (T3.medium). While the actual installation is typically handled by the SRE (Site Reliability Engineering) team, it's important to understand the concept. Dont worry about installation or updates. What is internal YUM repositories ? This is why Nexus acts as a central point not only for storing build artifacts but also for serving as a local repository for all required libraries and dependencies.
+- Now create a cataloge repository to hold the catalogue artifacts using "maven2 hosted" format. What is maven2 hosted format ? It is popular format, used for maintaining application artifacts in unique way. Group id ---> com.roboshop, artifact id ---> catalogue, version ---> 1.0.0. Folder structure be like com/roboshop/catalogue/version folder 1.0.0, 1.0.1, 2.0.0 etc.
 - We have version policy Release (Prod), Snapshot (Dev), Mixed (Both)
 - Allow redeploy in Deployment policy because we are in dev.
 - Now we get URL of that repository.
@@ -1068,8 +1046,7 @@
 - How to create any file as backup ? Example Jenkinsfile.bkp (or) main.tf.bkp
 
 ### Session-44
-- We have artifact in jenkins, how to push this to catalogue nexus repository ? We have Nexus artifact
-  uploader plugin, install this in jenkins UI & also keep the code in jenkinsfile.
+- We have artifact in jenkins, how to push this to catalogue nexus repository ? We have Nexus artifact uploader plugin, install this in jenkins UI & also keep the code in jenkinsfile.
 - What is the Algorithm for Catalogue (CI) ?
 - What is the Algorithm for Catalogue (CD) ?
 - Go through the code of Catalogue CI & CD in VS.
@@ -1078,68 +1055,38 @@
 - You need to attach vpn SG to the agent, because catalogue is accepting connections from vpn.
 
 ### Session-45
-- Types of scannings in jenkins pipeline ? Static source code analysis, Static Application Security Testing
-  (SAST), Dynamic Application Security Testing (DAST), Open Source Library Scanning, Docker Image Scanning.
-- We are using "Shift-Left" method, we do all types of scannings in Dev enviroment itself, to make sure
-  everything is ok, then only we can go for the higher environments.
-- How the Sonarqube scanner will work ? Installation of sonarqube is taken care by SRE team. Jenkins-Agent
-  will clone the code in his server, and jenkins agents have scanner cli software which need to be installed,
-  it will scan the code and upload to the "Sonarqube" console (or) server. Then developers will see the
-  results in "Sonarqube" console (or) server.
+- Types of scannings in jenkins pipeline ? Static source code analysis, Static Application Security Testing (SAST), Dynamic Application Security Testing (DAST), Open Source Library Scanning, Docker Image Scanning.
+- We are using "Shift-Left" method, we do all types of scannings in Dev enviroment itself, to make sure everything is ok, then only we can go for the higher environments.
+- How the Sonarqube scanner will work ? Installation of sonarqube is taken care by SRE team. Jenkins-Agent will clone the code in his server and jenkins agents have scanner cli software which need to be installed, it will scan the code and upload to the "Sonarqube" console (or) server. Then developers will see the results in "Sonarqube" console (or) server.
 - Port number of sonarqube is 9000.
 - Sonar-project.properties ?
 - Quality Gates in sonarqube (We keep some standards) ?
 - What is multi branch pipeline ? We are using multi branch pipeline in jenkins.
 - What is Jenkins shared library ? What is the process ?
-- For example developers are the owner of the catalogue repository, but jenkinsfile will be managed by the
-  DevOps engineer only. So DevOps engineer doing frequent changes in devops repo (Catalogue) is not good. For
-  this only we have jenkins shared library (Centralized pipeline). For example if we have 20 repos we need to
-  write same jenkinsfile for every repo, instead we can create and maintain the shared library repo (Groovy
-  code, reusable pipeline steps). We can keep all multiple pipelines in jenkins shared library for different
-  languages and deployment platforms.
-- We need to inform this Jenkins shared library repo to the jenkins by going to the manage jenkins, system,
-  global pipeline libraries, add here, default version should be main and name (Any-name), project repo should
-  be git URL. Refer this library in jenkins pipeline using @Library('roboshop-shared-library'). We use groovy
-  syntax in jenkinsfile #!groovy
-- How to call these pipelines ? For example nodejsVM, javaVM, pythonVM is a centralized pipeline, we need to
-  send parameters like what type of application and component to "pipelineDecission.groovy"
+- For example developers are the owner of the catalogue repository, but jenkinsfile will be managed by the DevOps engineer only. So DevOps engineer doing frequent changes in devops repo (Catalogue) is not good. For this only we have jenkins shared library (Centralized pipeline). For example if we have 20 repos we need to write same jenkinsfile for every repo, instead we can create and maintain the shared library repo (Groovy code, reusable pipeline steps). We can keep all multiple pipelines in jenkins shared library for different languages and deployment platforms.
+- We need to inform this Jenkins shared library repo to the jenkins by going to the manage jenkins, system, global pipeline libraries, add here, default version should be main and name (Any-name), project repo should be git URL. Refer this library in jenkins pipeline using @Library('roboshop-shared-library'). We use groovy syntax in jenkinsfile #!groovy
+- How to call these pipelines ? For example nodejsVM, javaVM, pythonVM is a centralized pipeline, we need to send parameters like what type of application and component to "pipelineDecission.groovy"
 
 ### Session-46
 - What is the pipeline process you are following in your company ? Interview question.
-  https://github.com/daws-76s/concepts/blob/master/CICD.MD
-- First create whole project infra using one jenkinsfile. If there is NO dependency from one folder to
-  another folder like 04-databases & 05-app-alb. For that we have "Parallel stages" in Jenkins pipeline (We
-  need to use keyword called parallel) so because of this parallel, both resources will create at a time to
-  save the time. Other folders like VPC, SG, VPN have dependencies (Like it is following sequential process).
-  We can also add plan command or 07-acm code also.
+- https://github.com/daws-76s/concepts/blob/master/CICD.MD
+- First create whole project infra using one jenkinsfile. If there is NO dependency from one folder to another folder like 04-databases & 05-app-alb. For that we have "Parallel stages" in Jenkins pipeline (We need to use a keyword called parallel) so because of this parallel, both resources will create at a time to save the time. Other folders like VPC, SG, VPN have dependencies (Like it is following sequential process). We can also add plan command or 07-acm code also.
 - We can keep all static values like nexus URL or any other URLs in "pipelineGlobals.groovy"
 - What is change management process ?
 - What is Jira to Jenkins Integration ? Jira is a ticket management tool.
   
 ### Session-47
-- Algorithm for CICD pipeline for Roboshop ?
-- Make sure Dev and Prod Infra is ready, create jenkinsfile for this also.
-- Get connected to two separate VPN's for Dev and Prod environments.
-- For example we are going for catalogue, then create 1 catalogue repo and jenkinsfile, point this
-  jenkinsfile to share libraries (dry principle and centralized pipeline) and also make sure you have
-  shared libraries configured in jenkins system configuration in manage jenkins.
-- Shared library VM pipeline will be called and stages will be clone, get the version from package.json,
-  install dependencies, unit tests, build, scans (sonar,sast,open sourcelibraries scan, dast), if developer
-  opts for deploy, we can deploy.
-- Then catalogue-deploy will call terraform-roboshop-app.
+- Algorithm for CICD pipeline for Roboshop is first make sure Dev & Prod project infra is ready, so create  one jenkinsfile for whole project infra.
+- For example we are going for catalogue, then create 1 catalogue repo & jenkinsfile, point this jenkinsfile to shared libraries (Dry principle & centralized pipeline) & also make sure you have shared libraries configured in jenkins system configuration in manage jenkins.
+- Shared library VM pipeline will be called & stages will be clone, get the version from package.json, install dependencies, unit tests, build, scans. If developer opt for deploy, we can deploy.
+- Then catalogue deploy will call terraform-roboshop-app.
 - We are passing environment, version, component to the bootstrap script.
 - Bootstrap script will clone roboshop-ansible-roles-tf and run catalogue role.
-- Setting up CICD for User module now. As a DevOps team, we have nodejs CICD is ready and a new project user
-  module is started by the developers and how can you setup CICD for user module ? user module developers
-  will send a mail to the DevOps team stating that we are started user module and we want DevOps team to help
-  us to setup CICD for user module, then DevOps team setup meeting with developers and explain our
-  centralized pipeline structure which we used for catalogue. So now setup user module. Create 1 repo for
-  user module and tell them to keep the jenkinsfile. Dont forget to create repo for user in nexus. If new
-  project is started they should have repo existed in nexus, generally this willl do SRE team, but here we
-  should.
-- Few companies keep single VPN for all environments, we can also keep single VPN, but it is better to
-  keep VPN for every environment.
-- Normal pipeline for CD (deploy), multi-branch pipeline for CI.
+- Now setting up CICD for user module. As a DevOps team, we have nodejs CICD is ready & a new project user module is started by the developers and how can you setup CICD for user module ? User module developers will send a mail to the DevOps team stating that we have started user module and we want DevOps team to help us to setup CICD for user module, then DevOps team will setup meeting with developers and explain our centralized pipeline structure which we used for catalogue. So now setup user module. Create 1 repo for user module and tell them to keep the jenkinsfile. Dont forget to create repo for user in nexus. If new project is started they should have repo existed in nexus, generally this will be done by SRE team.
+- Few companies keep single VPN for all environments, we can also keep single VPN, but it is better to keep 1 VPN for every environment.
+- Normal pipeline for CD (Deploy), Multi-branch pipeline for CI.
 
 ### Docker
+### Kubernetes
+### Python
 
