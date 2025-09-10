@@ -1003,7 +1003,6 @@
 - You will have ".git" folder in every repo, it stores all the information of git like tracking, metadata,
   objects etc. Everything will be stored in this folder only.
 
-#### Jenkins
 ### Session-42
 - How to install Jenkins in server ?
 - Installing java in Jenkins is mandatory because jenkins is developed on java only, but no need to install jenkins in agent (Java is enough for the agent to work).
@@ -1069,6 +1068,12 @@
 
 ### Session-46
 - What is the pipeline process you are following in your company ? Interview question.
+- We are using Multi branch pipeline and Jenkins shared library. Tools we used in this are Jenkins, Terraform, Ansible, Nexus, Sonarqube.
+- We have CICD for infrastructure and application deployment.
+- Basically we can divide the project into 2 types Project Infra & Application infra.
+- In project infra most it is one time creation like vpc, sg, vpn, databases etc. There will be only occasional changes. We don't delete infrastructure once it is created. We are maintaining entire infra in different folders for different resources because of less refresh time and common configuration can be kept in SSM Parameter store. We make sure infra plan is reviewed before apply.
+- Application infra is frequently changing as a part of release or deployment. We use launch templates, auto-scaling policies, target groups, listeners, rules etc. Using this we are gradually removing the old version and making up the new version of application.
+- In Application CICD, we are following shift-left method, everything will be done in Dev environment like clone, scans, unit testing, build, deployment, functional test cases etc. Once DEV deployment is over, we can deploy applications to any higher environments like SIT, UAT, etc. PROD deployments must happen through CR and JIRA process.
 - https://github.com/daws-76s/concepts/blob/master/CICD.MD
 - First create whole project infra using one jenkinsfile. If there is NO dependency from one folder to another folder like 04-databases & 05-app-alb. For that we have "Parallel stages" in Jenkins pipeline (We need to use a keyword called parallel) so because of this parallel, both resources will create at a time to save the time. Other folders like VPC, SG, VPN have dependencies (Like it is following sequential process). We can also add plan command or 07-acm code also.
 - We can keep all static values like nexus URL or any other URLs in "pipelineGlobals.groovy"
