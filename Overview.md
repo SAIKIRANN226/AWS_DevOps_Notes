@@ -173,7 +173,6 @@
 - Steps to install any application in linux ?
 - What is the difference between Synchronous & Asynchronous in networking ?
 
-### Shellscript 
 ### Session-12
 - Why we use SSH based authentication to connect to github accounts ?
 - What is the Port number of SSH ? 22 its a secure connection.
@@ -330,7 +329,6 @@
   "roboshop.sh" script.
 - We used --query is to get the PrivateIP of the instances nothing but query from the existing resource.
 
-### Ansible
 ### Session-18
 - Ansible-server (or) Configuration-server (or) Main-server (or) Controller machine.
 - What are the disadvantages in shellscript ? L, S, R, E, E, S
@@ -525,7 +523,6 @@
   AWS. We integrated ansible-vault with SSM Parameter to fetch the values directly from the AWS. Which is a
   seamless integration instead of depending ansible-vault and ansible-vault commands.
 
-### Terraform
 ### Session-25
 - What is terraform & why it is used ? In how many ways we configured our project ? Why we prefer ansible
   as configuration management while configuring the big project ? Another name of ansible ?
@@ -973,7 +970,6 @@
   performance testing in Dev itself, so that we can catch the issues sooner & also we can reduce the cost
   aswel as we can improve the software quality.
 
-### Git
 ### Session-41
 - What is Git and how it will track ?
 - How to generate a commit-id for your content or file ? echo hello | git hash-object --stdin
