@@ -72,5 +72,14 @@
 - You need to attach vpn SG to the agent, because catalogue is accepting connections from vpn.
 
 ### Session-45
+- Types of scannings in jenkins pipeline ? Static source code analysis, Static Application Security Testing
+  (SAST), Dynamic Application Security Testing (DAST), Open Source Library Scanning, Docker Image Scanning.
+- We are using "Shift-Left" method, we do all types of scannings in Dev enviroment itself, to make sure
+  everything is ok, then only we can go for the higher environments.
+- How the Sonarqube scanner will work ? Installation of sonarqube is taken care by SRE team. Jenkins-Agent
+  will clone the code in his server, and jenkins agents have scanner cli software which need to be installed,
+  it will scan the code and upload to the "Sonarqube" console (or) server. Then developers will see the
+  results in "Sonarqube" console (or) server.
+- Port number of sonarqube is 9000.
 ### Session-46
 ### Session-47
