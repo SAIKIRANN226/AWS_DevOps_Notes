@@ -45,8 +45,9 @@ Shared Libraries allow teams to create reusable pipeline code (Groovy scripts) s
 Using a parallel key word in stages
 
 ### What are Jenkins Plugins you frequently use ?
+- Pipeline utility steps plugin
+- AnsiColor plugin
 - Git Plugin (SCM)
-- Pipeline Plugin
 - Docker & Kubernetes Plugins
 - SonarQube Plugin (code quality)
 
