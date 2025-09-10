@@ -81,5 +81,23 @@
   it will scan the code and upload to the "Sonarqube" console (or) server. Then developers will see the
   results in "Sonarqube" console (or) server.
 - Port number of sonarqube is 9000.
+- Sonar-project.properties ?
+- Quality Gates in sonarqube (We keep some standards) ?
+- What is multi branch pipeline ? We are using multi branch pipeline in jenkins.
+- What is Jenkins shared library ? What is the process ?
+- For example developers are the owner of the catalogue repository, but jenkinsfile will be managed by the
+  DevOps engineer only. So DevOps engineer doing frequent changes in devops repo (Catalogue) is not good. For
+  this only we have jenkins shared library (Centralized pipeline). For example if we have 20 repos we need to
+  write same jenkinsfile for every repo, instead we can create and maintain the shared library repo (Groovy
+  code, reusable pipeline steps). We can keep all multiple pipelines in jenkins shared library for different
+  languages and deployment platforms.
+- We need to inform this Jenkins shared library repo to the jenkins by going to the manage jenkins, system,
+  global pipeline libraries, add here, default version should be main and name (Any-name), project repo should
+  be git URL. Refer this library in jenkins pipeline using @Library('roboshop-shared-library'). We use groovy
+  syntax in jenkinsfile #!groovy
+- How to call these pipelines ? For example nodejsVM, javaVM, pythonVM is a centralized pipeline, we need to
+  send parameters like what type of application and component to "pipelineDecission.groovy"
+
 ### Session-46
+- 
 ### Session-47
