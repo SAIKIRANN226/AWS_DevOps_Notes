@@ -1006,7 +1006,7 @@
 - Jenkins port number is 8080, Nexus port number is 8081.
 - What is Free-style project in Jenkins ?
 - What is the difference between creating aws resources in aws console & through code ?
-- Difference between Free-style job & Pipeline job ?
+- Difference between Free-style & Pipeline jobs ?
 - Create a job first using Free-style & then Pipeline ?
 - What is Pipeline script from SCM or GitOps ? 
 - Write a RAW syntax of a Declarative pipeline ?
@@ -1022,14 +1022,14 @@
 ### Session-43
 - Difference between Scripted pipeline & Declarative pipeline ?
 - Input option in Jenkins pipeline ?
-- Create a Jenkins file for infra for vpc. Use terraform init, plan, apply. Use input option before apply. Since this pipeline is running on agent. We need to install terraform command & aws credentials (Aws configure) in agent server. While aws configure dont take sudo access because Jenkins-master is connecting to agent using centos. Search in google like install terraform linux.
-- To get colours we have a plugin called ansiColor('xterm') in options itself. So install this plugin in manage jenkins, plugins. Also write a code in jenkins file in options. If plugins are not working even after installing just do systemctl restart jenkins.
+- Create a Jenkins file for infra to vpc. Use terraform init, plan, apply. Use input option before apply. Since this pipeline is running on agent. We need to install terraform command & aws credentials (Aws configure) in agent server. While aws configure dont take sudo access because Jenkins-master is connecting to agent using centos. Search in google like install terraform linux.
+- To get colors we have a plugin called ansiColor('xterm') in options itself. So install this plugin in manage jenkins, plugins. Also write a code in jenkins file in options. If plugins are not working even after installing just do systemctl restart jenkins.
 - Jenkins pipeline when with parameters.
 - That means overall we can write CICD for infra also.
 - Before doing CICD for application infra, project infra should be ready.
 - What are CI part & CD part stages in application like catalogue ?
 - What is pipeline utility steps plugin ? To read the Json file.
-- Next is installing dependency ? Installing nodejs (From the roboshop documentation) in agent is mandatory in order to install npm dependency.
+- Next is installing dependencies ? Installing nodejs (From the roboshop documentation) in agent is mandatory in order to install npm dependency.
 - Next zip (Build) the above catalogue output code nothing but artifact & store in nexus repository.
 - We use Sonatype nexus because it is a widely adopted and reliable artifact repository manager. Create an instance with a minimum of 2GB RAM & 30GB storage (T3.medium). While the actual installation is typically handled by the SRE (Site Reliability Engineering) team, it's important to understand the concept. Dont worry about installation or updates. What is internal YUM repositories ? This is why Nexus acts as a central point not only for storing build artifacts but also for serving as a local repository for all required libraries and dependencies.
 - Now create a cataloge repository to hold the catalogue artifacts using "maven2 hosted" format. What is maven2 hosted format ? It is popular format, used for maintaining application artifacts in unique way. Group id ---> com.roboshop, artifact id ---> catalogue, version ---> 1.0.0. Folder structure be like com/roboshop/catalogue/version folder 1.0.0, 1.0.1, 2.0.0 etc.
@@ -1046,23 +1046,24 @@
 - What is the Algorithm for Catalogue (CD) ?
 - Go through the code of Catalogue CI & CD in VS.
 - What is Upstream (CI) & Downstream (CD) in jenkins pipeline ?
-- How to call another pipeline from jenkins pipeline ? Using Buildjob
+- How to call another pipeline from jenkins pipeline ? Using "Buildjob"
 - You need to attach vpn SG to the agent, because catalogue is accepting connections from vpn.
 
 ### Session-45
 - Types of scannings in jenkins pipeline ? Static source code analysis, Static Application Security Testing (SAST), Dynamic Application Security Testing (DAST), Open Source Library Scanning, Docker Image Scanning.
 - We are using "Shift-Left" method, we do all types of scannings in Dev enviroment itself, to make sure everything is ok, then only we can go for the higher environments.
-- How the Sonarqube scanner will work ? Installation of sonarqube is taken care by SRE team. Jenkins-Agent will clone the code in his server and jenkins agents have scanner cli software which need to be installed, it will scan the code and upload to the "Sonarqube" console (or) server. Then developers will see the results in "Sonarqube" console (or) server.
+- How the Sonarqube scanner will work ? Installation of sonarqube is taken care by SRE team. Jenkins-Agent will clone the code in his server and it should have "scanner cli" software which need to be installed, it will scan the code and upload to the "Sonarqube" console (or) server. Then developers will see the results in "Sonarqube" console (or) server.
 - Port number of sonarqube is 9000.
 - Sonar-project.properties ?
 - Quality Gates in sonarqube (We keep some standards) ?
 - If quality gates failed, should we fail the pipeline and inform developers to fix this code ? YES
-- So we should keep a condition in pipeline (Sonar-project.properties) to fail the pipeline "sonar.qualitygate.wait=true" node modules comes from internet, so NO need to scan node_modules directory here, so we put this line of code in properties "sonar.exclusions=node_modules**
+- So we should keep a condition in pipeline (Sonar-project.properties) to fail the pipeline "sonar.qualitygate.wait=true" node modules comes from internet, so NO need to scan node_modules directory here, so we put this line of code in properties "sonar.exclusions=node_modules**"
 - What is multi branch pipeline ? We are using multi branch pipeline in jenkins.
 - What is Jenkins shared library ? What is the process ?
-- For example developers are the owner of the catalogue repository, but jenkinsfile will be managed by the DevOps engineer only. So DevOps engineer doing frequent changes in devops repo (Catalogue) is not good. For this only we have jenkins shared library (Centralized pipeline). For example if we have 20 repos we need to write same jenkinsfile for every repo, instead we can create and maintain the shared library repo (Groovy code, reusable pipeline steps). We can keep all multiple pipelines in jenkins shared library for different languages and deployment platforms.
+- For example developers are the owner of the catalogue repository, but jenkinsfile will be managed by the DevOps engineer only. So DevOps engineer doing frequent changes in DevOps repo (Catalogue) is not good. For this only we have jenkins shared library (Centralized pipeline). For example if we have 20 repos we need to write same jenkinsfile for every repo, instead we can create and maintain the shared library repo (Groovy code, reusable pipeline steps). We can keep all multiple pipelines in jenkins shared library for different languages and deployment platforms.
 - We need to inform this Jenkins shared library repo to the jenkins by going to the manage jenkins, system, global pipeline libraries, add here, default version should be main and name (Any-name), project repo should be git URL. Refer this library in jenkins pipeline using @Library('roboshop-shared-library'). We use groovy syntax in jenkinsfile #!groovy
-- How to call these pipelines ? For example nodejsVM, javaVM, pythonVM is a centralized pipeline, we need to send parameters like what type of application and component to "pipelineDecission.groovy"
+- How to call these pipelines ? For example nodejsVM, javaVM, pythonVM is a centralized pipeline. We need to send parameters like what type of application and component to "pipelineDecission.groovy"
+- "pipelineDecission.groovy" we can decide which pipeline to call.
 
 ### Session-46
 - What is the pipeline process you are following in your company ? Interview question.
@@ -1074,7 +1075,7 @@
 - In Application CICD, we are following shift-left method, everything will be done in Dev environment like clone, scans, unit testing, build, deployment, functional test cases etc. Once DEV deployment is over, we can deploy applications to any higher environments like SIT, UAT, etc. PROD deployments must happen through CR and JIRA process.
 - https://github.com/daws-76s/concepts/blob/master/CICD.MD
 - First create whole project infra using one jenkinsfile. If there is NO dependency from one folder to another folder like 04-databases & 05-app-alb. For that we have "Parallel stages" in Jenkins pipeline (We need to use a keyword called parallel) so because of this parallel, both resources will create at a time to save the time. Other folders like VPC, SG, VPN have dependencies (Like it is following sequential process). We can also add plan command or 07-acm code also.
-- We can keep all static values like nexus URL or any other URLs in "pipelineGlobals.groovy"
+- We can keep all static values like nexus URL, file path, credentials etc in "pipelineGlobals.groovy"
 - What is change management process ?
 - What is Jira to Jenkins Integration ? Jira is a ticket management tool.
   
