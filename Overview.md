@@ -1056,6 +1056,8 @@
 - Port number of sonarqube is 9000.
 - Sonar-project.properties ?
 - Quality Gates in sonarqube (We keep some standards) ?
+- If quality gates failed, should we fail the pipeline and inform developers to fix this code ? YES
+- So we should keep a condition in pipeline (Sonar-project.properties) to fail the pipeline "sonar.qualitygate.wait=true" node modules comes from internet, so NO need to scan node_modules directory here, so we put this line of code in properties "sonar.exclusions=node_modules**
 - What is multi branch pipeline ? We are using multi branch pipeline in jenkins.
 - What is Jenkins shared library ? What is the process ?
 - For example developers are the owner of the catalogue repository, but jenkinsfile will be managed by the DevOps engineer only. So DevOps engineer doing frequent changes in devops repo (Catalogue) is not good. For this only we have jenkins shared library (Centralized pipeline). For example if we have 20 repos we need to write same jenkinsfile for every repo, instead we can create and maintain the shared library repo (Groovy code, reusable pipeline steps). We can keep all multiple pipelines in jenkins shared library for different languages and deployment platforms.
@@ -1064,11 +1066,11 @@
 
 ### Session-46
 - What is the pipeline process you are following in your company ? Interview question.
-- We are using Multi branch pipeline and Jenkins shared library. Tools we used in this are Jenkins, Terraform, Ansible, Nexus, Sonarqube.
-- We have CICD for infrastructure and application deployment.
-- Basically we can divide the project into 2 types Project Infra & Application infra.
-- In project infra most it is one time creation like vpc, sg, vpn, databases etc. There will be only occasional changes. We don't delete infrastructure once it is created. We are maintaining entire infra in different folders for different resources because of less refresh time and common configuration can be kept in SSM Parameter store. We make sure infra plan is reviewed before apply.
-- Application infra is frequently changing as a part of release or deployment. We use launch templates, auto-scaling policies, target groups, listeners, rules etc. Using this we are gradually removing the old version and making up the new version of application.
+- We are using Multi branch pipeline & Jenkins shared library. Tools we used in this are Jenkins, Terraform, Ansible, Nexus, Sonarqube.
+- We have CICD for infrastructure & application deployment.
+- Basically we divide the project into 2 types Project Infra & Application infra.
+- In project infra most it is one time creation like vpc, sg, vpn, databases etc. Since it is non frequently changing, we don't delete infrastructure once it is created. We are maintaining entire infra in different folders for different resources because of less refresh time and common configuration can be kept in SSM Parameter store. We make sure infra plan is reviewed before apply.
+- Application infra is frequently changing as a part of release or deployment. We use launch templates, auto scaling policies, target groups, listeners, rules etc. Using this we are gradually removing the old version and making up the new version of application.
 - In Application CICD, we are following shift-left method, everything will be done in Dev environment like clone, scans, unit testing, build, deployment, functional test cases etc. Once DEV deployment is over, we can deploy applications to any higher environments like SIT, UAT, etc. PROD deployments must happen through CR and JIRA process.
 - https://github.com/daws-76s/concepts/blob/master/CICD.MD
 - First create whole project infra using one jenkinsfile. If there is NO dependency from one folder to another folder like 04-databases & 05-app-alb. For that we have "Parallel stages" in Jenkins pipeline (We need to use a keyword called parallel) so because of this parallel, both resources will create at a time to save the time. Other folders like VPC, SG, VPN have dependencies (Like it is following sequential process). We can also add plan command or 07-acm code also.
@@ -1077,8 +1079,8 @@
 - What is Jira to Jenkins Integration ? Jira is a ticket management tool.
   
 ### Session-47
-- Algorithm for CICD pipeline for Roboshop is first make sure Dev & Prod project infra is ready, so create  one jenkinsfile for whole project infra.
-- For example we are going for catalogue, then create 1 catalogue repo & jenkinsfile, point this jenkinsfile to shared libraries (Dry principle & centralized pipeline) & also make sure you have shared libraries configured in jenkins system configuration in manage jenkins.
+- Algorithm for CICD pipeline for Roboshop is first make sure project infra (Dev & Prod) is ready. So create  one jenkinsfile for whole project infra.
+- For example we are going for catalogue, then create 1 catalogue repo and download the code from roboshop documentation using wget URL or download manually into that catalogue repo & also keep jenkinsfile, point this jenkinsfile to shared library (Dry principle & centralized pipeline) & also make sure you have shared libraries configured in jenkins system configuration in manage jenkins.
 - Shared library VM pipeline will be called & stages will be clone, get the version from package.json, install dependencies, unit tests, build, scans. If developer opt for deploy, we can deploy.
 - Then catalogue deploy will call terraform-roboshop-app.
 - We are passing environment, version, component to the bootstrap script.
