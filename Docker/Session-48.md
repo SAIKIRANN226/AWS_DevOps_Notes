@@ -38,6 +38,20 @@ For example we have created 1 Guest OS (or) 1 VM for Centos (1GB ram, Centos, 10
 ### Configuration
 When comparing with the example of vacating the place from Independent house, Apartment, Individual rooms. We can take all the things in a single bag (All your things are nothing but configuration) and we can vacate the Individual room with in hours, but when we try to vacate the Flat in Apartment, your things (Configuration) will be more compared to Individual room and vacating time will be more like 2-3 days. So similarly when you are vacating from the Independent house is also same, (All your things are even more configuration) it will take atleast one week time to vacate.
 
+### Example of AMI (You want to set up 10 laptops for your office team)
+- Option 1
+- Buy 10 empty laptops.
+- Install Windows on each.
+- Install Chrome, MS Office, Zoom, and configure settings one by one. This takes a lot of time.
+- Option 2 (better)
+- Set up one laptop perfectly with Windows + Chrome + MS Office + Zoom + settings.
+- Take a clone image (backup) of that laptop.
+- Copy that image to 10 laptops. Now all laptops are identical and ready quickly.
+
+### Example of how ami will be ?
+- AMI ---> Server + configured the server using ansible + stop the server + take AMI
+- Container ---> FatOS + application run time + created users + created directory + installed application.
+
 ### Understanding Amazon Machine Image (AMI) and Docker Image
 How do we launch an EC2 instance ? by using AMI right ? Amazon will provide multiple AMI's to launch EC2, 
 and we can also create our own AMI and use it, like siva created Centos-8 AMI for us. So similarly to launch 
