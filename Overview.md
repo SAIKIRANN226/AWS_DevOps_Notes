@@ -1132,7 +1132,30 @@
 - How to create our own Docker image ? Using dockerfiles
 
 ### Session-49
+- What is the difference between Virtualization & Containerization (Interview question) ? Resource utilization is not good in Virtualization when compared to Containerization.
+- A declarative way of creating our own docker image using dockerfiles. You can create using dockerfile reference from google. First create a repo for dockerfiles.
+- We need to learn instructions for building our Roboshop as Docker images. We have multiple Instructions you can refer in Dockerfile reference from google.
+- Dockerfile should be "Dockerfile" with D caps.
+- First instruction is FROM. Nothing but we should have a baseOS or image, upon this image only we install everything for application.
+- After cloning repo in server. How to build the created docker image ? docker build -t <URL>/<USERNAME>/<IMAGE>:<VERSION> .
+- Here t --> tags, URL ---> After building the image, we need to push to somewhere right ? Which is dockerhub and URL is "docker.io" similar to dockerhub, we have ECR in aws for that also we have URL, similarly we have Nexus docker registry URL, you can push to any URL.
+- Incase if you dont want to push to the dockerhub, you can create in local "docker build image:version ."
+- If you want to push from local to dockerhub then just retag it "docker tag image:version url/username/image:version
+- Login to docker then "docker push image:version url/username/image:version"
+- Nexus repository is to maintain artifacts, Dockerhub is used to maintain docker images.
+
 ### Session-50
+- Note that in Dockerfile, first instruction should be "FROM" nothing but referring baseOS.
+- RUN instruction ---> Is used for software installations or configuration while building the image.
+- docker build -t run:v1 ---> Run these commands inside the dockerfiles only.
+- RUN vs CMD ? Popular interview question ? RUN at the time image building, CMD at the time of container creation.
+- RUN instruction is used to execute the commands during the image build process, its not for running when the container starts, but for preparing the image.
+- CMD does not run during build time, it runs only when you start a container from the image.
+- Note that systemctl commands will not work in container because containers are not in main OS, it is in baseOS, systemctl commands will only work in FatOS. So we need to give command manually in order to run the nginx in docker "CMD ["nginx","-g","daemon off;"] you can search in google to get this command. To run your image as a container infinite times, you need to keep this command ["nginx","-g","daemon off;"] run it in background and this should be foreground and attach to the screen, then send it to the background, we are using -d detach mode in the command. Now Push to github, pull in server, go to CMD location, docker build -t cmd:v1 .
+- How to run the CMD container ? docker run -d -p 80:80 cmd:v1
+- LABEL instruction, nothing but tags, for example we have 100 white covers and all are white, you know only when you open them, so we give labels to identify easily. That means labels are used for filtering images.
+- How to filter these labels ? docker images --filter label=Trainer=Sivakumar
+- EXPOSE instruction is to find image is using which ports ?
 ### Session-51
 ### Session-52
 ### Session-53
