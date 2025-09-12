@@ -1091,6 +1091,29 @@
 - Normal pipeline for CD (Deploy), Multi-branch pipeline for CI.
 
 ### Session-48
+- Physical servers, Virtualization, Containerization.
+- Independent Houses, Apartments, Individual rooms.
+- Security is more in Physical server since everything will be in your control, while VM there are chances anybody can look into, so implement proper security in VM and Containers.
+- What is Containerization ?
+- What is Virtualization concept (or) VMware ?
+- What is Resource Utilization ?
+- What is Dedicated Hosts in aws ?
+- Resource Utilization is good in VM when compared to Physical servers like creating multiple logical servers and if require we can take extra configuration from the big physical server.
+- Resource utilization is not that much better when compared to containers and why ? So we have Containerization concept inside the VM. We need to create individual rooms inside the VM, but system resources (CentOS, 1GB ram, 100GB HDD) are shared, that means containers will take resources based on their demand from this system resources. System resources will dont block. Boot time is very less (With in seconds) compared to VM (EC2 instance).
+- When we are moving to Docker and Kubernetes, we dont care what is the underline OS.
+- What is configuration ? Example of vacating Individual house, Apartment and Room. Configuration will be less when compared to Physical servers and VM.
+- What is AMI and Container ? Both are same, check in ChatGpt ? Both have FatOS (4GB)
+- Docker image ---> BaseOS (5MB-250MB) + application run time + created users + created directory + installed applications.
+- Working in DEV, but not working in PROD ? Main issue is configuration changes and OS, is if you use different OS in QA, UAT or PROD, but the advantage of docker image is we take same image from Dev to Sit, Uat, Prod. Thats why we call it as immutable image and portable, we even dont know what is the base OS we are using, but our intention is image should work.
+- How to install docker in servers ?
+- When you install docker, a group called "docker" is created
+- Users who are in this group, they can only access docker commands without root user.
+- So add your user centos to this group. "usermod -aG docker centos"
+- Then logout & login again in server.
+- Now docker commands will work without root user.
+- Difference between AMI & EC2 ? EC2 is the running version of AMI
+- Difference between Docker image & Container ? Container is the running version of Docker image.
+- Docker commands doker images, 
 ### Session-49
 ### Session-50
 ### Session-51
