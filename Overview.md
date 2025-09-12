@@ -1145,17 +1145,26 @@
 - Nexus repository is to maintain artifacts, Dockerhub is used to maintain docker images.
 
 ### Session-50
+- What is Dockerfile & why we use different instructions ? A Dockerfile is a text file that contains a set of instructions to build a Docker image. It defines everything your container needs like OS, software, dependencies, configurations and the default command. Dockerfile is a declarative way of creating docker image. It’s like a recipe for creating a Docker image.
+- We have instructions in Dockerfile FROM, RUN, CMD, LABEL, EXPOSE, ENV, COPY, ADD, ENTRYPOINT, USER, WORKDIR, ARG, ONBUILD.
+- FROM ---> Defines the base image for the Dockerfile. Every Dockerfile must start with a FROM instruction.
+- RUN ---> Executes commands at build time and creates a new image layer, usually for installing packages or dependencies.
+- CMD ---> Defines the default command that runs when a container starts. It can be overridden at runtime.
+- LABEL ---> Adds metadata to the image, like maintainer info, version, or description.
+- EXPOSE ---> Documents the port the container listens on at runtime. It doesn’t publish the port; it just declares it.
+- ENV ---> Sets environment variables inside the container, useful for configuration and passing dynamic values.
+- COPY ---> Copies files/directories from the host machine into the container filesystem.
+- ADD ---> Similar to COPY, but also supports remote URLs and automatically extracts compressed files.
+- ENTRYPOINT ---> Defines the main command that always runs when the container starts. Unlike CMD, it’s not easily overridden.
+- USER ---> Specifies the user (or UID/GID) under which the container will run, mainly for security to avoid root.
+- WORKDIR ---> Sets the working directory for subsequent instructions like RUN, CMD, ENTRYPOINT, COPY, and ADD.
+- ARG ---> Defines variables that are passed at build time using --build-arg, useful for dynamic image builds.
+- ONBUILD ---> Adds a trigger instruction that executes later, when the image is used as a base for another build.
 - Note that in Dockerfile, first instruction should be "FROM" nothing but referring baseOS.
-- RUN instruction ---> Is used for software installations or configuration while building the image.
-- docker build -t run:v1 ---> Run these commands inside the dockerfiles only.
-- RUN vs CMD ? Popular interview question ? RUN at the time image building, CMD at the time of container creation.
-- RUN instruction is used to execute the commands during the image build process, its not for running when the container starts, but for preparing the image.
-- CMD does not run during build time, it runs only when you start a container from the image.
-- Note that systemctl commands will not work in container because containers are not in main OS, it is in baseOS, systemctl commands will only work in FatOS. So we need to give command manually in order to run the nginx in docker "CMD ["nginx","-g","daemon off;"] you can search in google to get this command. To run your image as a container infinite times, you need to keep this command ["nginx","-g","daemon off;"] run it in background and this should be foreground and attach to the screen, then send it to the background, we are using -d detach mode in the command. Now Push to github, pull in server, go to CMD location, docker build -t cmd:v1 .
-- How to run the CMD container ? docker run -d -p 80:80 cmd:v1
-- LABEL instruction, nothing but tags, for example we have 100 white covers and all are white, you know only when you open them, so we give labels to identify easily. That means labels are used for filtering images.
-- How to filter these labels ? docker images --filter label=Trainer=Sivakumar
-- EXPOSE instruction is to find image is using which ports ?
+- What is RUN vs CMD instruction ?
+- 
+
+
 ### Session-51
 ### Session-52
 ### Session-53
