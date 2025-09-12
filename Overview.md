@@ -1126,8 +1126,8 @@
 - Nginx is running now and how can i access it ? You cannot use VM port to container, so you need to allocate any port to the host first "docker run -d -p 8080:80 nginx" 8080 port is for VM or host, this is mapped with nginx port or container port 80. This is interview question, how can you expose a port of a container ?
 - You cannot use same port 8080 because it is already allocated, you can use any other random ports. When you create container, you are getting random names.
 - To create with name ---> docker run -d -p 8081:80 --name sai nginx
-- How can you login to the existing container ? "docker exec -it <container_name/container_id> bash"
-- To see base OS, just "cat /etc/*release"
+- How can you login to the existing container ? "docker exec -it <container_name/id> bash"
+- How to see the base OS of a container ? cat /etc/*release
 - Container will also have IP address ---> docker inspect <container_id>
 - How to create our own Docker image ? Using dockerfiles
 
