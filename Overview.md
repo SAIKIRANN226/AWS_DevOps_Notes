@@ -1093,27 +1093,44 @@
 ### Session-48
 - Physical servers, Virtualization, Containerization.
 - Independent Houses, Apartments, Individual rooms.
-- Security is more in Physical server since everything will be in your control, while VM there are chances anybody can look into, so implement proper security in VM and Containers.
+- Security is more in Physical server since everything will be in our control, while VM there are chances anybody can look into, so implement proper security in VM and Containers.
 - What is Containerization ?
-- What is Virtualization concept (or) VMware ?
-- What is Resource Utilization ?
+- What is Virtualization concept (or) VMware ? Nothing but Resource Utilization.
+- Resource Utilization in VM is better when compared to Physical server, Resource Utilization in Containers is much better than VM.
 - What is Dedicated Hosts in aws ?
 - Resource Utilization is good in VM when compared to Physical servers like creating multiple logical servers and if require we can take extra configuration from the big physical server.
-- Resource utilization is not that much better when compared to containers and why ? So we have Containerization concept inside the VM. We need to create individual rooms inside the VM, but system resources (CentOS, 1GB ram, 100GB HDD) are shared, that means containers will take resources based on their demand from this system resources. System resources will dont block. Boot time is very less (With in seconds) compared to VM (EC2 instance).
-- When we are moving to Docker and Kubernetes, we dont care what is the underline OS.
-- What is configuration ? Example of vacating Individual house, Apartment and Room. Configuration will be less when compared to Physical servers and VM.
-- What is AMI and Container ? Both are same, check in ChatGpt ? Both have FatOS (4GB)
+- So we have Containerization concept inside the VM. We need to create individual rooms inside the VM, but system resources (CentOS, 1GB ram, 100GB HDD) are shared, that means containers will take resources based on their demand from this system resources. System resources will dont block. Boot time is very less (With in seconds) compared to VM (EC2 instance).
+- When we are moving to Docker & Kubernetes, we dont care what is the underline OS.
+- What is configuration ? Example of vacating Individual house, Apartment and Room. Configuration will be less in containers when compared to Physical servers and VMs.
+- What is AMI & Container ? Both are same and have FatOS (4GB)
 - Docker image ---> BaseOS (5MB-250MB) + application run time + created users + created directory + installed applications.
-- Working in DEV, but not working in PROD ? Main issue is configuration changes and OS, is if you use different OS in QA, UAT or PROD, but the advantage of docker image is we take same image from Dev to Sit, Uat, Prod. Thats why we call it as immutable image and portable, we even dont know what is the base OS we are using, but our intention is image should work.
+- Working in DEV, but not working in PROD ? Main issue is configuration changes and OS. If you use different OS in QA, UAT or PROD, but the advantage of docker image is we take same image from Dev to Sit, Uat, Prod. Thats why we call it as immutable image and portable, we even dont know what is the base OS we are using, but our intention is image should work.
 - How to install docker in servers ?
-- When you install docker, a group called "docker" is created
+- When you install docker, a group called "docker" is created.
 - Users who are in this group, they can only access docker commands without root user.
-- So add your user centos to this group. "usermod -aG docker centos"
+- So add your user (Centos) to this group. "usermod -aG docker centos"
 - Then logout & login again in server.
 - Now docker commands will work without root user.
-- Difference between AMI & EC2 ? EC2 is the running version of AMI
+- Difference between AMI & EC2 ? EC2 is the running version of AMI.
 - Difference between Docker image & Container ? Container is the running version of Docker image.
-- Docker commands doker images, 
+- Docker commands are docker images, docker pull nginx, docker pull nginx:stable-bullseye
+- Now create container from the above created image nginx "docker create nginx:latest"
+- Next run "docker start <container_id>"
+- To see the running containers "docker ps" ; To see all containers with all status "docker ps -a"
+- To remove "docker rm <container_id>" before you need to stop "docker stop <container_id>"
+- To remove without stopping ---> docker rm -f <container_id>
+- To remove images ---> docker rmi <image_name>/image_id
+- To remove all images at a time ---> "docker images -a -q" then "docker rmi docker images -a q"
+- Instead of Pull + Create + Run commands ---> docker run nginx
+- To run in background ---> docker run -d nginx
+- Nginx is running now and how can i access it ? You cannot use VM port to container, so you need to allocate any port to the host first "docker run -d -p 8080:80 nginx" 8080 port is for VM or host, this is mapped with nginx port or container port 80. This is interview question, how can you expose a port of a container ?
+- You cannot use same port 8080 because it is already allocated, you can use any other random ports. When you create container, you are getting random names.
+- To create with name ---> docker run -d -p 8081:80 --name sai nginx
+- How can you login to the existing container ? "docker exec -it <container_name/container_id> bash"
+- To see base OS, just "cat /etc/*release"
+- Container will also have IP address ---> docker inspect <container_id>
+- How to create our own Docker image ? Using dockerfiles
+
 ### Session-49
 ### Session-50
 ### Session-51
