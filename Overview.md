@@ -1166,7 +1166,21 @@
 
 
 ### Session-51
+- 
+
 ### Session-52
+- How to build all images at a time ? for i in mongodb mysql catalogue cart user shipping payment web ; do cd $i ; docker build -t $i:v1 . ; cd .. ; done
+- How to run all images as containers ? docker compose up -d
+- What are the best practices you will follow as a DevOps engineer efficiently & securely in Docker ? Use only official images from the dockerhub, Create custom dockerfiles, Keep images & containers size small, Use multi stage builds, Use docker volumes to persist the data, Use custom networks to isolate containers from other projects, Docker system prune will delete the unused data to create free space.
+- Containers are temporary, if you remove docker then data will also be deleted.
+- Two types of volumes "unnamed & named volumes"
+- Volumes are used only for database applications like mysql, mongodb etc.
+- How to create a volume ? "docker volume create nginx" created volume should be mounted.
+- You should not run container with root access because there may be a chance that container getting complete file system access of the underline host. So create one system user in hostOS which ever like if you are using alpine then create user in alpine & add it to the group (Roboshop)
+- What is Docker architecture ?
+- What is Docker layer ? Docker images are build in multiple layers.
+- Instead of installing docker & docker compose manually, siva has created one shellscript to install automatically "curl <raw_url> | sudo bash"
+
 ### Session-53
 ### Session-54
 ### Session-55
